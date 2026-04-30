@@ -16,4 +16,12 @@ enum Secrets{
 	 
 	 return key
   }
+  
+  static var pexelsAPI: String{
+	 guard let key = Bundle.main.infoDictionary?["PEXELS_API_KEY"] as? String else {
+		fatalError("Gemini API Key not found")
+	 }
+	 
+	 return key
+  }
 }

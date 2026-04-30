@@ -10,10 +10,10 @@ import SwiftUI
 @main
 struct CoockingAppApp: App {
   @StateObject private var navigationManager = NavigationManager.shared
-    var body: some Scene {
-        WindowGroup {
-            SecondaryScreensView()
-				.environmentObject(navigationManager)
-        }
-    }
+  var body: some Scene {
+	 WindowGroup {
+		SecondaryScreensView()
+		  .environmentObject(navigationManager)
+	 }
+  }
 }

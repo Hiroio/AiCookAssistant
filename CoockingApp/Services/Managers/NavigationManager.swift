@@ -20,5 +20,5 @@ class NavigationManager: ObservableObject {
 
 
 enum secondaryScreensEnum {
-  case creation, info(recipe: RecipeModel)
+  case creation, info(recipe: UIRecipeModel)
 }

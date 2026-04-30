@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 import Combine
 
 @MainActor
@@ -16,6 +17,7 @@ class CreationViewModel: ObservableObject{
   @Published var difficulty: Int = 2
   
   private let apiManager = GeminiAPI()
+  private let pexelsManager = PexelsAPI()
   init(){}
   
   var loading: Bool {
@@ -34,14 +36,33 @@ class CreationViewModel: ObservableObject{
 		
 		do{
 		  let response = try await apiManager.recipeRequest(userIngredients: userIngredients, userDifficulty: difficulty, userTime: selectedTime)
-		  
+		  print("SEARCH kEYWORD \(response.search)")
+		  let image = try await pexelsManager.searchImage(query: response.search)
+		  var recipe = UIRecipeModel(recipe: response)
+		  print(image)
+		  recipe.imageUrl = image ?? ""
 		  await MainActor.run{
 			 self.recipe = response
 			 
-			 NavigationManager.shared.secondaryScreens = .info(recipe: response)
+			 NavigationManager.shared.secondaryScreens = .info(recipe: recipe)
 		  }
 		}catch{
 		  print(error.localizedDescription)
+		}
+	 }
+  }
+  
+  func analyzePhoto(image: UIImage){
+	 loading = true
+	 Task{
+		defer {loading = false}
+		
+		do{
+		  let products = try await apiManager.analyzePhoto(image: image, userIngredients: userIngredients)
+		  let array = products.components(separatedBy: " ")
+		  await MainActor.run {
+			 self.userIngredients = array
+		  }
 		}
 	 }
   }

@@ -8,16 +8,23 @@
 import Foundation
 
 extension Data{
-  func getContentFromResponse() throws -> RecipeModel{
+  func getContentFromResponse() throws -> String{
 	 let decoded = try JSONDecoder().decode(GeminiResponse.self, from: self)
-	 
-	 if let generatedText = decoded.candidates.first?.content.parts.first?.text.data(using: .utf8){
-		let recipe = try JSONDecoder().decode(RecipeModel.self, from: generatedText)
-		return recipe
+	 if let generatedText = decoded.candidates.first?.content.parts.first?.text{
+		return generatedText
 	 }else{
 		throw URLError(.cannotDecodeContentData)
 	 }
 	 
 	 
+  }
+  
+  func getRecipeFromResponse() throws -> RecipeModel{
+	 if let data = try self.getContentFromResponse().data(using: .utf8){
+		let recipe = try JSONDecoder().decode(RecipeModel.self, from: data)
+		return recipe
+	 }else{
+		throw URLError(.cannotDecodeContentData)
+	 }
   }
 }

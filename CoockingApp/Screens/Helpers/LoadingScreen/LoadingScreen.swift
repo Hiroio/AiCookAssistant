@@ -11,7 +11,7 @@ struct LoadingScreen: View {
   @State private var startTime: Date = .now
     var body: some View {
 		ZStack{
-		  Color.background.ignoresSafeArea()
+		  Color.softIvory.ignoresSafeArea()
 		  
 		  TimelineView(.animation(minimumInterval: 1)) { context in
 			 
@@ -20,24 +20,24 @@ struct LoadingScreen: View {
 			 let secondOffset = CGFloat(Int.random(in: -350...350))
 			 ZStack(){
 				Circle()
-				  .fill(.card.opacity(0.8))
+				  .fill(.herbalGreen.opacity(0.8))
 				  .offset(x: firstOffset, y: secondOffset)
 				  .scaleEffect(1.6)
 				
 				
 				Circle()
-				  .fill(.card.opacity(0.7))
+				  .fill(.herbalGreen.opacity(0.7))
 				  .offset(x: secondOffset, y: firstOffset)
 				  .scaleEffect(1.4)
 				
 				
 				let loading: String = String(repeating: ".", count: interval % 4)
 				Text("Loading" + loading)
-				  .font(.title.bold())
+				  .font(.title)
 				  .fontDesign(.rounded)
-				  .fontWeight(.black)
+				  .fontWeight(.semibold)
 				  .shadow(radius: 2)
-				  .foregroundStyle(.card)
+				  .foregroundStyle(.charcoal)
 				  .contentTransition(.numericText())
 				  .animation(.easeInOut, value: interval)
 				  .frame(maxHeight: .infinity, alignment: .bottom)

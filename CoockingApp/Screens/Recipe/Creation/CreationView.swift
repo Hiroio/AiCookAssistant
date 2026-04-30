@@ -13,11 +13,13 @@ struct CreationView: View {
   @State private var createdImage: UIImage? = nil
   var body: some View {
 	 ZStack{
-		Color.background.ignoresSafeArea()
+		Color.softIvory.ignoresSafeArea()
 		VStack(alignment: .leading, spacing: 15){
 		  Text("Dish Creation")
-			 .shadow(color: .black.opacity(0.12),radius: 2,x: -3, y: 3)
-			 .titleStyle()
+			 .font(.largeTitle)
+			 .fontWeight(.medium)
+			 .fontDesign(.serif)
+			 .foregroundStyle(.mossGreen)
 			 .frame(maxWidth: .infinity, alignment: .leading)
 		  
 		  VStack(alignment: .leading){
@@ -54,9 +56,10 @@ struct CreationView: View {
 						vm.difficulty = i
 					 }
 				  }label: {
-					 Image(systemName: selected ? "fork.knife.circle.fill" : "fork.knife.circle")
+					 Image(systemName: "fork.knife.circle.fill")
 						.font(.largeTitle.bold())
-						.foregroundStyle(selected ? .accent : .general.opacity(0.5))
+						.foregroundStyle(selected ? .accent : .softIvory)
+						.shadow(radius: 1)
 				  }
 				}
 			 }
@@ -65,9 +68,7 @@ struct CreationView: View {
 			 .background(
 				ZStack{
 				  RoundedRectangle(cornerRadius: 20)
-					 .fill(.secondory2.opacity(0.3).shadow(.inner(radius: 10)))
-				  RoundedRectangle(cornerRadius: 20)
-					 .stroke(.accent, lineWidth: 3)
+					 .fill(.sageMist.shadow(.inner(radius: 1)).opacity(0.8))
 				}
 			 )
 			 .frame(maxWidth: .infinity)
@@ -79,10 +80,8 @@ struct CreationView: View {
 			 vm.request()
 		  }label: {
 			 Text("Create")
-				.font(.title3.bold())
-				.fontWeight(.black)
+				.font(.title3)
 				.foregroundStyle(.white)
-				.shadow(radius: 3)
 				.padding()
 				.frame(maxWidth: .infinity)
 				.background(
@@ -97,6 +96,13 @@ struct CreationView: View {
 	 }
 	 .fullScreenCover(isPresented: $showCamera) {
 		CameraView(image: $createdImage)
+		  .ignoresSafeArea()
+	 }
+	 .onChange(of: createdImage) { _, newValue in
+		if let createdImage{
+		  vm.analyzePhoto(image: createdImage)
+		  self.createdImage = nil
+		}
 	 }
   }
 }

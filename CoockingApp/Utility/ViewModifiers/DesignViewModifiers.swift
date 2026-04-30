@@ -18,9 +18,10 @@ struct TitleViewModifier: ViewModifier {
 struct HeadlineViewModifier: ViewModifier {
   func body(content: Content) -> some View {
 	 content
-		.font(.title3)
-		.foregroundStyle(.general)
-		.fontWeight(.black)
+		.font(.headline)
+		.fontDesign(.rounded)
+		.fontWeight(.semibold)
+		.foregroundStyle(.mossGreen)
   }
 }
 

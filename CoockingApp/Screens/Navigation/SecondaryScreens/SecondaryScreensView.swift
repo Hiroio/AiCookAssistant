@@ -15,7 +15,7 @@ struct SecondaryScreensView: View {
 		case .creation:
 		  CreationView()
 		case .info(let recipe):
-		   RecipeInfo(recipe: recipe)
+		   RecipeInfoNavigation(recipe: recipe)
 		default:
 		  EmptyView()
 		}

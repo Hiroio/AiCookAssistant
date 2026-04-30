@@ -27,10 +27,9 @@ struct IngredientsView: View {
 				}label:{
 				  Image(systemName: "plus")
 					 .padding()
-					 .fontWeight(.black)
 					 .foregroundStyle(Color.background)
 					 .background(
-						RoundedRectangle(cornerRadius: 20)
+						RoundedRectangle(cornerRadius: 22)
 						  .fill(.accent)
 						  .shadow(radius: 2, x: -2, y: 1)
 					 )
@@ -39,15 +38,16 @@ struct IngredientsView: View {
 			 }
 		  }
 		  .background(
-			 RoundedRectangle(cornerRadius: 25)
-				.fill(.secondory2.opacity(0.35))
+			 ZStack{
+				RoundedRectangle(cornerRadius: 25)
+				  .fill(.sageMist.shadow(.inner(radius: 1)))
+			 }
 		  )
 		  Button{
 			 showCamera.toggle()
 		  }label:{
 			 Image(systemName: "camera")
 				.padding()
-				.fontWeight(.black)
 				.foregroundStyle(Color.background)
 				.background(
 				  RoundedRectangle(cornerRadius: 22)
@@ -56,24 +56,25 @@ struct IngredientsView: View {
 				.padding(4)
 		  }
 		}
-		.shadow(radius: 2, y: 2)
 		
 		ScrollView(showsIndicators: false){
-				LazyVGrid(columns: Array(repeating: .init(.flexible()), count: 3), alignment: .leading) {
+				LazyVGrid(columns: Array(repeating: .init(.flexible()), count: 3)) {
 				ForEach(selectedIngredient, id: \.self){text in
 				  Button{
 					 selectedIngredient.removeAll(where: {$0.lowercased() == text.lowercased()})
 				  }label: {
 					 HStack{
 						Text(text)
+						  .frame(maxWidth: .infinity, alignment: .leading)
 						Image(systemName: "xmark")
 					 }
-					 .fontWeight(.black)
-					 .foregroundStyle(.general)
-					 .padding(7)
+					 .font(.footnote)
+					 .foregroundStyle(.charcoal.opacity(0.8))
+					 .frame(maxWidth: .infinity)
+					 .padding(10)
 					 .background(
 						RoundedRectangle(cornerRadius: 15)
-						  .fill(Color.card.opacity(0.7))
+						  .fill(Color.sageMist.shadow(.inner(radius: 1)).opacity(0.5))
 					 )
 					 .contentShape(.rect)
 				  }
@@ -82,8 +83,9 @@ struct IngredientsView: View {
 				}
 			 }
 				.padding(.horizontal)
+				.frame(maxWidth: .infinity)
 		}
-		  .frame(maxWidth: .infinity)
+		  
 	 }
 	 .animation(.easeInOut, value: selectedIngredient)
   }
@@ -98,7 +100,7 @@ struct IngredientsView: View {
 
 #Preview {
   ZStack{
-	 Color.background
-	 IngredientsView(selectedIngredient: .constant([]), showCamera: .constant(false))
+	 Color.softIvory
+	 IngredientsView(selectedIngredient: .constant(["qwerqw", "fkoreqw"]), showCamera: .constant(false))
   }
 }
