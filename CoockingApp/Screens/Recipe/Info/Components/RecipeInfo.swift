@@ -28,7 +28,7 @@ struct RecipeInfo: View {
 			 }
 			 
 			 Text(vm.recipe.description)
-			 
+		
 		  }
 		}
 		.padding()
