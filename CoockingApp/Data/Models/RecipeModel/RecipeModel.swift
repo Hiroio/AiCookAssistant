@@ -27,7 +27,7 @@ struct UIRecipeModel {
   var ingredients: [String]
   var instructions: [String]
   var imageUrl: String
-  
+  var chatHistory: [ChatPart]
 }
 
 extension UIRecipeModel{
@@ -39,5 +39,36 @@ extension UIRecipeModel{
 	 self.ingredients = recipe.ingredients
 	 self.instructions = recipe.instructions
 	 self.imageUrl = ""
+	 self.chatHistory = []
+  }
+  
+  
+  func getContext() -> String {
+		return """
+		Контекст рецепта:
+		Назва: \(self.name)
+		Інгредієнти: \(self.ingredients.joined(separator: ", "))
+		Інструкція: \(self.instructions.joined(separator: ". "))
+		"""
+  }
+}
+
+
+struct ChatPart: Codable {
+	 let role: RecipeChatRoleEnum // "user" or "model"
+	 let parts: [[String: String]] // [["text": "text: message"]]
+}
+
+
+extension ChatPart{
+  init(message: String, _ user: Bool = true){
+	 self.role = user ? .user : .model
+	 self.parts = [["text": message]]
+  }
+  
+  
+  init(recipe: UIRecipeModel){
+	 self.role = .user
+	 self.parts = [["text": recipe.getContext()]]
   }
 }

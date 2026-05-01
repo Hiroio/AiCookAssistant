@@ -8,14 +8,40 @@
 import Foundation
 import Combine
 
+@MainActor
 class RecipeInfoViewModel: ObservableObject{
-  let recipe: UIRecipeModel
+  @Published var recipe: UIRecipeModel
   @Published var screenState: InfoScreenEnum = .info
+  @Published var chatMessage: String = ""
+  @Published var messageIsLoading: Bool = false
   
+  private let geminiAPI = GeminiAPI()
   init(recipe: UIRecipeModel) {
 	 self.recipe = recipe
   }
   
+  
+  func sendChatMessage(){
+	 let message = ChatPart(message: chatMessage)
+	 chatMessage.removeAll()
+	 self.recipe.chatHistory.append(message)
+	 let recipeInfo = ChatPart(recipe: recipe)
+	 
+	 let messages = [recipeInfo] + recipe.chatHistory.suffix(9)
+	 
+	 messageIsLoading = true
+	 Task{
+		defer {messageIsLoading = false}
+		do{
+		  let answer = try await geminiAPI.chatRequest(message: messages)
+		  
+		  let chatAnswer = ChatPart(message: answer, false)
+		  
+		  self.recipe.chatHistory.append(chatAnswer)
+		  
+		}
+	 }
+  }
 }
 
 

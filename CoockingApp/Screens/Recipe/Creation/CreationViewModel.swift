@@ -39,7 +39,6 @@ class CreationViewModel: ObservableObject{
 		  print("SEARCH kEYWORD \(response.search)")
 		  let image = try await pexelsManager.searchImage(query: response.search)
 		  var recipe = UIRecipeModel(recipe: response)
-		  print(image)
 		  recipe.imageUrl = image ?? ""
 		  await MainActor.run{
 			 self.recipe = response

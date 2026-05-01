@@ -23,12 +23,10 @@ struct RecipeInfoNavigation: View {
 				RecipeInfo()
 				  .tag(InfoScreenEnum.info)
 				
-				Rectangle()
-				  .fill(.softIvory)
+				InstructionView(instructions: vm.recipe.instructions)
 				  .tag(InfoScreenEnum.instructions)
 				
-				Rectangle()
-				  .fill(.softIvory)
+				AssistanceView()
 				  .tag(InfoScreenEnum.aiassistance)
 			 }
 			 .tabViewStyle(.page)
@@ -79,5 +77,5 @@ struct RecipeInfoNavigation: View {
 }
 
 #Preview {
-    RecipeInfoNavigation(recipe: UIRecipeModel(name: "Creamy Herb Chicken with Potato",time: "35", difficulty: 2, description: "A cozy and flavorful one-pan dish with tender chicken, golden potatoes, and aromatic herbs in a creamy sauce", ingredients: [], instructions: [], imageUrl: "Creamy Chicken Potato"))
+  RecipeInfoNavigation(recipe: UIRecipeModel(name: "Creamy Herb Chicken with Potato",time: "35", difficulty: 2, description: "A cozy and flavorful one-pan dish with tender chicken, golden potatoes, and aromatic herbs in a creamy sauce", ingredients: [], instructions: [], imageUrl: "Creamy Chicken Potato", chatHistory: []))
 }
