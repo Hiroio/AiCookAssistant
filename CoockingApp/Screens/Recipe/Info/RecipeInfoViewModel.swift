@@ -16,6 +16,7 @@ class RecipeInfoViewModel: ObservableObject{
   @Published var messageIsLoading: Bool = false
   
   private let geminiAPI = GeminiAPI()
+  let recipeManager = RecipesManager.shared
   init(recipe: UIRecipeModel) {
 	 self.recipe = recipe
   }
@@ -41,6 +42,10 @@ class RecipeInfoViewModel: ObservableObject{
 		  
 		}
 	 }
+  }
+  
+  func save(){
+	 recipeManager.createRecipe(recipe: self.recipe)
   }
 }
 

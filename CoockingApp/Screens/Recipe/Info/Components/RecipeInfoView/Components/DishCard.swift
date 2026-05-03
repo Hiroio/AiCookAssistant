@@ -68,5 +68,5 @@ struct DishCard: View {
 }
 
 #Preview {
-  DishCard(recipe: UIRecipeModel(name: "", time: "", difficulty: 2, description: "", ingredients: [], instructions: [], imageUrl: "https://images.pexels.com/photos/34326260/pexels-photo-34326260.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200", chatHistory: []))
+  DishCard(recipe: .preview)
 }

@@ -10,7 +10,7 @@ import Foundation
 
 struct RecipeModel: Codable{
   let name: String
-  let time: String
+  let time: Int
   let difficulty: Int
   let description: String
   let ingredients: [String]
@@ -21,7 +21,7 @@ struct RecipeModel: Codable{
 
 struct UIRecipeModel {
   var name: String
-  var time: String
+  var time: Int
   var difficulty: Int
   var description: String
   var ingredients: [String]
@@ -40,8 +40,19 @@ extension UIRecipeModel{
 	 self.instructions = recipe.instructions
 	 self.imageUrl = ""
 	 self.chatHistory = []
+	 
   }
   
+  init(entity: RecipeEntity){
+	 self.name = entity.name ?? "Unknown"
+	 self.time = Int(entity.time)
+	 self.difficulty = Int(entity.difficulty)
+	 self.description = entity.desc ?? ""
+	 self.ingredients = entity.ingredientsUI
+	 self.instructions = entity.instructionsUI
+	 self.imageUrl = entity.imageUrl ?? ""
+	 self.chatHistory = entity.chatHistoryUI
+  }
   
   func getContext() -> String {
 		return """
@@ -51,6 +62,8 @@ extension UIRecipeModel{
 		Інструкція: \(self.instructions.joined(separator: ". "))
 		"""
   }
+  
+  static var preview = UIRecipeModel(name: "Creamy Herb Chicken with Potato",time: 35, difficulty: 2, description: "A cozy and flavorful one-pan dish with tender chicken, golden potatoes, and aromatic herbs in a creamy sauce", ingredients: ["asdasd", "dqwd", "qwdqwd", "qdwqd", "qwdqwd"], instructions: [], imageUrl: "https://images.pexels.com/photos/34326260/pexels-photo-34326260.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200", chatHistory: [])
 }
 
 

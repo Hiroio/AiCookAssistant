@@ -15,13 +15,27 @@ struct CreationView: View {
 	 ZStack{
 		Color.softIvory.ignoresSafeArea()
 		VStack(alignment: .leading, spacing: 15){
-		  Text("Dish Creation")
-			 .font(.largeTitle)
-			 .fontWeight(.medium)
-			 .fontDesign(.serif)
-			 .foregroundStyle(.mossGreen)
-			 .frame(maxWidth: .infinity, alignment: .leading)
-		  
+		  HStack{
+			 Button{
+				NavigationManager.shared.secondaryScreens = nil
+			 }label:{
+				Image(systemName: "chevron.left")
+				  .foregroundStyle(.mossGreen)
+				  .font(.headline)
+				  .padding(10)
+				  .background(
+					 Circle()
+						.fill(.warmBeige.opacity(0.2))
+						.shadow(radius: 1)
+				  )
+			 }
+			 Text("Dish Creation")
+				.font(.largeTitle)
+				.fontWeight(.medium)
+				.fontDesign(.serif)
+				.foregroundStyle(.mossGreen)
+				.frame(maxWidth: .infinity, alignment: .leading)
+		  }
 		  VStack(alignment: .leading){
 			 Text("Time of Cooking")
 				.headline()
@@ -30,13 +44,10 @@ struct CreationView: View {
 		  
 		  IngredientsView(selectedIngredient: $vm.userIngredients, showCamera: $showCamera)
 		  
-		  if let createdImage{
-			 Image(uiImage: createdImage)
-				.resizable()
-				.frame(width: 200, height: 200)
-				.scaledToFit()
-		  }
+	 
 		  Spacer()
+		  
+		  //			 MARK: Difficulty section
 		  VStack{
 			 HStack{
 				Text("Difficulty:")
@@ -48,6 +59,7 @@ struct CreationView: View {
 			 }
 			 .headline()
 			 
+
 			 HStack{
 				ForEach(1..<6){i in
 				  let selected = i <= vm.difficulty
@@ -74,8 +86,10 @@ struct CreationView: View {
 			 .frame(maxWidth: .infinity)
 		  }
 		  
+//		  TODO: USER Note section
 		  
 		  
+//		  MARK: Button creation
 		  Button{
 			 vm.request()
 		  }label: {

@@ -8,11 +8,35 @@
 import SwiftUI
 
 struct NavigationView: View {
+  @EnvironmentObject private var navigationManager: NavigationManager
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+		ZStack(alignment: .bottom){
+		  Color.softIvory.ignoresSafeArea()
+		  VStack{
+			 switch navigationManager.mainNavigation {
+			 case .main:
+				MainView()
+			 case .recipes:
+				RecipeListView()
+			 case .favorites:
+				EmptyView()
+			 case .profile:
+				EmptyView()
+			 }
+		  }
+		  .padding(.bottom, 30)
+		  .safeAreaInset(edge: .bottom) {
+			 MainNavigationBar()
+		  }
+		  
+		  SecondaryScreensView()
+		}
+		
+		.ignoresSafeArea(edges: .bottom)
     }
 }
 
 #Preview {
     NavigationView()
+	 .environmentObject(NavigationManager.shared)
 }

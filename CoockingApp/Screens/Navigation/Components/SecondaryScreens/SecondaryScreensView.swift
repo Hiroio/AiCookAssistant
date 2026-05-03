@@ -11,14 +11,19 @@ struct SecondaryScreensView: View {
   @EnvironmentObject private var navigationManager: NavigationManager
   var body: some View {
 	 ZStack{
-		switch navigationManager.secondaryScreens {
-		case .creation:
-		  CreationView()
-		case .info(let recipe):
-		   RecipeInfoNavigation(recipe: recipe)
-		default:
-		  EmptyView()
+		Group{
+		  switch navigationManager.secondaryScreens {
+		  case .creation:
+			 CreationView()
+				.transition(.move(edge: .bottom).combined(with: .opacity))
+				.zIndex(1)
+		  case .info(let recipe):
+			 RecipeInfoNavigation(recipe: recipe)
+		  default:
+			 EmptyView()
+		  }
 		}
+		.allowsHitTesting(navigationManager.secondaryScreens != nil)
 		
 		if navigationManager.isLoading{
 		  LoadingScreen()
@@ -27,8 +32,8 @@ struct SecondaryScreensView: View {
 			 .allowsHitTesting(false)
 		}
 	 }
-	 .animation(.default, value: navigationManager.isLoading)
-	 .animation(.default, value: navigationManager.secondaryScreens == nil)
+	 .animation(.bouncy, value: navigationManager.isLoading)
+	 .animation(.bouncy, value: navigationManager.secondaryScreens == nil)
 	
   }
 }

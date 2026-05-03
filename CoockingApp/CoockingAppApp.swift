@@ -9,10 +9,13 @@ import SwiftUI
 
 @main
 struct CoockingAppApp: App {
+  init(){
+	 let _ = CoreDataManager.shared
+  }
   @StateObject private var navigationManager = NavigationManager.shared
   var body: some Scene {
 	 WindowGroup {
-		SecondaryScreensView()
+		NavigationView()
 		  .environmentObject(navigationManager)
 	 }
   }

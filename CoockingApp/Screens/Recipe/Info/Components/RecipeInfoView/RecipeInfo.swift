@@ -43,12 +43,47 @@ struct RecipeInfo: View {
 		  
 		}
 		.padding()
-		.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+		.frame(maxWidth: .infinity, alignment: .topLeading)
 		.background(
 		  RoundedRectangle(cornerRadius: 20)
 			 .fill(.herbalGreen.opacity(0.2))
 		)
+		
+		HStack{
+		  Button{}label: {
+			 Image(systemName: "xmark")
+				.foregroundStyle(.softIvory)
+				.padding()
+				.background(
+				  RoundedRectangle(cornerRadius: 20)
+					 .fill(
+						.red.opacity(0.5)
+					 )
+				)
+		  }
+		  Button{
+			 vm.save()
+		  }label: {
+			 Text("Save")
+				.foregroundStyle(.softIvory)
+				.padding()
+				.background(
+				  RoundedRectangle(cornerRadius: 20)
+					 .fill(.herbalGreen.opacity(0.7))
+				)
+		  }
+		  Button{}label: {
+			 Text("Start Cooking")
+				.foregroundStyle(.softIvory)
+				.padding()
+				.background(
+				  RoundedRectangle(cornerRadius: 20)
+					 .fill(.warmBeige.opacity(0.8))
+				)
+		  }
+		}
 	 }
+	 
 	 
 	 .padding(.horizontal, 15)
 	 
@@ -63,7 +98,7 @@ struct RecipeInfo: View {
   ZStack{
 	 Color.softIvory.ignoresSafeArea()
 	 RecipeInfo()
-		.environmentObject(RecipeInfoViewModel(recipe: UIRecipeModel(name: "Creamy Herb Chicken with Potato",time: "35", difficulty: 2, description: "A cozy and flavorful one-pan dish with tender chicken, golden potatoes, and aromatic herbs in a creamy sauce", ingredients: ["asdasd", "dqwd", "qwdqwd", "qdwqd", "qwdqwd"], instructions: [], imageUrl: "https://images.pexels.com/photos/34326260/pexels-photo-34326260.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200", chatHistory: [])))
+		.environmentObject(RecipeInfoViewModel(recipe: .preview))
   }
 }
 

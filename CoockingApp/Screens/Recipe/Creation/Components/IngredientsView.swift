@@ -56,6 +56,10 @@ struct IngredientsView: View {
 				.padding(4)
 		  }
 		}
+		Text("To add multiple items, separate them with a comma")
+		  .font(.caption2)
+		  .foregroundStyle(.charcoal.opacity(0.6))
+		  .padding(.horizontal, 20)
 		
 		ScrollView(showsIndicators: false){
 				LazyVGrid(columns: Array(repeating: .init(.flexible()), count: 3)) {
@@ -92,7 +96,12 @@ struct IngredientsView: View {
   
   func addIngredient(text: String){
 	 if !selectedIngredient.contains(where: {$0.lowercased() == text.lowercased()}){
-		selectedIngredient.insert(text.capitalized, at: 0)
+		if text.contains(","){
+		  let multipleText = text.components(separatedBy: ",").map({$0.capitalized.trimmingCharacters(in: .whitespacesAndNewlines)})
+		  selectedIngredient.insert(contentsOf: multipleText, at: 0)
+		}else{
+		  selectedIngredient.insert(text.capitalized, at: 0)
+		}
 	 }
 	 self.text.removeAll()
   }
