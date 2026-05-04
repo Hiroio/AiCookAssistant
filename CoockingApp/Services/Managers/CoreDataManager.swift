@@ -71,3 +71,28 @@ extension CoreDataManager{
 	 save()
   }
 }
+
+
+
+
+//MARK: USER DATA
+extension CoreDataManager{
+  func fetchUser() -> UserEntity{
+	 let request: NSFetchRequest<UserEntity> = NSFetchRequest(entityName: "UserEntity")
+	 
+	 if let entity = try? viewContext.fetch(request).first{
+		return entity
+	 }else{
+		return createUser()
+	 }
+  }
+  
+  
+  func createUser() -> UserEntity{
+	 let entity = UserEntity(context: viewContext)
+	 entity.username = "New Chef"
+	 
+	 save()
+	 return entity
+  }
+}

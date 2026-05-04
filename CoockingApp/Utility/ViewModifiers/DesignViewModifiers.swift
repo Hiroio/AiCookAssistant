@@ -25,6 +25,21 @@ struct HeadlineViewModifier: ViewModifier {
   }
 }
 
+struct BadgeIconViewModifier: ViewModifier{
+  let color: Color
+  let size: Font
+  func body(content: Content) -> some View {
+	 content
+		.foregroundStyle(.softIvory)
+		.font(size)
+		.padding(10)
+		.background(
+		  Circle()
+			 .fill(color)
+		)
+  }
+}
+
 
 struct buttonTapScale: ButtonStyle{
   func makeBody(configuration: Configuration) -> some View {
@@ -35,8 +50,6 @@ struct buttonTapScale: ButtonStyle{
 		.brightness(configuration.isPressed ? -0.1 : 0)
 		.shadow(radius: configuration.isPressed ? 0 : 2, y: 3)
   }
-  
-  
 }
 
 extension View{
@@ -46,5 +59,9 @@ extension View{
   
   func headline() -> some View{
 	 modifier(HeadlineViewModifier())
+  }
+  
+  func badgeIcon(color: Color, size: Font = .title2) -> some View{
+	 modifier(BadgeIconViewModifier(color: color, size: size))
   }
 }

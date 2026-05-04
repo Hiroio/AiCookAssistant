@@ -1,24 +1,23 @@
 //
-//  FavoriteIngredientCard.swift
+//  AlergiesCard.swift
 //  CoockingApp
 //
-//  Created by user on 03.05.2026.
+//  Created by user on 04.05.2026.
 //
 
 import SwiftUI
 
-struct FavoriteIngredientCard: View {
-  let ingreedients: [String]
+struct AlergiesCard: View {
     var body: some View {
 		HStack(alignment: .top){
-		Image(systemName: "leaf")
-		  .badgeIcon(color: .mossGreen.opacity(0.5))
+		Image(systemName: "exclamationmark.shield")
+		  .badgeIcon(color: .indigo.opacity(0.3))
 		VStack(alignment: .leading){
 		  HStack{
 			 VStack(alignment: .leading){
-				Text("Favorites Ingredients")
+				Text("Allergies / Restrictions")
 				  .font(.subheadline.bold())
-				Text("Your favorites")
+				Text("Your dietary restrictions")
 				  .font(.caption2)
 				  .opacity(0.6)
 			 }
@@ -52,12 +51,11 @@ struct FavoriteIngredientCard: View {
 	 .padding(12)
 	 .background(
 		RoundedRectangle(cornerRadius: 15)
-		  .fill(.mossGreen.opacity(0.05))
-		  .shadow(radius: 1)
+		  .fill(.warmBeige.opacity(0.2))
 	 )
   }
 }
 
 #Preview {
-    FavoriteIngredientCard(ingreedients: ["🥔Potato", "🥬Cabbage", "🍅Tomato", "🍚Rice", "🍗Chicken"])
+    AlergiesCard()
 }

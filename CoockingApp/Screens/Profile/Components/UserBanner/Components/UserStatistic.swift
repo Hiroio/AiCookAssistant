@@ -9,29 +9,35 @@ import SwiftUI
 
 struct UserStatistic: View {
     var body: some View {
-		HStack{
-		  statCard(title: "Recipe\ncreated", value: "12", icon: "books.vertical", color: .orange)
+		HStack(){
+		  statCard(title: "Created", value: "12", icon: "books.vertical", color: .orange)
 			 .frame(maxWidth: .infinity)
 		  Rectangle()
 			 .fill(.herbalGreen.opacity(0.6))
-			 .frame(width: 1)
+			 .frame(width: 1, height: 25)
 			 .padding(.vertical)
-		  statCard(title: "Dishes\ncooked", value: "5", icon: "frying.pan", color: .brown)
+		  statCard(title: "Cooked", value: "5", icon: "frying.pan", color: .brown)
 			 .frame(maxWidth: .infinity)
 		  Rectangle()
 			 .fill(.herbalGreen.opacity(0.6))
-			 .frame(width: 1)
+			 .frame(width: 1, height: 25)
 			 .padding(.vertical)
-		  statCard(title: "Favoriets", value: "16", icon: "heart", color: .red)
+		  statCard(title: "Favorites", value: "16", icon: "heart", color: .red)
 			 .frame(maxWidth: .infinity)
 		  Rectangle()
 			 .fill(.herbalGreen.opacity(0.6))
-			 .frame(width: 1)
+			 .frame(width: 1, height: 25)
 			 .padding(.vertical)
-		  statCard(title: "Ingredients\nused", value: "36", icon: "leaf", color: .herbalGreen)
+		  statCard(title: "Ingredients", value: "36", icon: "leaf", color: .herbalGreen)
 			 .frame(maxWidth: .infinity, alignment: .bottom)
 		}
-		.scaledToFit()
+		.padding(12)
+		.background(
+		  RoundedRectangle(cornerRadius: 15)
+			 .fill(.white)
+			 .shadow(radius: 1)
+		)
+		.opacity(0.7)
     }
 }
 
@@ -44,15 +50,16 @@ struct UserStatistic: View {
 
 @ViewBuilder
 func statCard(title: String, value: String, icon: String, color: Color) -> some View{
-  VStack(spacing: 0){
+  VStack(spacing: 5){
 	 Image(systemName: icon)
-		.font(.title)
+		.font(.title2)
+		.frame(width: 45)
 		.foregroundStyle(color)
 	 Text(value)
-		.padding(.vertical, 5)
+		.font(.headline)
 	 Text(title)
 		.font(.caption)
-		.multilineTextAlignment(.center)
+		.opacity(0.6)
   }
-  .frame(alignment: .bottom)
+  .frame(height: 65, alignment: .bottom)
 }

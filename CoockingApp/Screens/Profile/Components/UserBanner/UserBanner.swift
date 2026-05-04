@@ -13,7 +13,7 @@ struct UserBanner: View {
 		  HStack{
 			 Circle()
 				.fill(.herbalGreen.opacity(0.5))
-				.frame(height: 105)
+				.frame(height: 85)
 			 VStack(alignment: .leading){
 				Text("UserName")
 				  .font(.headline)
@@ -27,23 +27,15 @@ struct UserBanner: View {
 				  Text("Edit")
 				  Image(systemName: "pencil")
 				}
-				.padding()
+				.foregroundStyle(.charcoal.opacity(0.7))
+				.padding(15)
 				.background(
 				  RoundedRectangle(cornerRadius: 20)
-					 .fill(.warmBeige.opacity(0.5))
+					 .fill(.sageMist.opacity(0.5))
 				)
 			 }
 		  }
-		  Divider()
-		  UserStatistic()
 		}
-		.padding()
-		.background(
-		  RoundedRectangle(cornerRadius: 20)
-			 .fill(.softIvory)
-		)
-		.compositingGroup()
-		.shadow(radius: 2)
     }
 }
 

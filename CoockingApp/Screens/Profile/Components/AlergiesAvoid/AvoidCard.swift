@@ -1,24 +1,23 @@
 //
-//  FavoriteIngredientCard.swift
+//  AvoidCard.swift
 //  CoockingApp
 //
-//  Created by user on 03.05.2026.
+//  Created by user on 04.05.2026.
 //
 
 import SwiftUI
 
-struct FavoriteIngredientCard: View {
-  let ingreedients: [String]
-    var body: some View {
-		HStack(alignment: .top){
-		Image(systemName: "leaf")
-		  .badgeIcon(color: .mossGreen.opacity(0.5))
+struct AvoidCard: View {
+  var body: some View {
+	 HStack(alignment: .top){
+		Image(systemName: "xmark")
+		  .badgeIcon(color: .red.opacity(0.3))
 		VStack(alignment: .leading){
 		  HStack{
 			 VStack(alignment: .leading){
-				Text("Favorites Ingredients")
+				Text("Avoid Ingreedients")
 				  .font(.subheadline.bold())
-				Text("Your favorites")
+				Text("Ingredient you prefer to avoid")
 				  .font(.caption2)
 				  .opacity(0.6)
 			 }
@@ -52,12 +51,11 @@ struct FavoriteIngredientCard: View {
 	 .padding(12)
 	 .background(
 		RoundedRectangle(cornerRadius: 15)
-		  .fill(.mossGreen.opacity(0.05))
-		  .shadow(radius: 1)
+		  .fill(.warmBeige.opacity(0.2))
 	 )
   }
-}
-
-#Preview {
-    FavoriteIngredientCard(ingreedients: ["🥔Potato", "🥬Cabbage", "🍅Tomato", "🍚Rice", "🍗Chicken"])
-}
+  }
+  
+  #Preview {
+	 AvoidCard()
+  }

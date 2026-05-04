@@ -21,7 +21,7 @@ struct NavigationView: View {
 			 case .favorites:
 				EmptyView()
 			 case .profile:
-				EmptyView()
+				ProfileView()
 			 }
 		  }
 		  .padding(.bottom, 30)
