@@ -13,7 +13,7 @@ class GeminiAPI{
   
   
 //  MARK: Creating recipe
-  func recipeRequest(userIngredients: [String], userDifficulty: Int, userTime: String) async throws -> RecipeModel {
+  func recipeRequest(userIngredients: [String], userDifficulty: Int, userTime: String, user: UserModel, userNote: String) async throws -> RecipeModel {
 	 print("Started creating dish \(Date.now.formatted(.dateTime.hour().minute().second()))")
 	 guard let url = URL(string: "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent") else {
 		throw URLError(.badURL)
@@ -24,7 +24,7 @@ class GeminiAPI{
 	 request.addValue(apikey, forHTTPHeaderField: "x-goog-api-key")
 	 request.addValue("application/json", forHTTPHeaderField: "Content-Type")
 	 
-	 let prompt = generatePromptForRecipe(userIngredients: userIngredients, userDifficulty: userDifficulty, userTime: userTime)
+	 let prompt = generatePromptForRecipe(userIngredients: userIngredients, userDifficulty: userDifficulty, userTime: userTime, user: user, userNote: userNote)
 	 
 	 let payload: [String: Any] = [
 		"contents": [[
@@ -108,7 +108,7 @@ class GeminiAPI{
 
 extension GeminiAPI{
   //  For Recipe creation
-  private func generatePromptForRecipe(userIngredients: [String], userDifficulty: Int, userTime: String) -> String{
+  private func generatePromptForRecipe(userIngredients: [String], userDifficulty: Int, userTime: String, user: UserModel, userNote: String) -> String{
 	 let ingredients = userIngredients.joined(separator: " ")
 	 
 	 return """
@@ -117,6 +117,9 @@ extension GeminiAPI{
   Ingredients: \(ingredients)
   Cooking Time Preference: \(userTime)
   Difficulty Preference: \(userDifficulty)
+  User Alergies (optional): \(user.alergieIngredients)
+  User Avoid ingredients (optional): \(user.avoidIngredients)
+  User Preferences regarding the dish (optional): \(userNote)
   User Language: Ukranian
   
   Return ONLY one valid JSON object.

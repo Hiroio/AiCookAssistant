@@ -15,10 +15,17 @@ class CreationViewModel: ObservableObject{
   @Published var userIngredients: [String] = []
   @Published var selectedTime: String = "< 20"
   @Published var difficulty: Int = 2
+  @Published var userNote: String = ""
   
   private let apiManager = GeminiAPI()
   private let pexelsManager = PexelsAPI()
-  init(){}
+  private let user: UserModel
+  
+  
+  init(){
+	 let entity = CoreDataManager.shared.fetchUser()
+	 self.user = UserModel(entity: entity)
+  }
   
   var loading: Bool {
 	 get{
@@ -35,7 +42,7 @@ class CreationViewModel: ObservableObject{
 		defer {loading = false}
 		
 		do{
-		  let response = try await apiManager.recipeRequest(userIngredients: userIngredients, userDifficulty: difficulty, userTime: selectedTime)
+		  let response = try await apiManager.recipeRequest(userIngredients: userIngredients, userDifficulty: difficulty, userTime: selectedTime, user: user, userNote: userNote)
 		  print("SEARCH kEYWORD \(response.search)")
 		  let image = try await pexelsManager.searchImage(query: response.search)
 		  var recipe = UIRecipeModel(recipe: response)
@@ -65,7 +72,5 @@ class CreationViewModel: ObservableObject{
 		}
 	 }
   }
-  
-  
   
 }

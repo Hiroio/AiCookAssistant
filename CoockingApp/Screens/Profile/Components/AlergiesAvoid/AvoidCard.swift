@@ -8,40 +8,58 @@
 import SwiftUI
 
 struct AvoidCard: View {
+  @EnvironmentObject private var vm: ProfileViewModel
   var body: some View {
 	 HStack(alignment: .top){
 		Image(systemName: "xmark")
 		  .badgeIcon(color: .red.opacity(0.3))
 		VStack(alignment: .leading){
-		  HStack{
-			 VStack(alignment: .leading){
-				Text("Avoid Ingreedients")
-				  .font(.subheadline.bold())
-				Text("Ingredient you prefer to avoid")
-				  .font(.caption2)
-				  .opacity(0.6)
-			 }
-			 Spacer()
-			 Button{}label: {
+		  Button{
+			 vm.activeSheet = .avoidIngredients
+		  }label: {
+			 HStack{
+				VStack(alignment: .leading){
+				  Text("Avoid Ingreedients")
+					 .font(.subheadline.bold())
+				  Text("Ingredient you prefer to avoid")
+					 .font(.caption2)
+					 .opacity(0.6)
+				}
+				Spacer()
 				Image(systemName: "chevron.right")
 				  .font(.subheadline)
-				  .foregroundStyle(.charcoal)
 			 }
+			 .foregroundStyle(.charcoal)
 		  }
 		  
 		  //		  LIST
-		  HStack{
-			 ForEach(["onion", "olives"], id: \.self){item in
-				Text(item.capitalized)
+		  if vm.user.avoidIngredients.isEmpty{
+			 HStack{
+				Text("No Information provided")
 				  .font(.caption)
 				  .padding(5)
-				  .padding(.horizontal, 5)
+				  .opacity(0.7)
 				  .background(
 					 RoundedRectangle(cornerRadius: 15)
 						.fill(.white)
 						.shadow(radius: 1)
 				  )
-				  .foregroundStyle(.charcoal)
+			 }
+			 .frame(maxWidth: .infinity, alignment: .trailing)
+		  }else{
+			 HStack{
+				ForEach(vm.user.avoidIngredients.prefix(3), id: \.self){item in
+				  Text(item.capitalized)
+					 .font(.caption)
+					 .padding(5)
+					 .padding(.horizontal, 5)
+					 .background(
+						RoundedRectangle(cornerRadius: 15)
+						  .fill(.white)
+						  .shadow(radius: 1)
+					 )
+					 .foregroundStyle(.charcoal)
+				}
 			 }
 		  }
 		}
@@ -58,4 +76,5 @@ struct AvoidCard: View {
   
   #Preview {
 	 AvoidCard()
+		.environmentObject(ProfileViewModel())
   }

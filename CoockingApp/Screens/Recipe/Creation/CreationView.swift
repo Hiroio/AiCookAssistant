@@ -11,6 +11,7 @@ struct CreationView: View {
   @StateObject private var vm = CreationViewModel()
   @State private var showCamera: Bool = false
   @State private var createdImage: UIImage? = nil
+  @State private var isNote: Bool = false
   var body: some View {
 	 ZStack{
 		Color.softIvory.ignoresSafeArea()
@@ -37,6 +38,7 @@ struct CreationView: View {
 				.frame(maxWidth: .infinity, alignment: .leading)
 		  }
 		  VStack(alignment: .leading){
+			 
 			 Text("Time of Cooking")
 				.headline()
 			 TimeSelection(userTime: $vm.selectedTime)
@@ -46,48 +48,43 @@ struct CreationView: View {
 		  
 	 
 		  Spacer()
-		  
-		  //			 MARK: Difficulty section
-		  VStack{
-			 HStack{
-				Text("Difficulty:")
-				
-				Spacer()
-				Text("\(vm.difficulty) / 5")
-				  .foregroundStyle(.accent)
-				  .contentTransition(.numericText())
-			 }
-			 .headline()
-			 
 
-			 HStack{
-				ForEach(1..<6){i in
-				  let selected = i <= vm.difficulty
-				  Button{
-					 withAnimation(.easeInOut){
-						vm.difficulty = i
-					 }
-				  }label: {
-					 Image(systemName: "fork.knife.circle.fill")
-						.font(.largeTitle.bold())
-						.foregroundStyle(selected ? .accent : .softIvory)
-						.shadow(radius: 1)
-				  }
-				}
-			 }
-			 .padding(10)
-			 .frame(maxWidth: .infinity)
-			 .background(
-				ZStack{
-				  RoundedRectangle(cornerRadius: 20)
-					 .fill(.sageMist.shadow(.inner(radius: 1)).opacity(0.8))
-				}
-			 )
-			 .frame(maxWidth: .infinity)
-		  }
 		  
 //		  TODO: USER Note section
+		  NoteCard(noteText: $vm.userNote)
 		  
+				 //			 MARK: Difficulty section
+				 VStack(spacing: 2){
+					HStack{
+					  Text("Difficulty")
+					  Spacer()
+					  Text("\(vm.difficulty) / 5")
+						 .contentTransition(.numericText())
+					}
+					.headline()
+					HStack{
+					  ForEach(1..<6){i in
+						 let selected = i <= vm.difficulty
+						 Button{
+							withAnimation(.easeInOut){
+							  vm.difficulty = i
+							}
+						 }label: {
+							Image(systemName: "fork.knife.circle.fill")
+							  .font(.largeTitle.bold())
+							  .foregroundStyle(selected ? .accent : .softIvory)
+							  .background(
+								Circle()
+								  .fill(.black.opacity(0.15))
+							  )
+						 }
+						 .buttonStyle(.plain)
+					  }
+					}
+					.padding(10)
+					.frame(maxWidth: .infinity)
+					
+				 }
 		  
 //		  MARK: Button creation
 		  Button{
@@ -104,6 +101,7 @@ struct CreationView: View {
 				)
 		  }
 		  .buttonStyle(buttonTapScale())
+		  
 		}
 		.padding()
 		

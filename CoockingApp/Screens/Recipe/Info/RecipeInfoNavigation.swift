@@ -77,5 +77,5 @@ struct RecipeInfoNavigation: View {
 }
 
 #Preview {
-  RecipeInfoNavigation(recipe: UIRecipeModel(name: "Creamy Herb Chicken with Potato",time: 35, difficulty: 2, description: "A cozy and flavorful one-pan dish with tender chicken, golden potatoes, and aromatic herbs in a creamy sauce", ingredients: [], instructions: [], imageUrl: "Creamy Chicken Potato", chatHistory: []))
+  RecipeInfoNavigation(recipe: .preview)
 }

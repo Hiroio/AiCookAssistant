@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct NavigationView: View {
+  @EnvironmentObject private var storeManager: StoreManager
   @EnvironmentObject private var navigationManager: NavigationManager
     var body: some View {
 		ZStack(alignment: .bottom){
@@ -31,6 +32,9 @@ struct NavigationView: View {
 		  
 		  SecondaryScreensView()
 		}
+		.sheet(isPresented: $storeManager.showingSheet){
+		  PaywallView()
+		}
 		
 		.ignoresSafeArea(edges: .bottom)
     }
@@ -39,4 +43,5 @@ struct NavigationView: View {
 #Preview {
     NavigationView()
 	 .environmentObject(NavigationManager.shared)
+	 .environmentObject(StoreManager.shared)
 }

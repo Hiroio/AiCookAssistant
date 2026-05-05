@@ -19,7 +19,7 @@ struct IngredientsView: View {
 		HStack(spacing: 2){
 		  HStack{
 			 TextField("", text: $text, prompt: Text("Potato Chicken Herbs"))
-				.shadow(radius: 2)
+				.foregroundStyle(.mossGreen)
 				.padding()
 			 HStack(spacing: 0){
 				Button{

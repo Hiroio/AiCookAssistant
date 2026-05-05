@@ -9,6 +9,7 @@
         <attribute name="imageUrl" optional="YES" attributeType="String"/>
         <attribute name="ingredients" optional="YES" attributeType="String"/>
         <attribute name="instructions" optional="YES" attributeType="String"/>
+        <attribute name="isFavorite" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="lastViewedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="originIngredientsPrompt" optional="YES" attributeType="String"/>

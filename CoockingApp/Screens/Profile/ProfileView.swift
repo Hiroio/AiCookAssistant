@@ -37,6 +37,11 @@ struct ProfileView: View {
 			 }
 				CookingPreferenceCard()
 			 }
+			 Button{
+				StoreManager.shared.showingSheet.toggle()
+			 }label: {
+				Text("check")
+			 }
 		  }
 		  .padding()
 		}
@@ -47,6 +52,15 @@ struct ProfileView: View {
 		}
 		
 	 }
+	 .sheet(isPresented: Binding<Bool>(get: {
+		vm.activeSheet != nil
+	 }, set: { _ in
+		vm.activeSheet = nil
+	 }), content: {
+		AlergiesSheet()
+		  .presentationDetents([.medium])
+		  .environmentObject(vm)
+	 })
 	 
 	 .environmentObject(vm)
   }

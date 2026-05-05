@@ -95,4 +95,14 @@ extension CoreDataManager{
 	 save()
 	 return entity
   }
+  
+  
+  func editUser(user: UserModel) {
+	 let entity = fetchUser()
+	 
+	 entity.allergies = user.alergieIngredients.joined(separator: "|")
+	 entity.avoid = user.avoidIngredients.joined(separator: "|")
+	 
+	 save()
+  }
 }

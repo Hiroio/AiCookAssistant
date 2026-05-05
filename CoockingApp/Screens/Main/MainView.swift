@@ -41,6 +41,18 @@ struct MainView: View {
 				  Text("Latest recipe")
 					 .headline()
 					 .padding(.top)
+				  
+				  ScrollView(.horizontal){
+					 HStack{
+						ForEach(RecipesManager.shared.recipes, id: \.name){item in
+						  RecipeCardView(recipe: item)
+							 .frame(width: 170)
+							 .scaledToFit()
+						}
+					 }
+					 .frame(height: 180)
+				  }
+				  .frame(height: 200)
 				}
 			 }
 		  }

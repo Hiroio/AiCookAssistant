@@ -50,5 +50,5 @@ struct ChatView: View {
 
 #Preview {
   ChatView()
-	 .environmentObject(RecipeInfoViewModel(recipe: UIRecipeModel(name: "", time: 32, difficulty: 3, description: "", ingredients: [], instructions: [], imageUrl: "", chatHistory: [])))
+	 .environmentObject(RecipeInfoViewModel(recipe: UIRecipeModel.preview))
 }

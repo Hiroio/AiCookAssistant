@@ -1,0 +1,133 @@
+//
+//  AlergiesSheet.swift
+//  CoockingApp
+//
+//  Created by user on 04.05.2026.
+//
+
+import SwiftUI
+
+struct AlergiesSheet: View {
+  @EnvironmentObject private var vm: ProfileViewModel
+    var body: some View {
+		ZStack{
+		  Color.warmBeige.opacity(0.4)
+			 .ignoresSafeArea()
+		  
+		  VStack{
+			header
+			 
+			 VStack(alignment: .leading, spacing: 15){
+				//			 MARK: TextField
+				HStack{
+				  HStack{
+					 Image(systemName: "leaf")
+					 Rectangle()
+						.frame(width: 1, height: 20)
+				  }.foregroundStyle(.herbalGreen)
+				  
+				  TextField("", text: $vm.sheetText, prompt: Text("Enter Product here"))
+				  
+				  Button{
+					 vm.textAction()
+				  }label: {
+					 Image(systemName: "plus")
+						.foregroundStyle(.softIvory)
+						.padding(10)
+						.background(
+						  Circle()
+							 .fill(.herbalGreen)
+						)
+				  }
+				}
+				.padding(8)
+				.background(
+				  RoundedRectangle(cornerRadius: 15)
+					 .fill(.softIvory)
+				)
+				
+				Text("Popular choises")
+				  .font(.footnote)
+				  .foregroundStyle(.mossGreen)
+				
+				ListOfIngredients(current: false, array: (vm.getListOfPreferences())){alergie in vm.sheetAction(item: alergie)}
+				Divider()
+				
+				VStack(alignment: .leading, spacing: 25){
+				  HStack{
+					 Text("Your choises")
+						.font(.footnote)
+						.foregroundStyle(.mossGreen)
+					Spacer()
+					 Text("\(vm.user.alergieIngredients.count) items")
+						.font(.caption)
+						.opacity(0.6)
+				  }
+				  
+				  if vm.user.alergieIngredients.isEmpty{
+					 VStack{
+						Image(systemName: "leaf")
+						  .padding()
+						  .background(
+							 Circle()
+								.fill(.herbalGreen.opacity(0.6))
+						  )
+						Text("No Ingredient added yet")
+						  .font(.headline)
+						Text("Add ingredients to presonalize you recipes")
+						  .font(.subheadline)
+						  .opacity(0.7)
+					 }
+					 .frame(maxWidth: .infinity)
+				  }else{
+					 ListOfIngredients(
+						current: true,
+						array: (vm.activeSheet == .allergies ? vm.user.alergieIngredients : vm.user.avoidIngredients))
+					 {alergie in vm.sheetAction(item: alergie)}
+				  }
+				}
+			 }
+			 
+			
+			 
+		  }
+		  .animation(.bouncy, value: vm.user.alergieIngredients)
+		  .animation(.bouncy, value: vm.user.avoidIngredients)
+		  .padding()
+		}
+		
+    }
+  
+  
+  public var header: some View{
+	 Text("Edit \(vm.activeSheet?.title ?? "")")
+		.fontDesign(.serif)
+		.fontWeight(.semibold)
+		.frame(maxWidth: .infinity)
+		.overlay {
+		  HStack{
+			 Button{
+				vm.cancel()
+			 }label: {
+				Text("Cancel")
+			 }
+			 Spacer()
+			 Button{
+				vm.save()
+			 }label:{
+				Text("Save")
+			 }
+		  }
+		  .font(.subheadline)
+		  .foregroundStyle(.mossGreen)
+		}
+		.padding(.vertical)
+  }
+}
+
+#Preview {
+    AlergiesSheet()
+	 .environmentObject(ProfileViewModel())
+}
+
+
