@@ -22,7 +22,10 @@ struct DishCard: View {
 		  
 		  VStack(alignment: .leading, spacing: 10){
 			 statText(icon: "clock", value: "35 min")
-			 statText(icon: "fork.knife.circle", value: "3")
+			 
+			 let difficulty = RecipeDifficulty.getDifficulty(recipe.difficulty)
+			 statText(icon: "\(difficulty.icon).fill", value: difficulty.text)
+				.foregroundStyle(difficulty.color)
 		  }
 		  
 		  Text(recipe.description)

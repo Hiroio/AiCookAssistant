@@ -12,7 +12,7 @@ struct AlergiesCard: View {
   var body: some View {
 	 HStack(alignment: .top){
 		Image(systemName: "exclamationmark.shield")
-		  .badgeIcon(color: .indigo.opacity(0.3))
+		  .badgeIcon(color: .indigo.opacity(0.4))
 		VStack(alignment: .leading){
 		  Button{
 			 vm.activeSheet = .allergies
@@ -29,7 +29,7 @@ struct AlergiesCard: View {
 				Image(systemName: "chevron.right")
 				  .font(.subheadline)
 			 }
-			 .foregroundStyle(.charcoal)
+			 .foregroundStyle(.primarytext)
 		  }
 		  
 		  //		  LIST
@@ -61,7 +61,7 @@ struct AlergiesCard: View {
 						  .fill(.white)
 						  .shadow(radius: 1)
 					 )
-					 .foregroundStyle(.charcoal)
+					 .foregroundStyle(.primarytext)
 				}
 			 }
 			 .frame(maxWidth: .infinity, alignment: .leading)
@@ -71,7 +71,7 @@ struct AlergiesCard: View {
 	 .padding(12)
 	 .background(
 		RoundedRectangle(cornerRadius: 15)
-		  .fill(.warmBeige.opacity(0.2))
+		  .fill(.rareCard.opacity(0.2))
 	 )
   }
 }

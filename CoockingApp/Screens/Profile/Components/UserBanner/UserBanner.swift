@@ -11,9 +11,15 @@ struct UserBanner: View {
     var body: some View {
 		VStack{
 		  HStack{
-			 Circle()
-				.fill(.herbalGreen.opacity(0.5))
-				.frame(height: 85)
+			 Image("chefsHat")
+				.resizable()
+				.scaledToFit()
+				.shadow(radius: 1)
+				.background(
+				  Circle()
+					 .fill(.rareCard.opacity(0.5))
+		  )
+				.frame(width: 75)
 			 VStack(alignment: .leading){
 				Text("UserName")
 				  .font(.headline)

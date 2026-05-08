@@ -11,7 +11,7 @@ struct TitleViewModifier: ViewModifier {
 	 content
 		.font(.largeTitle)
 		.fontDesign(.rounded)
-		.foregroundStyle(.accent)
+		.foregroundStyle(.accentCard)
 		.fontWeight(.black)
   }
 }

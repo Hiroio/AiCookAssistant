@@ -8,53 +8,57 @@
 import SwiftUI
 
 struct LoadingScreen: View {
+  let type: LoadingScreenType
   @State private var startTime: Date = .now
-    var body: some View {
-		ZStack{
-		  Color.softIvory.ignoresSafeArea()
-		  
-		  TimelineView(.animation(minimumInterval: 1)) { context in
-			 
-			 let interval = Int(context.date.timeIntervalSince(startTime))
-			 let firstOffset = CGFloat(Int.random(in: -350...350))
-			 let secondOffset = CGFloat(Int.random(in: -350...350))
-			 ZStack(){
-				Circle()
-				  .fill(.herbalGreen.opacity(0.8))
-				  .offset(x: firstOffset, y: secondOffset)
-				  .scaleEffect(1.6)
+  @State private var sprite: Int = 0
+  
+  init(type: LoadingScreenType = .recipeCreation) {
+	 self.type = type
+  }
+  
+  var body: some View {
+	 ZStack{
+		Color.white.ignoresSafeArea()
+		
+		TimelineView(.animation(minimumInterval: 1 / 30)) { context in
+		  let elapsed = context.date.timeIntervalSince(startTime)
+		  let messageIndex = Int(elapsed / type.messageInterval) % type.messages.count
+		  let dots = String(repeating: ".", count: Int(elapsed) % 4)
+		  let sprite = Int(elapsed * 7) % 13
+		  ZStack {
+			 VStack(spacing: 14) {
 				
+				Spacer()
+				Text(type.messages[messageIndex] + dots)
+				  .font(.title.weight(.black))
+				  .foregroundStyle(Color.primarytext)
+				  .contentTransition(.opacity)
+				  .animation(.easeInOut(duration: 0.25), value: messageIndex)
 				
-				Circle()
-				  .fill(.herbalGreen.opacity(0.7))
-				  .offset(x: secondOffset, y: firstOffset)
-				  .scaleEffect(1.4)
-				
-				
-				let loading: String = String(repeating: ".", count: interval % 4)
-				Text("Loading" + loading)
-				  .font(.title)
-				  .fontDesign(.rounded)
-				  .fontWeight(.semibold)
-				  .shadow(radius: 2)
-				  .foregroundStyle(.charcoal)
-				  .contentTransition(.numericText())
-				  .animation(.easeInOut, value: interval)
-				  .frame(maxHeight: .infinity, alignment: .bottom)
-				
+				Text("This usually takes a few seconds")
+				  .font(.footnote)
+				  .foregroundStyle(Color.primarytext.opacity(0.52))
+				Spacer()
+				Image("wating\(sprite)")
+				  .resizable()
+				  .scaledToFit()
 			 }
-			 .animation(.easeInOut(duration: 10), value: firstOffset)
-			 .animation(.easeInOut(duration: 10), value: secondOffset)
-			 
-//			 .blur(radius: 2)
-			 
+			 .multilineTextAlignment(.center)
+			 .padding(.horizontal, 36)
 		  }
-		  
-		  
 		}
-    }
+	 }
+  }
+  
+  private func floatingCircle(size: CGFloat, color: Color, x: CGFloat, y: CGFloat) -> some View {
+	 Circle()
+		.fill(color)
+		.frame(width: size, height: size)
+		.blur(radius: 4)
+		.offset(x: x, y: y)
+  }
 }
 
 #Preview {
-    LoadingScreen()
+    LoadingScreen(type: .recipeCreation)
 }

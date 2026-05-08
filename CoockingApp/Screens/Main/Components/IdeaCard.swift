@@ -17,11 +17,11 @@ struct IdeaCard: View {
 		  Image(systemName: item.icon)
 			 .font(.largeTitle)
 			 .frame(width: 45, height: 45)
-			 .foregroundStyle(.mossGreen)
+			 .foregroundStyle(Color.primaryAction)
 			 .padding()
 			 .background(
 				RoundedRectangle(cornerRadius: 15)
-				  .fill(.warmBeige.opacity(0.5))
+				  .fill(Color.rareCard.opacity(0.5))
 			 )
 		  Text(item.title)
 			 .font(.caption)

@@ -10,88 +10,105 @@ import SwiftUI
 struct RecipeInfo: View {
   @EnvironmentObject private var vm: RecipeInfoViewModel
   var body: some View {
-	 VStack{
+	 ScrollView(showsIndicators: false){
+		VStack(spacing: 15){
+		  BigRecipeCardView(recipe: vm.recipe)
 		  
-		DishCard(recipe: vm.recipe)
-		
-		Spacer()
-		
-		VStack(alignment: .leading, spacing: 25){
-		  Text("Ingredients")
-			 .frame(maxWidth: .infinity, alignment: .leading)
-			 .font(.title3)
-			 .headline()
-		  VStack(alignment: .leading){
-			 ForEach(vm.recipe.ingredients, id: \.self){ item in
-				let items = item.components(separatedBy: "-").map({$0.trimmingCharacters(in: .whitespacesAndNewlines)})
-				HStack{
-				  Image(systemName: "circle.fill")
-					 .font(.caption2)
-				  Text(items[0])
-					 .font(.subheadline)
-					 .multilineTextAlignment(.leading)
-				  Spacer()
-				  Text(items.last ?? "")
-					 .font(.footnote)
-				  
-				}
-				.foregroundStyle(.charcoal)
-				.fontDesign(.rounded)
+		  IngredientsCard(ingredients: vm.recipe.ingredients, macros: vm.recipe.macros)
+		  
+		  HStack{
+			 Image("chefsHat")
+				.resizable()
+				.scaledToFit()
+				.frame(width: 45)
+			 VStack(alignment: .leading){
+				Text("Chef's Tip")
+				  .font(.subheadline)
+				  .foregroundStyle(.secondaryGeneral)
+				  .fontWeight(.medium)
+				Text(vm.recipe.cookingTip)
+				  .font(.caption)
+				  .opacity(0.6)
 			 }
+			 .frame(maxWidth: .infinity, alignment: .leading)
 		  }
+		  .padding(12)
+		  .background(
+			 RoundedRectangle(cornerRadius: 20)
+				.fill(.warmBeige.opacity(0.4))
+		  )
 		  
 		  
 		}
-		.padding()
-		.frame(maxWidth: .infinity, alignment: .topLeading)
-		.background(
-		  RoundedRectangle(cornerRadius: 20)
-			 .fill(.herbalGreen.opacity(0.2))
-		)
-		
-		HStack{
-		  Button{}label: {
-			 Image(systemName: "xmark")
-				.foregroundStyle(.softIvory)
-				.padding()
-				.background(
-				  RoundedRectangle(cornerRadius: 20)
-					 .fill(
-						.red.opacity(0.5)
-					 )
-				)
-		  }
-		  Button{
-			 vm.save()
-		  }label: {
-			 Text("Save")
-				.foregroundStyle(.softIvory)
-				.padding()
-				.background(
-				  RoundedRectangle(cornerRadius: 20)
-					 .fill(.herbalGreen.opacity(0.7))
-				)
-		  }
-		  Button{}label: {
-			 Text("Start Cooking")
-				.foregroundStyle(.softIvory)
-				.padding()
-				.background(
-				  RoundedRectangle(cornerRadius: 20)
-					 .fill(.warmBeige.opacity(0.8))
-				)
-		  }
+		.padding(.horizontal, 15)
+	 }
+	 .safeAreaInset(edge: .bottom){
+		if !vm.cooking{
+		  bottomBar
 		}
 	 }
 	 
 	 
-	 .padding(.horizontal, 15)
-	 
-	 
-	 
+  }
+  
+  
+  //  MARK: Bottom Btns
+  private var bottomBar: some View {
+	 HStack{
+		Button{
+		  NavigationManager.shared.secondaryScreens = nil
+		}label: {
+		  Image(systemName: "xmark")
+			 .foregroundStyle(.softIvory)
+			 .padding()
+			 .background(
+				RoundedRectangle(cornerRadius: 25)
+				  .fill(.avoid)
+				  .shadow(radius: 2, y: 1)
+			 )
+		}
+		if vm.fromCreating{
+		  Button{
+			 vm.save()
+		  }label: {
+			 Text("Save")
+				.foregroundStyle(.primaryAction)
+				.padding()
+				.padding(.horizontal)
+				.background(
+				  ZStack{
+					 RoundedRectangle(cornerRadius: 25)
+						.fill(Color.background)
+						.shadow(color: .black.opacity(0.155),radius: 5, y: 2)
+					 RoundedRectangle(cornerRadius: 25)
+						.fill(.accentCard.opacity(0.7))
+				  }
+				)
+		  }
+		}
+		Button{
+		  withAnimation(){
+			 vm.screenState = .instructions
+			 vm.cooking = true
+		  }
+		}label: {
+		  Text("Start Cooking")
+			 .foregroundStyle(Color.background)
+			 .padding()
+			 .font(.subheadline)
+			 .frame(maxWidth: .infinity)
+			 .background(
+				RoundedRectangle(cornerRadius: 25)
+				  .fill(.primaryAction)
+				  .shadow(radius: 3, y: 2)
+			 )
+		}
+		
+	 }
+	 .frame(maxWidth: .infinity, alignment: .leading)
+	 .padding(.horizontal)
   }
 }
-
 
 
 #Preview {
@@ -110,3 +127,6 @@ func statText(icon: String, value: String) -> some View{
 	 Text(value)
   }
 }
+
+
+

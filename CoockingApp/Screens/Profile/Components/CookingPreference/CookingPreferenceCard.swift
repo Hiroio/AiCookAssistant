@@ -12,11 +12,11 @@ struct CookingPreferenceCard: View {
 		VStack(alignment: .leading){
 		  Text("Cooking Style")
 			 .font(.headline)
-			 .foregroundStyle(.mossGreen)
+			 .foregroundStyle(.primaryAction)
 		  HStack{
 			 preferenceCard(icon: "clock", title: "Cooking Time", value: nil)
 			 Rectangle()
-				.fill(.charcoal.opacity(0.5))
+				.fill(.primarytext.opacity(0.5))
 				.frame(width: 0.5, height: 35)
 			 preferenceCard(icon: "align.vertical.bottom", title: "Difficulty", value: nil)
 		  }
@@ -24,7 +24,7 @@ struct CookingPreferenceCard: View {
 		  .padding()
 		  .background(
 			 RoundedRectangle(cornerRadius: 20)
-				.fill(.sageMist.opacity(0.5))
+				.fill(.secondaryCard.opacity(0.5))
 		  )
 		}
 		}
@@ -45,9 +45,10 @@ func preferenceCard(icon: String, title: String, value: String?) -> some View{
 	 VStack{
 		Text(title)
 		  .font(.footnote)
+		  .fontDesign(.rounded)
 		Text(value ?? "____")
 	 }
-	 .foregroundStyle(.charcoal)
+	 .foregroundStyle(.primarytext)
   }
   .font(.headline)
   

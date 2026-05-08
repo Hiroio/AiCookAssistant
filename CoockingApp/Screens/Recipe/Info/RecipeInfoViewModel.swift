@@ -15,10 +15,15 @@ class RecipeInfoViewModel: ObservableObject{
   @Published var chatMessage: String = ""
   @Published var messageIsLoading: Bool = false
   
+  @Published var cooking: Bool = false
+  @Published var fromCreating: Bool = false
+  
+  
   private let geminiAPI = GeminiAPI()
   let recipeManager = RecipesManager.shared
-  init(recipe: UIRecipeModel) {
+  init(recipe: UIRecipeModel, fromCreation: Bool = false) {
 	 self.recipe = recipe
+	 self.fromCreating = fromCreation
   }
   
   

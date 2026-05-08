@@ -17,8 +17,9 @@ class RecipeListViewModel: ObservableObject{
   private let recipesManager = RecipesManager.shared
   
   init(){
-//	 self.recipes = recipesManager.recipes
+	 self.recipes = recipesManager.recipes
   }
   
-  
+//  TODO: FAVORITE
+//  TODO: DELETE
 }

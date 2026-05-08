@@ -21,13 +21,13 @@ struct TimeSelection: View {
 				  let selected = userTime == time
 				  if selected{
 					 RoundedRectangle(cornerRadius: 20)
-						.fill(Color.accent.opacity(0.8))
+						.fill(Color.accentCard.opacity(0.8))
 						.matchedGeometryEffect(id: "rectange", in: nameSpace)
 						.shadow(radius: 5)
 				  }
 				  
 				  Text("\(time) min")
-					 .foregroundStyle(selected ? .background : .accent)
+					 .foregroundStyle(selected ? Color.background : Color.accentCard)
 					 
 					 .fontDesign(.rounded)
 					 .contentTransition(.opacity)
@@ -43,7 +43,7 @@ struct TimeSelection: View {
 		.background(
 		  ZStack{
 			 RoundedRectangle(cornerRadius: 20)
-				.stroke(.sageMist, lineWidth: 5)
+				.stroke(Color.secondaryCard, lineWidth: 5)
 		  }
 		  
 		)

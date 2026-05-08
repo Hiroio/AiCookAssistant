@@ -63,6 +63,8 @@ extension CoreDataManager{
 	 entity.imageUrl = recipe.imageUrl
 	 entity.ingredientsUI = recipe.ingredients
 	 entity.instructionsUI = recipe.instructions
+	 entity.isRecommended = recipe.isRecommended
+	 entity.recommendedDate = recipe.recommendedDate
 //	 TODO: entity.originIngredientsPrompt
 //	 TODO: entity.quickIdeaType
 	 

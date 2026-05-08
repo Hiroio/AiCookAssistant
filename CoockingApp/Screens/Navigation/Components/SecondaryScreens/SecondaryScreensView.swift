@@ -17,28 +17,30 @@ struct SecondaryScreensView: View {
 			 CreationView()
 				.transition(.move(edge: .bottom).combined(with: .opacity))
 				.zIndex(1)
-		  case .info(let recipe):
-			 RecipeInfoNavigation(recipe: recipe)
+		  case .info(let recipe, let fromCreation):
+			 RecipeInfoNavigation(recipe: recipe, fromCreation: fromCreation)
+				.transition(.move(edge: .bottom).combined(with: .opacity))
+				.zIndex(1)
 		  default:
 			 EmptyView()
 		  }
 		}
 		.allowsHitTesting(navigationManager.secondaryScreens != nil)
 		
-		if navigationManager.isLoading{
-		  LoadingScreen()
+		if let loadingScreen = navigationManager.loadingScreen{
+		  LoadingScreen(type: loadingScreen)
 			 .transition(.move(edge: .bottom))
 			 .zIndex(1)
-			 .allowsHitTesting(false)
+			 .allowsHitTesting(true)
 		}
 	 }
-	 .animation(.bouncy, value: navigationManager.isLoading)
+	 .animation(.bouncy, value: navigationManager.loadingScreen != nil)
 	 .animation(.bouncy, value: navigationManager.secondaryScreens == nil)
 	
   }
 }
 
 #Preview {
-    SecondaryScreensView()
+  SecondaryScreensView()
 	 .environmentObject(NavigationManager.shared)
 }

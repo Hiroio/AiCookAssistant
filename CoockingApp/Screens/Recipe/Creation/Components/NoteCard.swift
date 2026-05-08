@@ -27,29 +27,28 @@ struct NoteCard: View {
 					 .headline()
 				}
 				Text("\(added ? "Preference per dish" : "Add note (optional)")")
-				  .foregroundStyle(.mossGreen)
+				  .foregroundStyle(Color.primaryAction)
 				  .headline()
 				Spacer()
 				
 				Image(systemName: added ? "chevron.up" : "plus")
-				  .foregroundStyle(.softIvory)
+				  .foregroundStyle(Color.background)
 				  .rotationEffect(Angle(degrees: folded ? 0 : -180))
-				  .foregroundStyle(.charcoal)
 				  .padding(10)
 				  .background(
 					 Circle()
-						.fill(.mossGreen)
+						.fill(Color.primaryAction)
 				  )
 			 }
 			 .contentTransition(.numericText())
 		  }.buttonStyle(.plain)
 		  if added && folded{
 			 TextField("", text: $noteText,  prompt: Text("Preferences regarding the dish"), axis: .vertical)
-				.foregroundStyle(.mossGreen)
+				.foregroundStyle(Color.primaryAction)
 				.padding()
 				.background(
 				  RoundedRectangle(cornerRadius: 15)
-					 .fill(.herbalGreen.opacity(0.2))
+					 .fill(Color.accentCard.opacity(0.2))
 				)
 				.frame(minHeight: 55, maxHeight: 75)
 				.fixedSize(horizontal: false, vertical: true)
@@ -58,11 +57,11 @@ struct NoteCard: View {
 		.padding(12)
 		.background(
 		  RoundedRectangle(cornerRadius: 20)
-			 .fill(.sageMist.opacity(0.5))
+			 .fill(Color.secondaryCard.opacity(0.5))
 		)
 		.overlay(
 		  RoundedRectangle(cornerRadius: 20)
-			 .stroke(.herbalGreen, style: .init(lineWidth: 0.5, lineJoin: .round, dash: [8.5], dashPhase: 0))
+			 .stroke(Color.accentCard, style: .init(lineWidth: 0.5, lineJoin: .round, dash: [8.5], dashPhase: 0))
 		)
 		.animation(.easeInOut, value: folded)
 		.animation(.easeInOut, value: added)

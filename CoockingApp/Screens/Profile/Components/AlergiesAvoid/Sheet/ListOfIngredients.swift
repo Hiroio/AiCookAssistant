@@ -29,7 +29,7 @@ struct ListOfIngredients: View {
 				.padding(8)
 				.background(
 				  RoundedRectangle(cornerRadius: 15)
-					 .fill(.softIvory)
+					 .fill(Color.background)
 					 .shadow(radius: 1)
 				)
 			 }

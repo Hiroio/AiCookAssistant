@@ -102,6 +102,38 @@
           "winbackOffers" : [
 
           ]
+        },
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "9.99",
+          "familyShareable" : true,
+          "groupNumber" : 1,
+          "internalID" : "08666330",
+          "introductoryOffer" : {
+            "internalID" : "622688D4",
+            "paymentMode" : "free",
+            "subscriptionPeriod" : "P3D"
+          },
+          "localizations" : [
+            {
+              "description" : "Access to all features per 3 month",
+              "displayName" : "3 Month",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "com.cheffsy.3month",
+          "recurringSubscriptionPeriod" : "P3M",
+          "referenceName" : "3-Month",
+          "subscriptionGroupID" : "237F9169",
+          "type" : "RecurringSubscription",
+          "winbackOffers" : [
+
+          ]
         }
       ]
     }

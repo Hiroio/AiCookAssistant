@@ -28,4 +28,6 @@ class RecipesManager{
 	 NavigationManager.shared.secondaryScreens = nil
 	 fetchRecipe()
   }
+  
+  
 }

@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct FavoriteIngredientCard: View {
-  let ingreedients: [String]
     var body: some View {
 		HStack(alignment: .top){
 		Image(systemName: "leaf")
@@ -26,7 +25,7 @@ struct FavoriteIngredientCard: View {
 			 Button{}label: {
 				Image(systemName: "chevron.right")
 				  .font(.subheadline)
-				  .foregroundStyle(.charcoal)
+				  .foregroundStyle(.primaryAction)
 			 }
 		  }
 		  
@@ -42,7 +41,7 @@ struct FavoriteIngredientCard: View {
 						.fill(.white)
 						.shadow(radius: 1)
 				  )
-				  .foregroundStyle(.charcoal)
+				  .foregroundStyle(.primarytext)
 			 }
 		  }
 		}
@@ -52,12 +51,12 @@ struct FavoriteIngredientCard: View {
 	 .padding(12)
 	 .background(
 		RoundedRectangle(cornerRadius: 15)
-		  .fill(.mossGreen.opacity(0.05))
+		  .fill(.primaryAction.opacity(0.05))
 		  .shadow(radius: 1)
 	 )
   }
 }
 
 #Preview {
-    FavoriteIngredientCard(ingreedients: ["🥔Potato", "🥬Cabbage", "🍅Tomato", "🍚Rice", "🍗Chicken"])
+    FavoriteIngredientCard()
 }

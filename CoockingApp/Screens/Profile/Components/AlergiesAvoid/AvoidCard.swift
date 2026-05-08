@@ -12,14 +12,14 @@ struct AvoidCard: View {
   var body: some View {
 	 HStack(alignment: .top){
 		Image(systemName: "xmark")
-		  .badgeIcon(color: .red.opacity(0.3))
+		  .badgeIcon(color: Color.avoid)
 		VStack(alignment: .leading){
 		  Button{
 			 vm.activeSheet = .avoidIngredients
 		  }label: {
 			 HStack{
 				VStack(alignment: .leading){
-				  Text("Avoid Ingreedients")
+				  Text("Avoid Ingredients")
 					 .font(.subheadline.bold())
 				  Text("Ingredient you prefer to avoid")
 					 .font(.caption2)
@@ -29,7 +29,7 @@ struct AvoidCard: View {
 				Image(systemName: "chevron.right")
 				  .font(.subheadline)
 			 }
-			 .foregroundStyle(.charcoal)
+			 .foregroundStyle(.primarytext)
 		  }
 		  
 		  //		  LIST
@@ -58,7 +58,7 @@ struct AvoidCard: View {
 						  .fill(.white)
 						  .shadow(radius: 1)
 					 )
-					 .foregroundStyle(.charcoal)
+					 .foregroundStyle(Color.primarytext)
 				}
 			 }
 		  }
@@ -69,7 +69,7 @@ struct AvoidCard: View {
 	 .padding(12)
 	 .background(
 		RoundedRectangle(cornerRadius: 15)
-		  .fill(.warmBeige.opacity(0.2))
+		  .fill(.rareCard.opacity(0.2))
 	 )
   }
   }

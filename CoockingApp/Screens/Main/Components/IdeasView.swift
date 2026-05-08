@@ -14,18 +14,20 @@ struct IdeasView: View {
 			 VStack{
 				Image(systemName: item.icon)
 				  .font(.largeTitle)
-				  .frame(width: 45, height: 45)
-				  .foregroundStyle(.mossGreen)
+				  .fontWeight(.medium)
+				  .frame(width: 35, height: 35)
+				  .foregroundStyle(Color.primaryAction)
 				  .padding()
 				  .background(
 					 RoundedRectangle(cornerRadius: 15)
-						.fill(.warmBeige.opacity(0.5))
+						.fill(.secondaryCard.opacity(0.8))
 				  )
 				Text(item.title)
+				  .fontDesign(.rounded)
 				  .font(.caption)
 				  .multilineTextAlignment(.center)
 			 }
-			 .frame(maxWidth: .infinity, maxHeight: 140, alignment: .top)
+			 .frame(maxWidth: .infinity, alignment: .top)
 			 
 		  }
 		}
@@ -35,6 +37,5 @@ struct IdeasView: View {
 #Preview {
     IdeasView()
 }
-
 
 

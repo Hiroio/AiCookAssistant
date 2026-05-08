@@ -19,7 +19,7 @@ struct IngredientsView: View {
 		HStack(spacing: 2){
 		  HStack{
 			 TextField("", text: $text, prompt: Text("Potato Chicken Herbs"))
-				.foregroundStyle(.mossGreen)
+				.foregroundStyle(Color.primaryAction)
 				.padding()
 			 HStack(spacing: 0){
 				Button{
@@ -30,7 +30,7 @@ struct IngredientsView: View {
 					 .foregroundStyle(Color.background)
 					 .background(
 						RoundedRectangle(cornerRadius: 22)
-						  .fill(.accent)
+						  .fill(Color.accentCard)
 						  .shadow(radius: 2, x: -2, y: 1)
 					 )
 					 .padding(4)
@@ -40,7 +40,7 @@ struct IngredientsView: View {
 		  .background(
 			 ZStack{
 				RoundedRectangle(cornerRadius: 25)
-				  .fill(.sageMist.shadow(.inner(radius: 1)))
+				  .fill(Color.secondaryCard.shadow(.inner(radius: 1)))
 			 }
 		  )
 		  Button{
@@ -51,14 +51,14 @@ struct IngredientsView: View {
 				.foregroundStyle(Color.background)
 				.background(
 				  RoundedRectangle(cornerRadius: 22)
-					 .fill(.accent)
+					 .fill(Color.accentCard)
 				)
 				.padding(4)
 		  }
 		}
 		Text("To add multiple items, separate them with a comma")
 		  .font(.caption2)
-		  .foregroundStyle(.charcoal.opacity(0.6))
+		  .foregroundStyle(Color.primarytext.opacity(0.6))
 		  .padding(.horizontal, 20)
 		
 		ScrollView(showsIndicators: false){
@@ -73,12 +73,12 @@ struct IngredientsView: View {
 						Image(systemName: "xmark")
 					 }
 					 .font(.footnote)
-					 .foregroundStyle(.charcoal.opacity(0.8))
+					 .foregroundStyle(Color.primarytext.opacity(0.8))
 					 .frame(maxWidth: .infinity)
 					 .padding(10)
 					 .background(
 						RoundedRectangle(cornerRadius: 15)
-						  .fill(Color.sageMist.shadow(.inner(radius: 1)).opacity(0.5))
+						  .fill(Color.secondaryCard.shadow(.inner(radius: 1)).opacity(0.5))
 					 )
 					 .contentShape(.rect)
 				  }
@@ -109,7 +109,7 @@ struct IngredientsView: View {
 
 #Preview {
   ZStack{
-	 Color.softIvory
+	 Color.background
 	 IngredientsView(selectedIngredient: .constant(["qwerqw", "fkoreqw"]), showCamera: .constant(false))
   }
 }

@@ -18,20 +18,23 @@ struct RecipeListView: View {
 			 SearchBarList(ingredientsSearch: $vm.searchType, searchText: $vm.searchText)
 			 
 			 if vm.recipes.isEmpty{
-				VStack(spacing: 15){
+				VStack(spacing: 0){
+				  Image("CheffsyLogo")
+					 .resizable()
+					 .scaledToFit()
 				  Text("No Recipe Found")
-				  Image(systemName: "leaf")
 				}
+				.shadow(radius: 2)
 				.font(.title)
 				.fontDesign(.serif)
 				.fontWeight(.semibold)
-				.foregroundStyle(.herbalGreen)
+				.foregroundStyle(.primaryAction)
 				.frame(maxHeight: .infinity)
 			 }else{
 				ScrollView{
-				  LazyVGrid(columns: Array(repeating: .init(.flexible(minimum: 100, maximum: 250), spacing: 14), count: 2), spacing: 16) {
-					 ForEach(vm.recipes, id: \.name){recipe in
-						  RecipeCardView(recipe: recipe)
+				  LazyVStack{
+					 ForEach(vm.recipes){recipe in
+						WideRecipeCardView(recipe: recipe)
 					 }
 				  }
 				}
@@ -44,33 +47,34 @@ struct RecipeListView: View {
 	 HStack{
 		VStack(alignment: .leading){
 		  Text("Recipes")
-			 .font(.title.bold())
-		  Text("\(vm.recipes.count) recipes saved")
-			 .font(.footnote)
+			 .font(.title)
+			 .title(weight: .semibold)
+		  Text("\(vm.recipes.count) Recipes saved")
+			 .font(.subheadline)
+			 .fontDesign(.rounded)
 			 .opacity(0.8)
 		}
-		.fontDesign(.serif)
 		Spacer()
 		
 		HStack{
 		  Button{}label:{
 			 Image(systemName: "pencil")
-				.font(.headline)
-				.foregroundStyle(.mossGreen)
+				.font(.title2)
+				.foregroundStyle(.primarytext)
 				.padding(8)
 				.background(
 				  Circle()
-					 .fill(.sageMist)
+					 .fill(.secondaryCard)
 				)
 		  }
 		  Button{}label:{
-			 Image(systemName: "plus.circle")
-				.font(.headline)
-				.foregroundStyle(.mossGreen)
+			 Image(systemName: "plus")
+				.font(.title2)
+				.foregroundStyle(.primarytext)
 				.padding(8)
 				.background(
 				  Circle()
-					 .fill(.sageMist)
+					 .fill(.secondaryCard)
 				)
 		  }
 		}

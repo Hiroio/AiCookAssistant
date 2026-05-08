@@ -19,7 +19,7 @@ struct PaywallView: View {
 			 Spacer()
 				.frame(maxWidth: .infinity)
 			 Circle()
-				.fill(.herbalGreen.opacity(0.3))
+				.fill(.accentCard.opacity(0.3))
 		  }
 		  
 //		  MARK: HEADER
@@ -28,7 +28,7 @@ struct PaywallView: View {
 				StoreManager.shared.showingSheet = false
 			 }label: {
 				Image(systemName: "xmark")
-				  .foregroundStyle(.charcoal)
+				  .foregroundStyle(.primarytext)
 			 }
 			 .frame(maxWidth: .infinity, alignment: .leading)
 			 HStack{
@@ -36,7 +36,7 @@ struct PaywallView: View {
 				  Text("Unlock your full cooking potential")
 					 .font(.title)
 					 .fontWeight(.semibold)
-					 .foregroundStyle(.mossGreen)
+					 .foregroundStyle(.primaryAction)
 					 .fontDesign(.serif)
 				  Text("Upgrade to Premium and get the most of AI-powered cooking")
 					 .font(.footnote)
@@ -57,49 +57,49 @@ struct PaywallView: View {
 			 .padding()
 			 .background(
 				RoundedRectangle(cornerRadius: 20)
-				  .fill(.sageMist.opacity(0.6))
+				  .fill(.secondaryCard.opacity(0.6))
 			 )
 			 
-			 VStack{
-				//			 MARK: Sections
-				if storeManager.products.isEmpty {
-				  RoundedRectangle(cornerRadius: 20)
-					 .fill(.herbalGreen.opacity(0.4))
-					 .frame(height: 120)
-					 .blur(radius: 5)
-					 .task {
-						await storeManager.fetchProducts()
-					 }
-				}else{
-				  ForEach(storeManager.products, id: \.id){item in
-					 subscriptionCard(name: item.displayName, price: item.displayPrice, type: item.subscription?.subscriptionPeriod, selected: selected == item)
-						.onTapGesture {
-						  selected = item
-						}
-				  }
-				  .onAppear{
-					 selected = storeManager.products.first
-				  }
-				}
-			 }
-			 .animation(.easeInOut, value: selected == storeManager.products.first)
-			 VStack{
-				Button{
-				  
-				}label: {
-				  Text("Start free trial")
-					 .foregroundStyle(.white)
-					 .padding(12)
-					 .frame(maxWidth: .infinity)
-					 .background(
-						RoundedRectangle(cornerRadius: 15)
-						  .fill(.mossGreen)
-					 )
-				}
-				Text("Cancel anytime, No commitment")
-				  .font(.caption)
-				  .opacity(0.6)
-			 }
+//			 VStack{
+//				//			 MARK: Sections
+//				if storeManager.products.isEmpty {
+//				  RoundedRectangle(cornerRadius: 20)
+//					 .fill(.herbalGreen.opacity(0.4))
+//					 .frame(height: 120)
+//					 .blur(radius: 5)
+//					 .task {
+//						await storeManager.fetchProducts()
+//					 }
+//				}else{
+//				  ForEach(storeManager.products, id: \.id){item in
+//					 subscriptionCard(name: item.displayName, price: item.displayPrice, type: item.subscription?.subscriptionPeriod, selected: selected == item)
+//						.onTapGesture {
+//						  selected = item
+//						}
+//				  }
+//				  .onAppear{
+//					 selected = storeManager.products.first
+//				  }
+//				}
+//			 }
+//			 .animation(.easeInOut, value: selected == storeManager.products.first)
+//			 VStack{
+//				Button{
+//				  
+//				}label: {
+//				  Text("Start free trial")
+//					 .foregroundStyle(.white)
+//					 .padding(12)
+//					 .frame(maxWidth: .infinity)
+//					 .background(
+//						RoundedRectangle(cornerRadius: 15)
+//						  .fill(.mossGreen)
+//					 )
+//				}
+//				Text("Cancel anytime, No commitment")
+//				  .font(.caption)
+//				  .opacity(0.6)
+//			 }
 		  }
 		  .padding()
 		  .animation(.easeInOut, value: selected != nil)

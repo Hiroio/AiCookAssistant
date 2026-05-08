@@ -25,7 +25,6 @@ struct NavigationView: View {
 				ProfileView()
 			 }
 		  }
-		  .padding(.bottom, 30)
 		  .safeAreaInset(edge: .bottom) {
 			 MainNavigationBar()
 		  }

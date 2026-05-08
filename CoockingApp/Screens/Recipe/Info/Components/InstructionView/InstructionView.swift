@@ -18,28 +18,29 @@ struct InstructionView: View {
 				}
 				HStack{
 				  Text("\(index)")
-					 .foregroundStyle(.softIvory)
-					 .padding()
+					 .font(.headline.weight(.medium))
+					 .padding(12)
+					 .foregroundStyle(.primaryAction)
+					 .padding(5)
 					 .background(
 						Circle()
-						  .fill(.mossGreen)
+						  .stroke(.rareCard.shadow(.inner(color: .black, radius: 1.2)), lineWidth: 1)
 					 )
-				  VStack(alignment: .leading, spacing: 15){
-					 let text = instructions[index].components(separatedBy: "-").map({$0.trimmingCharacters(in: .whitespacesAndNewlines)})
-					 Text(text[0])
-						.font(.headline)
-						.foregroundStyle(.mossGreen)
-						.multilineTextAlignment(.leading)
-					 Text(text.last ?? "")
-						.multilineTextAlignment(.leading)
-				  }
 				  
-					 .frame(maxWidth: .infinity)
-				  
-				  Image(systemName: "fork.knife")
-					 .font(.title)
-					 .foregroundStyle(.herbalGreen)
+				  let text = instructions[index].components(separatedBy: "-")
+				  let step = text[1].trimmingCharacters(in: .whitespacesAndNewlines)
+				  Text(step)
+					 .multilineTextAlignment(.leading)
+					 .frame(maxWidth: .infinity, alignment: .leading)
+					 .font(.subheadline.weight(.light))
+					 .kerning(0.6)
+				  let imageText = text[0].trimmingCharacters(in: .whitespaces)
+				  Image(imageText.isEmpty ? "chefsHat" : imageText)
+					 .resizable()
+					 .scaledToFit()
+					 .frame(height: 65)
 				}
+				.fontDesign(.serif)
 				.padding()
 			 }
 		  }
@@ -48,5 +49,8 @@ struct InstructionView: View {
 }
 
 #Preview {
-    InstructionView(instructions: ["", "", ""])
+  ZStack{
+	 Color.background.ignoresSafeArea()
+	 InstructionView(instructions: ["wash - qweqesdjfis jdofjsdo jfsoidjfo sj dof jsdjfs doijsdij fsodjfo sjdofjsd ojfsod", "peel - qweqe", "boil - qweqe"])
+  }
 }

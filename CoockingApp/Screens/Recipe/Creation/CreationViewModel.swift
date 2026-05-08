@@ -16,6 +16,7 @@ class CreationViewModel: ObservableObject{
   @Published var selectedTime: String = "< 20"
   @Published var difficulty: Int = 2
   @Published var userNote: String = ""
+  @Published var error: CreationError? = nil
   
   private let apiManager = GeminiAPI()
   private let pexelsManager = PexelsAPI()
@@ -27,50 +28,61 @@ class CreationViewModel: ObservableObject{
 	 self.user = UserModel(entity: entity)
   }
   
-  var loading: Bool {
+  var loading: LoadingScreenType? {
 	 get{
-		NavigationManager.shared.isLoading
+		NavigationManager.shared.loadingScreen
 	 }
 	 set{
-		NavigationManager.shared.isLoading = newValue
+		NavigationManager.shared.loadingScreen = newValue
 	 }
   }
   
   func request(){
-	 loading = true
+	 loading = .recipeCreation
 	 Task{
-		defer {loading = false}
+		defer {loading = nil}
 		
 		do{
 		  let response = try await apiManager.recipeRequest(userIngredients: userIngredients, userDifficulty: difficulty, userTime: selectedTime, user: user, userNote: userNote)
-		  print("SEARCH kEYWORD \(response.search)")
 		  let image = try await pexelsManager.searchImage(query: response.search)
 		  var recipe = UIRecipeModel(recipe: response)
 		  recipe.imageUrl = image ?? ""
 		  await MainActor.run{
 			 self.recipe = response
 			 
-			 NavigationManager.shared.secondaryScreens = .info(recipe: recipe)
+			 NavigationManager.shared.secondaryScreens = .info(recipe: recipe, creation: true)
 		  }
 		}catch{
-		  print(error.localizedDescription)
+		  await MainActor.run {
+			 self.error = CreationError.map(error)
+		  }
 		}
 	 }
   }
   
+  
   func analyzePhoto(image: UIImage){
-	 loading = true
+	 loading = .photoAnalysis
 	 Task{
-		defer {loading = false}
+		defer {loading = nil}
 		
 		do{
 		  let products = try await apiManager.analyzePhoto(image: image, userIngredients: userIngredients)
 		  let array = products.components(separatedBy: " ")
 		  await MainActor.run {
-			 self.userIngredients = array
+			 let filtered = array.filter({item in !self.userIngredients.contains(where: {$0.lowercased() == item})})
+			 self.userIngredients.insert(contentsOf: filtered, at: 0)
+		  }
+		}catch{
+		  await MainActor.run {
+			 self.error = CreationError.map(error)
 		  }
 		}
 	 }
   }
   
+  
+  var ableToCreate: Bool{
+	 !userIngredients.isEmpty && !userNote.isEmpty
+  }
 }

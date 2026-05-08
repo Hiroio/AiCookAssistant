@@ -24,7 +24,7 @@ struct AlergiesSheet: View {
 					 Image(systemName: "leaf")
 					 Rectangle()
 						.frame(width: 1, height: 20)
-				  }.foregroundStyle(.herbalGreen)
+				  }.foregroundStyle(.primaryAction)
 				  
 				  TextField("", text: $vm.sheetText, prompt: Text("Enter Product here"))
 				  
@@ -32,7 +32,7 @@ struct AlergiesSheet: View {
 					 vm.textAction()
 				  }label: {
 					 Image(systemName: "plus")
-						.foregroundStyle(.softIvory)
+						.foregroundStyle(Color.background)
 						.padding(10)
 						.background(
 						  Circle()
@@ -57,7 +57,7 @@ struct AlergiesSheet: View {
 				  HStack{
 					 Text("Your choises")
 						.font(.footnote)
-						.foregroundStyle(.mossGreen)
+						.foregroundStyle(.primaryAction)
 					Spacer()
 					 Text("\(vm.user.alergieIngredients.count) items")
 						.font(.caption)
@@ -70,7 +70,7 @@ struct AlergiesSheet: View {
 						  .padding()
 						  .background(
 							 Circle()
-								.fill(.herbalGreen.opacity(0.6))
+								.fill(.accentCard.opacity(0.6))
 						  )
 						Text("No Ingredient added yet")
 						  .font(.headline)
@@ -119,7 +119,7 @@ struct AlergiesSheet: View {
 			 }
 		  }
 		  .font(.subheadline)
-		  .foregroundStyle(.mossGreen)
+		  .foregroundStyle(.primaryAction)
 		}
 		.padding(.vertical)
   }

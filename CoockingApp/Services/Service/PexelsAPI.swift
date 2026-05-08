@@ -22,6 +22,6 @@ class PexelsAPI{
 		let (data, _) = try await URLSession.shared.data(for: request)
 		let result = try JSONDecoder().decode(PexelsResponse.self, from: data)
 		
-		return result.photos.first?.src.landscape
+	 return result.photos.first?.src.large
   }
 }
