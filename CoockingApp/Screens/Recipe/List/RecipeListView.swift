@@ -18,23 +18,36 @@ struct RecipeListView: View {
 			 SearchBarList(ingredientsSearch: $vm.searchType, searchText: $vm.searchText)
 			 
 			 if vm.recipes.isEmpty{
-				VStack(spacing: 0){
-				  Image("CheffsyLogo")
+				VStack(spacing: 15){
+				  Image("NoRecipe")
 					 .resizable()
 					 .scaledToFit()
 				  Text("No Recipe Found")
+					 .font(.title)
+					 .fontDesign(.rounded)
+					 .fontWeight(.light)
+					 .foregroundStyle(.primaryAction)
+				  
+				  Button{}label: {
+					 Text("Ready to create?")
+						.font(.headline.weight(.semibold))
+						.fontDesign(.rounded)
+						.foregroundStyle(Color.background)
+						.padding()
+						.background(
+						  RoundedRectangle(cornerRadius: 20)
+							 .fill(Color.primaryAction.opacity(0.7))
+						)
+				  }
 				}
-				.shadow(radius: 2)
-				.font(.title)
-				.fontDesign(.serif)
-				.fontWeight(.semibold)
-				.foregroundStyle(.primaryAction)
+				
 				.frame(maxHeight: .infinity)
+				
 			 }else{
 				ScrollView{
 				  LazyVStack{
-					 ForEach(vm.recipes){recipe in
-						WideRecipeCardView(recipe: recipe)
+					 ForEach(vm.filteredRecipes){recipe in
+						WideRecipeCardView(recipe: recipe, toggleFavorite: {vm.toggleFavorite(recipe.id)})
 					 }
 				  }
 				}

@@ -67,7 +67,7 @@ struct RecipeInfo: View {
 				  .shadow(radius: 2, y: 1)
 			 )
 		}
-		if vm.fromCreating{
+		if !vm.saved{
 		  Button{
 			 vm.save()
 		  }label: {

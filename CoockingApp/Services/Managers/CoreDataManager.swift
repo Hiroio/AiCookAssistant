@@ -72,6 +72,18 @@ extension CoreDataManager{
 	 
 	 save()
   }
+  
+  func toggleFavorite(_ id: UUID){
+	 let request: NSFetchRequest<RecipeEntity> = NSFetchRequest(entityName: "RecipeEntity")
+	 
+	 request.predicate = NSPredicate(format: "id == %@", id as CVarArg)
+	 
+	 if let recipe = try? viewContext.fetch(request).first{
+		recipe.isFavorite.toggle()
+	 }
+	 
+	 save()
+  }
 }
 
 
@@ -104,6 +116,10 @@ extension CoreDataManager{
 	 
 	 entity.allergies = user.alergieIngredients.joined(separator: "|")
 	 entity.avoid = user.avoidIngredients.joined(separator: "|")
+	 entity.freeGenerationsUsed = Int16(user.freeGenerationsUsed)
+	 entity.freeScanUses = Int16(user.freeScanUses)
+	 entity.freeIdeasUsed = Int16(user.freeIdeasUsed)
+	 entity.latestRefreshDate = user.latestRefreshDate
 	 
 	 save()
   }

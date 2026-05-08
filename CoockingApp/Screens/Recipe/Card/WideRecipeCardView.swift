@@ -10,6 +10,7 @@ import Kingfisher
 
 struct WideRecipeCardView: View {
   let recipe: UIRecipeModel
+  let toggleFavorite: () -> ()
   @State private var expanded: Bool = false
   var body: some View {
 	 Button{
@@ -94,7 +95,11 @@ struct WideRecipeCardView: View {
   
 //  MARK: Favorite Btn
   private var favoriteBtn: some View{
-	 Button {} label: {
+	 Button {
+		withAnimation(){
+		  toggleFavorite()
+		}
+	 } label: {
 		Image(systemName: recipe.isFavorite ? "heart.fill" : "heart")
 		  .font(.headline.weight(.semibold))
 		  .foregroundStyle(recipe.isFavorite ? Color.avoid : Color.primarytext)
@@ -137,5 +142,5 @@ struct WideRecipeCardView: View {
 }
 
 #Preview {
-  WideRecipeCardView(recipe: .preview)
+  WideRecipeCardView(recipe: .preview, toggleFavorite: {})
 }

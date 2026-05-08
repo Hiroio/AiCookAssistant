@@ -35,6 +35,7 @@ class GeminiAPI{
 		]],
 		"generationConfig": [
 		  "temperature": 0.5,
+		  "maxOutputTokens": 1800,
 		  "response_mime_type": "application/json"
 		]
 	 ]
@@ -61,21 +62,46 @@ class GeminiAPI{
 		]],
 		"generationConfig": [
 		  "temperature": 0.5,
+		  "maxOutputTokens": 1800,
+		  "response_mime_type": "application/json"
+		]
+	 ]
+	 request.httpBody = try JSONSerialization.data(withJSONObject: payload)
+	 return try await apiRequest(request: request)
+  }
+  
+//  MARK: Creating Quick Idea recipe
+  func quickIdeaRequest(user: UserModel, prompt: String, recipeList: [String]) async throws -> RecipeModel {
+	 let url = try getUrl()
+	 
+	 var request = URLRequest(url: url)
+	 request.httpMethod = "POST"
+	 request.addValue(apikey, forHTTPHeaderField: "x-goog-api-key")
+	 request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+	 
+	 let prompt = generatePromptForquickIdea(user: user, prompt: prompt, userRecipeList: recipeList)
+	 let payload: [String: Any] = [
+		"contents": [[
+		  "parts": [["text" : prompt]]
+		]],
+		"generationConfig": [
+		  "temperature": 0.5,
+		  "maxOutputTokens": 1800,
 		  "response_mime_type": "application/json"
 		]
 	 ]
 	 request.httpBody = try JSONSerialization.data(withJSONObject: payload)
 	 
-//	 Request
 	 return try await apiRequest(request: request)
   }
+  
   
   
 //  MARK: URLSession-Request
   func apiRequest(request: URLRequest) async throws -> RecipeModel{
 	 let (data, response) = try await URLSession.shared.data(for: request)
 	 
-	 if let response = response as? HTTPURLResponse, response.statusCode > 300 && response.statusCode < 199 {
+	 if let response = response as? HTTPURLResponse, response.statusCode < 200 || response.statusCode >= 300 {
 		throw URLError(.badServerResponse)
 	 }
 	 
@@ -249,7 +275,7 @@ extension GeminiAPI{
 	 return body
   }
   
-  
+//  For recomended Recepi
   private func generatePromptForRecommendedRecipe(user: UserModel, userRecipeList: [String]) -> String {
 	 let recipes = userRecipeList.joined(separator: "\n")
 	 
@@ -258,8 +284,8 @@ extension GeminiAPI{
 	 
 	 Recommendation direction:
 	 Suggest something trendy, cozy, tasty, and realistic for home cooking.
-	 The dish should feel like a fresh idea for today, not a random generic recipe.
-	 Prefer recipes that are visually appealing and suitable for a modern recipe app.
+	 The dish should feel like a fresh idea for today.
+	 Not super delusional
 	 
 	 User Alergies (optional): \(user.alergieIngredients)
 	 User Avoid ingredients (optional): \(user.avoidIngredients)
@@ -321,4 +347,74 @@ extension GeminiAPI{
 	 """
   }
 
+  
+//  MARK: For Quick Idea Recipe
+  private func generatePromptForquickIdea(user: UserModel, prompt: String, userRecipeList: [String]) -> String{
+	 let recipes = userRecipeList.joined(separator: "\n")
+	 
+	 return """
+	 Create one recommended cooking recipe for the user.
+	 
+	 Recommendation direction:
+	 \(prompt)
+	 
+	 User Alergies (optional): \(user.alergieIngredients)
+	 User Avoid ingredients (optional): \(user.avoidIngredients)
+	 
+	 User Recipe List (optional):
+	 \(recipes.isEmpty ? "No saved recipes yet." : recipes)
+	 
+	 Use the User Recipe List only as taste context:
+	 - Avoid creating the exact same recipe.
+	 - You may recommend something similar in mood, cuisine, ingredients, or cooking style.
+	 - Keep the recommendation fresh and slightly different from what the user already has.
+	 
+	 User Language: Ukrainian
+	 
+	 Return ONLY one valid JSON object.
+	 Do not use markdown.
+	 Do not use code blocks.
+	 Do not write explanations.
+	 Do not write any text before or after JSON.
+	 
+	 JSON structure must be exactly:
+	 
+	 {
+	 "name": "String",
+	 "time": Int,
+	 "difficulty": Int,
+	 "description": "String",
+	 "macros": "String",
+	 "tip": "String",
+	 "ingredients": ["String", "String", "String"],
+	 "instructions": ["String", "String", "String"],
+	 "search": "String"
+	 }
+	 
+	 Strict rules:
+	 
+	 1. "name" = short attractive User Language recipe title.
+	 2. "time" = realistic cooking time in minutes. Example: 35
+	 3. "difficulty" = integer only from 1 to 5.
+	 4. "description" = short tasty User Language description, max 2 sentences.
+	 5. "macros" = kcal, Proteins, Fats, Carbs numbers separated with comma. Example: "420, 24, 18, 38"
+	 6. "tip" = one short useful cooking tip about the dish.
+	 7. "ingredients" = array of strings. Each ingredient must use this exact pattern:
+	 "Ingredient Name - amount"
+	 Example:
+	 "Chicken - 300 g."
+	 "Potato - 4 pcs."
+	 "Salt - to taste"
+	 8. "instructions" = JSON array only. Each item must be one User Language sentence of step and cookingStep from this list [wash, cut, peel, mix, bake, boil, fry, add, season, serve].
+	 Example:
+	 ["cut - Cut the vegetables into small pieces.", "fry - Brown the chicken until golden brown."]
+	 9. "search" = short English keywords for searching a food image.
+	 
+	 Important:
+	 - JSON must be syntactically valid.
+	 - Do not leave trailing commas.
+	 - Do not change key names.
+	 - Do not return null.
+	 """
+  }
 }

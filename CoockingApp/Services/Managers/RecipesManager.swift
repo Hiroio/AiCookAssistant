@@ -29,5 +29,18 @@ class RecipesManager{
 	 fetchRecipe()
   }
   
+  func saveRecomended(){
+//	 TODO: Core data swift isRecomended
+  }
+  
+  func toggleFavorite(_ id: UUID){
+	 if let index = recipes.firstIndex(where: {$0.id == id}){
+		self.recipes[index].isFavorite.toggle()
+	 }
+	 
+	 coreDataManager.toggleFavorite(id)
+	 
+	 fetchRecipe()
+  }
   
 }

@@ -19,10 +19,12 @@ class MainViewModel: ObservableObject{
   private let pexelsManager = PexelsAPI()
   init(){
 	 self.recipes = recipeManager.recipes
+	 self.initializeRecomendedRecipe()
   }
   
   func initializeRecomendedRecipe() {
 	 if recommendedRecipe == nil {
+		recomendedError = nil
 		generateRecomendedRecipe()
 	 }
   }
@@ -36,7 +38,7 @@ class MainViewModel: ObservableObject{
   }
   
   var latestRecipes: [UIRecipeModel]{
-	 self.recipes.filter({ !$0.isRecommended })
+	 self.recipes.filter({ !$0.isRecommended }).sorted(by: {$0.dateCreated > $1.dateCreated})
   }
   
 }
@@ -61,6 +63,28 @@ extension MainViewModel{
 		}catch{
 		  await MainActor.run {
 			 self.recomendedError = CreationError.map(error)
+		  }
+		}
+	 }
+  }
+  
+  func generateQuickIdeaRecipe(prompt: String){
+	 let user = UserManager.shared.user
+	 NavigationManager.shared.isLoading = true
+	 Task{
+		defer {NavigationManager.shared.isLoading = false}
+		
+		do{
+		  let response = try await geminiAPI.quickIdeaRequest(user: user, prompt: prompt, recipeList: recipes.recipeList)
+		  let image = try await pexelsManager.searchImage(query: response.search)
+		  var recipe = UIRecipeModel(recipe: response)
+		  recipe.imageUrl = image ?? ""
+		  await MainActor.run{
+			 NavigationManager.shared.secondaryScreens = .info(recipe: recipe, creation: true)
+		  }
+		}catch{
+		  await MainActor.run {
+			 //		  self.error = CreationError.map(error)
 		  }
 		}
 	 }

@@ -13,16 +13,19 @@ struct MainView: View {
   var body: some View {
 	 ZStack{
 		Color.background.ignoresSafeArea()
-		ScrollView(showsIndicators: false) {
-		  VStack(alignment: .leading, spacing: 28){
-			 header
-			 recommendedSection
-			 quickIdeasSection
-			 latestRecipesSection
+		VStack{
+		  header
+			 .padding(.horizontal)
+		  ScrollView(showsIndicators: false) {
+			 VStack(alignment: .leading, spacing: 28){
+				recommendedSection
+				quickIdeasSection
+				latestRecipesSection
+			 }
+			 .padding(.horizontal, 20)
+			 .padding(.top, 12)
+			 .padding(.bottom, 36)
 		  }
-		  .padding(.horizontal, 20)
-		  .padding(.top, 12)
-		  .padding(.bottom, 36)
 		}
 	 }
 	 .sheet(isPresented: $showAllIdeas) {
@@ -52,7 +55,12 @@ struct MainView: View {
 		  ScrollView{
 			 LazyVGrid(columns: Array(repeating: .init(.flexible(), spacing: 12), count: 3), spacing: 18) {
 				ForEach(IdeasEnum.allCases){idea in
-				  IdeaCard(idea)
+				  Button{
+					 vm.generateQuickIdeaRecipe(prompt: idea.prompt)
+				  }label: {
+					 IdeaCard(idea)
+				  }
+				  .buttonStyle(.plain)
 				}
 			 }
 			 .padding(.horizontal, 20)
@@ -86,58 +94,64 @@ struct MainView: View {
   }
 
   private var recommendedSection: some View {
-	 VStack(alignment: .leading, spacing: 12) {
+	 VStack(alignment: .leading, spacing: 25) {
 		sectionHeader("Recommended for you")
-		if let error = vm.recomendedError{
-		  VStack{
-			 Image(error.icon)
-				.resizable()
-				.scaledToFit()
-			 Text(error.title)
-				.font(.headline.weight(.medium))
-			 Text(error.message)
-				.font(.caption)
+		VStack{
+		  if let recipe = vm.recommendedRecipe{
 			 Button{
-				vm.recomendedLoading = true
-				vm.recomendedError = nil
+				NavigationManager.shared.secondaryScreens = .info(recipe: recipe, creation: true)
 			 }label: {
-				HStack{
-				  Text("Try Again")
-				  Image(systemName: "repeat")
-				}
-				.font(.subheadline)
-				.foregroundStyle(Color.background)
-				.padding(12)
-				.background(
-				  RoundedRectangle(cornerRadius: 20)
-					 .fill(.primaryAction)
-				)
+				BigRecipeCardView(recipe: recipe)
 			 }
-		  }
-		  .frame(maxWidth: .infinity)
-		  .padding()
-		  .background(
-			 RoundedRectangle(cornerRadius: 20)
-				.fill(.rareCard.opacity(0.4))
-		  )
-		}else{
-		  if vm.recomendedLoading{
-			 LoadingCard()
+			 .buttonStyle(.plain)
+		  }else{
+			 if let error = vm.recomendedError{
+				VStack{
+				  Image(error.icon)
+					 .resizable()
+					 .scaledToFit()
+				  Text(error.title)
+					 .font(.headline.weight(.medium))
+				  Text(error.message)
+					 .font(.caption)
+				  Button{
+					 vm.initializeRecomendedRecipe()
+				  }label: {
+					 HStack{
+						Text("Try Again")
+						Image(systemName: "repeat")
+					 }
+					 .font(.subheadline)
+					 .foregroundStyle(Color.background)
+					 .padding(12)
+					 .background(
+						RoundedRectangle(cornerRadius: 20)
+						  .fill(.primaryAction)
+					 )
+				  }
+				}
 				.frame(maxWidth: .infinity)
-				.padding(50)
+				.padding()
 				.background(
 				  RoundedRectangle(cornerRadius: 20)
 					 .fill(.rareCard.opacity(0.4))
 				)
-		  }else{
-			 BigRecipeCardView(recipe: .preview)
+			 }else{
+				LoadingCard()
+				  .frame(maxWidth: .infinity)
+				  .padding(50)
+				  .background(
+					 RoundedRectangle(cornerRadius: 20)
+						.fill(.rareCard.opacity(0.4))
+				  )
+			 }
 		  }
 		}
+		.animation(.easeInOut, value: vm.recomendedLoading)
+		.animation(.easeInOut, value: vm.recommendedRecipe != nil)
+		.animation(.easeInOut, value: vm.recomendedError)
+		.frame(height: 245)
 	 }
-	 .animation(.easeInOut, value: vm.recomendedLoading)
-	 .animation(.easeInOut, value: vm.recommendedRecipe != nil)
-	 .animation(.easeInOut, value: vm.recomendedError)
-	 .frame(height: 245)
   }
 
   private var quickIdeasSection: some View {
@@ -158,8 +172,9 @@ struct MainView: View {
 		  }
 		}
 
-		IdeasView()
+		IdeasView(createRecipe: { prompt in vm.generateQuickIdeaRecipe(prompt: prompt)})
 	 }
+	 .padding(.top)
   }
 
   private var latestRecipesSection: some View {
@@ -168,8 +183,12 @@ struct MainView: View {
 		ScrollView(.horizontal, showsIndicators: false) {
 		  LazyHStack(spacing: 14) {
 			 ForEach(vm.latestRecipes){item in
-				MiniRecipeCardView(recipe: item)
-				
+				Button{
+				  NavigationManager.shared.secondaryScreens = .info(recipe: item, creation: false)
+				}label: {
+				  MiniRecipeCardView(recipe: item)
+				}
+				.buttonStyle(.plain)
 			 }
 		  }
 		  .padding(.vertical, 4)

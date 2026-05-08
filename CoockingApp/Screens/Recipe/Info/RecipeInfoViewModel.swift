@@ -18,6 +18,9 @@ class RecipeInfoViewModel: ObservableObject{
   @Published var cooking: Bool = false
   @Published var fromCreating: Bool = false
   
+  var saved: Bool {
+	 recipeManager.recipes.contains(where: {$0.id == recipe.id}) && !recipe.isRecommended
+  }
   
   private let geminiAPI = GeminiAPI()
   let recipeManager = RecipesManager.shared
@@ -48,9 +51,14 @@ class RecipeInfoViewModel: ObservableObject{
 		}
 	 }
   }
+ 
   
   func save(){
-	 recipeManager.createRecipe(recipe: self.recipe)
+	 if recipe.isRecommended {
+		recipeManager.saveRecomended()
+	 }else{
+		recipeManager.createRecipe(recipe: self.recipe)
+	 }
   }
 }
 
