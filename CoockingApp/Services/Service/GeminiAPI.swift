@@ -198,7 +198,9 @@ extension GeminiAPI{
   "description": "String",
   "macros": "String",
   "tip": "String",
-  "ingredients": ["String", "String", "String"],
+  "ingredients": {
+    "Ingredient Name - amount": "category"
+  },
   "instructions": ["String", "String", "String"],
   "search": "String"
   }
@@ -211,12 +213,21 @@ extension GeminiAPI{
   4. "description" = short tasty User Language description, max 2 sentences.
   5. "macros" = kcal, Proteins, Fats, Carbs (numbers separated with comma). example: "300, 12, 5, 26" 
   6. "tip" = a short tip about the dish how to cook or good knowledge about cooking dish.
-  7. "ingredients" = Array of strings. Each ingredient must be using this exact pattern:
+  7. "ingredients" = JSON object only.
+  Each key must be a recipe ingredient using this exact pattern:
   "Ingredient Name - amount"
+  Each value must be one category from this exact list:
+  [vegetables, fruits, protein, dairy, grains, spices, sauces, other]
+  Category meaning:
+  - protein = meat, fish, seafood, eggs, tofu, legumes used as the main protein.
+  - sauces = sauces, paste, dressing, oil, vinegar, condiments.
+  - other = water, stock, yeast, gelatin, starch, breadcrumbs, or anything that does not fit clearly.
   Example:
-  "Chicken - 300 g."
-  "Potato - 4 psc."
-  "Salt - to taste".
+  {
+    "Chicken - 300 g.": "protein",
+    "Potato - 4 pcs.": "vegetables",
+    "Salt - to taste": "spices"
+  }
   8. "instructions" = JSON array only. Each item must be one User Language `sentence` of step and `cookingStep` from this list [wash, cut, peel, mix, bake, boil, fry, add, season, serve], I'm using it only for icons. You don't have to be too strict—just pick the best option from the list. 
   example:
   ["cookingStep - Sentance", ...].
@@ -228,6 +239,7 @@ extension GeminiAPI{
   - Do not leave trailing commas.
   - Do not change key names.
   - Do not return null.
+  - Do not add categories outside the allowed category list.
   """
   }
   
@@ -315,7 +327,9 @@ extension GeminiAPI{
 	 "description": "String",
 	 "macros": "String",
 	 "tip": "String",
-	 "ingredients": ["String", "String", "String"],
+	 "ingredients": {
+	   "Ingredient Name - amount": "category"
+	 },
 	 "instructions": ["String", "String", "String"],
 	 "search": "String"
 	 }
@@ -328,12 +342,21 @@ extension GeminiAPI{
 	 4. "description" = short tasty User Language description, max 2 sentences.
 	 5. "macros" = kcal, Proteins, Fats, Carbs numbers separated with comma. Example: "420, 24, 18, 38"
 	 6. "tip" = one short useful cooking tip about the dish.
-	 7. "ingredients" = array of strings. Each ingredient must use this exact pattern:
+	 7. "ingredients" = JSON object only.
+	 Each key must be a recipe ingredient using this exact pattern:
 	 "Ingredient Name - amount"
+	 Each value must be one category from this exact list:
+	 [vegetables, fruits, protein, dairy, grains, spices, sauces, other]
+	 Category meaning:
+	 - protein = meat, fish, seafood, eggs, tofu, legumes used as the main protein.
+	 - sauces = sauces, paste, dressing, oil, vinegar, condiments.
+	 - other = water, stock, yeast, gelatin, starch, breadcrumbs, or anything that does not fit clearly.
 	 Example:
-	 "Chicken - 300 g."
-	 "Potato - 4 pcs."
-	 "Salt - to taste"
+	 {
+	   "Chicken - 300 g.": "protein",
+	   "Potato - 4 pcs.": "vegetables",
+	   "Salt - to taste": "spices"
+	 }
 	 8. "instructions" = JSON array only. Each item must be one User Language sentence of step and cookingStep from this list [wash, cut, peel, mix, bake, boil, fry, add, season, serve].
 	 Example:
 	 ["cut - Cut the vegetables into small pieces.", "fry - Brown the chicken until golden brown."]
@@ -344,6 +367,7 @@ extension GeminiAPI{
 	 - Do not leave trailing commas.
 	 - Do not change key names.
 	 - Do not return null.
+	 - Do not add categories outside the allowed category list.
 	 """
   }
 
@@ -386,7 +410,9 @@ extension GeminiAPI{
 	 "description": "String",
 	 "macros": "String",
 	 "tip": "String",
-	 "ingredients": ["String", "String", "String"],
+	 "ingredients": {
+	   "Ingredient Name - amount": "category"
+	 },
 	 "instructions": ["String", "String", "String"],
 	 "search": "String"
 	 }
@@ -399,12 +425,21 @@ extension GeminiAPI{
 	 4. "description" = short tasty User Language description, max 2 sentences.
 	 5. "macros" = kcal, Proteins, Fats, Carbs numbers separated with comma. Example: "420, 24, 18, 38"
 	 6. "tip" = one short useful cooking tip about the dish.
-	 7. "ingredients" = array of strings. Each ingredient must use this exact pattern:
+	 7. "ingredients" = JSON object only.
+	 Each key must be a recipe ingredient using this exact pattern:
 	 "Ingredient Name - amount"
+	 Each value must be one category from this exact list:
+	 [vegetables, fruits, protein, dairy, grains, spices, sauces, other]
+	 Category meaning:
+	 - protein = meat, fish, seafood, eggs, tofu, legumes used as the main protein.
+	 - sauces = sauces, paste, dressing, oil, vinegar, condiments.
+	 - other = water, stock, yeast, gelatin, starch, breadcrumbs, or anything that does not fit clearly.
 	 Example:
-	 "Chicken - 300 g."
-	 "Potato - 4 pcs."
-	 "Salt - to taste"
+	 {
+	   "Chicken - 300 g.": "protein",
+	   "Potato - 4 pcs.": "vegetables",
+	   "Salt - to taste": "spices"
+	 }
 	 8. "instructions" = JSON array only. Each item must be one User Language sentence of step and cookingStep from this list [wash, cut, peel, mix, bake, boil, fry, add, season, serve].
 	 Example:
 	 ["cut - Cut the vegetables into small pieces.", "fry - Brown the chicken until golden brown."]
@@ -415,6 +450,7 @@ extension GeminiAPI{
 	 - Do not leave trailing commas.
 	 - Do not change key names.
 	 - Do not return null.
+	 - Do not add categories outside the allowed category list.
 	 """
   }
 }

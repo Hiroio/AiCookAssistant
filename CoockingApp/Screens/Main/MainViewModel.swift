@@ -12,7 +12,7 @@ import Combine
 class MainViewModel: ObservableObject{
   @Published var recipes: [UIRecipeModel] = []
   @Published var recomendedLoading: Bool = false
-  @Published var recomendedError: CreationError? = .badInternetConnection
+  @Published var recomendedError: CreationError? = nil
 
   private let recipeManager = RecipesManager.shared
   private let geminiAPI = GeminiAPI()
@@ -84,7 +84,7 @@ extension MainViewModel{
 		  }
 		}catch{
 		  await MainActor.run {
-			 //		  self.error = CreationError.map(error)
+			 NavigationManager.shared.error = CreationError.map(error)
 		  }
 		}
 	 }

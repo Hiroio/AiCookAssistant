@@ -124,3 +124,37 @@ extension CoreDataManager{
 	 save()
   }
 }
+
+
+extension CoreDataManager{
+  func fetchIngredients() -> [IngredientsEntity]{
+	 let request: NSFetchRequest<IngredientsEntity> = NSFetchRequest(entityName: "IngredientsEntity")
+	 
+	 if let entities = try? viewContext.fetch(request){
+		return entities
+	 }else{
+		return []
+	 }
+  }
+  
+  func createIngredients(ingredient: IngredientModel) {
+	 let entity = IngredientsEntity(context: viewContext)
+	 entity.id = ingredient.id
+	 entity.name = ingredient.name
+	 entity.category = ingredient.category.rawValue
+	 entity.isFavorite = ingredient.isFavorite
+	 
+	 save()
+  }
+  
+  func toggleFavorite(ingredient: IngredientModel){
+	 let request: NSFetchRequest<IngredientsEntity> = NSFetchRequest(entityName: "IngredientsEntity")
+	 
+	 request.predicate = NSPredicate(format: "id == %@", ingredient.id as CVarArg)
+	 
+	 if let entity = try? viewContext.fetch(request).first {
+		entity.isFavorite.toggle()
+	 }
+	 save()
+  }
+}

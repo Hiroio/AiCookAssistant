@@ -13,7 +13,7 @@ struct LoadingCard: View {
 		
 		TimelineView(.animation(minimumInterval: 1 / 30)) { context in
 		  let elapsed = context.date.timeIntervalSince(startTime)
-		  let sprite = Int(elapsed * 7) % 12
+		  let sprite = Int(elapsed * 4) % 12
 		  ZStack {
 			 VStack(spacing: 14) {
 				Image("cooking\(sprite)")

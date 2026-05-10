@@ -15,7 +15,7 @@ struct RecipeModel: Codable{
   let description: String
   let macros: String
   let tip: String
-  let ingredients: [String]
+  let ingredients: [String : String]
   let instructions: [String]
   let search: String
 }
@@ -41,6 +41,7 @@ struct UIRecipeModel: Identifiable {
 }
 
 extension UIRecipeModel{
+//  MARK: On API Request transform response into model
   init(recipe: RecipeModel, isRecommended: Bool = false, recomendedDate: Date? = nil){
 	 self.id = UUID()
 	 self.name = recipe.name
@@ -50,7 +51,7 @@ extension UIRecipeModel{
 	 self.description = recipe.description
 	 self.macros = recipe.macros
 	 self.cookingTip = recipe.tip
-	 self.ingredients = recipe.ingredients
+	 self.ingredients = Array(recipe.ingredients.keys)
 	 self.instructions = recipe.instructions
 	 self.isFavorite = false
 	 self.imageUrl = ""
@@ -59,7 +60,7 @@ extension UIRecipeModel{
 	 self.isRecommended = isRecommended
 	 self.recommendedDate = recomendedDate
   }
-  
+//  MARK: CoreData entity into Model
   init(entity: RecipeEntity){
 	 self.id = entity.id ?? UUID()
 	 self.name = entity.name ?? "Unknown"
@@ -78,7 +79,7 @@ extension UIRecipeModel{
 	 self.isRecommended = entity.isRecommended
 	 self.recommendedDate = entity.recommendedDate
   }
-  
+//  MARK: For chat context
   func getContext() -> String {
 		return """
 		Контекст рецепта:
@@ -92,7 +93,7 @@ extension UIRecipeModel{
   static var preview2 = UIRecipeModel(id: UUID(), name: "Sweet Soup Borsch",time: 35, difficulty: 2,timesCooked: 0, description: "A cozy and flavorful one-pan dish with tender chicken, golden potatoes, and aromatic herbs in a creamy sauce", macros: "-420, 12, 25, 12", cookingTip: "QWe qwe eqweqwm wqmekqw kmwqelq qwkm", ingredients: ["asdasd", "dqwd", "qwdqwd", "qdwqd", "qwdqwd"], instructions: [], isFavorite: false, imageUrl: "https://images.pexels.com/photos/5436476/pexels-photo-5436476.jpeg?auto=compress&cs=tinysrgb&h=650&w=940", chatHistory: [], dateCreated: Date(), isRecommended: false)
 }
 
-
+// MARK: Chat part
 struct ChatPart: Codable {
 	 let role: RecipeChatRoleEnum // "user" or "model"
 	 let parts: [[String: String]] // [["text": "text: message"]]

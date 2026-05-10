@@ -45,6 +45,22 @@ struct NavigationView: View {
 			 .transition(.opacity.combined(with: .scale(scale: 0.96)))
 			 .zIndex(2)
 		  }
+//		  MARK: Error PopUp
+		  if let error = navigationManager.error {
+			 ZStack{
+				Color.black.opacity(0.08)
+				  .ignoresSafeArea()
+				  .onTapGesture {
+					 navigationManager.error = nil
+				  }
+				ErrorPopUpView(error: error) {
+				  navigationManager.error = nil
+				}
+				  .transition(.opacity.combined(with: .scale(scale: 0.96)))
+			 }
+			 .zIndex(1)
+			 .allowsHitTesting(navigationManager.error != nil)
+		  }
 		}
 		.sheet(isPresented: $storeManager.showingSheet){
 		  PaywallView()

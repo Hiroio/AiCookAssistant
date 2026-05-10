@@ -22,7 +22,6 @@ class CreationViewModel: ObservableObject{
   private let pexelsManager = PexelsAPI()
   private let user: UserModel
   
-  
   init(){
 	 let entity = CoreDataManager.shared.fetchUser()
 	 self.user = UserModel(entity: entity)
@@ -46,6 +45,7 @@ class CreationViewModel: ObservableObject{
 		  let response = try await apiManager.recipeRequest(userIngredients: userIngredients, userDifficulty: difficulty, userTime: selectedTime, user: user, userNote: userNote)
 		  let image = try await pexelsManager.searchImage(query: response.search)
 		  var recipe = UIRecipeModel(recipe: response)
+		  IngredientsManager.shared.chekingNewIngredients(ingreedients: response.ingredients)
 		  recipe.imageUrl = image ?? ""
 		  await MainActor.run{
 			 self.recipe = response
@@ -54,7 +54,7 @@ class CreationViewModel: ObservableObject{
 		  }
 		}catch{
 		  await MainActor.run {
-			 self.error = CreationError.map(error)
+			 NavigationManager.shared.error = CreationError.map(error)
 		  }
 		}
 	 }
@@ -75,7 +75,7 @@ class CreationViewModel: ObservableObject{
 		  }
 		}catch{
 		  await MainActor.run {
-			 self.error = CreationError.map(error)
+			 NavigationManager.shared.error = CreationError.map(error)
 		  }
 		}
 	 }

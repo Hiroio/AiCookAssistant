@@ -35,7 +35,7 @@ struct InstructionView: View {
 					 .font(.subheadline.weight(.light))
 					 .kerning(0.6)
 				  let imageText = text[0].trimmingCharacters(in: .whitespaces)
-				  Image(imageText.isEmpty ? "chefsHat" : imageText)
+				  Image(imageText.isEmpty ? "chefsHat" : "\(imageText)Icon")
 					 .resizable()
 					 .scaledToFit()
 					 .frame(height: 65)

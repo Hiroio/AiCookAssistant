@@ -12,6 +12,8 @@ struct CoockingAppApp: App {
   init(){
 	 let _ = CoreDataManager.shared
 	 let _ = UserManager.shared
+	 let _ = RecipesManager.shared
+	 let _ = IngredientsManager.shared
   }
   @StateObject private var storeManager = StoreManager.shared
   @StateObject private var navigationManager = NavigationManager.shared

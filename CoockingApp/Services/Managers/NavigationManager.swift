@@ -18,6 +18,7 @@ class NavigationManager: ObservableObject {
   @Published var secondaryScreens: secondaryScreensEnum? = nil
   @Published var loadingScreen: LoadingScreenType? = nil
   @Published var popup: NavigationPopup? = nil
+  @Published var error: CreationError? = nil
   
   var isLoading: Bool {
 	 get { loadingScreen != nil }
