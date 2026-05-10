@@ -34,7 +34,7 @@ struct MainNavigationBar: View {
 				  }
 				  .padding()
 				}
-				.foregroundStyle(.mossGreen)
+				.foregroundStyle(Color.primaryAction)
 				.frame(maxWidth: .infinity)
 				
 				
@@ -43,7 +43,7 @@ struct MainNavigationBar: View {
 		  }
 		}
 		.background(
-		  Color.warmBeige.opacity(0.5)
+		  Color.rareCard.opacity(0.5)
 		)
 		.overlay(
 		  Button{
@@ -51,11 +51,11 @@ struct MainNavigationBar: View {
 		  }label: {
 			 Image(systemName: "plus")
 				.font(.title2)
-				.foregroundStyle(.softIvory)
+				.foregroundStyle(Color.background)
 				.padding(20)
 				.background(
 				  Circle()
-					 .fill(.herbalGreen)
+					 .fill(Color.accentCard)
 				)
 				.contentShape(.circle)
 		  }

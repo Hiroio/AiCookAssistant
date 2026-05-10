@@ -21,7 +21,7 @@ enum RecipeDifficulty: String{
   var color: Color{
 	 switch self {
 	 case .easy:
-		  .mossGreen
+		  .accentCard
 	 case .medium:
 		  .orange
 	 case .hard:
@@ -43,4 +43,37 @@ enum RecipeDifficulty: String{
 	 }
   }
   
+}
+
+
+
+
+enum FilterRecipeEnum: String, Identifiable, CaseIterable{
+  case dateAscedent, dateDescedent, favorite, timesCooked
+  
+  var id: String { self.rawValue }
+  
+  var text: String{
+	 switch self {
+	 case .dateAscedent, .dateDescedent:
+		"Date"
+	 case .favorite:
+		"Favorite"
+	 case .timesCooked:
+		"Cooked"
+	 }
+  }
+  
+  var icon: String{
+	 switch self {
+	 case .dateAscedent:
+		"chart.line.uptrend.xyaxis"
+	 case .dateDescedent:
+		"chart.line.downtrend.xyaxis"
+	 case .favorite:
+		"heart.fill"
+	 case .timesCooked:
+		"frying.pan.fill"
+	 }
+  }
 }

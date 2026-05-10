@@ -41,7 +41,7 @@ func preferenceCard(icon: String, title: String, value: String?) -> some View{
   HStack(){
 	 Image(systemName: icon)
 		.font(.title)
-		.foregroundStyle(.mossGreen)
+		.foregroundStyle(.primaryAction)
 	 VStack{
 		Text(title)
 		  .font(.footnote)

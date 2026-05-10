@@ -20,7 +20,6 @@ struct RecipeModel: Codable{
   let search: String
 }
 
-
 struct UIRecipeModel: Identifiable {
   var id: UUID
   var name: String

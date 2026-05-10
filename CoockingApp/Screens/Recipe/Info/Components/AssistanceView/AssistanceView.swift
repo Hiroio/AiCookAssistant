@@ -16,11 +16,11 @@ struct AssistanceView: View {
 			 Spacer()
 			 Image(systemName: "sparkles")
 				.font(.largeTitle.bold())
-				.foregroundStyle(.mossGreen.shadow(.inner(color: .herbalGreen,radius: 2, x: 3 ,y: 2)))
+				.foregroundStyle(.primaryAction.shadow(.inner(color: .accentCard,radius: 2, x: 3 ,y: 2)))
 				.padding()
 				.background(
 				  Circle()
-					 .fill(.herbalGreen.opacity(0.2))
+					 .fill(.accentCard.opacity(0.2))
 				)
 				.scaleEffect(1.5)
 			 
@@ -28,10 +28,10 @@ struct AssistanceView: View {
 			 Text("Need help with this recipe?")
 				.font(.title)
 				.fontWeight(.medium)
-				.foregroundStyle(.mossGreen)
+				.foregroundStyle(.primaryAction)
 			 Text("Ask our AI assistant anything about ingredients, substitutionsm technique, or tips!")
 				.padding(.horizontal, 30)
-				.foregroundStyle(.charcoal.opacity(0.6))
+				.foregroundStyle(.primarytext.opacity(0.6))
 				
 		  }
 		  .shadow(radius: 0.5)
@@ -50,11 +50,11 @@ struct AssistanceView: View {
 				vm.sendChatMessage()
 			 }label: {
 				Image(systemName: "paperplane.fill")
-				  .foregroundStyle(.softIvory)
+				  .foregroundStyle(Color.background)
 				  .padding()
 				  .background(
 					 RoundedRectangle(cornerRadius: 25)
-						.fill(.mossGreen)
+						.fill(.primaryAction)
 				  )
 			 }
 		  }
@@ -70,7 +70,7 @@ struct AssistanceView: View {
 
 #Preview {
   ZStack{
-	 Color.softIvory.ignoresSafeArea()
+	 Color.background.ignoresSafeArea()
 	 AssistanceView()
   }
   .environmentObject(RecipeInfoViewModel(recipe: .preview))

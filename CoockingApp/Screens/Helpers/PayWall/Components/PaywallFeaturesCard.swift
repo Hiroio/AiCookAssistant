@@ -9,10 +9,10 @@ import SwiftUI
 
 struct PaywallFeaturesCard: View {
   private let paywallFeatures: [(icon: String, title: String, description: String)] = [
-	 ("infinity", "Unlimited Recipes", "Get unlimited access to AI-generated recipes with no limits."),
-	 ("camera", "Photo Ingredient Analysis", "Snap a photo and AI will instantly detect ingredients for you."),
-	 ("square.and.pencil", "Edit Your RecipeList", "Add, edit, delete and organize your personal recipe collections."),
-	 ("frying.pan", "AI Cook Assistant", "Get step-by-step guidance, tips and answers to all your cooking questions.")
+	 ("infinity", "Unlimited Recipes", "Create as many recipe ideas as you need."),
+	 ("camera", "Photo Ingredient Scan", "Turn ingredients into recipe ideas."),
+	 ("square.and.pencil", "Recipe Notebook", "Save, edit and organize your dishes."),
+	 ("frying.pan", "Cooking Assistant", "Get tips and answers while you cook.")
   ]
   var body: some View {
 	 VStack{
@@ -26,11 +26,28 @@ struct PaywallFeaturesCard: View {
 	 .padding()
 	 .background(
 		RoundedRectangle(cornerRadius: 20)
-		  .fill(.sageMist.opacity(0.6))
+		  .fill(Color.rareCard.opacity(0.2))
 	 )
   }
 }
 
+@ViewBuilder
+func featureCard(icon: String, title: String, desc: String)-> some View{
+  HStack{
+	 Image(systemName: icon)
+		.font(.headline)
+		.frame(width: 45, height: 45)
+	 VStack(alignment: .leading){
+		Text(title)
+		  .font(.headline)
+		Text(desc)
+		  .font(.caption)
+		  .foregroundStyle(.primarytext.opacity(0.6))
+	 }
+	 .frame(maxWidth: .infinity, alignment: .leading)
+  }
+  .foregroundStyle(.primaryAction)
+}
 #Preview {
   PaywallFeaturesCard()
 }

@@ -13,11 +13,16 @@ class RecipeListViewModel: ObservableObject{
   @Published var recipes: [UIRecipeModel] = []
   @Published var searchType: Bool = false
   @Published var searchText: String = ""
+  @Published var isEditing: Bool = false
+  @Published var filter: FilterRecipeEnum = .dateDescedent
   
   private let recipesManager = RecipesManager.shared
   
   init(){
 	 self.recipes = recipesManager.recipes
+	 recipesManager.$recipes
+		.receive(on: RunLoop.main)
+		.assign(to: &$recipes)
   }
   
   var favoritesRecipes: [UIRecipeModel]{
@@ -36,24 +41,36 @@ class RecipeListViewModel: ObservableObject{
   
   
   var filteredRecipes: [UIRecipeModel]{
-	 self.recipes.filter({!$0.isRecommended}).sorted(by: {$0.dateCreated > $1.dateCreated})
-  }
-}
-
-
-enum FilterRecipeEnum: String, Identifiable, CaseIterable{
-  case dateAscedent, dateDescedent, favorite
-  
-  var id: String { self.rawValue }
-  
-  var icon: String{
-	 switch self {
+	 let filteredRecipes: [UIRecipeModel]
+	 switch filter {
 	 case .dateAscedent:
-		""
+		filteredRecipes = self.recipes.filter({!$0.isRecommended}).sorted(by: {$0.dateCreated < $1.dateCreated})
 	 case .dateDescedent:
-		""
+		filteredRecipes = self.recipes.filter({!$0.isRecommended}).sorted(by: {$0.dateCreated > $1.dateCreated})
 	 case .favorite:
-		""
+		filteredRecipes = self.recipes.filter({!$0.isRecommended && $0.isFavorite}).sorted(by: {$0.dateCreated > $1.dateCreated})
+	 case .timesCooked:
+		filteredRecipes = self.recipes.filter({!$0.isRecommended && $0.timesCooked > 0}).sorted(by: {$0.dateCreated > $1.dateCreated})
+	 }
+	 
+	 return search(in: filteredRecipes)
+  }
+  
+  private func search(in recipes: [UIRecipeModel]) -> [UIRecipeModel] {
+	 let query = searchText.trimmingCharacters(in: .whitespacesAndNewlines)
+	 
+	 guard !query.isEmpty else { return recipes }
+	 
+	 return recipes.filter { recipe in
+		if searchType {
+		  recipe.ingredients.contains { ingredient in
+			 ingredient.localizedCaseInsensitiveContains(query)
+		  }
+		} else {
+		  recipe.name.localizedCaseInsensitiveContains(query)
+		  || recipe.description.localizedCaseInsensitiveContains(query)
+		}
 	 }
   }
 }
+

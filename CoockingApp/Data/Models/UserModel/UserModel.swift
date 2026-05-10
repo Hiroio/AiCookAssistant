@@ -11,6 +11,7 @@ import Foundation
 
 struct UserModel{
   var username: String
+  var cookingIdentity: CookingIdentityEnum
   var alergieIngredients: [String]
   var avoidIngredients: [String]
   var freeGenerationsUsed: Int
@@ -20,6 +21,7 @@ struct UserModel{
   
   init(entity: UserEntity){
 	 self.username = entity.username ?? "New Chef"
+	 self.cookingIdentity = CookingIdentityEnum(rawValue: entity.cookingIdentity ?? "") ?? .comfortCook
 	 self.alergieIngredients = entity.allergies.getArray()
 	 self.avoidIngredients = entity.avoid.getArray()
 	 self.freeGenerationsUsed = Int(entity.freeGenerationsUsed)

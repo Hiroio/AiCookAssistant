@@ -25,7 +25,7 @@ struct ListOfIngredients: View {
 				  }
 				}
 				.font(.footnote)
-				.foregroundStyle(.charcoal)
+				.foregroundStyle(.primarytext)
 				.padding(8)
 				.background(
 				  RoundedRectangle(cornerRadius: 15)

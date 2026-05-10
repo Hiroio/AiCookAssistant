@@ -10,14 +10,14 @@ import Combine
 
 class IngredientsViewModel: ObservableObject{
   @Published var ingredients: [IngredientModel] = []
-  @Published var category: CategoriesEnum = .vegetables
+  @Published var category: CategoriesEnum = .all
   @Published var selection: Bool = false
   @Published var selectedIngredients: [IngredientModel] = []
   
   private let ingredientManager = IngredientsManager.shared
   init(){
 	 ingredients = ingredientManager.ingredients
-	 ingredients = [.chicken, .dairy, .fruit, .grain, .other, .sauce, .spices, .vegi]
+//	 ingredients = [.chicken, .dairy, .fruit, .grain, .other, .sauce, .spices, .vegi] mock
   }
   
   
@@ -29,7 +29,23 @@ class IngredientsViewModel: ObservableObject{
 	 }
   }
   
+  func toggleFavorite(_ item: IngredientModel){
+	 if let index = ingredients.firstIndex(where: {$0.id == item.id}){
+		ingredients[index].isFavorite.toggle()
+	 }
+	 
+	 ingredientManager.toggleFavorite(ingredient: item)
+  }
+  
   var categorizedIngredients: [IngredientModel]{
-	 ingredients.filter({$0.category == category})
+	 switch category {
+	 case .favorite:
+		ingredients.filter({$0.isFavorite})
+	 case .all:
+		ingredients
+	 default:
+		ingredients.filter({$0.category == category})
+	 }
+	 
   }
 }

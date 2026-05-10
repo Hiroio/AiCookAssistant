@@ -29,6 +29,7 @@ struct IngredientsSectionView: View {
 		.padding()
 		.safeAreaInset(edge: .bottom) {
 		  selection
+			 .padding(.bottom)
 		}
 		.animation(.bouncy(duration: 0.6), value: vm.selection)
 	 }
@@ -51,7 +52,7 @@ struct IngredientsSectionView: View {
 		  }label: {
 			 Text("Start selection")
 				.font(.headline.weight(.light))
-				.foregroundStyle(.softIvory)
+				.foregroundStyle(Color.background)
 				.padding(15)
 				.padding(.horizontal)
 				.background(

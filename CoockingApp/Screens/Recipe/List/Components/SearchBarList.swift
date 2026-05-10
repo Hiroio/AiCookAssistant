@@ -42,19 +42,23 @@ struct SearchBarList: View {
 			 if !ingredientsSearch{
 				RoundedRectangle(cornerRadius: 15)
 				  .fill(.primaryAction)
-				  .frame(width: 45, height: 3)
+				  .frame(width: 35, height: 3)
 				  .matchedGeometryEffect(id: "switch", in: nameSpace)
-				  .padding(.horizontal, 15)
+				  .padding(.horizontal, 0)
 			 }
 			 Text("Name")
 				.foregroundStyle(.primaryAction)
 				.font(.caption)
 				.padding(.vertical, 15)
 		  }
-		  .frame(maxWidth: .infinity)
 		  .contentShape(.rect)
+		  .frame(maxWidth: .infinity)
 		}.buttonStyle(.plain)
 		
+		
+		Rectangle()
+		  .fill(Color.rareCard)
+		  .frame(width: 0.5, height: 15)
 		Button{
 		  ingredientsSearch = true
 		}label: {
@@ -64,7 +68,7 @@ struct SearchBarList: View {
 				  .fill(.primaryAction)
 				  .frame(height: 3)
 				  .matchedGeometryEffect(id: "switch", in: nameSpace)
-				  .padding(.horizontal, 15)
+				  .padding(.horizontal, 20)
 			 }
 			 Text("Ingredient")
 				.foregroundStyle(.primaryAction)
@@ -73,6 +77,7 @@ struct SearchBarList: View {
 		  }
 		  .frame(maxWidth: .infinity)
 		  .contentShape(.rect)
+		  
 		}.buttonStyle(.plain)
 		
 	 }

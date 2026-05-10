@@ -105,7 +105,7 @@ struct CreationView: View {
 				.frame(maxWidth: .infinity)
 				.background(
 				  RoundedRectangle(cornerRadius: 20)
-					 .fill(Color.accentCard)
+					 .fill(Color.primaryAction)
 				)
 		  }
 		  .buttonStyle(buttonTapScale())

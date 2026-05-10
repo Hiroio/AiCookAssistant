@@ -19,7 +19,7 @@ struct ChatView: View {
 				  .padding()
 				  .background {
 					 UnevenRoundedRectangle(cornerRadii: .init(topLeading: 30, bottomLeading: user ? 30 : 5, bottomTrailing: user ? 5 : 30, topTrailing: 30))
-						.fill(.herbalGreen.opacity(0.4))
+						.fill(.accentCard.opacity(0.4))
 					 
 				  }
 				  .frame(maxWidth: .infinity, alignment: user ? .trailing : .leading)
@@ -30,7 +30,7 @@ struct ChatView: View {
 			 if vm.messageIsLoading{
 				HStack{
 				  RoundedRectangle(cornerRadius: 30)
-					 .fill(.herbalGreen.opacity(0.4))
+					 .fill(.accentCard.opacity(0.4))
 					 .frame(width: loadingAnimation ? 100 : 80, height: 55)
 					 .frame(maxWidth: .infinity, alignment: .leading)
 					 .onAppear{

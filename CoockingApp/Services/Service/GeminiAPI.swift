@@ -10,6 +10,8 @@ import SwiftUI
 
 class GeminiAPI{
   let apikey = Secrets.geminiAPI
+  private let recipeMaxOutputTokens = 3072
+  private let recipeThinkingBudget = 512
   
   func getUrl() throws -> URL{
 	 guard let url = URL(string: "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent") else {
@@ -29,16 +31,7 @@ class GeminiAPI{
 	 
 	 let prompt = generatePromptForRecommendedRecipe(user: user, userRecipeList: recipeList)
 	 
-	 let payload: [String: Any] = [
-		"contents": [[
-		  "parts": [["text" : prompt]]
-		]],
-		"generationConfig": [
-		  "temperature": 0.5,
-		  "maxOutputTokens": 1800,
-		  "response_mime_type": "application/json"
-		]
-	 ]
+	 let payload = recipePayload(prompt: prompt)
 	 request.httpBody = try JSONSerialization.data(withJSONObject: payload)
 	 
 	 return try await apiRequest(request: request)
@@ -56,16 +49,7 @@ class GeminiAPI{
 	 
 	 let prompt = generatePromptForRecipe(userIngredients: userIngredients, userDifficulty: userDifficulty, userTime: userTime, user: user, userNote: userNote)
 	 
-	 let payload: [String: Any] = [
-		"contents": [[
-		  "parts": [["text" : prompt]]
-		]],
-		"generationConfig": [
-		  "temperature": 0.5,
-		  "maxOutputTokens": 1800,
-		  "response_mime_type": "application/json"
-		]
-	 ]
+	 let payload = recipePayload(prompt: prompt)
 	 request.httpBody = try JSONSerialization.data(withJSONObject: payload)
 	 return try await apiRequest(request: request)
   }
@@ -80,16 +64,7 @@ class GeminiAPI{
 	 request.addValue("application/json", forHTTPHeaderField: "Content-Type")
 	 
 	 let prompt = generatePromptForquickIdea(user: user, prompt: prompt, userRecipeList: recipeList)
-	 let payload: [String: Any] = [
-		"contents": [[
-		  "parts": [["text" : prompt]]
-		]],
-		"generationConfig": [
-		  "temperature": 0.5,
-		  "maxOutputTokens": 1800,
-		  "response_mime_type": "application/json"
-		]
-	 ]
+	 let payload = recipePayload(prompt: prompt)
 	 request.httpBody = try JSONSerialization.data(withJSONObject: payload)
 	 
 	 return try await apiRequest(request: request)
@@ -168,79 +143,62 @@ class GeminiAPI{
 
 
 extension GeminiAPI{
+  private func recipePayload(prompt: String) -> [String: Any] {
+	 [
+		"contents": [[
+		  "parts": [["text": prompt]]
+		]],
+		"generationConfig": [
+		  "temperature": 0.45,
+		  "maxOutputTokens": recipeMaxOutputTokens,
+		  "response_mime_type": "application/json",
+		  "thinkingConfig": [
+			 "thinkingBudget": recipeThinkingBudget
+		  ]
+		]
+	 ]
+  }
+  
   //  For Recipe creation
   private func generatePromptForRecipe(userIngredients: [String], userDifficulty: Int, userTime: String, user: UserModel, userNote: String) -> String{
 	 let ingredients = userIngredients.joined(separator: " ")
 	 
 	 return """
-  Create one cooking recipe based on:
-  
-  Ingredients: \(ingredients)
-  Cooking Time Preference: \(userTime)
-  Difficulty Preference: \(userDifficulty)
-  User Alergies (optional): \(user.alergieIngredients)
-  User Avoid ingredients (optional): \(user.avoidIngredients)
-  User Preferences regarding the dish (optional): \(userNote)
-  User Language: Ukranian
-  
-  Return ONLY one valid JSON object.
-  Do not use markdown.
-  Do not use code blocks.
-  Do not write explanations.
-  Do not write any text before or after JSON.
-  
-  JSON structure must be exactly:
-  
-  {
-  "name": "String",
-  "time": Int,
-  "difficulty": Int,
-  "description": "String",
-  "macros": "String",
-  "tip": "String",
-  "ingredients": {
-    "Ingredient Name - amount": "category"
-  },
-  "instructions": ["String", "String", "String"],
-  "search": "String"
-  }
-  
-  Strict rules:
-  
-  1. "name" = short attractive User Language recipe title.
-  2. "time" = cooking time. Example: 120
-  3. "difficulty" = integer only from 1 to 5.
-  4. "description" = short tasty User Language description, max 2 sentences.
-  5. "macros" = kcal, Proteins, Fats, Carbs (numbers separated with comma). example: "300, 12, 5, 26" 
-  6. "tip" = a short tip about the dish how to cook or good knowledge about cooking dish.
-  7. "ingredients" = JSON object only.
-  Each key must be a recipe ingredient using this exact pattern:
-  "Ingredient Name - amount"
-  Each value must be one category from this exact list:
-  [vegetables, fruits, protein, dairy, grains, spices, sauces, other]
-  Category meaning:
-  - protein = meat, fish, seafood, eggs, tofu, legumes used as the main protein.
-  - sauces = sauces, paste, dressing, oil, vinegar, condiments.
-  - other = water, stock, yeast, gelatin, starch, breadcrumbs, or anything that does not fit clearly.
-  Example:
-  {
-    "Chicken - 300 g.": "protein",
-    "Potato - 4 pcs.": "vegetables",
-    "Salt - to taste": "spices"
-  }
-  8. "instructions" = JSON array only. Each item must be one User Language `sentence` of step and `cookingStep` from this list [wash, cut, peel, mix, bake, boil, fry, add, season, serve], I'm using it only for icons. You don't have to be too strict—just pick the best option from the list. 
-  example:
-  ["cookingStep - Sentance", ...].
-  9. "search" = short English keywords for searching a food image.
-  
-  
-  Important:
-  - JSON must be syntactically valid.
-  - Do not leave trailing commas.
-  - Do not change key names.
-  - Do not return null.
-  - Do not add categories outside the allowed category list.
-  """
+	 Create one Ukrainian recipe.
+	 
+	 Inputs:
+	 ingredients: \(ingredients)
+	 time preference: \(userTime)
+	 difficulty preference: \(userDifficulty)
+	 allergies: \(user.alergieIngredients)
+	 avoid ingredients: \(user.avoidIngredients)
+	 user note: \(userNote)
+	 
+	 Return valid JSON only. No markdown, comments, nulls, extra text, or trailing commas.
+	 
+	 Schema:
+	 {
+	   "name": "short Ukrainian title",
+	   "time": 35,
+	   "difficulty": 3,
+	   "description": "Ukrainian description, max 2 sentences",
+	   "macros": "kcal, proteins, fats, carbs",
+	   "tip": "short Ukrainian cooking tip",
+	   "ingredients": {
+	     "Ingredient Name - amount": "category"
+	   },
+	   "instructions": ["step - Ukrainian instruction sentence"],
+	   "search": "short English food image keywords"
+	 }
+	 
+	 Rules:
+	 - difficulty is an integer from 1 to 5.
+	 - macros example: "420, 24, 18, 38".
+	 - ingredients is a JSON object. Each key must be "Ingredient Name - amount".
+	 - ingredient category must be one of: vegetables, fruits, protein, dairy, grains, spices, sauces, other.
+	 - protein = meat, fish, seafood, eggs, tofu, legumes. sauces = oil, vinegar, dressings, condiments. other = only when nothing fits.
+	 - instructions items must start with one step from: wash, cut, peel, mix, bake, boil, fry, add, season, serve.
+	 """
   }
   
 //  For image analys
@@ -292,82 +250,40 @@ extension GeminiAPI{
 	 let recipes = userRecipeList.joined(separator: "\n")
 	 
 	 return """
-	 Create one recommended cooking recipe for the user.
+	 Create one Ukrainian recommended recipe: trendy, cozy, tasty, realistic for home cooking, and fresh for today.
 	 
-	 Recommendation direction:
-	 Suggest something trendy, cozy, tasty, and realistic for home cooking.
-	 The dish should feel like a fresh idea for today.
-	 Not super delusional
-	 
-	 User Alergies (optional): \(user.alergieIngredients)
-	 User Avoid ingredients (optional): \(user.avoidIngredients)
-	 
-	 User Recipe List (optional):
+	 User context:
+	 allergies: \(user.alergieIngredients)
+	 avoid ingredients: \(user.avoidIngredients)
+	 saved recipes:
 	 \(recipes.isEmpty ? "No saved recipes yet." : recipes)
 	 
-	 Use the User Recipe List only as taste context:
-	 - Avoid creating the exact same recipe.
-	 - You may recommend something similar in mood, cuisine, ingredients, or cooking style.
-	 - Keep the recommendation fresh and slightly different from what the user already has.
+	 Use saved recipes only as taste context. Do not create the exact same recipe.
 	 
-	 User Language: Ukrainian
+	 Return valid JSON only. No markdown, comments, nulls, extra text, or trailing commas.
 	 
-	 Return ONLY one valid JSON object.
-	 Do not use markdown.
-	 Do not use code blocks.
-	 Do not write explanations.
-	 Do not write any text before or after JSON.
-	 
-	 JSON structure must be exactly:
-	 
+	 Schema:
 	 {
-	 "name": "String",
-	 "time": Int,
-	 "difficulty": Int,
-	 "description": "String",
-	 "macros": "String",
-	 "tip": "String",
-	 "ingredients": {
-	   "Ingredient Name - amount": "category"
-	 },
-	 "instructions": ["String", "String", "String"],
-	 "search": "String"
+	   "name": "short Ukrainian title",
+	   "time": 35,
+	   "difficulty": 3,
+	   "description": "Ukrainian description, max 2 sentences",
+	   "macros": "kcal, proteins, fats, carbs",
+	   "tip": "short Ukrainian cooking tip",
+	   "ingredients": {
+	     "Ingredient Name - amount": "category"
+	   },
+	   "instructions": ["step - Ukrainian instruction sentence"],
+	   "search": "short English food image keywords"
 	 }
 	 
-	 Strict rules:
-	 
-	 1. "name" = short attractive User Language recipe title.
-	 2. "time" = realistic cooking time in minutes. Example: 35
-	 3. "difficulty" = integer only from 1 to 5.
-	 4. "description" = short tasty User Language description, max 2 sentences.
-	 5. "macros" = kcal, Proteins, Fats, Carbs numbers separated with comma. Example: "420, 24, 18, 38"
-	 6. "tip" = one short useful cooking tip about the dish.
-	 7. "ingredients" = JSON object only.
-	 Each key must be a recipe ingredient using this exact pattern:
-	 "Ingredient Name - amount"
-	 Each value must be one category from this exact list:
-	 [vegetables, fruits, protein, dairy, grains, spices, sauces, other]
-	 Category meaning:
-	 - protein = meat, fish, seafood, eggs, tofu, legumes used as the main protein.
-	 - sauces = sauces, paste, dressing, oil, vinegar, condiments.
-	 - other = water, stock, yeast, gelatin, starch, breadcrumbs, or anything that does not fit clearly.
-	 Example:
-	 {
-	   "Chicken - 300 g.": "protein",
-	   "Potato - 4 pcs.": "vegetables",
-	   "Salt - to taste": "spices"
-	 }
-	 8. "instructions" = JSON array only. Each item must be one User Language sentence of step and cookingStep from this list [wash, cut, peel, mix, bake, boil, fry, add, season, serve].
-	 Example:
-	 ["cut - Cut the vegetables into small pieces.", "fry - Brown the chicken until golden brown."]
-	 9. "search" = short English keywords for searching a food image.
-	 
-	 Important:
-	 - JSON must be syntactically valid.
-	 - Do not leave trailing commas.
-	 - Do not change key names.
-	 - Do not return null.
-	 - Do not add categories outside the allowed category list.
+	 Rules:
+	 - difficulty is an integer from 1 to 5.
+	 - macros example: "420, 24, 18, 38".
+	 - ingredients is a JSON object. Each key must be "Ingredient Name - amount".
+	 - ingredient category must be one of: vegetables, fruits, protein, dairy, grains, spices, sauces, other.
+	 - protein = meat, fish, seafood, eggs, tofu, legumes. sauces = oil, vinegar, dressings, condiments. other = only when nothing fits.
+	 - instructions items must start with one step from: wash, cut, peel, mix, bake, boil, fry, add, season, serve.
 	 """
   }
 
@@ -377,80 +293,40 @@ extension GeminiAPI{
 	 let recipes = userRecipeList.joined(separator: "\n")
 	 
 	 return """
-	 Create one recommended cooking recipe for the user.
+	 Create one Ukrainian recipe for this quick idea: \(prompt)
 	 
-	 Recommendation direction:
-	 \(prompt)
-	 
-	 User Alergies (optional): \(user.alergieIngredients)
-	 User Avoid ingredients (optional): \(user.avoidIngredients)
-	 
-	 User Recipe List (optional):
+	 User context:
+	 allergies: \(user.alergieIngredients)
+	 avoid ingredients: \(user.avoidIngredients)
+	 saved recipes:
 	 \(recipes.isEmpty ? "No saved recipes yet." : recipes)
 	 
-	 Use the User Recipe List only as taste context:
-	 - Avoid creating the exact same recipe.
-	 - You may recommend something similar in mood, cuisine, ingredients, or cooking style.
-	 - Keep the recommendation fresh and slightly different from what the user already has.
+	 Use saved recipes only as taste context. Do not create the exact same recipe.
 	 
-	 User Language: Ukrainian
+	 Return valid JSON only. No markdown, comments, nulls, extra text, or trailing commas.
 	 
-	 Return ONLY one valid JSON object.
-	 Do not use markdown.
-	 Do not use code blocks.
-	 Do not write explanations.
-	 Do not write any text before or after JSON.
-	 
-	 JSON structure must be exactly:
-	 
+	 Schema:
 	 {
-	 "name": "String",
-	 "time": Int,
-	 "difficulty": Int,
-	 "description": "String",
-	 "macros": "String",
-	 "tip": "String",
-	 "ingredients": {
-	   "Ingredient Name - amount": "category"
-	 },
-	 "instructions": ["String", "String", "String"],
-	 "search": "String"
+	   "name": "short Ukrainian title",
+	   "time": 35,
+	   "difficulty": 3,
+	   "description": "Ukrainian description, max 2 sentences",
+	   "macros": "kcal, proteins, fats, carbs",
+	   "tip": "short Ukrainian cooking tip",
+	   "ingredients": {
+	     "Ingredient Name - amount": "category"
+	   },
+	   "instructions": ["step - Ukrainian instruction sentence"],
+	   "search": "short English food image keywords"
 	 }
 	 
-	 Strict rules:
-	 
-	 1. "name" = short attractive User Language recipe title.
-	 2. "time" = realistic cooking time in minutes. Example: 35
-	 3. "difficulty" = integer only from 1 to 5.
-	 4. "description" = short tasty User Language description, max 2 sentences.
-	 5. "macros" = kcal, Proteins, Fats, Carbs numbers separated with comma. Example: "420, 24, 18, 38"
-	 6. "tip" = one short useful cooking tip about the dish.
-	 7. "ingredients" = JSON object only.
-	 Each key must be a recipe ingredient using this exact pattern:
-	 "Ingredient Name - amount"
-	 Each value must be one category from this exact list:
-	 [vegetables, fruits, protein, dairy, grains, spices, sauces, other]
-	 Category meaning:
-	 - protein = meat, fish, seafood, eggs, tofu, legumes used as the main protein.
-	 - sauces = sauces, paste, dressing, oil, vinegar, condiments.
-	 - other = water, stock, yeast, gelatin, starch, breadcrumbs, or anything that does not fit clearly.
-	 Example:
-	 {
-	   "Chicken - 300 g.": "protein",
-	   "Potato - 4 pcs.": "vegetables",
-	   "Salt - to taste": "spices"
-	 }
-	 8. "instructions" = JSON array only. Each item must be one User Language sentence of step and cookingStep from this list [wash, cut, peel, mix, bake, boil, fry, add, season, serve].
-	 Example:
-	 ["cut - Cut the vegetables into small pieces.", "fry - Brown the chicken until golden brown."]
-	 9. "search" = short English keywords for searching a food image.
-	 
-	 Important:
-	 - JSON must be syntactically valid.
-	 - Do not leave trailing commas.
-	 - Do not change key names.
-	 - Do not return null.
-	 - Do not add categories outside the allowed category list.
+	 Rules:
+	 - difficulty is an integer from 1 to 5.
+	 - macros example: "420, 24, 18, 38".
+	 - ingredients is a JSON object. Each key must be "Ingredient Name - amount".
+	 - ingredient category must be one of: vegetables, fruits, protein, dairy, grains, spices, sauces, other.
+	 - protein = meat, fish, seafood, eggs, tofu, legumes. sauces = oil, vinegar, dressings, condiments. other = only when nothing fits.
+	 - instructions items must start with one step from: wash, cut, peel, mix, bake, boil, fry, add, season, serve.
 	 """
   }
 }

@@ -8,27 +8,29 @@
 import SwiftUI
 
 struct UserStatistic: View {
+  let recipes: [UIRecipeModel]
+  let ingredientsCount: Int
     var body: some View {
 		HStack(){
-		  statCard(title: "Created", value: "12", icon: "books.vertical", color: .orange)
+		  statCard(title: "Created", value: "\(recipes.totalSaved)", icon: "books.vertical", color: .orange)
 			 .frame(maxWidth: .infinity)
 		  Rectangle()
-			 .fill(.herbalGreen.opacity(0.6))
+			 .fill(.accentCard.opacity(0.6))
 			 .frame(width: 1, height: 25)
 			 .padding(.vertical)
-		  statCard(title: "Cooked", value: "5", icon: "frying.pan", color: .brown)
+		  statCard(title: "Cooked", value: "\(recipes.totalCookedTimes)", icon: "frying.pan", color: .brown)
 			 .frame(maxWidth: .infinity)
 		  Rectangle()
-			 .fill(.herbalGreen.opacity(0.6))
+			 .fill(.accentCard.opacity(0.6))
 			 .frame(width: 1, height: 25)
 			 .padding(.vertical)
-		  statCard(title: "Favorites", value: "16", icon: "heart", color: .red)
+		  statCard(title: "Favorites", value: "\(recipes.totalFavorites)", icon: "heart", color: .red)
 			 .frame(maxWidth: .infinity)
 		  Rectangle()
-			 .fill(.herbalGreen.opacity(0.6))
+			 .fill(.accentCard.opacity(0.6))
 			 .frame(width: 1, height: 25)
 			 .padding(.vertical)
-		  statCard(title: "Ingredients", value: "36", icon: "leaf", color: .herbalGreen)
+		  statCard(title: "Ingredients", value: "\(ingredientsCount)", icon: "leaf", color: .accentCard)
 			 .frame(maxWidth: .infinity, alignment: .bottom)
 		}
 		.padding(12)
@@ -44,7 +46,7 @@ struct UserStatistic: View {
 
 
 #Preview {
-    UserStatistic()
+    UserStatistic(recipes: [], ingredientsCount: 0)
 }
 
 

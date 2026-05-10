@@ -11,12 +11,15 @@ struct AlergiesSheet: View {
   @EnvironmentObject private var vm: ProfileViewModel
     var body: some View {
 		ZStack{
-		  Color.warmBeige.opacity(0.4)
+		  Color.rareCard.opacity(0.4)
 			 .ignoresSafeArea()
 		  
-		  VStack{
+		  VStack(spacing: 15){
 			header
-			 
+			 Text("\(vm.activeSheet?.title ?? "Edit")")
+				.fontDesign(.serif)
+				.fontWeight(.semibold)
+				.frame(maxWidth: .infinity)
 			 VStack(alignment: .leading, spacing: 15){
 				//			 MARK: TextField
 				HStack{
@@ -36,19 +39,19 @@ struct AlergiesSheet: View {
 						.padding(10)
 						.background(
 						  Circle()
-							 .fill(.herbalGreen)
+							 .fill(.accentCard)
 						)
 				  }
 				}
 				.padding(8)
 				.background(
 				  RoundedRectangle(cornerRadius: 15)
-					 .fill(.softIvory)
+					 .fill(Color.background)
 				)
 				
 				Text("Popular choises")
 				  .font(.footnote)
-				  .foregroundStyle(.mossGreen)
+				  .foregroundStyle(.primaryAction)
 				
 				ListOfIngredients(current: false, array: (vm.getListOfPreferences())){alergie in vm.sheetAction(item: alergie)}
 				Divider()
@@ -100,29 +103,24 @@ struct AlergiesSheet: View {
   
   
   public var header: some View{
-	 Text("Edit \(vm.activeSheet?.title ?? "")")
-		.fontDesign(.serif)
-		.fontWeight(.semibold)
-		.frame(maxWidth: .infinity)
-		.overlay {
-		  HStack{
-			 Button{
-				vm.cancel()
-			 }label: {
-				Text("Cancel")
-			 }
-			 Spacer()
-			 Button{
-				vm.save()
-			 }label:{
-				Text("Save")
-			 }
-		  }
-		  .font(.subheadline)
-		  .foregroundStyle(.primaryAction)
+	 HStack{
+		Button{
+		  vm.cancel()
+		}label: {
+		  Text("Cancel")
 		}
-		.padding(.vertical)
+		Spacer()
+		Button{
+		  vm.save()
+		}label:{
+		  Text("Save")
+		}
+	 }
+	 .font(.subheadline)
+	 .foregroundStyle(.primaryAction)
+	 .padding(.top)
   }
+  
 }
 
 #Preview {

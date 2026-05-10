@@ -5,32 +5,41 @@
 //  Created by user on 04.05.2026.
 //
 
-import Foundation
+import SwiftUI
 import Combine
 
 
 class ProfileViewModel: ObservableObject{
   @Published var user: UserModel
+  @Published var selectedLanguage: AppLanguageEnum
   @Published var activeSheet: PreferenceTagType? = nil
   @Published var sheetText: String = ""
   
-  private let coreDataManager = CoreDataManager.shared
+  @AppStorage("appLanguage") private var storedLanguage = AppLanguageEnum.system.rawValue
+  
+  private let userManager = UserManager.shared
   init() {
-	 self.user = UserModel(entity: coreDataManager.fetchUser())
+	 self.user = userManager.user
+	 let language = UserDefaults.standard.string(forKey: "appLanguage") ?? AppLanguageEnum.system.rawValue
+	 self.selectedLanguage = AppLanguageEnum(rawValue: language) ?? .system
   }
   
   func fetchUser(){
-	 let entity = coreDataManager.fetchUser()
-	 self.user = UserModel(entity: entity)
+	 userManager.fetchUser()
+	 self.user = userManager.user
+	 self.selectedLanguage = AppLanguageEnum(rawValue: storedLanguage) ?? .system
   }
   
   func cancel() {
 	 fetchUser()
 	 activeSheet = nil
+	 sheetText.removeAll()
   }
   
   func save() {
-	 coreDataManager.editUser(user: user)
+	 userManager.user = user
+	 userManager.save()
+	 storedLanguage = selectedLanguage.rawValue
 	 activeSheet = nil
   }
   
@@ -79,4 +88,11 @@ class ProfileViewModel: ObservableObject{
   }
   
   
+  var recipes: [UIRecipeModel]{
+	 RecipesManager.shared.recipes
+  }
+  
+  var ingredientsCount: Int{
+	 IngredientsManager.shared.ingredients.count
+  }
 }

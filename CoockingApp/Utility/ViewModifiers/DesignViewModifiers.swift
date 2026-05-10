@@ -21,7 +21,7 @@ struct HeadlineViewModifier: ViewModifier {
 		.font(.headline)
 		.fontDesign(.rounded)
 		.fontWeight(.semibold)
-		.foregroundStyle(.mossGreen)
+		.foregroundStyle(.primaryAction)
   }
 }
 
@@ -30,7 +30,7 @@ struct BadgeIconViewModifier: ViewModifier{
   let size: Font
   func body(content: Content) -> some View {
 	 content
-		.foregroundStyle(.softIvory)
+		.foregroundStyle(Color.background)
 		.font(size)
 		.padding(10)
 		.background(

@@ -9,7 +9,7 @@ import Foundation
 
 
 enum CategoriesEnum: String, Identifiable, CaseIterable{
-  case favorite, vegetables, fruits, protein, dairy, grains, spices, sauces, other
+  case favorite, all, vegetables, fruits, protein, dairy, grains, spices, sauces, other
 
   
   var id: String { self.rawValue }
@@ -22,6 +22,8 @@ enum CategoriesEnum: String, Identifiable, CaseIterable{
 	 switch self {
 	 case .favorite:
 		"heart"
+	 case .all:
+		""
 	 case .vegetables:
 		"VegetablesBackground"
 	 case .fruits:
@@ -44,6 +46,8 @@ enum CategoriesEnum: String, Identifiable, CaseIterable{
   var opacity: Double{
 	 switch self {
 	 case .favorite:
+		1.0
+	 case .all:
 		1.0
 	 case .vegetables:
 		0.5

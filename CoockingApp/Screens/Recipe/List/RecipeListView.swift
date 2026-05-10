@@ -11,18 +11,18 @@ struct RecipeListView: View {
   @StateObject private var vm = RecipeListViewModel()
     var body: some View {
 		ZStack{
-		  Color.softIvory.ignoresSafeArea()
+		  Color.background.ignoresSafeArea()
 		  VStack(spacing: 20){
 			 header
 			 
 			 SearchBarList(ingredientsSearch: $vm.searchType, searchText: $vm.searchText)
 			 
-			 if vm.recipes.isEmpty{
+			 if vm.filteredRecipes.isEmpty{
 				VStack(spacing: 15){
 				  Image("NoRecipe")
 					 .resizable()
 					 .scaledToFit()
-				  Text("No Recipe Found")
+				  Text(vm.recipes.isEmpty ? "No Recipe Found" : "Nothing Found")
 					 .font(.title)
 					 .fontDesign(.rounded)
 					 .fontWeight(.light)
@@ -47,7 +47,7 @@ struct RecipeListView: View {
 				ScrollView{
 				  LazyVStack{
 					 ForEach(vm.filteredRecipes){recipe in
-						WideRecipeCardView(recipe: recipe, toggleFavorite: {vm.toggleFavorite(recipe.id)})
+						WideRecipeCardView(recipe: recipe, toggleFavorite: {vm.toggleFavorite(recipe.id)}, isEditing: vm.isEditing)
 					 }
 				  }
 				}
@@ -69,27 +69,57 @@ struct RecipeListView: View {
 		}
 		Spacer()
 		
-		HStack{
-		  Button{}label:{
-			 Image(systemName: "pencil")
-				.font(.title2)
-				.foregroundStyle(.primarytext)
-				.padding(8)
-				.background(
-				  Circle()
-					 .fill(.secondaryCard)
-				)
+		VStack(alignment: .trailing, spacing: 5){
+		  HStack{
+			 Button{
+				vm.isEditing.toggle()
+			 }label:{
+				Image(systemName: "trash")
+				  .font(.title3)
+				  .foregroundStyle(vm.isEditing ? Color.background : Color.primaryAction)
+				  .padding(8)
+				  .background(
+					 Circle()
+						.fill(vm.isEditing ? Color.avoid : .secondaryCard)
+				  )
+			 }
+			 Button{
+				NavigationManager.shared.secondaryScreens = .creation
+			 }label:{
+				Image(systemName: "plus")
+				  .font(.title3)
+				  .foregroundStyle(.primaryAction)
+				  .padding(8)
+				  .background(
+					 Circle()
+						.fill(.secondaryCard)
+				  )
+			 }
 		  }
-		  Button{}label:{
-			 Image(systemName: "plus")
-				.font(.title2)
-				.foregroundStyle(.primarytext)
-				.padding(8)
-				.background(
-				  Circle()
-					 .fill(.secondaryCard)
-				)
+		  Picker(selection: $vm.filter) {
+			 ForEach(FilterRecipeEnum.allCases){item in
+				HStack{
+				  Text(item.text)
+				  Image(systemName: item.icon)
+				}
+				.tag(item)
+			 }
+		  } label: {
+			 Text("Filter")
+		  }currentValueLabel: {
+			 HStack(){
+				Text(vm.filter.text)
+				Image(systemName: vm.filter.icon)
+			 }
 		  }
+		  .pickerStyle(.menu)
+		  .foregroundStyle(.primaryAction)
+		  .tint(.primaryAction)
+		  .background(
+			 RoundedRectangle(cornerRadius: 15)
+				.fill(.secondaryCard)
+		  )
+
 		}
 	 }
   }

@@ -1,3789 +1,4199 @@
 {
-  "sourceLanguage": "en",
-  "strings": {
-    "": {},
-    "/ %@": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "/ %@"
+  "sourceLanguage" : "en",
+  "strings" : {
+    "" : {
+
+    },
+    "/ %@" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/ %@"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/ %@"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/ %@"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/ %@"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/ %@"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/ %@"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/ %@"
+          }
+        }
+      }
+    },
+    "%@" : {
+      "shouldTranslate" : false
+    },
+    "%@ kcal • P %@g • F %@g • C %@g" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ kcal • E %2$@g • F %3$@g • K %4$@g"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ kcal • P %2$@g • F %3$@g • C %4$@g"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ kcal • P %2$@g • G %3$@g • C %4$@g"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ kcal • P %2$@g • L %3$@g • G %4$@g"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ kcal • P %2$@g • G %3$@g • C %4$@g"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ kcal • B %2$@g • T %3$@g • W %4$@g"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ kcal • P %2$@g • G %3$@g • C %4$@g"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ ккал • Б %2$@г • Ж %3$@г • В %4$@г"
+          }
+        }
+      }
+    },
+    "%@ min" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ Min."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ min"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ min"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ min"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ min"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ min"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ хв"
+          }
+        }
+      }
+    },
+    "%lld" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld"
+          }
+        }
+      }
+    },
+    "%lld / 5" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld / 5"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "/ %@"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld / 5"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "/ %@"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld / 5"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "/ %@"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld / 5"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "/ %@"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld / 5"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "/ %@"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld / 5"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "/ %@"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld / 5"
           }
         }
       }
     },
-    "%@": {
-      "shouldTranslate": false
+    "%lld items" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld Einträge"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld elementos"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld éléments"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld elementi"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld elementów"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld itens"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld елементів"
+          }
+        }
+      }
+    },
+    "%lld Recipes saved" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld Rezepte gespeichert"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld recetas guardadas"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld recettes enregistrées"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld ricette salvate"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld zapisanych przepisów"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld receitas salvas"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld рецептів збережено"
+          }
+        }
+      }
+    },
+    "3-day-free-trial" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "3 Tage kostenlos"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "3 días gratis"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "3 jours gratuits"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "3 giorni gratis"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "3 dni za darmo"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "3 dias grátis"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "3 дні безкоштовно"
+          }
+        }
+      }
     },
-    "%@ kcal • P %@g • F %@g • C %@g": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "new",
-            "value": "%1$@ kcal • P %2$@g • F %3$@g • C %4$@g"
+    "30% off" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "30% Rabatt"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "30% de descuento"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "-30%"
           }
         },
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%1$@ ккал • Б %2$@г • Ж %3$@г • В %4$@г"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "30% di sconto"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%1$@ kcal • B %2$@g • T %3$@g • W %4$@g"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "30% zniżki"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%1$@ kcal • E %2$@g • F %3$@g • K %4$@g"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "30% de desconto"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%1$@ kcal • P %2$@g • L %3$@g • G %4$@g"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Знижка 30%"
           }
+        }
+      }
+    },
+    "Add ingredients to presonalize you recipes" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Füge Zutaten hinzu, um deine Rezepte zu personalisieren"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Añade ingredientes para personalizar tus recetas"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ajoutez des ingrédients pour personnaliser vos recettes"
+          }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%1$@ kcal • P %2$@g • G %3$@g • C %4$@g"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aggiungi ingredienti per personalizzare le tue ricette"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%1$@ kcal • P %2$@g • G %3$@g • C %4$@g"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dodaj składniki, aby spersonalizować przepisy"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%1$@ kcal • P %2$@g • G %3$@g • C %4$@g"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adicione ingredientes para personalizar suas receitas"
           }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Додайте інгредієнти, щоб персоналізувати рецепти"
+          }
         }
       }
     },
-    "%@ min": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%@ хв"
+    "Allergies / Restrictions" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Allergien / Einschränkungen"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%@ min"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alergias / Restricciones"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%@ Min."
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Allergies / Restrictions"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%@ min"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Allergie / Restrizioni"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%@ min"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alergie / Ograniczenia"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%@ min"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alergias / Restrições"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%@ min"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Алергії / Обмеження"
           }
         }
       }
     },
-    "%lld": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%lld"
+    "Ask a question.." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stelle eine Frage.."
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%lld"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Haz una pregunta.."
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%lld"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Posez une question.."
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%lld"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fai una domanda.."
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%lld"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zadaj pytanie.."
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%lld"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Faça uma pergunta.."
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%lld"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Поставте питання.."
           }
         }
       }
     },
-    "%lld / 5": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%lld / 5"
+    "Ask our AI assistant anything about ingredients, substitutionsm technique, or tips!" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Frag den KI-Assistenten nach Zutaten, Alternativen, Techniken oder Tipps!"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%lld / 5"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pregunta al asistente de IA sobre ingredientes, sustituciones, técnicas o consejos."
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%lld / 5"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Demandez à l’assistant IA des conseils sur les ingrédients, substitutions, techniques ou astuces !"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%lld / 5"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chiedi all’assistente AI informazioni su ingredienti, sostituzioni, tecniche o consigli!"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%lld / 5"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zapytaj asystenta AI o składniki, zamienniki, techniki lub wskazówki!"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%lld / 5"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pergunte ao assistente de IA sobre ingredientes, substituições, técnicas ou dicas!"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%lld / 5"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Запитайте AI-помічника про інгредієнти, заміни, техніку або поради!"
           }
         }
       }
     },
-    "%lld items": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%lld елементів"
+    "Assistant will use this lightly to personalize recipes." : {
+
+    },
+    "Avoid Ingredients" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zutaten vermeiden"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%lld elementów"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ingredientes a evitar"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%lld Einträge"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ingrédients à éviter"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%lld éléments"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ingredienti da evitare"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%lld elementos"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unikane składniki"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%lld elementi"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ingredientes a evitar"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%lld itens"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Уникати інгредієнтів"
           }
         }
       }
     },
-    "%lld Recipes saved": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%lld рецептів збережено"
+    "Cancel" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abbrechen"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%lld zapisanych przepisów"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancelar"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%lld Rezepte gespeichert"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Annuler"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%lld recettes enregistrées"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Annulla"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%lld recetas guardadas"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anuluj"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%lld ricette salvate"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancelar"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%lld receitas salvas"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Скасувати"
           }
         }
       }
     },
-    "3-day-free-trial": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "3 дні безкоштовно"
+    "category.dairy" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Milchprodukte"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "3 dni za darmo"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lácteos"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "3 Tage kostenlos"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Produits laitiers"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "3 jours gratuits"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Latticini"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "3 días gratis"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nabiał"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "3 giorni gratis"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Laticínios"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "3 dias grátis"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Молочне"
           }
         }
       }
     },
-    "30% off": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Знижка 30%"
+    "category.favorites" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Favoriten"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "30% zniżki"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Favoritos"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "30% Rabatt"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Favoris"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "-30%"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Preferiti"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "30% de descuento"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ulubione"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "30% di sconto"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Favoritos"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "30% de desconto"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Улюблені"
           }
         }
       }
     },
-    "Add ingredients to presonalize you recipes": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Додайте інгредієнти, щоб персоналізувати рецепти"
+    "category.fruits" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Obst"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Dodaj składniki, aby spersonalizować przepisy"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Frutas"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Füge Zutaten hinzu, um deine Rezepte zu personalisieren"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fruits"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ajoutez des ingrédients pour personnaliser vos recettes"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Frutta"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Añade ingredientes para personalizar tus recetas"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Owoce"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Aggiungi ingredienti per personalizzare le tue ricette"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Frutas"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Adicione ingredientes para personalizar suas receitas"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Фрукти"
           }
         }
       }
     },
-    "Allergies / Restrictions": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Алергії / Обмеження"
+    "category.grains" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Getreide"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Alergie / Ograniczenia"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cereales"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Allergien / Einschränkungen"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Céréales"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Allergies / Restrictions"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cereali"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Alergias / Restricciones"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zboża"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Allergie / Restrizioni"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Grãos"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Alergias / Restrições"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Крупи"
           }
         }
       }
     },
-    "Ask a question..": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Поставте питання.."
+    "category.other" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sonstiges"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Zadaj pytanie.."
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Otros"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Stelle eine Frage.."
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Autre"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Posez une question.."
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Altro"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Haz una pregunta.."
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inne"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Fai una domanda.."
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Outros"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Faça uma pergunta.."
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Інше"
           }
         }
       }
     },
-    "Ask our AI assistant anything about ingredients, substitutionsm technique, or tips!": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Запитайте AI-помічника про інгредієнти, заміни, техніку або поради!"
+    "category.protein" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fleischiges"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Zapytaj asystenta AI o składniki, zamienniki, techniki lub wskazówki!"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Carnes"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Frag den KI-Assistenten nach Zutaten, Alternativen, Techniken oder Tipps!"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Viandes"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Demandez à l’assistant IA des conseils sur les ingrédients, substitutions, techniques ou astuces !"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Carni"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pregunta al asistente de IA sobre ingredientes, sustituciones, técnicas o consejos."
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mięsne"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Chiedi all’assistente AI informazioni su ingredienti, sostituzioni, tecniche o consigli!"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Carnes"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pergunte ao assistente de IA sobre ingredientes, substituições, técnicas ou dicas!"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Мʼясне"
           }
         }
       }
     },
-    "Avoid Ingredients": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Уникати інгредієнтів"
+    "category.sauces" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Saucen"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Unikane składniki"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Salsas"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Zutaten vermeiden"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sauces"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ingrédients à éviter"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Salse"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ingredientes a evitar"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sosy"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ingredienti da evitare"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Molhos"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ingredientes a evitar"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Соуси"
           }
         }
       }
     },
-    "Cancel": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Скасувати"
+    "category.spices" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gewürze"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Anuluj"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Especias"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Abbrechen"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Épices"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Annuler"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Spezie"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Cancelar"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Przyprawy"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Annulla"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Temperos"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Cancelar"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Спеції"
           }
         }
       }
     },
-    "Chef's Tip": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Порада шефа"
+    "category.vegetables" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gemüse"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Wskazówka szefa"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verduras"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tipp des Kochs"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Légumes"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Astuce du chef"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verdure"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Consejo del chef"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Warzywa"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Consiglio dello chef"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Legumes"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Dica do chef"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Овочі"
           }
         }
       }
+    },
+    "Change photo" : {
+
     },
-    "Cooking explorer": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Кулінарний дослідник"
+    "Chef's Tip" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tipp des Kochs"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Odkrywca gotowania"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Consejo del chef"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Küchenentdecker"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Astuce du chef"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Explorateur culinaire"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Consiglio dello chef"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Explorador culinario"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wskazówka szefa"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Esploratore di cucina"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dica do chef"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Explorador culinário"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Порада шефа"
           }
         }
       }
     },
-    "Cooking Style": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Стиль готування"
+    "Cooking explorer" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Küchenentdecker"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Styl gotowania"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Explorador culinario"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Kochstil"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Explorateur culinaire"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Style de cuisine"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Esploratore di cucina"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Estilo de cocina"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Odkrywca gotowania"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Stile di cucina"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Explorador culinário"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Estilo de cozinha"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Кулінарний дослідник"
           }
         }
       }
     },
-    "Create": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Створити"
+    "Cooking Style" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kochstil"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Utwórz"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Estilo de cocina"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Erstellen"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Style de cuisine"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Créer"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stile di cucina"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Crear"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Styl gotowania"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Crea"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Estilo de cozinha"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Criar"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Стиль готування"
           }
         }
       }
     },
-    "DeliNote": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "DeliNote"
+    "Create" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erstellen"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "DeliNote"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Crear"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "DeliNote"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Créer"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "DeliNote"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Crea"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "DeliNote"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Utwórz"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "DeliNote"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Criar"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "DeliNote"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Створити"
           }
         }
       }
     },
-    "DeliNote Premium": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "DeliNote Premium"
+    "Dairy" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Milchprodukte"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "DeliNote Premium"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lácteos"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "DeliNote Premium"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Produits laitiers"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "DeliNote Premium"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Latticini"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "DeliNote Premium"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nabiał"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "DeliNote Premium"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Laticínios"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "DeliNote Premium"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Молочне"
           }
         }
       }
     },
-    "Detail": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Деталі"
+    "DeliNote" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "DeliNote"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Szczegóły"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "DeliNote"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Details"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "DeliNote"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Détails"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "DeliNote"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Detalle"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "DeliNote"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Dettaglio"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "DeliNote"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Detalhes"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "DeliNote"
           }
         }
       }
     },
-    "Difficulty": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Складність"
+    "DeliNote Premium" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "DeliNote Premium"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Trudność"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "DeliNote Premium"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Schwierigkeit"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "DeliNote Premium"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Difficulté"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "DeliNote Premium"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Dificultad"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "DeliNote Premium"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Difficoltà"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "DeliNote Premium"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Dificuldade"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "DeliNote Premium"
           }
         }
       }
     },
-    "Dish Creation": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Створення страви"
+    "Detail" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Details"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tworzenie dania"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Detalle"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Gericht erstellen"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Détails"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Création du plat"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dettaglio"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Creación del plato"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Szczegóły"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Creazione del piatto"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Detalhes"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Criação do prato"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Деталі"
           }
         }
       }
     },
-    "Edit": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Змінити"
+    "Difficulty" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Schwierigkeit"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Edytuj"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dificultad"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Bearbeiten"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Difficulté"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Modifier"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Difficoltà"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Editar"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Trudność"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Modifica"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dificuldade"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Editar"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Складність"
           }
         }
       }
     },
-    "Edit %@": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Змінити %@"
+    "Dish Creation" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gericht erstellen"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Edytuj %@"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Creación del plato"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%@ bearbeiten"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Création du plat"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Modifier %@"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Creazione del piatto"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Editar %@"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tworzenie dania"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Modifica %@"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Criação do prato"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Editar %@"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Створення страви"
           }
         }
       }
     },
-    "Enter Product here": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Введіть продукт тут"
+    "Edit" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bearbeiten"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Wpisz produkt tutaj"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Editar"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Produkt hier eingeben"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Modifier"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Saisissez un produit ici"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Modifica"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Introduce el producto aquí"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Edytuj"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Inserisci il prodotto qui"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Editar"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Digite o produto aqui"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Змінити"
           }
         }
       }
     },
-    "Favorites Ingredients": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Улюблені інгредієнти"
+    "Edit %@" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ bearbeiten"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ulubione składniki"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Editar %@"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Lieblingszutaten"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Modifier %@"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ingrédients favoris"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Modifica %@"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ingredientes favoritos"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Edytuj %@"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ingredienti preferiti"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Editar %@"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ingredientes favoritos"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Змінити %@"
           }
         }
       }
     },
-    "Ideas": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ідеї"
+    "Edit Profile" : {
+
+    },
+    "Enter Product here" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Produkt hier eingeben"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pomysły"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Introduce el producto aquí"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ideen"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Saisissez un produit ici"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Idées"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inserisci il prodotto qui"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ideas"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wpisz produkt tutaj"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Idee"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Digite o produto aqui"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ideias"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Введіть продукт тут"
           }
         }
       }
     },
-    "Ingredient": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Інгредієнт"
+    "Favorites" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Favoriten"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Składnik"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Favoritos"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Zutat"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Favoris"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ingrédient"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Preferiti"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ingrediente"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ulubione"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ingrediente"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Favoritos"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ingrediente"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Улюблені"
           }
         }
       }
     },
-    "Ingredient you prefer to avoid": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Інгредієнти, яких ви хочете уникати"
+    "Favorites Ingredients" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lieblingszutaten"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Składniki, których wolisz unikać"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ingredientes favoritos"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Zutaten, die du vermeiden möchtest"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ingrédients favoris"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ingrédients que vous préférez éviter"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ingredienti preferiti"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ingredientes que prefieres evitar"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ulubione składniki"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ingredienti che preferisci evitare"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ingredientes favoritos"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ingredientes que você prefere evitar"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Улюблені інгредієнти"
           }
         }
       }
+    },
+    "Filter" : {
+
     },
-    "Ingredients": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Інгредієнти"
+    "Fruits" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Obst"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Składniki"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Frutas"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Zutaten"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fruits"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ingrédients"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Frutta"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ingredientes"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Owoce"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ingredienti"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Frutas"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ingredientes"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Фрукти"
           }
         }
       }
     },
-    "Key": {
-      "extractionState": "manual",
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ключ"
+    "Grains" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Getreide"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Klucz"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cereales"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Schlüssel"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Céréales"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Clé"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cereali"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Clave"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zboża"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Chiave"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Grãos"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Chave"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Крупи"
           }
         }
       }
     },
-    "Name": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Назва"
+    "Ideas" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ideen"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nazwa"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ideas"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Name"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Idées"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nom"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Idee"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nombre"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pomysły"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nome"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ideias"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nome"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ідеї"
           }
         }
       }
     },
-    "Need help with this recipe?": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Потрібна допомога з рецептом?"
+    "Ingredient" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zutat"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Potrzebujesz pomocy z tym przepisem?"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ingrediente"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Brauchst du Hilfe mit diesem Rezept?"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ingrédient"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Besoin d’aide avec cette recette ?"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ingrediente"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "¿Necesitas ayuda con esta receta?"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Składnik"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Hai bisogno di aiuto con questa ricetta?"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ingrediente"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Precisa de ajuda com esta receita?"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Інгредієнт"
           }
         }
       }
     },
-    "No information provided": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Інформацію не вказано"
+    "Ingredient you prefer to avoid" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zutaten, die du vermeiden möchtest"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nie podano informacji"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ingredientes que prefieres evitar"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Keine Informationen angegeben"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ingrédients que vous préférez éviter"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Aucune information fournie"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ingredienti che preferisci evitare"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "No se proporcionó información"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Składniki, których wolisz unikać"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nessuna informazione fornita"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ingredientes que você prefere evitar"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nenhuma informação fornecida"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Інгредієнти, яких ви хочете уникати"
           }
         }
       }
     },
-    "No Information provided": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Інформацію не вказано"
+    "Ingredients" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zutaten"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nie podano informacji"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ingredientes"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Keine Informationen angegeben"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ingrédients"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Aucune information fournie"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ingredienti"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "No se proporcionó información"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Składniki"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nessuna informazione fornita"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ingredientes"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nenhuma informação fornecida"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Інгредієнти"
           }
         }
       }
     },
-    "No Ingredient added yet": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Інгредієнти ще не додано"
+    "Key" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Schlüssel"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nie dodano jeszcze składników"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Clave"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Noch keine Zutat hinzugefügt"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Clé"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Aucun ingrédient ajouté"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chiave"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Aún no se añadió ningún ingrediente"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Klucz"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nessun ingrediente ancora aggiunto"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chave"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nenhum ingrediente adicionado ainda"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ключ"
           }
         }
       }
     },
-    "No Recipe Found": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Рецептів не знайдено"
+    "Name" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Name"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nie znaleziono przepisów"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nombre"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Kein Rezept gefunden"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nom"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Aucune recette trouvée"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nome"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "No se encontró ninguna receta"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nazwa"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nessuna ricetta trovata"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nome"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nenhuma receita encontrada"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Назва"
           }
         }
       }
     },
-    "OK": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "OK"
+    "Need help with this recipe?" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Brauchst du Hilfe mit diesem Rezept?"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "OK"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Necesitas ayuda con esta receta?"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "OK"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Besoin d’aide avec cette recette ?"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "OK"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hai bisogno di aiuto con questa ricetta?"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "OK"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Potrzebujesz pomocy z tym przepisem?"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "OK"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Precisa de ajuda com esta receita?"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "OK"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Потрібна допомога з рецептом?"
           }
         }
       }
     },
-    "Please add some ingredients or note": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Додайте інгредієнти або нотатку"
+    "No information provided" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keine Informationen angegeben"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Dodaj składniki lub notatkę"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se proporcionó información"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Bitte füge Zutaten oder eine Notiz hinzu"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aucune information fournie"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ajoutez des ingrédients ou une note"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nessuna informazione fornita"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Añade ingredientes o una nota"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nie podano informacji"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Aggiungi ingredienti o una nota"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nenhuma informação fornecida"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Adicione ingredientes ou uma anotação"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Інформацію не вказано"
           }
         }
       }
     },
-    "Popular choises": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Популярні варіанти"
+    "No Information provided" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keine Informationen angegeben"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Popularne wybory"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se proporcionó información"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Beliebte Auswahl"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aucune information fournie"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Choix populaires"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nessuna informazione fornita"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Opciones populares"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nie podano informacji"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Scelte popolari"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nenhuma informação fornecida"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Escolhas populares"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Інформацію не вказано"
           }
         }
       }
     },
-    "Potato Chicken Herbs": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Картопля Курка Зелень"
+    "No Ingredient added yet" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Noch keine Zutat hinzugefügt"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ziemniaki Kurczak Zioła"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aún no se añadió ningún ingrediente"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Kartoffel Hähnchen Kräuter"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aucun ingrédient ajouté"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pomme de terre Poulet Herbes"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nessun ingrediente ancora aggiunto"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Patata Pollo Hierbas"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nie dodano jeszcze składników"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Patate Pollo Erbe"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nenhum ingrediente adicionado ainda"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Batata Frango Ervas"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Інгредієнти ще не додано"
           }
         }
       }
     },
-    "Preferences": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Налаштування"
+    "No Recipe Found" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kein Rezept gefunden"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Preferencje"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se encontró ninguna receta"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vorlieben"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aucune recette trouvée"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Préférences"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nessuna ricetta trovata"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Preferencias"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nie znaleziono przepisów"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Preferenze"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nenhuma receita encontrada"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Preferências"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Рецептів не знайдено"
           }
         }
       }
     },
-    "Preferences regarding the dish": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Побажання щодо страви"
+    "Nothing Found" : {
+
+    },
+    "OK" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Preferencje dotyczące dania"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vorlieben zum Gericht"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Préférences pour le plat"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Preferencias sobre el plato"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Preferenze sul piatto"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Preferências sobre o prato"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
           }
         }
       }
     },
-    "Profile": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Профіль"
+    "Other" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sonstiges"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Profil"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Otros"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Profil"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Autre"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Profil"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Altro"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Perfil"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inne"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Profilo"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Outros"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Perfil"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Інше"
           }
         }
       }
     },
-    "Ready to create?": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Готові створити?"
+    "Personalization" : {
+
+    },
+    "Please add some ingredients or note" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bitte füge Zutaten oder eine Notiz hinzu"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Gotowy do tworzenia?"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Añade ingredientes o una nota"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Bereit zum Erstellen?"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ajoutez des ingrédients ou une note"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Prêt à créer ?"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aggiungi ingredienti o una nota"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "¿Listo para crear?"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dodaj składniki lub notatkę"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pronto a creare?"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adicione ingredientes ou uma anotação"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pronto para criar?"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Додайте інгредієнти або нотатку"
           }
         }
       }
     },
-    "Recipes": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Рецепти"
+    "Popular choises" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Beliebte Auswahl"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Przepisy"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Opciones populares"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Rezepte"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choix populaires"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Recettes"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scelte popolari"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Recetas"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Popularne wybory"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ricette"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Escolhas populares"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Receitas"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Популярні варіанти"
           }
         }
       }
     },
-    "Save": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Зберегти"
+    "Potato Chicken Herbs" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kartoffel Hähnchen Kräuter"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Zapisz"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Patata Pollo Hierbas"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Speichern"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pomme de terre Poulet Herbes"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Enregistrer"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Patate Pollo Erbe"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Guardar"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ziemniaki Kurczak Zioła"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Salva"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Batata Frango Ervas"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Salvar"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Картопля Курка Зелень"
           }
         }
       }
     },
-    "Search by %@": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Пошук за %@"
+    "Preferences" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vorlieben"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Szukaj według %@"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Preferencias"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Suchen nach %@"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Préférences"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Rechercher par %@"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Preferenze"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Buscar por %@"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Preferencje"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Cerca per %@"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Preferências"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Buscar por %@"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Налаштування"
           }
         }
       }
     },
-    "Start Cooking": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Почати готувати"
+    "Preferences regarding the dish" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vorlieben zum Gericht"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Zacznij gotować"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Preferencias sobre el plato"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Kochen starten"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Préférences pour le plat"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Commencer à cuisiner"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Preferenze sul piatto"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Empezar a cocinar"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Preferencje dotyczące dania"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Inizia a cucinare"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Preferências sobre o prato"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Começar a cozinhar"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Побажання щодо страви"
           }
         }
       }
     },
-    "This usually takes a few seconds": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Зазвичай це займає кілька секунд"
+    "Profile" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Profil"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Zwykle zajmuje to kilka sekund"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Perfil"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Das dauert normalerweise ein paar Sekunden"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Profil"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Cela prend généralement quelques secondes"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Profilo"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Esto suele tardar unos segundos"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Profil"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Di solito richiede pochi secondi"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Perfil"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Isso geralmente leva alguns segundos"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Профіль"
           }
         }
       }
     },
-    "Time of Cooking": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Час готування"
+    "Protein" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fleischiges"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Czas gotowania"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Carnes"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Kochzeit"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Viandes"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Temps de cuisson"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Carni"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tiempo de cocción"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mięsne"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tempo di cottura"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Carnes"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tempo de cozimento"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Мʼясне"
           }
         }
       }
     },
-    "To add multiple items, separate them with a comma": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Щоб додати кілька продуктів, розділяйте їх комою"
+    "Ready to create?" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bereit zum Erstellen?"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Aby dodać kilka produktów, oddziel je przecinkiem"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Listo para crear?"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Mehrere Produkte mit Komma trennen"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prêt à créer ?"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pour ajouter plusieurs éléments, séparez-les par une virgule"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pronto a creare?"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Para añadir varios elementos, sepáralos con una coma"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gotowy do tworzenia?"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Per aggiungere più elementi, separali con una virgola"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pronto para criar?"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Para adicionar vários itens, separe-os com vírgula"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Готові створити?"
           }
         }
       }
     },
-    "Try Again": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Спробувати ще раз"
+    "Recipes" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rezepte"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Spróbuj ponownie"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recetas"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Erneut versuchen"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recettes"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Réessayer"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ricette"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Intentar de nuevo"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Przepisy"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Riprova"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Receitas"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tentar novamente"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Рецепти"
           }
         }
       }
     },
-    "Unlimited recipes, scans and cooking help": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Необмежені рецепти, сканування та кулінарна допомога"
+    "Sauces" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Saucen"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nieograniczone przepisy, skany i pomoc w gotowaniu"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Salsas"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Unbegrenzte Rezepte, Scans und Kochhilfe"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sauces"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Recettes, scans et aide culinaire illimités"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Salse"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Recetas, escaneos y ayuda para cocinar ilimitados"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sosy"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ricette, scansioni e aiuto in cucina illimitati"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Molhos"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Receitas, escaneamentos e ajuda na cozinha ilimitados"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Соуси"
           }
         }
       }
     },
-    "Unlock your full cooking potential": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Розкрийте свій кулінарний потенціал"
+    "Save" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Speichern"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Odkryj swój pełny kulinarny potencjał"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Guardar"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Entfalte dein volles Kochpotenzial"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enregistrer"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Libérez tout votre potentiel culinaire"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Salva"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Desbloquea todo tu potencial en la cocina"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zapisz"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sblocca tutto il tuo potenziale in cucina"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Salvar"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Desbloqueie todo o seu potencial na cozinha"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Зберегти"
           }
         }
       }
     },
-    "Upgrade to Premium and get the most of AI-powered cooking": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Оновіться до Premium і отримайте максимум від AI-готування"
+    "Search by %@" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Suchen nach %@"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Przejdź na Premium i wykorzystaj pełnię gotowania z AI"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Buscar por %@"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Hol dir Premium und nutze KI-gestütztes Kochen voll aus"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rechercher par %@"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Passez à Premium et profitez pleinement de la cuisine avec IA"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cerca per %@"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pásate a Premium y aprovecha al máximo la cocina con IA"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Szukaj według %@"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Passa a Premium e sfrutta al massimo la cucina con AI"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Buscar por %@"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Assine o Premium e aproveite ao máximo a cozinha com IA"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пошук за %@"
           }
         }
       }
     },
-    "UserName": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Імʼя користувача"
+    "Spices" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gewürze"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nazwa użytkownika"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Especias"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Benutzername"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Épices"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nom d’utilisateur"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Spezie"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nombre de usuario"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Przyprawy"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nome utente"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Temperos"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nome de usuário"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Спеції"
           }
         }
       }
     },
-    "View all": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Дивитися всі"
+    "Start Cooking" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kochen starten"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Zobacz wszystko"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Empezar a cocinar"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Alle anzeigen"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Commencer à cuisiner"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tout voir"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inizia a cucinare"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ver todo"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zacznij gotować"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vedi tutto"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Começar a cozinhar"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ver tudo"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Почати готувати"
           }
         }
       }
+    },
+    "Start selection" : {
+
     },
-    "What shall we cook today?": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Що приготуємо сьогодні?"
+    "This usually takes a few seconds" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Das dauert normalerweise ein paar Sekunden"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Co dziś ugotujemy?"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Esto suele tardar unos segundos"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Was kochen wir heute?"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cela prend généralement quelques secondes"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Que cuisinons-nous aujourd’hui ?"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Di solito richiede pochi secondi"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "¿Qué cocinamos hoy?"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zwykle zajmuje to kilka sekund"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Cosa cuciniamo oggi?"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Isso geralmente leva alguns segundos"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "O que vamos cozinhar hoje?"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Зазвичай це займає кілька секунд"
           }
         }
       }
     },
-    "Your choises": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ваш вибір"
+    "Time of Cooking" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kochzeit"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Twój wybór"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tiempo de cocción"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Deine Auswahl"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Temps de cuisson"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vos choix"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tempo di cottura"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tus opciones"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Czas gotowania"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Le tue scelte"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tempo de cozimento"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Suas escolhas"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Час готування"
           }
         }
       }
     },
-    "Your dietary restrictions": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ваші харчові обмеження"
+    "To add multiple items, separate them with a comma" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mehrere Produkte mit Komma trennen"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Twoje ograniczenia dietetyczne"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Para añadir varios elementos, sepáralos con una coma"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Deine Ernährungseinschränkungen"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pour ajouter plusieurs éléments, séparez-les par une virgule"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vos restrictions alimentaires"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Per aggiungere più elementi, separali con una virgola"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tus restricciones alimentarias"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aby dodać kilka produktów, oddziel je przecinkiem"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Le tue restrizioni alimentari"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Para adicionar vários itens, separe-os com vírgula"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Suas restrições alimentares"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Щоб додати кілька продуктів, розділяйте їх комою"
           }
         }
       }
     },
-    "Your favorites": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ваші улюблені"
+    "Try Again" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erneut versuchen"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Twoje ulubione"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Intentar de nuevo"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Deine Favoriten"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Réessayer"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vos favoris"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Riprova"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tus favoritos"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Spróbuj ponownie"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "I tuoi preferiti"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tentar novamente"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Seus favoritos"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Спробувати ще раз"
           }
         }
       }
     },
-    "Favorites": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Улюблені"
+    "Unlimited recipes, scans and cooking help" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unbegrenzte Rezepte, Scans und Kochhilfe"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ulubione"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recetas, escaneos y ayuda para cocinar ilimitados"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Favoriten"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recettes, scans et aide culinaire illimités"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Favoris"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ricette, scansioni e aiuto in cucina illimitati"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Favoritos"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nieograniczone przepisy, skany i pomoc w gotowaniu"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Preferiti"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Receitas, escaneamentos e ajuda na cozinha ilimitados"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Favoritos"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Необмежені рецепти, сканування та кулінарна допомога"
           }
         }
       }
     },
-    "Vegetables": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Овочі"
+    "Unlock your full cooking potential" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Entfalte dein volles Kochpotenzial"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Warzywa"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Desbloquea todo tu potencial en la cocina"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Gemüse"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Libérez tout votre potentiel culinaire"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Légumes"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sblocca tutto il tuo potenziale in cucina"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Verduras"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Odkryj swój pełny kulinarny potencjał"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Verdure"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Desbloqueie todo o seu potencial na cozinha"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Legumes"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Розкрийте свій кулінарний потенціал"
           }
         }
       }
     },
-    "Fruits": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Фрукти"
+    "Create more recipes, scan ingredients, and get help while cooking" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erstelle mehr Rezepte, scanne Zutaten und erhalte Hilfe beim Kochen"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Owoce"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Crea más recetas, escanea ingredientes y recibe ayuda mientras cocinas"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Obst"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Créez plus de recettes, scannez des ingrédients et obtenez de l’aide en cuisinant"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Fruits"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Crea più ricette, scansiona ingredienti e ricevi aiuto mentre cucini"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Frutas"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Twórz więcej przepisów, skanuj składniki i korzystaj z pomocy podczas gotowania"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Frutta"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Crie mais receitas, escaneie ingredientes e receba ajuda enquanto cozinha"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Frutas"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Створюйте більше рецептів, скануйте інгредієнти й отримуйте допомогу під час готування"
           }
         }
       }
     },
-    "Protein": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Мʼясне"
+    "Cooking Assistant" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kochassistent"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Mięsne"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Asistente de cocina"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Fleischiges"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Assistant de cuisine"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Viandes"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Assistente di cucina"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Carnes"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Asystent gotowania"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Carni"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Assistente de cozinha"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Carnes"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Кулінарний асистент"
           }
         }
       }
     },
-    "Dairy": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Молочне"
+    "Create as many recipe ideas as you need." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erstelle so viele Rezeptideen, wie du brauchst."
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nabiał"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Crea tantas ideas de recetas como necesites."
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Milchprodukte"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Créez autant d’idées de recettes que nécessaire."
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Produits laitiers"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Crea tutte le idee di ricette che ti servono."
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Lácteos"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Twórz tyle pomysłów na przepisy, ile potrzebujesz."
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Latticini"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Crie quantas ideias de receitas precisar."
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Laticínios"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Створюйте стільки ідей рецептів, скільки потрібно."
           }
         }
       }
     },
-    "Grains": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Крупи"
+    "Get tips and answers while you cook." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erhalte Tipps und Antworten beim Kochen."
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Zboża"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recibe consejos y respuestas mientras cocinas."
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Getreide"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Obtenez des conseils et réponses pendant que vous cuisinez."
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Céréales"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ricevi consigli e risposte mentre cucini."
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Cereales"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Otrzymuj wskazówki i odpowiedzi podczas gotowania."
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Cereali"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Receba dicas e respostas enquanto cozinha."
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Grãos"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Отримуйте поради й відповіді під час готування."
           }
         }
       }
     },
-    "Spices": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Спеції"
+    "Photo Ingredient Scan" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zutaten per Foto scannen"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Przyprawy"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Escaneo de ingredientes"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Gewürze"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scan photo des ingrédients"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Épices"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scansione ingredienti"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Especias"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Skanowanie składników"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Spezie"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Escaneamento de ingredientes"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Temperos"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сканування інгредієнтів"
           }
         }
       }
     },
-    "Sauces": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Соуси"
+    "Recipe Notebook" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rezeptnotizbuch"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sosy"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cuaderno de recetas"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Saucen"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Carnet de recettes"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sauces"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Taccuino ricette"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Salsas"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Notatnik przepisów"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Salse"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Caderno de receitas"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Molhos"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Кулінарний записник"
           }
         }
       }
     },
-    "Other": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Інше"
+    "Save, edit and organize your dishes." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Speichere, bearbeite und ordne deine Gerichte."
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Inne"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Guarda, edita y organiza tus platos."
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sonstiges"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enregistrez, modifiez et organisez vos plats."
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Autre"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Salva, modifica e organizza i tuoi piatti."
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Otros"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zapisuj, edytuj i organizuj swoje dania."
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Altro"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Salve, edite e organize seus pratos."
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Outros"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Зберігайте, редагуйте й упорядковуйте свої страви."
           }
         }
       }
     },
-    "category.favorites": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Улюблені"
+    "Turn ingredients into recipe ideas." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verwandle Zutaten in Rezeptideen."
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ulubione"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Convierte ingredientes en ideas de recetas."
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Favoriten"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Transformez vos ingrédients en idées de recettes."
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Favoris"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Trasforma gli ingredienti in idee di ricette."
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Favoritos"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zamieniaj składniki w pomysły na przepisy."
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Preferiti"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Transforme ingredientes em ideias de receitas."
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Favoritos"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Перетворюйте інгредієнти на ідеї рецептів."
           }
         }
       }
     },
-    "category.vegetables": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Овочі"
+    "Unlimited Recipes" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unbegrenzte Rezepte"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Warzywa"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recetas ilimitadas"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Gemüse"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recettes illimitées"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Légumes"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ricette illimitate"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Verduras"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nieograniczone przepisy"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Verdure"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Receitas ilimitadas"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Legumes"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Необмежені рецепти"
           }
         }
       }
     },
-    "category.fruits": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Фрукти"
+    "UserName" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Benutzername"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Owoce"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nombre de usuario"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Obst"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nom d’utilisateur"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Fruits"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nome utente"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Frutas"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nazwa użytkownika"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Frutta"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nome de usuário"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Frutas"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Імʼя користувача"
           }
         }
       }
     },
-    "category.protein": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Мʼясне"
+    "Vegetables" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gemüse"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Mięsne"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verduras"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Fleischiges"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Légumes"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Viandes"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verdure"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Carnes"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Warzywa"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Carni"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Legumes"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Carnes"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Овочі"
           }
         }
       }
     },
-    "category.dairy": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Молочне"
+    "View all" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alle anzeigen"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nabiał"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ver todo"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Milchprodukte"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tout voir"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Produits laitiers"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vedi tutto"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Lácteos"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zobacz wszystko"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Latticini"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ver tudo"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Laticínios"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Дивитися всі"
           }
         }
       }
     },
-    "category.grains": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Крупи"
+    "What shall we cook today?" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Was kochen wir heute?"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Zboża"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Qué cocinamos hoy?"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Getreide"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Que cuisinons-nous aujourd’hui ?"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Céréales"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cosa cuciniamo oggi?"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Cereales"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Co dziś ugotujemy?"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Cereali"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O que vamos cozinhar hoje?"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Grãos"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Що приготуємо сьогодні?"
           }
         }
       }
     },
-    "category.spices": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Спеції"
+    "Your choises" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Deine Auswahl"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Przyprawy"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tus opciones"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Gewürze"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vos choix"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Épices"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le tue scelte"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Especias"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Twój wybór"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Spezie"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Suas escolhas"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Temperos"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ваш вибір"
           }
         }
       }
     },
-    "category.sauces": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Соуси"
+    "Your dietary restrictions" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Deine Ernährungseinschränkungen"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sosy"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tus restricciones alimentarias"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Saucen"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vos restrictions alimentaires"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sauces"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le tue restrizioni alimentari"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Salsas"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Twoje ograniczenia dietetyczne"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Salse"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Suas restrições alimentares"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Molhos"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ваші харчові обмеження"
           }
         }
       }
     },
-    "category.other": {
-      "localizations": {
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Інше"
+    "Your favorites" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Deine Favoriten"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Inne"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tus favoritos"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sonstiges"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vos favoris"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Autre"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "I tuoi preferiti"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Otros"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Twoje ulubione"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Altro"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Seus favoritos"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Outros"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ваші улюблені"
           }
         }
       }
     }
   },
-  "version": "1.1"
+  "version" : "1.1"
 }

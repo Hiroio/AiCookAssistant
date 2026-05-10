@@ -17,7 +17,7 @@ struct DishCard: View {
 			 .fontDesign(.serif)
 			 .fontWeight(.bold)
 			 .padding(.trailing, 80)
-			 .foregroundStyle(.charcoal)
+			 .foregroundStyle(.primarytext)
 			 .fixedSize(horizontal: false, vertical: true)
 		  
 		  VStack(alignment: .leading, spacing: 10){
@@ -39,10 +39,10 @@ struct DishCard: View {
 		ZStack{
 		  Rectangle()
 			 .fill(
-				RadialGradient(colors: [.softIvory, .clear], center: .trailing, startRadius: 300, endRadius: 70)
+				RadialGradient(colors: [Color.background, .clear], center: .trailing, startRadius: 300, endRadius: 70)
 			 )
 		  RoundedRectangle(cornerRadius: 20)
-			 .stroke(.mossGreen.opacity(0.5), lineWidth: 1)
+			 .stroke(.accentCard.opacity(0.5), lineWidth: 1)
 			 .shadow(radius: 1)
 		}
 	 )

@@ -62,6 +62,7 @@ extension MainViewModel{
 		  }
 		}catch{
 		  await MainActor.run {
+			 print(error.localizedDescription)
 			 self.recomendedError = CreationError.map(error)
 		  }
 		}

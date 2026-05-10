@@ -8,10 +8,13 @@
 import SwiftUI
 
 struct UserBanner: View {
+  let user: UserModel
+  let editAction: () -> Void
+  
     var body: some View {
 		VStack{
 		  HStack{
-			 Image("chefsHat")
+			 Image("profilePic")
 				.resizable()
 				.scaledToFit()
 				.shadow(radius: 1)
@@ -19,25 +22,27 @@ struct UserBanner: View {
 				  Circle()
 					 .fill(.rareCard.opacity(0.5))
 		  )
-				.frame(width: 75)
+				.frame(width: 85)
 			 VStack(alignment: .leading){
-				Text("UserName")
+				Text(user.username)
 				  .font(.headline)
 				Text("Cooking explorer")
 				  .font(.footnote)
 			 }
 			 .frame(maxWidth: .infinity, alignment: .leading)
 			 
-			 Button{}label: {
+			 Button {
+				editAction()
+			 } label: {
 				HStack{
 				  Text("Edit")
 				  Image(systemName: "pencil")
 				}
-				.foregroundStyle(.charcoal.opacity(0.7))
+				.foregroundStyle(.primarytext.opacity(0.7))
 				.padding(15)
 				.background(
 				  RoundedRectangle(cornerRadius: 20)
-					 .fill(.sageMist.opacity(0.5))
+					 .fill(Color.background.opacity(0.5))
 				)
 			 }
 		  }
@@ -46,5 +51,5 @@ struct UserBanner: View {
 }
 
 #Preview {
-    UserBanner()
+  UserBanner(user: UserModel(entity: CoreDataManager.shared.fetchUser())) {}
 }

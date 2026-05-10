@@ -14,7 +14,7 @@ struct IngredientCardView: View {
     var body: some View {
 		ZStack{
 		  Text(ingredient.name)
-			 .font(.headline.weight(.black))
+			 .font(.subheadline.weight(.black))
 			 .foregroundStyle(.primaryAction)
 			 .multilineTextAlignment(.center)
 		}
@@ -23,7 +23,7 @@ struct IngredientCardView: View {
 		.frame(width: 120, height: 120)
 		.background(
 		  ZStack{
-			 Color.warmBeige.opacity(0.2)
+			 Color.rareCard.opacity(0.2)
 			 Image("\(ingredient.category.background)")
 				.resizable()
 				.scaledToFit()
@@ -40,13 +40,8 @@ struct IngredientCardView: View {
 			 Spacer()
 			 
 			 if !selection{
-				Image(systemName: "heart")
+				Image(systemName: ingredient.isFavorite ? "heart.fill" : "heart")
 				  .foregroundStyle(.accentCard)
-				  .padding(5)
-				  .background(
-					 Circle()
-						.fill(Color.background)
-				  )
 			 }
 		  }
 		  .font(.title2)
@@ -54,11 +49,12 @@ struct IngredientCardView: View {
 		  .animation(.easeInOut, value: selected)
 		}
 		.cornerRadius(20)
+		.animation(.easeInOut, value: ingredient.isFavorite)
     }
 }
 
 #Preview {
-  IngredientCardView(ingredient: .other, selected: true, selection: true)
+  IngredientCardView(ingredient: .other, selected: true, selection: false)
 }
 
 

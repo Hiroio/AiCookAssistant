@@ -11,7 +11,7 @@ struct FavoriteIngredientCard: View {
     var body: some View {
 		HStack(alignment: .top){
 		Image(systemName: "leaf")
-		  .badgeIcon(color: .mossGreen.opacity(0.5))
+		  .badgeIcon(color: .primaryAction.opacity(0.5))
 		VStack(alignment: .leading){
 		  HStack{
 			 VStack(alignment: .leading){

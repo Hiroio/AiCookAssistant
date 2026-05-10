@@ -12,7 +12,7 @@ struct NavigationView: View {
   @EnvironmentObject private var navigationManager: NavigationManager
     var body: some View {
 		ZStack(alignment: .bottom){
-		  Color.softIvory.ignoresSafeArea()
+		  Color.background.ignoresSafeArea()
 		  VStack{
 			 switch navigationManager.mainNavigation {
 			 case .main:
@@ -20,7 +20,7 @@ struct NavigationView: View {
 			 case .recipes:
 				RecipeListView()
 			 case .products:
-				EmptyView()
+				IngredientsSectionView()
 			 case .profile:
 				ProfileView()
 			 }
@@ -62,6 +62,7 @@ struct NavigationView: View {
 			 .allowsHitTesting(navigationManager.error != nil)
 		  }
 		}
+//		MARK: Paywall
 		.sheet(isPresented: $storeManager.showingSheet){
 		  PaywallView()
 		}

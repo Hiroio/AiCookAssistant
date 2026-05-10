@@ -18,7 +18,7 @@ struct IngredientsGridView: View {
 				  if vm.selection{
 					 vm.selectIngredient(item)
 				  }else{
-//					 TODO: Toggle Favorite
+					 vm.toggleFavorite(item)
 				  }
 				}label:{
 				  IngredientCardView(ingredient: item, selected: vm.selectedIngredients.contains(where: {$0.id == item.id}), selection: vm.selection)

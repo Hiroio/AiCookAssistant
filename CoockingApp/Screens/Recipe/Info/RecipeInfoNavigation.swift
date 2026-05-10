@@ -15,7 +15,7 @@ struct RecipeInfoNavigation: View {
   }
     var body: some View {
 		ZStack{
-		  Color.softIvory.ignoresSafeArea()
+		  Color.background.ignoresSafeArea()
 		  VStack{
 			 header
 			 topBar
@@ -36,6 +36,11 @@ struct RecipeInfoNavigation: View {
 		  }
 		}
 		.environmentObject(vm)
+		.sheet(isPresented: $vm.shareIsPresented) {
+		  if let image = vm.shareImage {
+			 ActivityShareSheet(activityItems: [image])
+		  }
+		}
     }
   
   var header: some View{
@@ -46,9 +51,19 @@ struct RecipeInfoNavigation: View {
 		  Image(systemName: "chevron.left")
 		}
 		Spacer()
-		Button{}label: {
-		  Image(systemName: "square.and.arrow.up")
+		Button{
+		  Task {
+			 await vm.prepareShareImage()
+		  }
+		}label: {
+		  if vm.shareIsLoading {
+			 ProgressView()
+				.tint(.primarytext)
+		  } else {
+			 Image(systemName: "square.and.arrow.up")
+		  }
 		}
+		.disabled(vm.shareIsLoading)
 	 }
 	 .font(.headline)
 	 .fontWeight(.light)
@@ -68,12 +83,11 @@ struct RecipeInfoNavigation: View {
 			 }label: {
 				ZStack(alignment: .bottom){
 				  Text(item.text)
-					 .foregroundStyle(active ? .mossGreen : .charcoal)
+					 .foregroundStyle(active ? Color.primaryAction : .primarytext)
 					 .padding(.vertical)
-					 .shadow(color: .mossGreen, radius: active ? 1 : 0)
 				  if active{
 					 Rectangle()
-						.fill(.mossGreen)
+						.fill(.primaryAction)
 						.matchedGeometryEffect(id: "active", in: nameSpace)
 						.frame(height: 3)
 						.padding(.horizontal)

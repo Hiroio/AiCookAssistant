@@ -30,6 +30,7 @@
     <entity name="UserEntity" representedClassName="UserEntity" syncable="YES" codeGenerationType="class">
         <attribute name="allergies" optional="YES" attributeType="String"/>
         <attribute name="avoid" optional="YES" attributeType="String"/>
+        <attribute name="cookingIdentity" optional="YES" attributeType="String"/>
         <attribute name="freeGenerationsUsed" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="freeIdeasUsed" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="freeScanUses" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>

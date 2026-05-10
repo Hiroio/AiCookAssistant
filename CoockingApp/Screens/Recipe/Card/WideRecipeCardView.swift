@@ -12,64 +12,91 @@ struct WideRecipeCardView: View {
   let recipe: UIRecipeModel
   let toggleFavorite: () -> ()
   @State private var expanded: Bool = false
+  let isEditing: Bool
   var body: some View {
-	 Button{
-		withAnimation(.bouncy(duration: 0.8)){
-		  expanded.toggle()
-		}
-	 }label:{
-		HStack{
-		  VStack(alignment: .leading, spacing: 20){
-			 Text(recipe.name)
-				.title(weight: .bold, color: Color.primarytext)
-				.font(.title2)
-				.lineLimit(expanded ? 4 : 2)
-				.multilineTextAlignment(.leading)
-				.fixedSize(horizontal: false, vertical: true)
-			 
-			 HStack(spacing: 15){
-				statText(icon: "clock", value: "35 min")
-				  .foregroundStyle(Color.primarytext)
-				let difficulty = RecipeDifficulty.getDifficulty(recipe.difficulty)
-				statText(icon: "\(difficulty.icon).fill", value: difficulty.text)
-				  .foregroundStyle(difficulty.color)
-			 }
-			 .font(.footnote)
-			 .fontDesign(.rounded)
-			 
-			 if expanded{
-				expandedSection
-			 }
+	 HStack(spacing: 0){
+		Button{
+		  withAnimation(.bouncy(duration: 0.8)){
+			 expanded.toggle()
 		  }
-		  .frame(maxWidth: .infinity)
-		  Spacer()
-			 .frame(maxWidth: 200)
-		}
-		.padding()
-		.padding(.vertical)
-		.background(
-		  ZStack{
-			 Rectangle()
-				.fill(
-				  LinearGradient(colors: [Color.background, Color.background.opacity(0.9), .clear], startPoint: .topLeading, endPoint: .trailing)
-				)
-			 RoundedRectangle(cornerRadius: 20)
-				.stroke(Color.primaryAction.opacity(0.5), lineWidth: 1)
-				.shadow(radius: 1)
+		}label:{
+		  HStack{
+			 VStack(alignment: .leading, spacing: 20){
+				VStack(alignment: .leading){
+				  Text(recipe.name)
+					 .title(weight: .bold, color: Color.primarytext)
+					 .font(.title2)
+					 .lineLimit(expanded ? 4 : 2)
+					 .multilineTextAlignment(.leading)
+					 .fixedSize(horizontal: false, vertical: true)
+				  if expanded{
+					 Text(recipe.dateCreated.formatted(.dateTime.day().month().year()))
+						.font(.footnote.weight(.light))
+				  }
+				}
+				.frame(maxWidth: .infinity, alignment: .leading)
+				
+				  HStack(spacing: 15){
+					 statText(icon: "clock", value: "35 min")
+						.foregroundStyle(Color.primarytext)
+					 let difficulty = RecipeDifficulty.getDifficulty(recipe.difficulty)
+					 statText(icon: "\(difficulty.icon).fill", value: difficulty.text)
+						.foregroundStyle(difficulty.color)
+				  }
+				.font(.footnote)
+				.fontDesign(.rounded)
+				
+				if expanded{
+				  expandedSection
+				}
+			 }
+			 .frame(maxWidth: .infinity)
+			 Spacer()
+				.frame(maxWidth: .infinity)
 		  }
-		)
-		.background(
-		  backImage
-		)
-		.overlay(alignment: .topTrailing) {
-		  favoriteBtn
+		  .padding()
+		  .padding(.vertical)
+		  .background(
+			 ZStack{
+				Rectangle()
+				  .fill(
+					 LinearGradient(colors: [Color.background, Color.background.opacity(0.9), .clear], startPoint: .topLeading, endPoint: .trailing)
+				  )
+				RoundedRectangle(cornerRadius: 20)
+				  .stroke(Color.primaryAction.opacity(0.5), lineWidth: 1)
+				  .shadow(radius: 1)
+			 }
+		  )
+		  .background(
+			 backImage
+		  )
+		  .overlay(alignment: .topTrailing) {
+			 favoriteBtn
+		  }
+		  .clipShape(RoundedRectangle(cornerRadius: 20))
+		  .contentShape(.rect)
+		  .compositingGroup()
+		  .shadow(radius: 3, y: 3)
 		}
-		.clipShape(RoundedRectangle(cornerRadius: 20))
-		.contentShape(.rect)
-		.compositingGroup()
-		.shadow(radius: 3, y: 3)
+		.buttonStyle(.plain)
+		
+		if isEditing{
+		  Button{}label:{
+			 Image(systemName: "trash.fill")
+				.font(.title)
+				.foregroundStyle(Color.background)
+				.padding()
+				.padding(.vertical)
+		  }
+		}
 	 }
-	 .buttonStyle(.plain)
+	 .background(
+		RoundedRectangle(cornerRadius: 20)
+		  .fill(Color.avoid)
+	 )
+	 .animation(.bouncy, value: isEditing)
+	 
+	 
   }
   
   
@@ -142,5 +169,5 @@ struct WideRecipeCardView: View {
 }
 
 #Preview {
-  WideRecipeCardView(recipe: .preview, toggleFavorite: {})
+  WideRecipeCardView(recipe: .preview, toggleFavorite: {}, isEditing: false)
 }

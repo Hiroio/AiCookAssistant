@@ -43,4 +43,14 @@ class RecipesManager{
 	 fetchRecipe()
   }
   
+  func incrementTimesCooked(_ id: UUID){
+	 if let index = recipes.firstIndex(where: {$0.id == id}){
+		recipes[index].timesCooked += 1
+	 }
+	 
+	 coreDataManager.incrementTimesCooked(id)
+	 
+	 fetchRecipe()
+  }
+  
 }

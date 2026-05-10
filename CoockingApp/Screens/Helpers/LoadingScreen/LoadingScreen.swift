@@ -18,20 +18,20 @@ struct LoadingScreen: View {
   
   var body: some View {
 	 ZStack{
-		Color.white.ignoresSafeArea()
+		Color.background.ignoresSafeArea()
 		
 		TimelineView(.animation(minimumInterval: 1 / 30)) { context in
 		  let elapsed = context.date.timeIntervalSince(startTime)
-		  let messageIndex = Int(elapsed / type.messageInterval) % type.messages.count
-		  let dots = String(repeating: ".", count: Int(elapsed) % 4)
-		  let sprite = Int(elapsed * 7) % 13
+		  let messageIndex = Int(elapsed / 3) % type.messages.count
+		  let dots = String(repeating: ".", count: Int(elapsed / 0.75) % 4)
+		  let sprite = Int(elapsed * 8) % 13
 		  ZStack {
-			 VStack(spacing: 14) {
+			 VStack(spacing: 0) {
 				
 				Spacer()
 				Text(type.messages[messageIndex] + dots)
 				  .font(.title.weight(.black))
-				  .foregroundStyle(Color.primarytext)
+				  .foregroundStyle(Color.primaryAction)
 				  .contentTransition(.opacity)
 				  .animation(.easeInOut(duration: 0.25), value: messageIndex)
 				
@@ -44,7 +44,6 @@ struct LoadingScreen: View {
 				  .scaledToFit()
 			 }
 			 .multilineTextAlignment(.center)
-			 .padding(.horizontal, 36)
 		  }
 		}
 	 }

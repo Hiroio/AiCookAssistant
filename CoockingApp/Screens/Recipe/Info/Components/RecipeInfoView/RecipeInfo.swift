@@ -24,7 +24,7 @@ struct RecipeInfo: View {
 			 VStack(alignment: .leading){
 				Text("Chef's Tip")
 				  .font(.subheadline)
-				  .foregroundStyle(.secondaryGeneral)
+				  .foregroundStyle(.accentCard)
 				  .fontWeight(.medium)
 				Text(vm.recipe.cookingTip)
 				  .font(.caption)
@@ -35,7 +35,7 @@ struct RecipeInfo: View {
 		  .padding(12)
 		  .background(
 			 RoundedRectangle(cornerRadius: 20)
-				.fill(.warmBeige.opacity(0.4))
+				.fill(.rareCard.opacity(0.4))
 		  )
 		  
 		  
@@ -59,7 +59,7 @@ struct RecipeInfo: View {
 		  NavigationManager.shared.secondaryScreens = nil
 		}label: {
 		  Image(systemName: "xmark")
-			 .foregroundStyle(.softIvory)
+			 .foregroundStyle(Color.background)
 			 .padding()
 			 .background(
 				RoundedRectangle(cornerRadius: 25)
@@ -88,8 +88,7 @@ struct RecipeInfo: View {
 		}
 		Button{
 		  withAnimation(){
-			 vm.screenState = .instructions
-			 vm.cooking = true
+			 vm.startCooking()
 		  }
 		}label: {
 		  Text("Start Cooking")
@@ -113,7 +112,7 @@ struct RecipeInfo: View {
 
 #Preview {
   ZStack{
-	 Color.softIvory.ignoresSafeArea()
+	 Color.background.ignoresSafeArea()
 	 RecipeInfo()
 		.environmentObject(RecipeInfoViewModel(recipe: .preview))
   }
@@ -127,6 +126,5 @@ func statText(icon: String, value: String) -> some View{
 	 Text(value)
   }
 }
-
 
 

@@ -84,6 +84,18 @@ extension CoreDataManager{
 	 
 	 save()
   }
+  
+  func incrementTimesCooked(_ id: UUID){
+	 let request: NSFetchRequest<RecipeEntity> = NSFetchRequest(entityName: "RecipeEntity")
+	 
+	 request.predicate = NSPredicate(format: "id == %@", id as CVarArg)
+	 
+	 if let recipe = try? viewContext.fetch(request).first {
+		recipe.timesCooked += 1
+	 }
+	 
+	 save()
+  }
 }
 
 
@@ -105,6 +117,13 @@ extension CoreDataManager{
   func createUser() -> UserEntity{
 	 let entity = UserEntity(context: viewContext)
 	 entity.username = "New Chef"
+	 entity.cookingIdentity = CookingIdentityEnum.comfortCook.rawValue
+	 entity.allergies = ""
+	 entity.avoid = ""
+	 entity.freeGenerationsUsed = 5
+	 entity.freeIdeasUsed = 3
+	 entity.freeScanUses = 3
+	 entity.latestRefreshDate = Date()
 	 
 	 save()
 	 return entity
@@ -114,6 +133,8 @@ extension CoreDataManager{
   func editUser(user: UserModel) {
 	 let entity = fetchUser()
 	 
+	 entity.username = user.username
+	 entity.cookingIdentity = user.cookingIdentity.rawValue
 	 entity.allergies = user.alergieIngredients.joined(separator: "|")
 	 entity.avoid = user.avoidIngredients.joined(separator: "|")
 	 entity.freeGenerationsUsed = Int16(user.freeGenerationsUsed)

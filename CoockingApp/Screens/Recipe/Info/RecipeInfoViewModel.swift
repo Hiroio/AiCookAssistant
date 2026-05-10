@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import UIKit
 
 @MainActor
 class RecipeInfoViewModel: ObservableObject{
@@ -17,12 +18,16 @@ class RecipeInfoViewModel: ObservableObject{
   
   @Published var cooking: Bool = false
   @Published var fromCreating: Bool = false
+  @Published var shareImage: UIImage?
+  @Published var shareIsLoading: Bool = false
+  @Published var shareIsPresented: Bool = false
   
   var saved: Bool {
 	 recipeManager.recipes.contains(where: {$0.id == recipe.id}) && !recipe.isRecommended
   }
   
   private let geminiAPI = GeminiAPI()
+  private let shareService = ShareService.shared
   let recipeManager = RecipesManager.shared
   init(recipe: UIRecipeModel, fromCreation: Bool = false) {
 	 self.recipe = recipe
@@ -59,6 +64,26 @@ class RecipeInfoViewModel: ObservableObject{
 	 }else{
 		recipeManager.createRecipe(recipe: self.recipe)
 	 }
+  }
+  
+  func startCooking() {
+	 screenState = .instructions
+	 cooking = true
+	 
+	 guard saved else { return }
+	 
+	 recipe.timesCooked += 1
+	 recipeManager.incrementTimesCooked(recipe.id)
+  }
+  
+  func prepareShareImage() async {
+	 guard !shareIsLoading else { return }
+	 
+	 shareIsLoading = true
+	 defer { shareIsLoading = false }
+	 
+	 shareImage = await shareService.makeRecipeShareImage(recipe: recipe)
+	 shareIsPresented = shareImage != nil
   }
 }
 

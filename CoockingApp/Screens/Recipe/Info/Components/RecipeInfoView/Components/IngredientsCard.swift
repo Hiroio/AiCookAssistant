@@ -64,7 +64,7 @@ func macrosText(_ macros: String) -> some View{
 	 HStack{
 		Text("\(macroses[0]) kcal • P \(macroses[1])g • F \(macroses[2])g • C \(macroses[3])g")
 		  .font(.caption)
-		  .foregroundStyle(.secondaryGeneral)
+		  .foregroundStyle(.primarytext.opacity(0.6))
 	 }
   }else{
 	 EmptyView()
