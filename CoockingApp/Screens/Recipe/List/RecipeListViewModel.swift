@@ -15,7 +15,7 @@ class RecipeListViewModel: ObservableObject{
   @Published var searchText: String = ""
   @Published var isEditing: Bool = false
   @Published var filter: FilterRecipeEnum = .dateDescedent
-  
+  @Published var selectedRecipe: UIRecipeModel? = nil
   private let recipesManager = RecipesManager.shared
   
   init(){
@@ -29,7 +29,7 @@ class RecipeListViewModel: ObservableObject{
 	 recipes.filter({$0.isFavorite})
   }
   
-//  TODO: FAVORITE
+// MARK: toggle FAVORITE
   func toggleFavorite(_ id: UUID){
 	 if let index = recipes.firstIndex(where: {$0.id == id}){
 		self.recipes[index].isFavorite.toggle()
@@ -37,8 +37,17 @@ class RecipeListViewModel: ObservableObject{
 	 
 	 recipesManager.toggleFavorite(id)
   }
-//  TODO: DELETE
-  
+//  MARK:  DELETE
+  func deleteRecipe(recipe: UIRecipeModel){
+	 if let index = recipes.firstIndex(where: {$0.id == recipe.id}){
+		self.recipes[index].isFavorite.toggle()
+	 }
+	 
+	 recipesManager.deleteRecipe(recipe.id)
+	 
+	 recipes = recipesManager.recipes
+	 selectedRecipe = nil
+  }
   
   var filteredRecipes: [UIRecipeModel]{
 	 let filteredRecipes: [UIRecipeModel]
@@ -64,11 +73,11 @@ class RecipeListViewModel: ObservableObject{
 	 return recipes.filter { recipe in
 		if searchType {
 		  recipe.ingredients.contains { ingredient in
-			 ingredient.localizedCaseInsensitiveContains(query)
+			 ingredient.localizedStandardContains(query)
 		  }
 		} else {
-		  recipe.name.localizedCaseInsensitiveContains(query)
-		  || recipe.description.localizedCaseInsensitiveContains(query)
+		  recipe.name.localizedStandardContains(query)
+		  || recipe.description.localizedStandardContains(query)
 		}
 	 }
   }

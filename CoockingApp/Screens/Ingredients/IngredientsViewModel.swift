@@ -17,25 +17,11 @@ class IngredientsViewModel: ObservableObject{
   private let ingredientManager = IngredientsManager.shared
   init(){
 	 ingredients = ingredientManager.ingredients
-//	 ingredients = [.chicken, .dairy, .fruit, .grain, .other, .sauce, .spices, .vegi] mock
+//mock
+	 //	 ingredients = [.chicken, .dairy, .fruit, .grain, .other, .sauce, .spices, .vegi]
   }
   
-  
-  func selectIngredient(_ item: IngredientModel){
-	 if selectedIngredients.contains(where: {$0.id == item.id}){
-		selectedIngredients.removeAll(where: {$0.id == item.id})
-	 }else{
-		selectedIngredients.append(item)
-	 }
-  }
-  
-  func toggleFavorite(_ item: IngredientModel){
-	 if let index = ingredients.firstIndex(where: {$0.id == item.id}){
-		ingredients[index].isFavorite.toggle()
-	 }
-	 
-	 ingredientManager.toggleFavorite(ingredient: item)
-  }
+
   
   var categorizedIngredients: [IngredientModel]{
 	 switch category {
@@ -47,5 +33,35 @@ class IngredientsViewModel: ObservableObject{
 		ingredients.filter({$0.category == category})
 	 }
 	 
+  }
+}
+
+
+//MARK: Functions
+extension IngredientsViewModel{
+  //  Selection
+	 func selectIngredient(_ item: IngredientModel){
+		if selectedIngredients.contains(where: {$0.id == item.id}){
+		  selectedIngredients.removeAll(where: {$0.id == item.id})
+		}else{
+		  selectedIngredients.append(item)
+		}
+	 }
+	 
+  //  ToogleFavorite
+	 func toggleFavorite(_ item: IngredientModel){
+		if let index = ingredients.firstIndex(where: {$0.id == item.id}){
+		  ingredients[index].isFavorite.toggle()
+		}
+		
+		ingredientManager.toggleFavorite(ingredient: item)
+	 }
+  
+//  DELTE
+  func deleteSelected(){
+	 ingredientManager.deleteSelected(selected: selectedIngredients)
+	 ingredients.removeAll(where: {item in selectedIngredients.contains(where: {$0.id == item.id})})
+	 ingredients = ingredientManager.ingredients
+	 selectedIngredients.removeAll()
   }
 }

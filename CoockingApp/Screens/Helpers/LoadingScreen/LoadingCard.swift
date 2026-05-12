@@ -15,12 +15,12 @@ struct LoadingCard: View {
 		  let elapsed = context.date.timeIntervalSince(startTime)
 		  let sprite = Int(elapsed * 4) % 12
 		  ZStack {
-			 VStack(spacing: 14) {
+			 VStack(spacing: 0) {
 				Image("cooking\(sprite)")
 				  .resizable()
 				  .scaledToFit()
 			 }
-			 .multilineTextAlignment(.center)
+			 
 			 
 		  }
 		}

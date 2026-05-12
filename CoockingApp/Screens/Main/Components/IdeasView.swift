@@ -13,7 +13,11 @@ struct IdeasView: View {
 		HStack(alignment: .top){
 		  ForEach(IdeasEnum.getRandom()){item in
 			 Button{
-				createRecipe(item.prompt)
+				if !StoreManager.shared.hasFullAccess && UserManager.shared.user.freeIdeasUsed >= 3 {
+				  NavigationManager.shared.popup = .weeklyLimit(.ideas)
+				}else{
+				  createRecipe(item.prompt)
+				}
 			 }label:{
 				VStack{
 				  Image(systemName: item.icon)
@@ -42,5 +46,4 @@ struct IdeasView: View {
 #Preview {
     IdeasView(createRecipe: { _ in})
 }
-
 

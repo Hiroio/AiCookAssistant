@@ -32,6 +32,12 @@ struct NavigationView: View {
 		  SecondaryScreensView()
 		  
 		  if let popup = navigationManager.popup {
+			 ZStack{
+				Color.black.opacity(0.18)
+				  .ignoresSafeArea()
+				  .onTapGesture {
+					 navigationManager.popup = nil
+				  }
 			 NavigationPopUpView(
 				popup: popup,
 				primaryAction: {
@@ -43,7 +49,9 @@ struct NavigationView: View {
 				}
 			 )
 			 .transition(.opacity.combined(with: .scale(scale: 0.96)))
+		  }
 			 .zIndex(2)
+			 .allowsHitTesting(navigationManager.popup != nil)
 		  }
 //		  MARK: Error PopUp
 		  if let error = navigationManager.error {

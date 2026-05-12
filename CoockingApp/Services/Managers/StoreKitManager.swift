@@ -55,6 +55,15 @@ class StoreManager: ObservableObject {
 				break
 		  }
 	 }
+  
+  func restorePurchases() async {
+	 do {
+		try await AppStore.sync()
+		await updateSubscriptionStatus()
+	 } catch {
+		print("Помилка відновлення покупок: \(error)")
+	 }
+  }
 
 	 // Перевірка, чи є активна підписка зараз
 	 func updateSubscriptionStatus() async {
@@ -75,12 +84,12 @@ class StoreManager: ObservableObject {
 		  }
 	 }
 	 
-	 private func listenForTransactions() -> Task<Void, Error> {
-		  Task.detached {
-			 for await _ in Transaction.updates {
-					 // Оновлюємо статус, якщо транзакція прийшла ззовні (наприклад, через налаштування iOS)
-					 await self.updateSubscriptionStatus()
-				}
+		 private func listenForTransactions() -> Task<Void, Error> {
+			  Task {
+				 for await _ in Transaction.updates {
+						 // Оновлюємо статус, якщо транзакція прийшла ззовні (наприклад, через налаштування iOS)
+						 await self.updateSubscriptionStatus()
+					}
 		  }
 	 }
 }

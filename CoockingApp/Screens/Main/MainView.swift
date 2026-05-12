@@ -16,7 +16,7 @@ struct MainView: View {
 		VStack{
 		  header
 			 .padding(.horizontal)
-		  ScrollView(showsIndicators: false) {
+			  ScrollView {
 			 VStack(alignment: .leading, spacing: 28){
 				recommendedSection
 				quickIdeasSection
@@ -25,8 +25,9 @@ struct MainView: View {
 			 .padding(.horizontal, 20)
 			 .padding(.top, 12)
 			 .padding(.bottom, 36)
-		  }
-		}
+			  }
+			  .scrollIndicators(.hidden)
+			}
 	 }
 	 .sheet(isPresented: $showAllIdeas) {
 		VStack(spacing: 18){
@@ -57,6 +58,7 @@ struct MainView: View {
 				ForEach(IdeasEnum.allCases){idea in
 				  Button{
 					 vm.generateQuickIdeaRecipe(prompt: idea.prompt)
+					 showAllIdeas = false
 				  }label: {
 					 IdeaCard(idea)
 				  }
@@ -157,7 +159,14 @@ struct MainView: View {
   private var quickIdeasSection: some View {
 	 VStack(alignment: .leading, spacing: 14) {
 		HStack {
-		  sectionHeader("Quick Ideas")
+		  VStack(alignment: .leading, spacing: 0){
+			 sectionHeader("Quick Ideas")
+			 if !StoreManager.shared.hasFullAccess{
+				Text("Generation left: \(max(0, 3 - vm.user.freeIdeasUsed))")
+				  .font(.caption2.weight(.light))
+				  .opacity(0.6)
+			 }
+		  }
 		  Spacer()
 		  Button{
 			 showAllIdeas.toggle()
@@ -180,21 +189,43 @@ struct MainView: View {
   private var latestRecipesSection: some View {
 	 VStack(alignment: .leading, spacing: 14) {
 		sectionHeader("Latest Recipes")
-		ScrollView(.horizontal, showsIndicators: false) {
+			ScrollView(.horizontal) {
 		  LazyHStack(spacing: 14) {
-			 ForEach(vm.latestRecipes){item in
+			 if vm.latestRecipes.isEmpty{
+				
 				Button{
-				  NavigationManager.shared.secondaryScreens = .info(recipe: item, creation: false)
-				}label: {
-				  MiniRecipeCardView(recipe: item)
+				  NavigationManager.shared.secondaryScreens = .creation()
+				}label:{
+				  VStack{
+					 Image(systemName: "plus")
+						.foregroundStyle(.primaryAction)
+						.font(.title.weight(.semibold))
+						.fontDesign(.rounded)
+						.padding()
+					 Text("Create")
+						.font(.caption.weight(.light))
+						.foregroundStyle(.primaryAction)
+						.fontDesign(.rounded)
+				  }
 				}
 				.buttonStyle(.plain)
+				.latestCard()
+			 }else{
+				ForEach(vm.latestRecipes.prefix(5)){item in
+				  Button{
+					 NavigationManager.shared.secondaryScreens = .info(recipe: item, creation: false)
+				  }label: {
+					 MiniRecipeCardView(recipe: item)
+				  }
+				  .buttonStyle(.plain)
+				}
 			 }
 		  }
 		  .padding(.vertical, 4)
 		  .padding(.trailing, 20)
-		}
-		.contentMargins(.horizontal, 0, for: .scrollContent)
+			}
+			.scrollIndicators(.hidden)
+			.contentMargins(.horizontal, 0, for: .scrollContent)
 	 }
   }
 

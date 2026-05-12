@@ -5,6 +5,7 @@
 
     },
     "/ %@" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -335,7 +336,24 @@
         }
       }
     },
+    "+ %lld more" : {
+
+    },
+    "+ %lld more steps" : {
+
+    },
+    "~%@ kcal  •  P %@g  •  F %@g  •  C %@g" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "~%1$@ kcal  •  P %2$@g  •  F %3$@g  •  C %4$@g"
+          }
+        }
+      }
+    },
     "3-day-free-trial" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -382,6 +400,7 @@
       }
     },
     "30% off" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -518,6 +537,9 @@
           }
         }
       }
+    },
+    "Are you sure?" : {
+
     },
     "Ask a question.." : {
       "localizations" : {
@@ -1178,6 +1200,56 @@
         }
       }
     },
+    "Confirm" : {
+
+    },
+    "Cooking Assistant" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kochassistent"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Asistente de cocina"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Assistant de cuisine"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Assistente di cucina"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Asystent gotowania"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Assistente de cozinha"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Кулінарний асистент"
+          }
+        }
+      }
+    },
     "Cooking explorer" : {
       "localizations" : {
         "de" : {
@@ -1315,6 +1387,102 @@
           }
         }
       }
+    },
+    "Create as many recipe ideas as you need." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erstelle so viele Rezeptideen, wie du brauchst."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Crea tantas ideas de recetas como necesites."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Créez autant d’idées de recettes que nécessaire."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Crea tutte le idee di ricette che ti servono."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Twórz tyle pomysłów na przepisy, ile potrzebujesz."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Crie quantas ideias de receitas precisar."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Створюйте стільки ідей рецептів, скільки потрібно."
+          }
+        }
+      }
+    },
+    "Create more recipes, scan ingredients, and get help while cooking" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erstelle mehr Rezepte, scanne Zutaten und erhalte Hilfe beim Kochen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Crea más recetas, escanea ingredientes y recibe ayuda mientras cocinas"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Créez plus de recettes, scannez des ingrédients et obtenez de l’aide en cuisinant"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Crea più ricette, scansiona ingredienti e ricevi aiuto mentre cucini"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Twórz więcej przepisów, skanuj składniki i korzystaj z pomocy podczas gotowania"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Crie mais receitas, escaneie ingredientes e receba ajuda enquanto cozinha"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Створюйте більше рецептів, скануйте інгредієнти й отримуйте допомогу під час готування"
+          }
+        }
+      }
+    },
+    "Create some recipes to find new ingredients" : {
+
     },
     "Dairy" : {
       "extractionState" : "stale",
@@ -1878,6 +2046,53 @@
         }
       }
     },
+    "Get tips and answers while you cook." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erhalte Tipps und Antworten beim Kochen."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recibe consejos y respuestas mientras cocinas."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Obtenez des conseils et réponses pendant que vous cuisinez."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ricevi consigli e risposte mentre cucini."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Otrzymuj wskazówki i odpowiedzi podczas gotowania."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Receba dicas e respostas enquanto cozinha."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Отримуйте поради й відповіді під час готування."
+          }
+        }
+      }
+    },
     "Grains" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -2109,6 +2324,9 @@
         }
       }
     },
+    "Instructions" : {
+
+    },
     "Key" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -2155,6 +2373,9 @@
           }
         }
       }
+    },
+    "Made with DeliNote" : {
+
     },
     "Name" : {
       "localizations" : {
@@ -2531,6 +2752,53 @@
     "Personalization" : {
 
     },
+    "Photo Ingredient Scan" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zutaten per Foto scannen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Escaneo de ingredientes"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scan photo des ingrédients"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scansione ingredienti"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Skanowanie składników"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Escaneamento de ingredientes"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сканування інгредієнтів"
+          }
+        }
+      }
+    },
     "Please add some ingredients or note" : {
       "localizations" : {
         "de" : {
@@ -2900,6 +3168,53 @@
         }
       }
     },
+    "Recipe Notebook" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rezeptnotizbuch"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cuaderno de recetas"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Carnet de recettes"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Taccuino ricette"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Notatnik przepisów"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Caderno de receitas"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Кулінарний записник"
+          }
+        }
+      }
+    },
     "Recipes" : {
       "localizations" : {
         "de" : {
@@ -3035,6 +3350,53 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Зберегти"
+          }
+        }
+      }
+    },
+    "Save, edit and organize your dishes." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Speichere, bearbeite und ordne deine Gerichte."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Guarda, edita y organiza tus platos."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enregistrez, modifiez et organisez vos plats."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Salva, modifica e organizza i tuoi piatti."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zapisuj, edytuj i organizuj swoje dania."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Salve, edite e organize seus pratos."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Зберігайте, редагуйте й упорядковуйте свої страви."
           }
         }
       }
@@ -3179,6 +3541,9 @@
       }
     },
     "Start selection" : {
+
+    },
+    "This action is dangerous!\nYou won't be able to restore the changes!" : {
 
     },
     "This usually takes a few seconds" : {
@@ -3365,6 +3730,100 @@
         }
       }
     },
+    "Turn ingredients into recipe ideas." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verwandle Zutaten in Rezeptideen."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Convierte ingredientes en ideas de recetas."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Transformez vos ingrédients en idées de recettes."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Trasforma gli ingredienti in idee di ricette."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zamieniaj składniki w pomysły na przepisy."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Transforme ingredientes em ideias de receitas."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Перетворюйте інгредієнти на ідеї рецептів."
+          }
+        }
+      }
+    },
+    "Unlimited Recipes" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unbegrenzte Rezepte"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recetas ilimitadas"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recettes illimitées"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ricette illimitate"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nieograniczone przepisy"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Receitas ilimitadas"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Необмежені рецепти"
+          }
+        }
+      }
+    },
     "Unlimited recipes, scans and cooking help" : {
       "localizations" : {
         "de" : {
@@ -3453,420 +3912,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Розкрийте свій кулінарний потенціал"
-          }
-        }
-      }
-    },
-    "Create more recipes, scan ingredients, and get help while cooking" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Erstelle mehr Rezepte, scanne Zutaten und erhalte Hilfe beim Kochen"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Crea más recetas, escanea ingredientes y recibe ayuda mientras cocinas"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Créez plus de recettes, scannez des ingrédients et obtenez de l’aide en cuisinant"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Crea più ricette, scansiona ingredienti e ricevi aiuto mentre cucini"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Twórz więcej przepisów, skanuj składniki i korzystaj z pomocy podczas gotowania"
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Crie mais receitas, escaneie ingredientes e receba ajuda enquanto cozinha"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Створюйте більше рецептів, скануйте інгредієнти й отримуйте допомогу під час готування"
-          }
-        }
-      }
-    },
-    "Cooking Assistant" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Kochassistent"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Asistente de cocina"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Assistant de cuisine"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Assistente di cucina"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Asystent gotowania"
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Assistente de cozinha"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Кулінарний асистент"
-          }
-        }
-      }
-    },
-    "Create as many recipe ideas as you need." : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Erstelle so viele Rezeptideen, wie du brauchst."
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Crea tantas ideas de recetas como necesites."
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Créez autant d’idées de recettes que nécessaire."
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Crea tutte le idee di ricette che ti servono."
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Twórz tyle pomysłów na przepisy, ile potrzebujesz."
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Crie quantas ideias de receitas precisar."
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Створюйте стільки ідей рецептів, скільки потрібно."
-          }
-        }
-      }
-    },
-    "Get tips and answers while you cook." : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Erhalte Tipps und Antworten beim Kochen."
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Recibe consejos y respuestas mientras cocinas."
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Obtenez des conseils et réponses pendant que vous cuisinez."
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ricevi consigli e risposte mentre cucini."
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Otrzymuj wskazówki i odpowiedzi podczas gotowania."
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Receba dicas e respostas enquanto cozinha."
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Отримуйте поради й відповіді під час готування."
-          }
-        }
-      }
-    },
-    "Photo Ingredient Scan" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Zutaten per Foto scannen"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Escaneo de ingredientes"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Scan photo des ingrédients"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Scansione ingredienti"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Skanowanie składników"
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Escaneamento de ingredientes"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Сканування інгредієнтів"
-          }
-        }
-      }
-    },
-    "Recipe Notebook" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Rezeptnotizbuch"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Cuaderno de recetas"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Carnet de recettes"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Taccuino ricette"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Notatnik przepisów"
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Caderno de receitas"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Кулінарний записник"
-          }
-        }
-      }
-    },
-    "Save, edit and organize your dishes." : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Speichere, bearbeite und ordne deine Gerichte."
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Guarda, edita y organiza tus platos."
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Enregistrez, modifiez et organisez vos plats."
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Salva, modifica e organizza i tuoi piatti."
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Zapisuj, edytuj i organizuj swoje dania."
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Salve, edite e organize seus pratos."
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Зберігайте, редагуйте й упорядковуйте свої страви."
-          }
-        }
-      }
-    },
-    "Turn ingredients into recipe ideas." : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Verwandle Zutaten in Rezeptideen."
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Convierte ingredientes en ideas de recetas."
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Transformez vos ingrédients en idées de recettes."
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Trasforma gli ingredienti in idee di ricette."
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Zamieniaj składniki w pomysły na przepisy."
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Transforme ingredientes em ideias de receitas."
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Перетворюйте інгредієнти на ідеї рецептів."
-          }
-        }
-      }
-    },
-    "Unlimited Recipes" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Unbegrenzte Rezepte"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Recetas ilimitadas"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Recettes illimitées"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ricette illimitate"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nieograniczone przepisy"
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Receitas ilimitadas"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Необмежені рецепти"
           }
         }
       }
@@ -4055,6 +4100,9 @@
           }
         }
       }
+    },
+    "Whoops there's nothing here!" : {
+
     },
     "Your choises" : {
       "localizations" : {

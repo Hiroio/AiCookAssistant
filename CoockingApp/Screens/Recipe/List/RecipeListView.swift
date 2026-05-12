@@ -28,7 +28,9 @@ struct RecipeListView: View {
 					 .fontWeight(.light)
 					 .foregroundStyle(.primaryAction)
 				  
-				  Button{}label: {
+				  Button{
+					 NavigationManager.shared.secondaryScreens = .creation()
+				  }label: {
 					 Text("Ready to create?")
 						.font(.headline.weight(.semibold))
 						.fontDesign(.rounded)
@@ -47,13 +49,26 @@ struct RecipeListView: View {
 				ScrollView{
 				  LazyVStack{
 					 ForEach(vm.filteredRecipes){recipe in
-						WideRecipeCardView(recipe: recipe, toggleFavorite: {vm.toggleFavorite(recipe.id)}, isEditing: vm.isEditing)
+						WideRecipeCardView(recipe: recipe, toggleFavorite: {vm.toggleFavorite(recipe.id)}, isEditing: vm.isEditing, selectedForDelete: $vm.selectedRecipe)
 					 }
 				  }
 				}
 			 }
 		  }.padding()
+		  if let recipe = vm.selectedRecipe{
+			 ZStack{
+				Color.black.opacity(0.3)
+				  .ignoresSafeArea()
+				
+				DeletePopUpConfirmation(cancel: {vm.selectedRecipe = nil}) {
+				  vm.deleteRecipe(recipe: recipe)
+				}
+			 }
+			 .zIndex(1)
+			 .allowsHitTesting(vm.selectedRecipe != nil)
+		  }
 		}
+		.animation(.easeInOut, value: vm.selectedRecipe != nil)
     }
   
   private var header: some View{
@@ -62,7 +77,7 @@ struct RecipeListView: View {
 		  Text("Recipes")
 			 .font(.title)
 			 .title(weight: .semibold)
-		  Text("\(vm.recipes.count) Recipes saved")
+		  Text("\(vm.filteredRecipes.count) Recipes saved")
 			 .font(.subheadline)
 			 .fontDesign(.rounded)
 			 .opacity(0.8)
@@ -84,7 +99,7 @@ struct RecipeListView: View {
 				  )
 			 }
 			 Button{
-				NavigationManager.shared.secondaryScreens = .creation
+				NavigationManager.shared.secondaryScreens = .creation()
 			 }label:{
 				Image(systemName: "plus")
 				  .font(.title3)

@@ -47,7 +47,7 @@ struct MainNavigationBar: View {
 		)
 		.overlay(
 		  Button{
-			 navigationManager.secondaryScreens = .creation
+			 navigationManager.secondaryScreens = .creation()
 		  }label: {
 			 Image(systemName: "plus")
 				.font(.title2)

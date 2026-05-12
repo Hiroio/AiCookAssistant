@@ -48,13 +48,12 @@ struct IngredientCardView: View {
 		  .padding(10)
 		  .animation(.easeInOut, value: selected)
 		}
-		.cornerRadius(20)
-		.animation(.easeInOut, value: ingredient.isFavorite)
+			.clipShape(.rect(cornerRadius: 20))
+			.animation(.easeInOut, value: ingredient.isFavorite)
     }
 }
 
 #Preview {
   IngredientCardView(ingredient: .other, selected: true, selection: false)
 }
-
 

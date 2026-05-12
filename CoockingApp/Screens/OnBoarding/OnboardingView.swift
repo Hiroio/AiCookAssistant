@@ -8,19 +8,24 @@
 import SwiftUI
 
 struct OnboardingView: View {
+  @State private var animationDone: Bool = false
+  let complete: () -> ()
     var body: some View {
 		ZStack{
 		  Color.background.ignoresSafeArea()
-		  
-		  Image("comix")
-			 .resizable()
-			 .scaledToFit()
-			 .padding()
-		  
+		  if !animationDone{
+			 OnBoardingAnimation(){animationDone.toggle()}
+				.transition(.opacity)
+				.zIndex(1)
+				.allowsHitTesting(!animationDone)
+		  }else{
+			 OnBoardingTabView(complete: complete)
+		  }
 		}
+		.animation(.easeInOut(duration: 1.5), value: animationDone)
     }
 }
 
 #Preview {
-    OnboardingView()
+  OnboardingView(){}
 }

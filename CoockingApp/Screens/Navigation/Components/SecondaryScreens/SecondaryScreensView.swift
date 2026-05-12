@@ -13,8 +13,8 @@ struct SecondaryScreensView: View {
 	 ZStack{
 		Group{
 		  switch navigationManager.secondaryScreens {
-		  case .creation:
-			 CreationView()
+		  case .creation(let ingredients):
+			 CreationView(ingredients: ingredients)
 				.transition(.move(edge: .bottom).combined(with: .opacity))
 				.zIndex(1)
 		  case .info(let recipe, let fromCreation):

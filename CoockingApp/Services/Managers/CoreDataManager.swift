@@ -73,25 +73,32 @@ extension CoreDataManager{
 	 save()
   }
   
-  func toggleFavorite(_ id: UUID){
+  private func fetchSingleRecipe(id: UUID) throws -> RecipeEntity {
 	 let request: NSFetchRequest<RecipeEntity> = NSFetchRequest(entityName: "RecipeEntity")
 	 
 	 request.predicate = NSPredicate(format: "id == %@", id as CVarArg)
 	 
-	 if let recipe = try? viewContext.fetch(request).first{
+	 return try viewContext.fetch(request)[0]
+  }
+  
+  func toggleFavorite(_ id: UUID){
+	 if let recipe = try? fetchSingleRecipe(id: id){
 		recipe.isFavorite.toggle()
+	 }
+	 save()
+  }
+  
+  func incrementTimesCooked(_ id: UUID){
+	 if let recipe = try? fetchSingleRecipe(id: id){
+		recipe.timesCooked += 1
 	 }
 	 
 	 save()
   }
   
-  func incrementTimesCooked(_ id: UUID){
-	 let request: NSFetchRequest<RecipeEntity> = NSFetchRequest(entityName: "RecipeEntity")
-	 
-	 request.predicate = NSPredicate(format: "id == %@", id as CVarArg)
-	 
-	 if let recipe = try? viewContext.fetch(request).first {
-		recipe.timesCooked += 1
+  func deleteRecipe(_ id: UUID){
+	 if let recipe = try? fetchSingleRecipe(id: id){
+		viewContext.delete(recipe)
 	 }
 	 
 	 save()
@@ -120,9 +127,9 @@ extension CoreDataManager{
 	 entity.cookingIdentity = CookingIdentityEnum.comfortCook.rawValue
 	 entity.allergies = ""
 	 entity.avoid = ""
-	 entity.freeGenerationsUsed = 5
-	 entity.freeIdeasUsed = 3
-	 entity.freeScanUses = 3
+	 entity.freeGenerationsUsed = 0
+	 entity.freeIdeasUsed = 0
+	 entity.freeScanUses = 0
 	 entity.latestRefreshDate = Date()
 	 
 	 save()
@@ -144,9 +151,27 @@ extension CoreDataManager{
 	 
 	 save()
   }
+// MARK: Free Functionality
+  func addCameraUse(){
+	 let entity = fetchUser()
+	 entity.freeScanUses += 1
+	 save()
+  }
+  
+  func addGenerationUse(){
+	 let entity = fetchUser()
+	 entity.freeGenerationsUsed += 1
+	 save()
+  }
+  
+  func addIdeaGenerationUse(){
+	 let entity = fetchUser()
+	 entity.freeIdeasUsed += 1
+	 save()
+  }
 }
 
-
+//MARK: Ingredients
 extension CoreDataManager{
   func fetchIngredients() -> [IngredientsEntity]{
 	 let request: NSFetchRequest<IngredientsEntity> = NSFetchRequest(entityName: "IngredientsEntity")
@@ -177,5 +202,28 @@ extension CoreDataManager{
 		entity.isFavorite.toggle()
 	 }
 	 save()
+  }
+  
+  func deleteIngredients(ingredients: [IngredientModel]){
+	 let ids = ingredients.map(\.id)
+	 guard !ids.isEmpty else { return }
+	 
+	 let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "IngredientsEntity")
+	 fetchRequest.predicate = NSPredicate(format: "id IN %@", ids)
+	 
+	 let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+	 deleteRequest.resultType = .resultTypeObjectIDs
+	 
+	 do {
+		let result = try viewContext.execute(deleteRequest) as? NSBatchDeleteResult
+		let objectIDs = result?.result as? [NSManagedObjectID] ?? []
+		
+		NSManagedObjectContext.mergeChanges(
+		  fromRemoteContextSave: [NSDeletedObjectsKey: objectIDs],
+		  into: [viewContext]
+		)
+	 } catch {
+		print("Failed to batch delete ingredients: \(error.localizedDescription)")
+	 }
   }
 }

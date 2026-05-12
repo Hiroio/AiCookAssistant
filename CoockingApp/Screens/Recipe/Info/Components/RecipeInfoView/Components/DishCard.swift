@@ -50,19 +50,19 @@ struct DishCard: View {
 		HStack(alignment: .top){
 		  if let url = URL(string: recipe.imageUrl){
 			 AsyncImage(url: url){ image in
-				image
-				  .resizable()
-				  .scaledToFit()
-				  .cornerRadius(20)
+					image
+					  .resizable()
+					  .scaledToFit()
+					  .clipShape(.rect(cornerRadius: 20))
 			 }placeholder: {
 				Rectangle()
 			 }
 			 .scaledToFill()
 		  }else{
-			 Image("test")
-				.resizable()
-				.scaledToFill()
-				.cornerRadius(20)
+				 Image("test")
+					.resizable()
+					.scaledToFill()
+					.clipShape(.rect(cornerRadius: 20))
 		  }
 		}
 	 )

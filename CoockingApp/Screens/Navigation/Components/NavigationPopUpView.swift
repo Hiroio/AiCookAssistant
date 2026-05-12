@@ -13,12 +13,6 @@ struct NavigationPopUpView: View {
   let secondaryAction: () -> Void
   
   var body: some View {
-	 ZStack {
-		Color.black.opacity(0.18)
-		  .ignoresSafeArea()
-		  .onTapGesture {
-			 secondaryAction()
-		  }
 		
 		VStack(spacing: 0) {
 		  Image("dirtyDishes")
@@ -79,7 +73,6 @@ struct NavigationPopUpView: View {
 			 .shadow(color: .black.opacity(0.12), radius: 18, y: 8)
 		)
 		.padding(.vertical, 28)
-	 }
   }
 }
 

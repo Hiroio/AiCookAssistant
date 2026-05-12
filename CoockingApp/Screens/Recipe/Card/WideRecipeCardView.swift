@@ -13,6 +13,7 @@ struct WideRecipeCardView: View {
   let toggleFavorite: () -> ()
   @State private var expanded: Bool = false
   let isEditing: Bool
+  @Binding var selectedForDelete: UIRecipeModel?
   var body: some View {
 	 HStack(spacing: 0){
 		Button{
@@ -81,7 +82,9 @@ struct WideRecipeCardView: View {
 		.buttonStyle(.plain)
 		
 		if isEditing{
-		  Button{}label:{
+		  Button{
+			 selectedForDelete = recipe
+		  }label:{
 			 Image(systemName: "trash.fill")
 				.font(.title)
 				.foregroundStyle(Color.background)
@@ -169,5 +172,5 @@ struct WideRecipeCardView: View {
 }
 
 #Preview {
-  WideRecipeCardView(recipe: .preview, toggleFavorite: {}, isEditing: false)
+  WideRecipeCardView(recipe: .preview, toggleFavorite: {}, isEditing: false, selectedForDelete: .constant(nil))
 }

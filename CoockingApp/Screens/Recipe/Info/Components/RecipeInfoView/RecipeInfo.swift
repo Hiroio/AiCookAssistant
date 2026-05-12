@@ -10,7 +10,7 @@ import SwiftUI
 struct RecipeInfo: View {
   @EnvironmentObject private var vm: RecipeInfoViewModel
   var body: some View {
-	 ScrollView(showsIndicators: false){
+	 ScrollView{
 		VStack(spacing: 15){
 		  BigRecipeCardView(recipe: vm.recipe)
 		  
@@ -42,6 +42,7 @@ struct RecipeInfo: View {
 		}
 		.padding(.horizontal, 15)
 	 }
+	 .scrollIndicators(.hidden)
 	 .safeAreaInset(edge: .bottom){
 		if !vm.cooking{
 		  bottomBar
@@ -126,5 +127,4 @@ func statText(icon: String, value: String) -> some View{
 	 Text(value)
   }
 }
-
 

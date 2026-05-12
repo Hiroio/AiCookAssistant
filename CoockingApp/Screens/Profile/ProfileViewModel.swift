@@ -15,7 +15,14 @@ class ProfileViewModel: ObservableObject{
   @Published var activeSheet: PreferenceTagType? = nil
   @Published var sheetText: String = ""
   
-  @AppStorage("appLanguage") private var storedLanguage = AppLanguageEnum.system.rawValue
+  var storedLanguage: String{
+	 get{
+		UserDefaults.standard.string(forKey: "appLanguage") ?? AppLanguageEnum.system.rawValue
+	 }
+	 set{
+		UserDefaults.standard.set(newValue, forKey: "appLanguage")
+	 }
+  }
   
   private let userManager = UserManager.shared
   init() {

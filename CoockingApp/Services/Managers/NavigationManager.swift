@@ -30,7 +30,7 @@ class NavigationManager: ObservableObject {
 
 
 enum secondaryScreensEnum {
-  case creation, info(recipe: UIRecipeModel, creation: Bool = false)
+  case creation(ingredients: [String] = []), info(recipe: UIRecipeModel, creation: Bool = false)
 }
 
 enum UsageFeature {

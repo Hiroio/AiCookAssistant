@@ -9,6 +9,7 @@ import SwiftUI
 
 struct IngredientsSectionView: View {
   @StateObject private var vm = IngredientsViewModel()
+  @State private var deletePopUp: Bool = false
   var body: some View {
 	 ZStack{
 		Color.background.ignoresSafeArea()
@@ -32,6 +33,35 @@ struct IngredientsSectionView: View {
 			 .padding(.bottom)
 		}
 		.animation(.bouncy(duration: 0.6), value: vm.selection)
+		
+			if deletePopUp{
+			  ZStack{
+				 Color.black.opacity(0.2)
+					.ignoresSafeArea()
+					.onTapGesture {
+					  withAnimation(.easeInOut(duration: 0.2)) {
+						 deletePopUp = false
+					  }
+					}
+				 
+				 DeletePopUpConfirmation(
+				  cancel: {
+					 withAnimation(.easeInOut(duration: 0.2)) {
+						deletePopUp = false
+					 }
+				  },
+				  confirm: {
+					 vm.deleteSelected()
+					 withAnimation(.easeInOut(duration: 0.2)) {
+						deletePopUp = false
+					 }
+				  }
+				 )
+				 .transition(.opacity.combined(with: .scale(scale: 0.96)))
+			  }
+			  .zIndex(2)
+			  .allowsHitTesting(deletePopUp)
+			}
 	 }
   }
 
@@ -48,9 +78,13 @@ struct IngredientsSectionView: View {
 	 HStack{
 		if !vm.selection{
 		  Button{
+			 if vm.ingredients.isEmpty{
+				NavigationManager.shared.secondaryScreens = .creation()
+			 }else{
 				vm.selection = true
+			 }
 		  }label: {
-			 Text("Start selection")
+			 Text("Start \(vm.ingredients.isEmpty ? "Creation" : "Selection")")
 				.font(.headline.weight(.light))
 				.foregroundStyle(Color.background)
 				.padding(15)
@@ -87,15 +121,23 @@ struct IngredientsSectionView: View {
 				.frame(maxHeight: .infinity)
 			 }
 			 .padding(5)
-			 .background(
-				Color.secondaryCard
-			 )
-			 .cornerRadius(20)
-			 .compositingGroup()
-			 .shadow(radius: 1)
-			 //		  Delete
-			 Button{}label: {
-				Image(systemName: "trash.fill")
+				 .background(
+					Color.secondaryCard
+				 )
+				 .clipShape(.rect(cornerRadius: 20))
+				 .compositingGroup()
+					 .shadow(radius: 1)
+			 
+			 let active = !vm.selectedIngredients.isEmpty
+				 //		  Delete
+				 Button{
+					if active{
+					  withAnimation(.easeInOut(duration: 0.2)) {
+						 deletePopUp = true
+					  }
+					}
+				 }label: {
+					Image(systemName: "trash.fill")
 				  .foregroundStyle(Color.background)
 				  .padding(15)
 				  .background(
@@ -103,8 +145,11 @@ struct IngredientsSectionView: View {
 						.fill(.avoid)
 				  )
 			 }
+				 .opacity(active ? 1 : 0.6)
 			 //		  Generate
-			 Button{}label: {
+			 Button{
+				NavigationManager.shared.secondaryScreens = .creation(ingredients: vm.selectedIngredients.map({$0.name}))
+			 }label: {
 				Image(systemName: "bubbles.and.sparkles.fill")
 				  .foregroundStyle(Color.background)
 				  .padding(15)

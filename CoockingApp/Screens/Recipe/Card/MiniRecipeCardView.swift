@@ -44,27 +44,7 @@ struct MiniRecipeCardView: View {
 		.font(.caption2)
 		.foregroundStyle(Color.primarytext.opacity(0.62))
 	 }
-	 .frame(width: 90)
-	 .padding()
-	 .background(
-		ZStack{
-		  Color.background
-		  Color.rareCard.opacity(0.1)
-		}
-	 )
-	 .clipShape(
-		UnevenRoundedRectangle(cornerRadii: .init(topLeading: 0, bottomLeading: 15, bottomTrailing: 15, topTrailing: 0))
-	 )
-	 .padding(.top, 10)
-	 .overlay(alignment: .top) {
-		Image("pin")
-		  .resizable()
-		  .scaledToFit()
-		  .frame(height: 24)
-		  .blur(radius: 0.5)
-	 }
-	 .compositingGroup()
-	 .shadow(color: .black.opacity(0.1), radius: 2, y: 2)
+	 .latestCard()
   }
 }
 

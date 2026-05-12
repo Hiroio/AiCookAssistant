@@ -14,15 +14,10 @@ struct AssistanceView: View {
 		VStack(spacing: 25){
 		  if vm.recipe.chatHistory.isEmpty{
 			 Spacer()
-			 Image(systemName: "sparkles")
-				.font(.largeTitle.bold())
-				.foregroundStyle(.primaryAction.shadow(.inner(color: .accentCard,radius: 2, x: 3 ,y: 2)))
+			 Image("assist")
+				.resizable()
+				.scaledToFit()
 				.padding()
-				.background(
-				  Circle()
-					 .fill(.accentCard.opacity(0.2))
-				)
-				.scaleEffect(1.5)
 			 
 		  VStack(spacing: 15){
 			 Text("Need help with this recipe?")

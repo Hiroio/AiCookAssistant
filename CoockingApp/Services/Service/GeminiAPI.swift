@@ -143,6 +143,33 @@ class GeminiAPI{
 
 
 extension GeminiAPI{
+  private var responseLanguage: String {
+	 let storedLanguage = UserDefaults.standard.string(forKey: "appLanguage") ?? AppLanguageEnum.system.rawValue
+	 let selectedLanguage = AppLanguageEnum(rawValue: storedLanguage) ?? .system
+	 
+	 switch selectedLanguage {
+	 case .system:
+		let languageCode = Locale.autoupdatingCurrent.language.languageCode?.identifier ?? "en"
+		return Locale(identifier: "en").localizedString(forLanguageCode: languageCode)?.capitalized ?? "English"
+	 case .english:
+		return "English"
+	 case .ukrainian:
+		return "Ukrainian"
+	 case .polish:
+		return "Polish"
+	 case .german:
+		return "German"
+	 case .french:
+		return "French"
+	 case .spanish:
+		return "Spanish"
+	 case .italian:
+		return "Italian"
+	 case .portugueseBrazil:
+		return "Brazilian Portuguese"
+	 }
+  }
+  
   private func recipePayload(prompt: String) -> [String: Any] {
 	 [
 		"contents": [[
@@ -164,7 +191,7 @@ extension GeminiAPI{
 	 let ingredients = userIngredients.joined(separator: " ")
 	 
 	 return """
-	 Create one Ukrainian recipe.
+	 Create one recipe.
 	 
 	 Inputs:
 	 ingredients: \(ingredients)
@@ -173,25 +200,28 @@ extension GeminiAPI{
 	 allergies: \(user.alergieIngredients)
 	 avoid ingredients: \(user.avoidIngredients)
 	 user note: \(userNote)
+	 response language: \(responseLanguage)
 	 
 	 Return valid JSON only. No markdown, comments, nulls, extra text, or trailing commas.
 	 
 	 Schema:
 	 {
-	   "name": "short Ukrainian title",
+	   "name": "short recipe title in response language",
 	   "time": 35,
 	   "difficulty": 3,
-	   "description": "Ukrainian description, max 2 sentences",
+	   "description": "description in response language, max 2 sentences",
 	   "macros": "kcal, proteins, fats, carbs",
-	   "tip": "short Ukrainian cooking tip",
+	   "tip": "short cooking tip in response language",
 	   "ingredients": {
-	     "Ingredient Name - amount": "category"
+	     "Ingredient Name in response language - amount": "category"
 	   },
-	   "instructions": ["step - Ukrainian instruction sentence"],
+	   "instructions": ["step - instruction sentence in response language"],
 	   "search": "short English food image keywords"
 	 }
 	 
 	 Rules:
+	 - Use response language for name, description, tip, ingredient names, and instruction text.
+	 - Do not force a national cuisine based on response language. Choose any cuisine or home-cooking style that fits the inputs.
 	 - difficulty is an integer from 1 to 5.
 	 - macros example: "420, 24, 18, 38".
 	 - ingredients is a JSON object. Each key must be "Ingredient Name - amount".
@@ -207,7 +237,19 @@ extension GeminiAPI{
 	 let ingredients = currentIngredients.joined(separator: " ")
 	 
 	 let base64Image = imageData.base64EncodedString()
-	 let prompt = "Проаналізуй фото, та  поверни список інгрідієнів, що можеш побачити на фото в форматі String через 1 whitespace із вже можливо доданими інгрідієнтами - (\(ingredients)), Тільки продукти, або спеції, які використовуються для приготування їжі, Якщо ж ти нічого не знайдеш поверни пустий String, або теперішній список який надався якщо він був"
+	 let prompt = """
+	 Analyze the photo and return only a plain String of food ingredients you can see.
+	 Response language: \(responseLanguage).
+	 Current ingredients, if any: \(ingredients)
+	 
+	 Rules:
+	 - Return ingredient names in response language.
+	 - Include only food products, spices, herbs, sauces, or cooking ingredients.
+	 - Separate ingredients with one whitespace only.
+	 - If current ingredients are provided, keep them and add new detected ingredients.
+	 - If nothing useful is detected, return an empty String or the current ingredients if they were provided.
+	 - Do not write explanations, markdown, punctuation lists, JSON, bullets, or extra text.
+	 """
 	 
 	 let body: [String: Any] = [
 		"contents": [
@@ -228,7 +270,13 @@ extension GeminiAPI{
   }
   
   private func createBodyForChatRequest(messages: [ChatPart]) -> [String: Any]{
-	 let systemPrompt = "Ти — професійний шеф-кухар. Відповідай на уточнювальні питання по рецепту лаконічно та зрозуміло. Якщо користувач просить замінити інгредієнт, запропонуй найкращу альтернативу. Видай відповідь в String форматі без виділень # або ** просто текст"
+	 let systemPrompt = """
+	 You are a professional chef assistant.
+	 Answer recipe questions clearly and briefly.
+	 If the user asks to replace an ingredient, suggest the best practical alternative.
+	 Reply in the same language as the user's latest message.
+	 Return plain text only. Do not use markdown headings, bullets, #, **, or code formatting.
+	 """
 	 
 	 let body: [String: Any] = [
 		"systemInstruction": [
@@ -250,11 +298,12 @@ extension GeminiAPI{
 	 let recipes = userRecipeList.joined(separator: "\n")
 	 
 	 return """
-	 Create one Ukrainian recommended recipe: trendy, cozy, tasty, realistic for home cooking, and fresh for today.
+	 Create one recommended recipe: trendy, cozy, tasty, realistic for home cooking, and fresh for today.
 	 
 	 User context:
 	 allergies: \(user.alergieIngredients)
 	 avoid ingredients: \(user.avoidIngredients)
+	 response language: \(responseLanguage)
 	 saved recipes:
 	 \(recipes.isEmpty ? "No saved recipes yet." : recipes)
 	 
@@ -264,20 +313,22 @@ extension GeminiAPI{
 	 
 	 Schema:
 	 {
-	   "name": "short Ukrainian title",
+	   "name": "short recipe title in response language",
 	   "time": 35,
 	   "difficulty": 3,
-	   "description": "Ukrainian description, max 2 sentences",
+	   "description": "description in response language, max 2 sentences",
 	   "macros": "kcal, proteins, fats, carbs",
-	   "tip": "short Ukrainian cooking tip",
+	   "tip": "short cooking tip in response language",
 	   "ingredients": {
-	     "Ingredient Name - amount": "category"
+	     "Ingredient Name in response language - amount": "category"
 	   },
-	   "instructions": ["step - Ukrainian instruction sentence"],
+	   "instructions": ["step - instruction sentence in response language"],
 	   "search": "short English food image keywords"
 	 }
 	 
 	 Rules:
+	 - Use response language for name, description, tip, ingredient names, and instruction text.
+	 - Do not force a national cuisine based on response language. Choose any trendy home-cooking idea.
 	 - difficulty is an integer from 1 to 5.
 	 - macros example: "420, 24, 18, 38".
 	 - ingredients is a JSON object. Each key must be "Ingredient Name - amount".
@@ -293,11 +344,12 @@ extension GeminiAPI{
 	 let recipes = userRecipeList.joined(separator: "\n")
 	 
 	 return """
-	 Create one Ukrainian recipe for this quick idea: \(prompt)
+	 Create one recipe for this quick idea: \(prompt)
 	 
 	 User context:
 	 allergies: \(user.alergieIngredients)
 	 avoid ingredients: \(user.avoidIngredients)
+	 response language: \(responseLanguage)
 	 saved recipes:
 	 \(recipes.isEmpty ? "No saved recipes yet." : recipes)
 	 
@@ -307,20 +359,22 @@ extension GeminiAPI{
 	 
 	 Schema:
 	 {
-	   "name": "short Ukrainian title",
+	   "name": "short recipe title in response language",
 	   "time": 35,
 	   "difficulty": 3,
-	   "description": "Ukrainian description, max 2 sentences",
+	   "description": "description in response language, max 2 sentences",
 	   "macros": "kcal, proteins, fats, carbs",
-	   "tip": "short Ukrainian cooking tip",
+	   "tip": "short cooking tip in response language",
 	   "ingredients": {
-	     "Ingredient Name - amount": "category"
+	     "Ingredient Name in response language - amount": "category"
 	   },
-	   "instructions": ["step - Ukrainian instruction sentence"],
+	   "instructions": ["step - instruction sentence in response language"],
 	   "search": "short English food image keywords"
 	 }
 	 
 	 Rules:
+	 - Use response language for name, description, tip, ingredient names, and instruction text.
+	 - Do not force a national cuisine based on response language. Follow the quick idea instead.
 	 - difficulty is an integer from 1 to 5.
 	 - macros example: "420, 24, 18, 38".
 	 - ingredients is a JSON object. Each key must be "Ingredient Name - amount".

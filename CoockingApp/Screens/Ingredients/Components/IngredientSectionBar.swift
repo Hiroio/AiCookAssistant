@@ -19,7 +19,7 @@ struct IngredientSectionBar: View {
 				.foregroundStyle(.primaryAction)
 				.padding(.leading)
 		  }
-		  ScrollView(.horizontal, showsIndicators: false){
+		  ScrollView(.horizontal){
 			 HStack(spacing: 10){
 				ForEach(CategoriesEnum.allCases){section in
 				  let active = currentSection == section
@@ -32,12 +32,12 @@ struct IngredientSectionBar: View {
 							 Text(section.rawValue.capitalized)
 								.foregroundStyle(active ? .primaryAction : Color.primarytext )
 								.padding(.vertical, 12)
-							 if active{
-								Rectangle()
-								  .fill(.primaryAction)
-								  .frame(height: 3)
-								  .matchedGeometryEffect(id: "Category", in: nameSpace)
-							 }
+//							 if active{
+//								Rectangle()
+//								  .fill(.primaryAction)
+//								  .frame(height: 3)
+//								  .matchedGeometryEffect(id: "Category", in: nameSpace)
+//							 }
 						  }
 						}
 						.padding(.horizontal, 15)
@@ -48,16 +48,17 @@ struct IngredientSectionBar: View {
 					 }
 				  }
 				}
-			 }
-		  }
+			  }
+			  .scrollIndicators(.hidden)
+			}
 		}
 		.padding(5)
 		.background(
 			 Color.secondaryCard
 				.opacity(0.3)
 		)
-		.cornerRadius(15)
-    }
+			.clipShape(.rect(cornerRadius: 15))
+	    }
 }
 
 #Preview {

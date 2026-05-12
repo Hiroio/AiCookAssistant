@@ -12,7 +12,7 @@ struct ListOfIngredients: View {
   let array: [String]
   let add: (String) -> ()
   var body: some View {
-	 ScrollView(.horizontal, showsIndicators: false){
+		 ScrollView(.horizontal){
 		LazyHGrid(rows: [GridItem(.flexible(), spacing: 0), GridItem(.flexible(), spacing: 0)], spacing: 15) {
 		  ForEach(array, id: \.self){item in
 			 Button{
@@ -35,8 +35,9 @@ struct ListOfIngredients: View {
 			 }
 		  }
 		}
-	 }
-	 .frame(height: 85)
+		 }
+		 .scrollIndicators(.hidden)
+		 .frame(height: 85)
   }
 }
 

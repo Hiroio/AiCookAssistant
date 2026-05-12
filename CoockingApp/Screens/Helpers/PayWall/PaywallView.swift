@@ -9,20 +9,10 @@ import SwiftUI
 import StoreKit
 
 struct PaywallView: View {
+  @State private var loaded: Bool = false
     var body: some View {
 		ZStack{
 		  Color.background.ignoresSafeArea()
-		  HStack{
-			 Spacer()
-				.frame(maxWidth: .infinity)
-			 Image("ChefCooking")
-				.resizable()
-				.scaledToFit()
-				.frame(maxWidth: .infinity)
-				.padding(15)
-		  }
-		  .frame(maxHeight: .infinity, alignment: .top)
-		  .padding(.top, 25)
 		  
 		  SubscriptionStoreView(groupID: "237F9169"){
 			 VStack(spacing: 25){
@@ -40,14 +30,47 @@ struct PaywallView: View {
 				  Spacer()
 					 .frame(maxWidth: .infinity)
 				}
+				.background(
+				  HStack{
+					 Spacer()
+						.frame(maxWidth: .infinity)
+					 Image("ChefCooking")
+						.resizable()
+						.scaledToFit()
+						.frame(maxWidth: .infinity)
+						.padding(15)
+						.scaleEffect(1.3)
+				  }
+				  .frame(maxHeight: .infinity, alignment: .top)
+				)
 				
 				PaywallFeaturesCard()
+				  .onAppear{
+					 loaded.toggle()
+				  }
 			 }
 		  }
-		  .subscriptionStoreControlBackground(.gradientMaterialOnScroll)
+		  .subscriptionStoreControlBackground(Color.background)
 		  .subscriptionStoreControlStyle(.compactPicker, placement: .bottomBar)
 		  .tint(.primaryAction)
+		  .subscriptionStorePolicyForegroundStyle(.accentCard, .primaryAction)
+		  .background(
+				Color.background
+		  )
 		}
+		.safeAreaInset(edge: .bottom, content: {
+		  Button{
+			 Task{
+				await StoreManager.shared.restorePurchases()
+			 }
+		  }label:{
+			 Text("Restore Purchases")
+				.font(.caption)
+				.foregroundStyle(.primarytext)
+				.opacity(0.7)
+		  }
+		})
+		.animation(.easeOut(duration: 1), value: loaded)
     }
 }
 

@@ -18,24 +18,34 @@ class IngredientsManager{
 	 fetch()
   }
   
+//  fetch
   func fetch() {
 	 let entities = coreDateManager.fetchIngredients()
 	 
 	 self.ingredients = entities.map({ IngredientModel(entity: $0)})
   }
   
+//  creation
   func createIngredient(ingredient: IngredientModel){
 	 ingredients.append(ingredient)
 	 
 	 coreDateManager.createIngredients(ingredient: ingredient)
   }
   
+//  favorite
   func toggleFavorite(ingredient: IngredientModel){
 	 if let index = ingredients.firstIndex(where: {$0.id == ingredient.id}){
 		ingredients[index].isFavorite.toggle()
 	 }
 	 
 	 coreDateManager.toggleFavorite(ingredient: ingredient)
+  }
+
+//  delte
+  func deleteSelected(selected: [IngredientModel]){
+	 self.ingredients.removeAll(where: {item in selected.contains(where: {$0.id == item.id})})
+	 
+	 coreDateManager.deleteIngredients(ingredients: selected)
   }
 }
 

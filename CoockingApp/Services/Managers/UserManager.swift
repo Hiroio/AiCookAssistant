@@ -42,5 +42,24 @@ class UserManager: ObservableObject{
 		save()
 	 }
   }
+  func changeCookingIdentity(identity: CookingIdentityEnum){
+	 user.cookingIdentity = identity
+	 save()
+  }
+  
+//  Free functionality for user
+  func addCameraUser(){
+	 user.freeScanUses += 1
+	 
+	 coreDataManager.addCameraUse()
+  }
+  func addGenerationUser(){
+	 user.freeGenerationsUsed += 1
+	 coreDataManager.addGenerationUse()
+  }
+  func addIdeaGenerationUser(){
+	 user.freeIdeasUsed += 1
+	 coreDataManager.addIdeaGenerationUse()
+  }
   
 }

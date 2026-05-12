@@ -69,5 +69,5 @@ struct NoteCard: View {
 }
 
 #Preview {
-  CreationView()
+  CreationView(ingredients: [])
 }

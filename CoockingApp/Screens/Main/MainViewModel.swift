@@ -13,11 +13,14 @@ class MainViewModel: ObservableObject{
   @Published var recipes: [UIRecipeModel] = []
   @Published var recomendedLoading: Bool = false
   @Published var recomendedError: CreationError? = nil
-
+  @Published var user: UserModel
+  
   private let recipeManager = RecipesManager.shared
   private let geminiAPI = GeminiAPI()
   private let pexelsManager = PexelsAPI()
+  private let userManager = UserManager.shared
   init(){
+	 self.user = UserManager.shared.user
 	 self.recipes = recipeManager.recipes
 	 self.initializeRecomendedRecipe()
   }
@@ -71,6 +74,11 @@ extension MainViewModel{
   
   func generateQuickIdeaRecipe(prompt: String){
 	 let user = UserManager.shared.user
+	 guard StoreManager.shared.hasFullAccess || user.freeIdeasUsed < 3 else {
+		NavigationManager.shared.popup = .weeklyLimit(.ideas)
+		return
+	 }
+	 
 	 NavigationManager.shared.isLoading = true
 	 Task{
 		defer {NavigationManager.shared.isLoading = false}
@@ -81,6 +89,9 @@ extension MainViewModel{
 		  var recipe = UIRecipeModel(recipe: response)
 		  recipe.imageUrl = image ?? ""
 		  await MainActor.run{
+			 if !StoreManager.shared.hasFullAccess {
+				self.addIdeaCount()
+			 }
 			 NavigationManager.shared.secondaryScreens = .info(recipe: recipe, creation: true)
 		  }
 		}catch{
@@ -89,5 +100,10 @@ extension MainViewModel{
 		  }
 		}
 	 }
+  }
+  
+  func addIdeaCount(){
+	 userManager.addIdeaGenerationUser()
+	 user = userManager.user
   }
 }

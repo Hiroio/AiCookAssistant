@@ -21,7 +21,7 @@ struct CoockingAppApp: App {
   
   var body: some Scene {
 	 WindowGroup {
-		NavigationView()
+		AppRoute()
 		  .environmentObject(navigationManager)
 		  .environmentObject(storeManager)
 		  .environment(\.locale, currentLocale)

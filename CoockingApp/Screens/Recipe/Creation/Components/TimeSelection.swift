@@ -47,8 +47,8 @@ struct TimeSelection: View {
 		  }
 		  
 		)
-		.cornerRadius(20)
-    }
+			.clipShape(.rect(cornerRadius: 20))
+	    }
 }
 
 #Preview {

@@ -9,10 +9,16 @@ import SwiftUI
 
 struct ProfileEditView: View {
   @EnvironmentObject private var vm: ProfileViewModel
+  @EnvironmentObject private var storeManager: StoreManager
+  @Environment(\.openURL) private var openURL
   @State private var cookingState: Bool = false
   @State private var languageState: Bool = false
   let cancelAction: () -> Void
   let saveAction: () -> Void
+  
+  private let privacyURL = URL(string: "https://delinote.app/privacy")!
+  private let termsURL = URL(string: "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/")!
+  private let subscriptionURL = URL(string: "https://apps.apple.com/account/subscriptions")!
   
     var body: some View {
 		ZStack {
@@ -26,11 +32,15 @@ struct ProfileEditView: View {
 				  avatarSection
 				  nameSection
 				  personalizationSection
+				  settingsSection
 				}
 				.padding(.horizontal, 22)
 				.padding(.top, 18)
-				.padding(.bottom, 34)
+				.padding(.bottom, 18)
 			 }
+			 
+			 legalCaption
+				.padding(.bottom, 18)
 		  }
 		}
     }
@@ -129,7 +139,7 @@ struct ProfileEditView: View {
 				  cookingState.toggle()
 				}
 			 }label:{
-				editRow(
+				PersonalizationRow(
 				  title: "Cooking identity",
 				  subtitle: "\(vm.user.cookingIdentity.text)",
 				  icon: "fork.knife",
@@ -165,12 +175,10 @@ struct ProfileEditView: View {
 				  languageState.toggle()
 				}
 			 }label: {
-				editRow(
-				  title: "Language",
-				  subtitle: vm.selectedLanguage.text,
-				  icon: "globe",
-				  state: languageState
-				)
+				PersonalizationRow(title: "Language",
+										 subtitle: vm.selectedLanguage.text,
+										 icon: "globe",
+										 state: languageState)
 				.contentShape(.rect)
 			 }
 			 .buttonStyle(.plain)
@@ -195,35 +203,93 @@ struct ProfileEditView: View {
 	 }
   }
   
-  private func editRow(title: String, subtitle: String, icon: String, state: Bool) -> some View {
-		HStack(spacing: 14) {
-		  Image(systemName: icon)
-			 .font(.system(size: 17, weight: .semibold))
-			 .foregroundStyle(Color.primaryAction)
-			 .frame(width: 38, height: 38)
-			 .background(Circle().fill(Color.background.opacity(0.72)))
-		  
-		  VStack(alignment: .leading, spacing: 3) {
-			 Text(title)
-				.font(.subheadline.weight(.semibold))
-				.foregroundStyle(Color.primarytext)
-			 
-			 Text(subtitle)
-				.font(.caption)
-				.foregroundStyle(Color.primarytext.opacity(0.55))
+  private var settingsSection: some View {
+	 VStack(alignment: .leading, spacing: 12) {
+		Text("Settings")
+		  .font(.subheadline.weight(.semibold))
+		  .foregroundStyle(Color.primarytext)
+		
+		VStack(spacing: 0) {
+		  Button {
+			 Task {
+				await storeManager.restorePurchases()
+			 }
+		  } label: {
+			 settingsRow(
+				title: "Restore Purchases",
+				subtitle: "Recover active subscriptions",
+				icon: "arrow.clockwise"
+			 )
 		  }
 		  
-		  Spacer()
+		  Divider()
+			 .padding(.leading, 58)
 		  
-		  Image(systemName: "chevron.down")
-			 .font(.caption.weight(.semibold))
-			 .rotationEffect(Angle(degrees: state ? 180 : 0))
-			 .foregroundStyle(Color.primarytext.opacity(0.35))
+		  Button {
+			 openURL(subscriptionURL)
+		  } label: {
+			 settingsRow(
+				title: "Manage Subscription",
+				subtitle: "Open Apple subscription settings",
+				icon: "creditcard"
+			 )
+		  }
 		}
+		.buttonStyle(.plain)
+		.background(
+		  RoundedRectangle(cornerRadius: 22)
+			 .fill(Color.secondaryCard.opacity(0.48))
+		)
+		.overlay(
+		  RoundedRectangle(cornerRadius: 22)
+			 .stroke(Color.primarytext.opacity(0.07), lineWidth: 1)
+		)
+	 }
+  }
+  
+  private var legalCaption: some View {
+	 HStack(spacing: 8) {
+		Link("Privacy Policy", destination: privacyURL)
+		Text("•")
+		Link("Terms of Use", destination: termsURL)
+	 }
+	 .font(.caption.weight(.medium))
+	 .foregroundStyle(Color.primarytext.opacity(0.52))
+	 .frame(maxWidth: .infinity)
+  }
+  
+  private func settingsRow(title: String, subtitle: String, icon: String) -> some View {
+	 HStack(spacing: 14) {
+		Image(systemName: icon)
+		  .font(.system(size: 16, weight: .semibold))
+		  .foregroundStyle(Color.primaryAction)
+		  .frame(width: 38, height: 38)
+		  .background(Circle().fill(Color.background.opacity(0.72)))
+		
+		VStack(alignment: .leading, spacing: 3) {
+		  Text(title)
+			 .font(.subheadline.weight(.semibold))
+			 .foregroundStyle(Color.primarytext)
+		  
+		  Text(subtitle)
+			 .font(.caption)
+			 .foregroundStyle(Color.primarytext.opacity(0.55))
+		}
+		
+		Spacer()
+		
+		Image(systemName: "chevron.right")
+		  .font(.caption.weight(.semibold))
+		  .foregroundStyle(Color.primarytext.opacity(0.35))
+	 }
+	 .padding(.horizontal, 14)
+	 .padding(.vertical, 12)
+	 .contentShape(.rect)
   }
 }
 
 #Preview {
   ProfileEditView(cancelAction: {}, saveAction: {})
 	 .environmentObject(ProfileViewModel())
+	 .environmentObject(StoreManager.shared)
 }

@@ -17,14 +17,15 @@ class CreationViewModel: ObservableObject{
   @Published var difficulty: Int = 2
   @Published var userNote: String = ""
   @Published var error: CreationError? = nil
+  @Published var user: UserModel
   
   private let apiManager = GeminiAPI()
   private let pexelsManager = PexelsAPI()
-  private let user: UserModel
   
-  init(){
+  init(ingredients: [String]){
 	 let entity = CoreDataManager.shared.fetchUser()
 	 self.user = UserModel(entity: entity)
+	 self.userIngredients = ingredients
   }
   
   var loading: LoadingScreenType? {
@@ -49,6 +50,10 @@ class CreationViewModel: ObservableObject{
 		  recipe.imageUrl = image ?? ""
 		  await MainActor.run{
 			 self.recipe = response
+			 if !StoreManager.shared.hasFullAccess {
+				UserManager.shared.addGenerationUser()
+				self.user = UserManager.shared.user
+			 }
 			 
 			 NavigationManager.shared.secondaryScreens = .info(recipe: recipe, creation: true)
 		  }
@@ -72,6 +77,10 @@ class CreationViewModel: ObservableObject{
 		  await MainActor.run {
 			 let filtered = array.filter({item in !self.userIngredients.contains(where: {$0.lowercased() == item})})
 			 self.userIngredients.insert(contentsOf: filtered, at: 0)
+			 if !StoreManager.shared.hasFullAccess {
+				UserManager.shared.addCameraUser()
+				self.user = UserManager.shared.user
+			 }
 		  }
 		}catch{
 		  await MainActor.run {
@@ -83,6 +92,6 @@ class CreationViewModel: ObservableObject{
   
   
   var ableToCreate: Bool{
-	 !userIngredients.isEmpty && !userNote.isEmpty
+	 !userIngredients.isEmpty || !userNote.isEmpty
   }
 }
