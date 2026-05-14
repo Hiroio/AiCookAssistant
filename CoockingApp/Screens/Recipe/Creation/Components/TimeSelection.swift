@@ -32,6 +32,7 @@ struct TimeSelection: View {
 					 .fontDesign(.rounded)
 					 .contentTransition(.opacity)
 				}
+				.contentShape(.rect)
 				.frame(maxWidth: .infinity, maxHeight: 55)
 			 }
 			 .buttonStyle(.plain)

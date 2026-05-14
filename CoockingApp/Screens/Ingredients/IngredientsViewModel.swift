@@ -17,8 +17,6 @@ class IngredientsViewModel: ObservableObject{
   private let ingredientManager = IngredientsManager.shared
   init(){
 	 ingredients = ingredientManager.ingredients
-//mock
-	 //	 ingredients = [.chicken, .dairy, .fruit, .grain, .other, .sauce, .spices, .vegi]
   }
   
 
@@ -39,6 +37,9 @@ class IngredientsViewModel: ObservableObject{
 
 //MARK: Functions
 extension IngredientsViewModel{
+  func fetch(){
+	 self.ingredients = ingredientManager.ingredients
+  }
   //  Selection
 	 func selectIngredient(_ item: IngredientModel){
 		if selectedIngredients.contains(where: {$0.id == item.id}){
@@ -55,6 +56,7 @@ extension IngredientsViewModel{
 		}
 		
 		ingredientManager.toggleFavorite(ingredient: item)
+		fetch()
 	 }
   
 //  DELTE
@@ -63,5 +65,6 @@ extension IngredientsViewModel{
 	 ingredients.removeAll(where: {item in selectedIngredients.contains(where: {$0.id == item.id})})
 	 ingredients = ingredientManager.ingredients
 	 selectedIngredients.removeAll()
+	 fetch()
   }
 }

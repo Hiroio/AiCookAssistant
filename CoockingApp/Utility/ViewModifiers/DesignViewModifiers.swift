@@ -61,7 +61,7 @@ struct CardForPersonalizationViewModifier: ViewModifier{
 struct LatestCardViewModifier: ViewModifier{
   func body(content: Content) -> some View{
 	 content
-		.frame(width: 90)
+		.frame(maxWidth: .infinity)
 		.padding()
 		.background(
 		  ZStack{

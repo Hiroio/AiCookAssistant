@@ -12,7 +12,7 @@ import Combine
 class MainViewModel: ObservableObject{
   @Published var recipes: [UIRecipeModel] = []
   @Published var recomendedLoading: Bool = false
-  @Published var recomendedError: CreationError? = nil
+  @Published var recomendedError: CreationError? = .badInternetConnection
   @Published var user: UserModel
   
   private let recipeManager = RecipesManager.shared
@@ -34,7 +34,7 @@ class MainViewModel: ObservableObject{
   
   var recommendedRecipe: UIRecipeModel?{
 	 let recommended = self.recipes.filter({
-		$0.recommendedDate?.inToday() ?? false && $0.isRecommended
+		$0.recommendedDate?.inToday() ?? false
 	 })
 	 
 	 return recommended.first(where: {$0.recommendedDate?.inToday() ?? false})
@@ -57,12 +57,14 @@ extension MainViewModel{
 		do{
 		  let response = try await geminiAPI.recomendedRequest(user: user, recipeList: self.recipes.recipeList)
 		  let image = try await pexelsManager.searchImage(query: response.search)
-		  var recipe = UIRecipeModel(recipe: response, isRecommended: true, recomendedDate: Date())
-		  recipe.imageUrl = image ?? ""
-		  await MainActor.run{
-			 RecipesManager().createRecipe(recipe: recipe)
-			 self.recipes.insert(recipe, at: 0)
-		  }
+			  var recipe = UIRecipeModel(recipe: response, isRecommended: true, recomendedDate: Date())
+			  recipe.imageUrl = image ?? ""
+			  await MainActor.run{
+				 let success = recipeManager.createRecipe(recipe: recipe)
+				 if success {
+					self.recipes = recipeManager.recipes
+				 }
+			  }
 		}catch{
 		  await MainActor.run {
 			 print(error.localizedDescription)

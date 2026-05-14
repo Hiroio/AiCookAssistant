@@ -15,9 +15,10 @@ struct NavigationPopUpView: View {
   var body: some View {
 		
 		VStack(spacing: 0) {
-		  Image("dirtyDishes")
-			 .resizable()
-			 .scaledToFit()
+			  Image("dirtyDishes")
+				 .resizable()
+				 .scaledToFit()
+				 .accessibilityHidden(true)
 		  
 		  VStack{
 			 VStack(spacing: 8) {
@@ -71,9 +72,10 @@ struct NavigationPopUpView: View {
 		  RoundedRectangle(cornerRadius: 24)
 			 .fill(Color.background)
 			 .shadow(color: .black.opacity(0.12), radius: 18, y: 8)
-		)
-		.padding(.vertical, 28)
-  }
+			)
+			.padding(.vertical, 28)
+			.modalAccessibility(popup.title)
+	  }
 }
 
 #Preview {

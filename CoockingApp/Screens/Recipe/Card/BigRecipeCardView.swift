@@ -10,18 +10,27 @@ import Kingfisher
 
 struct BigRecipeCardView: View {
   let recipe: UIRecipeModel
+  let info: Bool
+  
+  init(recipe: UIRecipeModel, info: Bool = false) {
+	 self.recipe = recipe
+	 self.info = info
+  }
   var body: some View {
 		HStack{
 		  VStack(alignment: .leading, spacing: 20){
 			 Text(recipe.name)
 				.title(weight: .bold, color: .primarytext)
-				.font(.title2)
+				.font(UIDevice.isIPad ? .title : .title3)
 				.multilineTextAlignment(.leading)
-				.fixedSize(horizontal: false, vertical: true)
+				.lineLimit(nil)
+				.minimumScaleFactor(0.65)
+				.allowsTightening(true)
 			 
 			 Text(recipe.description)
 				.font(.caption)
 				.fontDesign(.rounded)
+				.lineLimit(info ? nil : 2)
 				
 			 
 			 VStack(alignment: .leading, spacing: 5){
@@ -33,19 +42,20 @@ struct BigRecipeCardView: View {
 		  }
 		  .frame(maxWidth: .infinity)
 		  Spacer()
-			 .frame(maxWidth: 200)
+			 .frame(maxWidth: .infinity)
 		}
+		.frame(maxHeight: .infinity)
 	 .padding()
 	 .padding(.vertical)
 	 .background(
 		ZStack{
 		  Rectangle()
 			 .fill(
-				LinearGradient(colors: [Color.background, Color.background.opacity(0.9), .clear], startPoint: .topLeading, endPoint: .trailing)
+				LinearGradient(colors: [Color.background, Color.background.opacity(0.9), .clear], startPoint: .leading, endPoint: .trailing)
 			 )
 		  RoundedRectangle(cornerRadius: 20)
 			 .stroke(Color.primaryAction.opacity(0.5), lineWidth: 1)
-			 .shadow(radius: 1)
+//			 .shadow(radius: 1)
 		}
 	 )
 	 .background(
@@ -66,13 +76,14 @@ struct BigRecipeCardView: View {
 				.clipped()
 		}
 	 )
-	 .clipShape(RoundedRectangle(cornerRadius: 20))
-	 .compositingGroup()
-	 .shadow(radius: 3, y: 3)
-	 
-  }
+		 .clipShape(RoundedRectangle(cornerRadius: 20))
+		 .compositingGroup()
+		 .shadow(radius: 3, y: 3)
+		 .recipeCardAccessibility(recipe, action: info ? "Recipe summary" : "Open recipe details")
+			 
+	  }
 }
 
 #Preview {
-  BigRecipeCardView(recipe: .preview)
+  BigRecipeCardView(recipe: .preview, info: true)
 }

@@ -12,7 +12,7 @@ struct RecipeInfo: View {
   var body: some View {
 	 ScrollView{
 		VStack(spacing: 15){
-		  BigRecipeCardView(recipe: vm.recipe)
+		  BigRecipeCardView(recipe: vm.recipe, info: true)
 		  
 		  IngredientsCard(ingredients: vm.recipe.ingredients, macros: vm.recipe.macros)
 		  
@@ -67,8 +67,9 @@ struct RecipeInfo: View {
 				  .fill(.avoid)
 				  .shadow(radius: 2, y: 1)
 			 )
-		}
-		if !vm.saved{
+			}
+			.iconButtonAccessibility("Close recipe")
+			if !vm.saved{
 		  Button{
 			 vm.save()
 		  }label: {
@@ -105,6 +106,8 @@ struct RecipeInfo: View {
 		}
 		
 	 }
+	 .animation(.bouncy, value: vm.saved)
+	 .animation(.bouncy, value: vm.cooking)
 	 .frame(maxWidth: .infinity, alignment: .leading)
 	 .padding(.horizontal)
   }
@@ -127,4 +130,3 @@ func statText(icon: String, value: String) -> some View{
 	 Text(value)
   }
 }
-

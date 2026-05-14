@@ -9,13 +9,14 @@ import SwiftUI
 
 struct RecipeListView: View {
   @StateObject private var vm = RecipeListViewModel()
-    var body: some View {
-		ZStack{
-		  Color.background.ignoresSafeArea()
-		  VStack(spacing: 20){
-			 header
-			 
-			 SearchBarList(ingredientsSearch: $vm.searchType, searchText: $vm.searchText)
+	    var body: some View {
+				ZStack{
+				  Color.background
+					 .ignoresSafeArea()
+				  VStack(spacing: 20){
+					 header
+					 
+					 SearchBarList(ingredientsSearch: $vm.searchType, searchText: $vm.searchText)
 			 
 			 if vm.filteredRecipes.isEmpty{
 				VStack(spacing: 15){
@@ -46,14 +47,15 @@ struct RecipeListView: View {
 				.frame(maxHeight: .infinity)
 				
 			 }else{
-				ScrollView{
-				  LazyVStack{
-					 ForEach(vm.filteredRecipes){recipe in
-						WideRecipeCardView(recipe: recipe, toggleFavorite: {vm.toggleFavorite(recipe.id)}, isEditing: vm.isEditing, selectedForDelete: $vm.selectedRecipe)
-					 }
-				  }
-				}
-			 }
+					ScrollView{
+					  LazyVStack{
+						 ForEach(vm.filteredRecipes){recipe in
+							WideRecipeCardView(recipe: recipe, toggleFavorite: {vm.toggleFavorite(recipe.id)}, isEditing: vm.isEditing, selectedForDelete: $vm.selectedRecipe)
+						 }
+					  }
+					}
+					.scrollDismissesKeyboard(.interactively)
+				 }
 		  }.padding()
 		  if let recipe = vm.selectedRecipe{
 			 ZStack{

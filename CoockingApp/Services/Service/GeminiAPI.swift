@@ -10,17 +10,19 @@ import SwiftUI
 
 class GeminiAPI{
   let apikey = Secrets.geminiAPI
+  private let model = "gemini-3-flash-preview"
   private let recipeMaxOutputTokens = 3072
-  private let recipeThinkingBudget = 512
+  private let photoMaxOutputTokens = 256
+  private let chatMaxOutputTokens = 1024
   
   func getUrl() throws -> URL{
-	 guard let url = URL(string: "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent") else {
+	 guard let url = URL(string: "https://generativelanguage.googleapis.com/v1beta/models/\(model):generateContent") else {
 		throw URLError(.badURL)
 	 }
 	 return url
   }
   
-//  MARK: Creating recommended recipe
+  //  MARK: Creating recommended recipe
   func recomendedRequest(user: UserModel, recipeList: [String]) async throws -> RecipeModel{
 	 let url = try getUrl()
 	 //	 Request
@@ -37,7 +39,7 @@ class GeminiAPI{
 	 return try await apiRequest(request: request)
   }
   
-//  MARK: Creating basic recipe
+  //  MARK: Creating basic recipe
   func recipeRequest(userIngredients: [String], userDifficulty: Int, userTime: String, user: UserModel, userNote: String) async throws -> RecipeModel {
 	 print("Started creating dish \(Date.now.formatted(.dateTime.hour().minute().second()))")
 	 let url = try getUrl()
@@ -54,7 +56,7 @@ class GeminiAPI{
 	 return try await apiRequest(request: request)
   }
   
-//  MARK: Creating Quick Idea recipe
+  //  MARK: Creating Quick Idea recipe
   func quickIdeaRequest(user: UserModel, prompt: String, recipeList: [String]) async throws -> RecipeModel {
 	 let url = try getUrl()
 	 
@@ -72,7 +74,7 @@ class GeminiAPI{
   
   
   
-//  MARK: URLSession-Request
+  //  MARK: URLSession-Request
   func apiRequest(request: URLRequest) async throws -> RecipeModel{
 	 let (data, response) = try await URLSession.shared.data(for: request)
 	 
@@ -86,11 +88,9 @@ class GeminiAPI{
 	 return try data.getRecipeFromResponse()
   }
   
-//  MARK: Analyzing photo for camera
+  //  MARK: Analyzing photo for camera
   func analyzePhoto(image: UIImage, userIngredients: [String]) async throws -> String{
-	 guard let url = URL(string: "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent") else {
-		throw URLError(.badURL)
-	 }
+	 let url = try getUrl()
 	 //	 Request
 	 var request = URLRequest(url: url)
 	 request.httpMethod = "POST"
@@ -113,11 +113,9 @@ class GeminiAPI{
 	 return try data.getContentFromResponse()
   }
   
-//  MARK: Simple chat request
+  //  MARK: Simple chat request
   func chatRequest(message: [ChatPart]) async throws -> String{
-	 guard let url = URL(string: "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent") else {
-		throw URLError(.badURL)
-	 }
+	 let url = try getUrl()
 	 
 	 var request = URLRequest(url: url)
 	 request.httpMethod = "POST"
@@ -180,7 +178,7 @@ extension GeminiAPI{
 		  "maxOutputTokens": recipeMaxOutputTokens,
 		  "response_mime_type": "application/json",
 		  "thinkingConfig": [
-			 "thinkingBudget": recipeThinkingBudget
+			 "thinkingLevel": "minimal"
 		  ]
 		]
 	 ]
@@ -195,7 +193,7 @@ extension GeminiAPI{
 	 
 	 Inputs:
 	 ingredients: \(ingredients)
-	 time preference: \(userTime)
+	 time creation preference: \(userTime)
 	 difficulty preference: \(userDifficulty)
 	 allergies: \(user.alergieIngredients)
 	 avoid ingredients: \(user.avoidIngredients)
@@ -207,8 +205,8 @@ extension GeminiAPI{
 	 Schema:
 	 {
 	   "name": "short recipe title in response language",
-	   "time": 35,
-	   "difficulty": 3,
+	   "time": Int,
+	   "difficulty": Int,
 	   "description": "description in response language, max 2 sentences",
 	   "macros": "kcal, proteins, fats, carbs",
 	   "tip": "short cooking tip in response language",
@@ -222,34 +220,38 @@ extension GeminiAPI{
 	 Rules:
 	 - Use response language for name, description, tip, ingredient names, and instruction text.
 	 - Do not force a national cuisine based on response language. Choose any cuisine or home-cooking style that fits the inputs.
-	 - difficulty is an integer from 1 to 5.
+	 - time must be an integer cooking time in minutes.
+	 - If time preference is "< 20", choose 10-20.
+	 - If time preference is "20 - 50", choose 20-50.
+	 - If time preference is "> 50", choose 50-120.
+	 - difficulty must be an integer from 1 to 5 and close to the user's difficulty preference.
 	 - macros example: "420, 24, 18, 38".
 	 - ingredients is a JSON object. Each key must be "Ingredient Name - amount".
 	 - ingredient category must be one of: vegetables, fruits, protein, dairy, grains, spices, sauces, other.
 	 - protein = meat, fish, seafood, eggs, tofu, legumes. sauces = oil, vinegar, dressings, condiments. other = only when nothing fits.
-	 - instructions items must start with one step from: wash, cut, peel, mix, bake, boil, fry, add, season, serve.
+	 - instructions items must start with one step from: wash, cut, peel, mix, bake, boil, fry, add, season, serve, and seperate step and instruction with "-".
 	 """
   }
   
-//  For image analys
+  //  For image analys
   private func createPhotoBody(image: UIImage, currentIngredients: [String]) throws -> [String: Any] {
 	 guard let imageData = image.jpegData(compressionQuality: 0.8) else { throw URLError(.cannotCreateFile) }
 	 let ingredients = currentIngredients.joined(separator: " ")
 	 
 	 let base64Image = imageData.base64EncodedString()
 	 let prompt = """
-	 Analyze the photo and return only a plain String of food ingredients you can see.
-	 Response language: \(responseLanguage).
-	 Current ingredients, if any: \(ingredients)
-	 
-	 Rules:
-	 - Return ingredient names in response language.
-	 - Include only food products, spices, herbs, sauces, or cooking ingredients.
-	 - Separate ingredients with one whitespace only.
-	 - If current ingredients are provided, keep them and add new detected ingredients.
-	 - If nothing useful is detected, return an empty String or the current ingredients if they were provided.
-	 - Do not write explanations, markdown, punctuation lists, JSON, bullets, or extra text.
-	 """
+  Analyze the photo and return only a plain String of food ingredients you can see.
+  Response language: \(responseLanguage).
+  Current ingredients, if any: \(ingredients)
+  
+  Rules:
+  - Return ingredient names in response language.
+  - Include only food products, spices, herbs, sauces, or cooking ingredients.
+  - Separate ingredients with one whitespace only.
+  - If current ingredients are provided, keep them and add new detected ingredients.
+  - If nothing useful is detected, return an empty String or the current ingredients if they were provided.
+  - Do not write explanations, markdown, punctuation lists, JSON, bullets, or extra text.
+  """
 	 
 	 let body: [String: Any] = [
 		"contents": [
@@ -264,6 +266,13 @@ extension GeminiAPI{
 				]
 			 ]
 		  ]
+		],
+		"generationConfig": [
+		  "temperature": 0.1,
+		  "maxOutputTokens": photoMaxOutputTokens,
+		  "thinkingConfig": [
+			 "thinkingLevel": "low"
+		  ]
 		]
 	 ]
 	 return body
@@ -271,29 +280,33 @@ extension GeminiAPI{
   
   private func createBodyForChatRequest(messages: [ChatPart]) -> [String: Any]{
 	 let systemPrompt = """
-	 You are a professional chef assistant.
-	 Answer recipe questions clearly and briefly.
-	 If the user asks to replace an ingredient, suggest the best practical alternative.
-	 Reply in the same language as the user's latest message.
-	 Return plain text only. Do not use markdown headings, bullets, #, **, or code formatting.
-	 """
+  You are a professional chef assistant.
+  Answer recipe questions clearly and briefly.
+  If the user asks to replace an ingredient, suggest the best practical alternative.
+  Reply in the same language as the user's latest message.
+  Return plain text only. Do not use markdown headings, bullets, #, **, or code formatting.
+  """
 	 
 	 let body: [String: Any] = [
 		"systemInstruction": [
-						"parts": [["text": systemPrompt]]
-				  ],
-				"contents": messages.map { [
-				  "role": $0.role.rawValue,
-					 "parts": $0.parts
-				]},
-				"generationConfig": [
-					 "temperature": 0.7
-				]
+		  "parts": [["text": systemPrompt]]
+		],
+		"contents": messages.map { [
+		  "role": $0.role.rawValue,
+		  "parts": $0.parts
+		]},
+		"generationConfig": [
+		  "temperature": 0.7,
+		  "maxOutputTokens": chatMaxOutputTokens,
+		  "thinkingConfig": [
+			 "thinkingLevel": "low"
 		  ]
+		]
+	 ]
 	 return body
   }
   
-//  For recomended Recepi
+  //  For recomended Recepi
   private func generatePromptForRecommendedRecipe(user: UserModel, userRecipeList: [String]) -> String {
 	 let recipes = userRecipeList.joined(separator: "\n")
 	 
@@ -314,8 +327,8 @@ extension GeminiAPI{
 	 Schema:
 	 {
 	   "name": "short recipe title in response language",
-	   "time": 35,
-	   "difficulty": 3,
+	   "time": Int,
+	   "difficulty": Int,
 	   "description": "description in response language, max 2 sentences",
 	   "macros": "kcal, proteins, fats, carbs",
 	   "tip": "short cooking tip in response language",
@@ -329,17 +342,18 @@ extension GeminiAPI{
 	 Rules:
 	 - Use response language for name, description, tip, ingredient names, and instruction text.
 	 - Do not force a national cuisine based on response language. Choose any trendy home-cooking idea.
-	 - difficulty is an integer from 1 to 5.
+	 - time must be an integer cooking time in minutes, usually 15-75 depending on the dish.
+	 - difficulty must be an integer from 1 to 5.
 	 - macros example: "420, 24, 18, 38".
 	 - ingredients is a JSON object. Each key must be "Ingredient Name - amount".
 	 - ingredient category must be one of: vegetables, fruits, protein, dairy, grains, spices, sauces, other.
 	 - protein = meat, fish, seafood, eggs, tofu, legumes. sauces = oil, vinegar, dressings, condiments. other = only when nothing fits.
-	 - instructions items must start with one step from: wash, cut, peel, mix, bake, boil, fry, add, season, serve.
+	 - instructions items must start with one step from: wash, cut, peel, mix, bake, boil, fry, add, season, serve, and seperate step and instruction with "-".
 	 """
   }
-
   
-//  MARK: For Quick Idea Recipe
+  
+  //  MARK: For Quick Idea Recipe
   private func generatePromptForquickIdea(user: UserModel, prompt: String, userRecipeList: [String]) -> String{
 	 let recipes = userRecipeList.joined(separator: "\n")
 	 
@@ -360,8 +374,8 @@ extension GeminiAPI{
 	 Schema:
 	 {
 	   "name": "short recipe title in response language",
-	   "time": 35,
-	   "difficulty": 3,
+	   "time": Int,
+	   "difficulty": Int,
 	   "description": "description in response language, max 2 sentences",
 	   "macros": "kcal, proteins, fats, carbs",
 	   "tip": "short cooking tip in response language",
@@ -375,7 +389,8 @@ extension GeminiAPI{
 	 Rules:
 	 - Use response language for name, description, tip, ingredient names, and instruction text.
 	 - Do not force a national cuisine based on response language. Follow the quick idea instead.
-	 - difficulty is an integer from 1 to 5.
+	 - time must be an integer cooking time in minutes, usually 10-75 depending on the quick idea.
+	 - difficulty must be an integer from 1 to 5.
 	 - macros example: "420, 24, 18, 38".
 	 - ingredients is a JSON object. Each key must be "Ingredient Name - amount".
 	 - ingredient category must be one of: vegetables, fruits, protein, dairy, grains, spices, sauces, other.

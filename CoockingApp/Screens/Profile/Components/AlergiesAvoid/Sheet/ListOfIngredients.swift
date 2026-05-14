@@ -33,8 +33,9 @@ struct ListOfIngredients: View {
 					 .shadow(radius: 1)
 				)
 			 }
+			 .accessibilityLabel(Text(current ? "Remove \(item)" : "Add \(item)"))
 		  }
-		}
+			}
 		 }
 		 .scrollIndicators(.hidden)
 		 .frame(height: 85)

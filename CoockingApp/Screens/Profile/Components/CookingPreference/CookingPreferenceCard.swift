@@ -43,7 +43,7 @@ func preferenceCard(icon: String, title: String, value: String?) -> some View{
 		.font(.title)
 		.foregroundStyle(.primaryAction)
 	 VStack{
-		Text(title)
+		Text(LocalizedStringKey(title))
 		  .font(.footnote)
 		  .fontDesign(.rounded)
 		Text(value ?? "____")

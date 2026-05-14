@@ -22,6 +22,7 @@ struct ProfileView: View {
 				.font(.title)
 				.frame(maxWidth: .infinity, alignment: .leading)
 				.fontDesign(.serif)
+				.foregroundStyle(.primaryAction)
 
 			 UserBanner(user: vm.user) {
 				didSaveEditProfile = false
@@ -82,7 +83,7 @@ struct ProfileView: View {
 		vm.cancel()
 	 }), content: {
 		AlergiesSheet()
-		  .presentationDetents([.medium])
+		  .presentationDetents([(UIDevice.isIPad ? .large : .medium)])
 		  .environmentObject(vm)
 	 })
 	 
@@ -108,7 +109,6 @@ struct ProfileView: View {
 			 Text("DeliNote Premium")
 				.font(.subheadline.weight(.semibold))
 				.foregroundStyle(Color.primarytext)
-			 
 			 Text("Unlimited recipes, scans and cooking help")
 				.font(.caption)
 				.foregroundStyle(Color.primarytext.opacity(0.62))

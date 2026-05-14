@@ -17,15 +17,13 @@ struct OnBoardingAnimation: View {
 		
 		TimelineView(.animation(minimumInterval: 0.5, paused: completed)) { context in
 		  let elapsed = context.date.timeIntervalSince(startTime)
-		  let index = Int(elapsed / 1.5)
+		  let index = Int(elapsed / 2.0)
 		  
 		  ZStack(alignment: .center){
 			 Image("OnBoarding\(index)")
 				.resizable()
-				.scaledToFill()
+				.scaledToFit()
 				.animation(.easeInOut, value: index)
-				.drawingGroup()
-//				.blur(radius: 1)
 			 
 			 if completed{
 				Button{
@@ -40,6 +38,7 @@ struct OnBoardingAnimation: View {
 						RoundedRectangle(cornerRadius: 15)
 						  .fill(.primaryAction)
 					 )
+					 .padding()
 				}
 				.frame(maxHeight: .infinity, alignment: .bottom)
 				.transition(.opacity)

@@ -13,7 +13,7 @@ struct AppRoute: View {
     var body: some View {
 		ZStack{
 		  if load{
-			 if !onBoarding{
+			 if onBoarding{
 				NavigationView()
 			 }else{
 				OnboardingView(){

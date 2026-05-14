@@ -30,6 +30,7 @@ class IngredientsManager{
 	 ingredients.append(ingredient)
 	 
 	 coreDateManager.createIngredients(ingredient: ingredient)
+	 fetch()
   }
   
 //  favorite
@@ -39,6 +40,8 @@ class IngredientsManager{
 	 }
 	 
 	 coreDateManager.toggleFavorite(ingredient: ingredient)
+	 
+	 fetch()
   }
 
 //  delte
@@ -46,7 +49,9 @@ class IngredientsManager{
 	 self.ingredients.removeAll(where: {item in selected.contains(where: {$0.id == item.id})})
 	 
 	 coreDateManager.deleteIngredients(ingredients: selected)
+	 fetch()
   }
+  
 }
 
 // MARK: CHECKING

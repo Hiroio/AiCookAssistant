@@ -39,14 +39,19 @@ class RecipeListViewModel: ObservableObject{
   }
 //  MARK:  DELETE
   func deleteRecipe(recipe: UIRecipeModel){
-	 if let index = recipes.firstIndex(where: {$0.id == recipe.id}){
-		self.recipes[index].isFavorite.toggle()
+	 if recipe.recommendedDate == nil {
+		recipesManager.deleteRecipe(recipe.id)
+		recipes.removeAll(where: {$0.id == recipe.id})
+		recipes = recipesManager.recipes
+		selectedRecipe = nil
+	 }else{
+//		For Recomended.
+		if let index = recipes.firstIndex(where: {$0.id == recipe.id}){
+		  self.recipes[index].isRecommended.toggle()
+		  recipesManager.deleteRecomended(recipe.id)
+		  recipes = recipesManager.recipes
+		}
 	 }
-	 
-	 recipesManager.deleteRecipe(recipe.id)
-	 
-	 recipes = recipesManager.recipes
-	 selectedRecipe = nil
   }
   
   var filteredRecipes: [UIRecipeModel]{

@@ -22,7 +22,7 @@ struct OnboardingView: View {
 			 OnBoardingTabView(complete: complete)
 		  }
 		}
-		.animation(.easeInOut(duration: 1.5), value: animationDone)
+		.animation(.easeInOut(duration: 0.8), value: animationDone)
     }
 }
 

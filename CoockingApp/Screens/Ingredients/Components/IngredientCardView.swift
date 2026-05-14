@@ -17,10 +17,12 @@ struct IngredientCardView: View {
 			 .font(.subheadline.weight(.black))
 			 .foregroundStyle(.primaryAction)
 			 .multilineTextAlignment(.center)
+			 .minimumScaleFactor(0.7)
 		}
 		.padding()
-		.padding(.vertical)
-		.frame(width: 120, height: 120)
+		.padding(.vertical, 30)
+		.frame(maxWidth: .infinity)
+		.aspectRatio(2.5, contentMode: .fit)
 		.background(
 		  ZStack{
 			 Color.rareCard.opacity(0.2)
@@ -29,7 +31,6 @@ struct IngredientCardView: View {
 				.scaledToFit()
 				.opacity(ingredient.category.opacity)
 		  }
-			 .frame(width: 120)
 		)
 		.overlay(alignment: .top){
 		  HStack{
@@ -50,10 +51,12 @@ struct IngredientCardView: View {
 		}
 			.clipShape(.rect(cornerRadius: 20))
 			.animation(.easeInOut, value: ingredient.isFavorite)
-    }
+			.accessibilityElement(children: .ignore)
+			.accessibilityLabel(Text(ingredient.name))
+			.accessibilityValue(Text(selection ? (selected ? "Selected" : "Not selected") : (ingredient.isFavorite ? "Favorite" : "Not favorite")))
+	    }
 }
 
 #Preview {
   IngredientCardView(ingredient: .other, selected: true, selection: false)
 }
-

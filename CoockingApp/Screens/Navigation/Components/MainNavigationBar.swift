@@ -39,8 +39,11 @@ struct MainNavigationBar: View {
 				
 				
 				
-			 }
-		  }
+				 }
+				 .accessibilityLabel(Text(item.title))
+				 .accessibilityHint(Text("Switches to \(item.title) tab"))
+				 .accessibilityAddTraits(selected ? [.isButton, .isSelected] : .isButton)
+			  }
 		}
 		.background(
 		  Color.rareCard.opacity(0.5)
@@ -58,8 +61,9 @@ struct MainNavigationBar: View {
 					 .fill(Color.accentCard)
 				)
 				.contentShape(.circle)
-		  }
-			 .offset(y: -35)
+			  }
+			  .iconButtonAccessibility("Create recipe", hint: "Opens recipe creation")
+				 .offset(y: -35)
 		  ,
 			 alignment: .top
 		)

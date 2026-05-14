@@ -42,6 +42,15 @@
           "adHocOffers" : [
 
           ],
+          "billingPlans" : [
+            {
+              "billingPlanType" : "BILLED_UPFRONT",
+              "commitmentDisplayPrice" : "3.99",
+              "displayPrice" : "3.99",
+              "internalID" : "FFA72558",
+              "isEnabled" : true
+            }
+          ],
           "codeOffers" : [
 
           ],
@@ -50,10 +59,21 @@
           "groupNumber" : 1,
           "internalID" : "4DAF6EE8",
           "introductoryOffer" : {
+            "billingPlanType" : "BILLED_UPFRONT",
             "internalID" : "B71232CC",
+            "numberOfPeriods" : 1,
             "paymentMode" : "free",
             "subscriptionPeriod" : "P3D"
           },
+          "introductoryOffers" : [
+            {
+              "billingPlanType" : "BILLED_UPFRONT",
+              "internalID" : "B71232CC",
+              "numberOfPeriods" : 1,
+              "paymentMode" : "free",
+              "subscriptionPeriod" : "P3D"
+            }
+          ],
           "localizations" : [
             {
               "description" : "Access to all features per month",
@@ -74,6 +94,15 @@
           "adHocOffers" : [
 
           ],
+          "billingPlans" : [
+            {
+              "billingPlanType" : "BILLED_UPFRONT",
+              "commitmentDisplayPrice" : "30.99",
+              "displayPrice" : "30.99",
+              "internalID" : "0A2D5D1F",
+              "isEnabled" : true
+            }
+          ],
           "codeOffers" : [
 
           ],
@@ -82,11 +111,23 @@
           "groupNumber" : 1,
           "internalID" : "7D6CAB91",
           "introductoryOffer" : {
+            "billingPlanType" : "BILLED_UPFRONT",
             "displayPrice" : "0.99",
             "internalID" : "2EF7D1F2",
+            "numberOfPeriods" : 1,
             "paymentMode" : "free",
             "subscriptionPeriod" : "P3D"
           },
+          "introductoryOffers" : [
+            {
+              "billingPlanType" : "BILLED_UPFRONT",
+              "displayPrice" : "0.99",
+              "internalID" : "2EF7D1F2",
+              "numberOfPeriods" : 1,
+              "paymentMode" : "free",
+              "subscriptionPeriod" : "P3D"
+            }
+          ],
           "localizations" : [
             {
               "description" : "Access to all features per year",
@@ -107,6 +148,15 @@
           "adHocOffers" : [
 
           ],
+          "billingPlans" : [
+            {
+              "billingPlanType" : "BILLED_UPFRONT",
+              "commitmentDisplayPrice" : "9.99",
+              "displayPrice" : "9.99",
+              "internalID" : "3F287431",
+              "isEnabled" : true
+            }
+          ],
           "codeOffers" : [
 
           ],
@@ -115,10 +165,21 @@
           "groupNumber" : 1,
           "internalID" : "08666330",
           "introductoryOffer" : {
+            "billingPlanType" : "BILLED_UPFRONT",
             "internalID" : "622688D4",
+            "numberOfPeriods" : 1,
             "paymentMode" : "free",
             "subscriptionPeriod" : "P3D"
           },
+          "introductoryOffers" : [
+            {
+              "billingPlanType" : "BILLED_UPFRONT",
+              "internalID" : "622688D4",
+              "numberOfPeriods" : 1,
+              "paymentMode" : "free",
+              "subscriptionPeriod" : "P3D"
+            }
+          ],
           "localizations" : [
             {
               "description" : "Access to all features per 3 month",
@@ -126,7 +187,7 @@
               "locale" : "en_US"
             }
           ],
-          "productID" : "com.cheffsy.3month",
+          "productID" : "com.deliNote.3month",
           "recurringSubscriptionPeriod" : "P3M",
           "referenceName" : "3-Month",
           "subscriptionGroupID" : "237F9169",
@@ -139,7 +200,7 @@
     }
   ],
   "version" : {
-    "major" : 4,
+    "major" : 5,
     "minor" : 0
   }
 }

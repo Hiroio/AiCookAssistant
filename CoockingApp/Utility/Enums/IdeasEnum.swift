@@ -41,23 +41,23 @@ extension IdeasEnum{
   
   var title: String {
 	 switch self {
-	 case .under20Min: return "Under 20 min"
-	 case .easyDinner: return "Easy Dinner"
-	 case .breakfastIdea: return "Breakfast"
-	 case .comfortFood: return "Comfort Food"
-	 case .onePanMeal: return "One Pan"
-	 case .randomSurprise: return "Surprise Me"
-	 case .chickenBased: return "Chicken Dish"
-	 case .potatoBased: return "Potato Idea"
-	 case .pastaNight: return "Pasta Night"
-	 case .cozySoup: return "Warm Soup"
-	 case .budgetMeal: return "Budget Meal"
-	 case .ovenDish: return "Oven Recipe"
-	 case .lunchBox: return "Lunch Idea"
-	 case .familyMeal: return "Family Meal"
-	 case .lightMeal: return "Light Dish"
-	 case .snackIdea: return "Snack"
-	 case .mamaRecipe: return "Mama's Recipe"
+	 case .under20Min: return String(localized: "Under 20 min")
+	 case .easyDinner: return String(localized: "Easy Dinner")
+	 case .breakfastIdea: return String(localized: "Breakfast")
+	 case .comfortFood: return String(localized: "Comfort Food")
+	 case .onePanMeal: return String(localized: "One Pan")
+	 case .randomSurprise: return String(localized: "Surprise Me")
+	 case .chickenBased: return String(localized: "Chicken Dish")
+	 case .potatoBased: return String(localized: "Potato Idea")
+	 case .pastaNight: return String(localized: "Pasta Night")
+	 case .cozySoup: return String(localized: "Warm Soup")
+	 case .budgetMeal: return String(localized: "Budget Meal")
+	 case .ovenDish: return String(localized: "Oven Recipe")
+	 case .lunchBox: return String(localized: "Lunch Idea")
+	 case .familyMeal: return String(localized: "Family Meal")
+	 case .lightMeal: return String(localized: "Light Dish")
+	 case .snackIdea: return String(localized: "Snack")
+	 case .mamaRecipe: return String(localized: "Mama's Food")
 	 }
   }
   

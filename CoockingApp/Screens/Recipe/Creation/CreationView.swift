@@ -67,6 +67,8 @@ struct CreationView: View {
 						)
 				  }
 				  .buttonStyle(.plain)
+				  .accessibilityLabel(Text("Difficulty \(i) of 5"))
+				  .accessibilityAddTraits(selected ? [.isButton, .isSelected] : .isButton)
 				}
 			 }
 			 .padding(10)
@@ -129,8 +131,9 @@ struct CreationView: View {
 				  .fill(Color.rareCard.opacity(0.1))
 				  .shadow(radius: 1)
 			 )
-		}
-		Text("Dish Creation")
+			}
+			.iconButtonAccessibility("Back", hint: "Closes recipe creation")
+			Text("Dish Creation")
 		  .font(.title)
 		  .fontWeight(.medium)
 		  .fontDesign(.serif)

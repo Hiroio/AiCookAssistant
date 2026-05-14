@@ -59,7 +59,7 @@ func statCard(title: String, value: String, icon: String, color: Color) -> some 
 		.foregroundStyle(color)
 	 Text(value)
 		.font(.headline)
-	 Text(title)
+	 Text(LocalizedStringKey(title))
 		.font(.caption)
 		.opacity(0.6)
   }

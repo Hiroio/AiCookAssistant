@@ -28,7 +28,7 @@ struct IngredientsGridView: View {
 			 .padding()
 			 .multilineTextAlignment(.center)
 		  }else{
-			 LazyVGrid(columns: Array(repeating: .init(.flexible()), count: 3)) {
+			 LazyVGrid(columns: Array(repeating: .init(.flexible()), count: UIDevice.isIPad ? 4 : 3)) {
 				ForEach(ingredients){item in
 				  Button{
 					 if vm.selection{

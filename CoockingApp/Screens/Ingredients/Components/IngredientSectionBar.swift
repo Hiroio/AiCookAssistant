@@ -12,14 +12,15 @@ struct IngredientSectionBar: View {
   @Binding var currentSection: CategoriesEnum
     var body: some View {
 		HStack(spacing: 15){
-		  Button{
-			 currentSection = .favorite
-		  }label: {
+			  Button{
+				 currentSection = .favorite
+			  }label: {
 			 Image(systemName: currentSection == .favorite ? "heart.fill" : "heart")
 				.foregroundStyle(.primaryAction)
-				.padding(.leading)
-		  }
-		  ScrollView(.horizontal){
+					.padding(.leading)
+			  }
+			  .iconButtonAccessibility("Favorite ingredients", hint: "Shows favorite ingredients")
+			  ScrollView(.horizontal){
 			 HStack(spacing: 10){
 				ForEach(CategoriesEnum.allCases){section in
 				  let active = currentSection == section
@@ -38,8 +39,10 @@ struct IngredientSectionBar: View {
 //								  .frame(height: 3)
 //								  .matchedGeometryEffect(id: "Category", in: nameSpace)
 //							 }
-						  }
-						}
+						 }
+						 .accessibilityLabel(Text(section.rawValue.capitalized))
+						 .accessibilityAddTraits(active ? [.isButton, .isSelected] : .isButton)
+					  }
 						.padding(.horizontal, 15)
 						.background(
 						  RoundedRectangle(cornerRadius: 20)
@@ -49,8 +52,8 @@ struct IngredientSectionBar: View {
 				  }
 				}
 			  }
-			  .scrollIndicators(.hidden)
 			}
+			  .scrollIndicators(.hidden)
 		}
 		.padding(5)
 		.background(

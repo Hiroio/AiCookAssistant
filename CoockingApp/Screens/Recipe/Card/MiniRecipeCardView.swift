@@ -41,11 +41,11 @@ struct MiniRecipeCardView: View {
 		  }
 		  
 		}
-		.font(.caption2)
-		.foregroundStyle(Color.primarytext.opacity(0.62))
-	 }
-	 .latestCard()
-  }
+			.font(.caption2)
+			.foregroundStyle(Color.primarytext.opacity(0.62))
+		 }
+		 .recipeCardAccessibility(recipe)
+	  }
 }
 
 

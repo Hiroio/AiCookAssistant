@@ -10,7 +10,7 @@ import SwiftUI
 struct AssistanceView: View {
   @EnvironmentObject private var vm: RecipeInfoViewModel
   @State private var text: String = ""
-    var body: some View {
+	    var body: some View {
 		VStack(spacing: 25){
 		  if vm.recipe.chatHistory.isEmpty{
 			 Spacer()
@@ -38,12 +38,16 @@ struct AssistanceView: View {
 		  }
 		  Spacer()
 		  HStack{
-			 TextField("", text: $vm.chatMessage, prompt: Text("Ask a question.."))
-				.padding()
-			 
-			 Button{
-				vm.sendChatMessage()
-			 }label: {
+				 TextField("", text: $vm.chatMessage, prompt: Text("Ask a question.."))
+					.submitLabel(.send)
+					.onSubmit {
+					  vm.sendChatMessage()
+					}
+					.padding()
+				 
+				 Button{
+					vm.sendChatMessage()
+				 }label: {
 				Image(systemName: "paperplane.fill")
 				  .foregroundStyle(Color.background)
 				  .padding()
@@ -57,10 +61,10 @@ struct AssistanceView: View {
 				RoundedRectangle(cornerRadius: 20)
 				  .fill(.white.opacity(0.9))
 			 )
-		}
-		.animation(.bouncy, value: vm.chatMessage)
-		.padding()
-    }
+			}
+			.animation(.bouncy, value: vm.chatMessage)
+			.padding()
+	    }
 }
 
 #Preview {

@@ -12,14 +12,15 @@ struct SearchBarList: View {
   @Binding var ingredientsSearch: Bool
   @Binding var searchText: String
     var body: some View {
-		HStack{
-		  segmentedPicker
-		  HStack{
-			 Image(systemName: "magnifyingglass")
-			 let search = "\(ingredientsSearch ? "Ingredient" : "Name")"
-			 TextField("", text: $searchText, prompt: Text("Search by \(search)").font(.footnote))
-				.padding(.vertical, 12)
-		  }
+				HStack{
+				  segmentedPicker
+			  HStack{
+				 Image(systemName: "magnifyingglass")
+					 let search = "\(ingredientsSearch ? "Ingredient" : "Name")"
+					 TextField("", text: $searchText, prompt: Text("Search by \(search)").font(.footnote))
+						.submitLabel(.search)
+						.padding(.vertical, 12)
+			  }
 		  .padding(.horizontal)
 		  .frame(maxWidth: .infinity)
 		  .background(
@@ -27,17 +28,17 @@ struct SearchBarList: View {
 				.fill(Color.background)
 				.shadow(color:.black.opacity(0.105),radius: 1)
 		  )
-		}
-		.animation(.bouncy, value: ingredientsSearch)
-		.padding(5)
-    }
+				}
+				.animation(.bouncy, value: ingredientsSearch)
+				.padding(5)
+		    }
   
 //  MARK: Segmented Picker for search options
   private var segmentedPicker: some View{
 	 HStack(spacing: 0){
-		Button{
-		  ingredientsSearch = false
-		}label: {
+				Button{
+				  ingredientsSearch = false
+				}label: {
 		  ZStack(alignment: .bottom){
 			 if !ingredientsSearch{
 				RoundedRectangle(cornerRadius: 15)
@@ -59,9 +60,9 @@ struct SearchBarList: View {
 		Rectangle()
 		  .fill(Color.rareCard)
 		  .frame(width: 0.5, height: 15)
-		Button{
-		  ingredientsSearch = true
-		}label: {
+				Button{
+				  ingredientsSearch = true
+				}label: {
 		  ZStack(alignment: .bottom){
 			 if ingredientsSearch{
 				RoundedRectangle(cornerRadius: 15)

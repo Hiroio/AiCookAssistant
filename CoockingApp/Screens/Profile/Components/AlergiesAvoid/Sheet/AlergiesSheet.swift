@@ -9,10 +9,10 @@ import SwiftUI
 
 struct AlergiesSheet: View {
   @EnvironmentObject private var vm: ProfileViewModel
-    var body: some View {
-		ZStack{
-		  Color.rareCard.opacity(0.4)
-			 .ignoresSafeArea()
+	    var body: some View {
+			ZStack{
+			  Color.rareCard.opacity(0.4)
+				 .ignoresSafeArea()
 		  
 		  VStack(spacing: 15){
 			header
@@ -29,11 +29,15 @@ struct AlergiesSheet: View {
 						.frame(width: 1, height: 20)
 				  }.foregroundStyle(.primaryAction)
 				  
-				  TextField("", text: $vm.sheetText, prompt: Text("Enter Product here"))
-				  
-				  Button{
-					 vm.textAction()
-				  }label: {
+					  TextField("", text: $vm.sheetText, prompt: Text("Enter Product here"))
+						 .submitLabel(.done)
+						 .onSubmit {
+							vm.textAction()
+						 }
+					  
+					  Button{
+						 vm.textAction()
+					  }label: {
 					 Image(systemName: "plus")
 						.foregroundStyle(Color.background)
 						.padding(10)
@@ -41,8 +45,9 @@ struct AlergiesSheet: View {
 						  Circle()
 							 .fill(.accentCard)
 						)
-				  }
-				}
+					  }
+					  .iconButtonAccessibility("Add ingredient preference")
+					}
 				.padding(8)
 				.background(
 				  RoundedRectangle(cornerRadius: 15)
@@ -90,29 +95,29 @@ struct AlergiesSheet: View {
 				  }
 				}
 			 }
+			 .frame(maxHeight: .infinity, alignment: .top)
 			 
 			
-			 
 		  }
 		  .animation(.bouncy, value: vm.user.alergieIngredients)
 		  .animation(.bouncy, value: vm.user.avoidIngredients)
 		  .padding()
-		}
-		
-    }
+			}
+			
+	    }
   
   
   public var header: some View{
 	 HStack{
-		Button{
-		  vm.cancel()
-		}label: {
+			Button{
+			  vm.cancel()
+			}label: {
 		  Text("Cancel")
 		}
 		Spacer()
-		Button{
-		  vm.save()
-		}label:{
+			Button{
+			  vm.save()
+			}label:{
 		  Text("Save")
 		}
 	 }
@@ -127,5 +132,3 @@ struct AlergiesSheet: View {
     AlergiesSheet()
 	 .environmentObject(ProfileViewModel())
 }
-
-

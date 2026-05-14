@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct RecipeInfoNavigation: View {
+  @EnvironmentObject private var storeManager: StoreManager
   @Namespace var nameSpace
   @StateObject private var vm: RecipeInfoViewModel
   init(recipe: UIRecipeModel, fromCreation: Bool = false) {
@@ -27,10 +28,34 @@ struct RecipeInfoNavigation: View {
 				InstructionView(instructions: vm.recipe.instructions)
 				  .tag(InfoScreenEnum.instructions)
 				
-				if vm.cooking{
 				  AssistanceView()
+				  .allowsHitTesting(storeManager.hasFullAccess)
+					 .blur(radius: storeManager.hasFullAccess ? 0 : 12)
+					 .overlay(
+						VStack{
+						  Text("Premium Access")
+							 .font(.title.weight(.black))
+							 .foregroundStyle(.primaryAction)
+						  Image("assist")
+							 .resizable()
+							 .scaledToFit()
+							 .frame(width: 250, height: 250)
+						  Button{
+							 storeManager.showingSheet = true
+						  }label: {
+							 Text("Get Premium")
+								.font(.headline.weight(.black))
+								.foregroundStyle(Color.background)
+								.padding()
+								.background(
+								  RoundedRectangle(cornerRadius: 15)
+									 .fill(.primaryAction)
+								)
+						  }
+						}
+					 )
 					 .tag(InfoScreenEnum.aiassistance)
-				}
+					 
 			 }
 			 .tabViewStyle(.page(indexDisplayMode: .never))
 		  }
@@ -47,10 +72,17 @@ struct RecipeInfoNavigation: View {
 	 HStack{
 		Button{
 		  NavigationManager.shared.secondaryScreens = nil
-		}label: {
-		  Image(systemName: "chevron.left")
-		}
-		Spacer()
+			}label: {
+			  Image(systemName: "chevron.left")
+				 .padding(10)
+				 .background(
+					Circle()
+					  .fill(Color.rareCard.opacity(0.1))
+					  .shadow(radius: 1)
+				 )
+			}
+			.iconButtonAccessibility("Back", hint: "Closes recipe details")
+			Spacer()
 		Button{
 		  Task {
 			 await vm.prepareShareImage()
@@ -61,10 +93,11 @@ struct RecipeInfoNavigation: View {
 				.tint(.primarytext)
 		  } else {
 			 Image(systemName: "square.and.arrow.up")
-		  }
-		}
-		.disabled(vm.shareIsLoading)
-	 }
+			  }
+			}
+			.disabled(vm.shareIsLoading)
+			.iconButtonAccessibility("Share recipe", hint: "Creates and opens a share image")
+		 }
 	 .font(.headline)
 	 .fontWeight(.light)
 	 .foregroundStyle(.primarytext)
@@ -74,13 +107,12 @@ struct RecipeInfoNavigation: View {
   var topBar: some View {
 	 HStack {
 		ForEach(InfoScreenEnum.allCases){ item in
-		  if item != .aiassistance && !vm.cooking{
 			 let active = vm.screenState == item
 			 Button{
 				withAnimation(.bouncy){
 				  vm.screenState = item
 				}
-			 }label: {
+				 }label: {
 				ZStack(alignment: .bottom){
 				  Text(item.text)
 					 .foregroundStyle(active ? Color.primaryAction : .primarytext)
@@ -92,11 +124,11 @@ struct RecipeInfoNavigation: View {
 						.frame(height: 3)
 						.padding(.horizontal)
 				  }
-				}
-				.frame(maxWidth: .infinity)
-			 }
-			 
-		  }
+					}
+					.frame(maxWidth: .infinity)
+				 }
+				 .accessibilityLabel(Text(item.text))
+				 .accessibilityAddTraits(active ? [.isButton, .isSelected] : .isButton)
 		}
 	 }
 	 .background(
@@ -113,4 +145,5 @@ struct RecipeInfoNavigation: View {
 
 #Preview {
   RecipeInfoNavigation(recipe: .preview)
+	 .environmentObject(StoreManager.shared)
 }

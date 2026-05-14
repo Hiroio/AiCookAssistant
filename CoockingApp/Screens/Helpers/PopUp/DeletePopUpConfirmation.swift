@@ -63,17 +63,19 @@ struct DeletePopUpConfirmation: View {
 			 RoundedRectangle(cornerRadius: 22)
 				.fill(Color.rareCard.opacity(0.38))
 			 
-			 Image("PopUpBack")
-				.resizable()
-				.scaledToFit()
-				.opacity(0.5)
+				 Image("PopUpBack")
+					.resizable()
+					.scaledToFit()
+					.accessibilityHidden(true)
+					.opacity(0.5)
 				.padding(.horizontal, 48)
 				.offset(y: -32)
 				.shadow(radius: 1, y: 3)
 		  }
-		}
-		.padding(.horizontal, 22)
-    }
+			}
+			.padding(.horizontal, 22)
+			.modalAccessibility("Delete confirmation")
+	    }
 }
 
 #Preview {

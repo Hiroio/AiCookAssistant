@@ -19,7 +19,6 @@ class StoreManager: ObservableObject {
 	 private var updateListenerTask: Task<Void, Error>?
 
 	  private init() {
-		  // Слухаємо оновлення транзакцій у фоні
 		  updateListenerTask = listenForTransactions()
 		  
 		  Task {
@@ -28,18 +27,17 @@ class StoreManager: ObservableObject {
 		  }
 	 }
 
-	 // Отримуємо продукти з App Store
+	 // Getting products from App Store
 	 func fetchProducts() async {
 		  do {
-				// ID твоїх підписок з App Store Connect
-				let ids = ["com.cheffsy.monthly", "com.cheffsy.yearly"]
+				let ids = ["delinote.premium.month", "delinote.premium.three_months", "delinote.premium.annual"]
 				self.products = try await Product.products(for: ids)
 		  } catch {
 				print("Помилка завантаження продуктів: \(error)")
 		  }
 	 }
 
-	 // Купівля
+	 // Purchase
 	 func purchase(_ product: Product) async throws {
 		  let result = try await product.purchase()
 		  
@@ -65,7 +63,7 @@ class StoreManager: ObservableObject {
 	 }
   }
 
-	 // Перевірка, чи є активна підписка зараз
+	 // Checking for subscriptions
 	 func updateSubscriptionStatus() async {
 		  for await result in Transaction.currentEntitlements {
 			 if (try? checkVerified(result)) != nil {
@@ -87,7 +85,6 @@ class StoreManager: ObservableObject {
 		 private func listenForTransactions() -> Task<Void, Error> {
 			  Task {
 				 for await _ in Transaction.updates {
-						 // Оновлюємо статус, якщо транзакція прийшла ззовні (наприклад, через налаштування iOS)
 						 await self.updateSubscriptionStatus()
 					}
 		  }

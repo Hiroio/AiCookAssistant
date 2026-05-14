@@ -28,7 +28,7 @@ struct InstructionView: View {
 					 )
 				  
 				  let text = instructions[index].components(separatedBy: "-")
-				  let step = text[1].trimmingCharacters(in: .whitespacesAndNewlines)
+				  let step = text.last?.trimmingCharacters(in: .whitespacesAndNewlines) ?? text[0]
 				  Text(step)
 					 .multilineTextAlignment(.leading)
 					 .frame(maxWidth: .infinity, alignment: .leading)

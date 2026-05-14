@@ -11,16 +11,16 @@ struct NoteCard: View {
   @Binding var noteText: String
   @State private var added: Bool = false
   @State private var folded: Bool = false
-    var body: some View {
-		VStack{
-		  Button{
-			 if !added{
-				added.toggle()
-				folded.toggle()
-			 }else{
-				folded.toggle()
-			 }
-		  }label: {
+	    var body: some View {
+			VStack{
+			  Button{
+				 if !added{
+					added.toggle()
+					folded.toggle()
+				 }else{
+					folded.toggle()
+				 }
+			  }label: {
 			 HStack{
 				if added{
 				  Image(systemName: "note.text")
@@ -42,10 +42,10 @@ struct NoteCard: View {
 			 }
 			 .contentTransition(.numericText())
 		  }.buttonStyle(.plain)
-		  if added && folded{
-			 TextField("", text: $noteText,  prompt: Text("Preferences regarding the dish"), axis: .vertical)
-				.foregroundStyle(Color.primaryAction)
-				.padding()
+			  if added && folded{
+				 TextField("", text: $noteText,  prompt: Text("Preferences regarding the dish"), axis: .vertical)
+					.foregroundStyle(Color.primaryAction)
+					.padding()
 				.background(
 				  RoundedRectangle(cornerRadius: 15)
 					 .fill(Color.accentCard.opacity(0.2))
@@ -63,9 +63,9 @@ struct NoteCard: View {
 		  RoundedRectangle(cornerRadius: 20)
 			 .stroke(Color.accentCard, style: .init(lineWidth: 0.5, lineJoin: .round, dash: [8.5], dashPhase: 0))
 		)
-		.animation(.easeInOut, value: folded)
-		.animation(.easeInOut, value: added)
-    }
+			.animation(.easeInOut, value: folded)
+			.animation(.easeInOut, value: added)
+	    }
 }
 
 #Preview {

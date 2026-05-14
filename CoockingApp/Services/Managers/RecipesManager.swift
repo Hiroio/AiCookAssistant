@@ -16,6 +16,7 @@ class RecipesManager{
   private let coreDataManager = CoreDataManager.shared
   init(){
 	 fetchRecipe()
+	 checkForOldRecomendations()
   }
   
   func fetchRecipe(){
@@ -23,44 +24,71 @@ class RecipesManager{
 	 self.recipes = entities.map({UIRecipeModel(entity: $0)})
   }
   
-  func createRecipe(recipe: UIRecipeModel){
-	 coreDataManager.createRecipe(recipe: recipe)
-	 NavigationManager.shared.secondaryScreens = nil
-	 fetchRecipe()
-  }
-  
-  func saveRecomended(){
-//	 TODO: Core data swift isRecomended
-  }
-  
-  func deleteRecipe(_ id: UUID){
-	 if let index = recipes.firstIndex(where: {$0.id == id}){
-		self.recipes[index].isFavorite.toggle()
+  func checkForOldRecomendations(){
+	 let old = recipes.filter({ !($0.recommendedDate?.inToday() ?? true) && $0.isRecommended})
+	 
+	 guard !old.isEmpty else { return }
+	 
+	 let deleted = old.map { deleteRecomended($0.id) }
+	 
+	 if deleted.contains(true) {
+		fetchRecipe()
 	 }
-	 
-	 coreDataManager.deleteRecipe(id)
-	 
-	 fetchRecipe()
   }
   
-  func toggleFavorite(_ id: UUID){
-	 if let index = recipes.firstIndex(where: {$0.id == id}){
-		self.recipes[index].isFavorite.toggle()
+  @discardableResult
+  func createRecipe(recipe: UIRecipeModel) -> Bool {
+	 let success = coreDataManager.createRecipe(recipe: recipe)
+	 if success {
+		fetchRecipe()
 	 }
-	 
-	 coreDataManager.toggleFavorite(id)
-	 
-	 fetchRecipe()
+	 return success
   }
   
-  func incrementTimesCooked(_ id: UUID){
-	 if let index = recipes.firstIndex(where: {$0.id == id}){
-		recipes[index].timesCooked += 1
+  @discardableResult
+  func saveRecomended(_ id: UUID) -> Bool {
+	 let success = coreDataManager.saveRecomended(id)
+	 if success {
+		fetchRecipe()
 	 }
-	 
-	 coreDataManager.incrementTimesCooked(id)
-	 
-	 fetchRecipe()
+	 return success
+  }
+  
+  @discardableResult
+  func deleteRecomended(_ id: UUID) -> Bool {
+	 let success = coreDataManager.deleteRecomended(id)
+	 if success {
+		fetchRecipe()
+	 }
+	 return success
+  }
+  
+  
+  @discardableResult
+  func deleteRecipe(_ id: UUID) -> Bool {
+	 let success = coreDataManager.deleteRecipe(id)
+	 if success {
+		fetchRecipe()
+	 }
+	 return success
+  }
+  
+  @discardableResult
+  func toggleFavorite(_ id: UUID) -> Bool {
+	 let success = coreDataManager.toggleFavorite(id)
+	 if success {
+		fetchRecipe()
+	 }
+	 return success
+  }
+  
+  @discardableResult
+  func incrementTimesCooked(_ id: UUID) -> Bool {
+	 let success = coreDataManager.incrementTimesCooked(id)
+	 if success {
+		fetchRecipe()
+	 }
+	 return success
   }
   
 }

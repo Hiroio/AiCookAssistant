@@ -21,10 +21,7 @@ class RecipeInfoViewModel: ObservableObject{
   @Published var shareImage: UIImage?
   @Published var shareIsLoading: Bool = false
   @Published var shareIsPresented: Bool = false
-  
-  var saved: Bool {
-	 recipeManager.recipes.contains(where: {$0.id == recipe.id}) && !recipe.isRecommended
-  }
+  @Published var saved: Bool = false
   
   private let geminiAPI = GeminiAPI()
   private let shareService = ShareService.shared
@@ -32,6 +29,7 @@ class RecipeInfoViewModel: ObservableObject{
   init(recipe: UIRecipeModel, fromCreation: Bool = false) {
 	 self.recipe = recipe
 	 self.fromCreating = fromCreation
+	 self.saved = recipeManager.recipes.contains(where: {$0.id == recipe.id}) && !recipe.isRecommended
   }
   
   
@@ -57,12 +55,12 @@ class RecipeInfoViewModel: ObservableObject{
 	 }
   }
  
-  
+//  BTN Save in Bottom bar
   func save(){
 	 if recipe.isRecommended {
-		recipeManager.saveRecomended()
+		saved = recipeManager.saveRecomended(self.recipe.id)
 	 }else{
-		recipeManager.createRecipe(recipe: self.recipe)
+		saved = recipeManager.createRecipe(recipe: self.recipe)
 	 }
   }
   
@@ -70,12 +68,15 @@ class RecipeInfoViewModel: ObservableObject{
 	 screenState = .instructions
 	 cooking = true
 	 
-	 guard saved else { return }
+	 if !saved{
+		let _ = self.save()
+	 }
 	 
 	 recipe.timesCooked += 1
-	 recipeManager.incrementTimesCooked(recipe.id)
+	 let _ = recipeManager.incrementTimesCooked(recipe.id)
   }
   
+//  SHARING RECIPE TOP BTN
   func prepareShareImage() async {
 	 guard !shareIsLoading else { return }
 	 

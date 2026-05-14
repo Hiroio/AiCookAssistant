@@ -75,10 +75,11 @@ struct WideRecipeCardView: View {
 			 favoriteBtn
 		  }
 		  .clipShape(RoundedRectangle(cornerRadius: 20))
-		  .contentShape(.rect)
-		  .compositingGroup()
-		  .shadow(radius: 3, y: 3)
-		}
+			  .contentShape(.rect)
+			  .compositingGroup()
+			  .shadow(radius: 3, y: 3)
+			  .recipeCardAccessibility(recipe, action: expanded ? "Recipe card expanded" : "Expands recipe actions")
+			}
 		.buttonStyle(.plain)
 		
 		if isEditing{
@@ -90,10 +91,11 @@ struct WideRecipeCardView: View {
 				.foregroundStyle(Color.background)
 				.padding()
 				.padding(.vertical)
-		  }
-		}
-	 }
-	 .background(
+				  }
+			  .iconButtonAccessibility("Delete \(recipe.name)", hint: "Shows delete confirmation")
+			 }
+		 }
+		 .background(
 		RoundedRectangle(cornerRadius: 20)
 		  .fill(Color.avoid)
 	 )
@@ -135,9 +137,10 @@ struct WideRecipeCardView: View {
 		  .foregroundStyle(recipe.isFavorite ? Color.avoid : Color.primarytext)
 		  .padding(12)
 		  .background(Circle().fill(Color.background.opacity(0.92)))
-	 }
-	 .padding(8)
-  }
+		 }
+		 .padding(8)
+		 .iconButtonAccessibility(recipe.isFavorite ? "Remove \(recipe.name) from favorites" : "Add \(recipe.name) to favorites")
+	  }
   
 //  MARK: Section when view expanded
   private var expandedSection: some View{
@@ -154,19 +157,20 @@ struct WideRecipeCardView: View {
 			 )
 		}
 		
-		Button{
-		  withAnimation(.bouncy){
-			 expanded = false
-		  }
-		}label: {
+			Button{
+			  withAnimation(.bouncy){
+				 expanded = false
+			  }
+			}label: {
 		  Image(systemName: "xmark")
 			 .padding(12)
 			 .background(
 				Circle()
 				  .fill(Color.avoid)
-			 )
-		}
-	 }
+				 )
+			}
+			.iconButtonAccessibility("Close recipe actions")
+		 }
 	 .section(color: Color.background)
   }
 }

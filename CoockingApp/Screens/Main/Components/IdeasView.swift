@@ -8,9 +8,18 @@
 import SwiftUI
 
 struct IdeasView: View {
+  let spacing: CGFloat
+  let iconSize: CGFloat
   let createRecipe: (String) -> ()
+  
+  init(spacing: CGFloat = 8, iconSize: CGFloat = 34, createRecipe: @escaping (String) -> ()) {
+	 self.spacing = spacing
+	 self.iconSize = iconSize
+	 self.createRecipe = createRecipe
+  }
+  
     var body: some View {
-		HStack(alignment: .top){
+		LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: spacing), count: 4), spacing: spacing){
 		  ForEach(IdeasEnum.getRandom()){item in
 			 Button{
 				if !StoreManager.shared.hasFullAccess && UserManager.shared.user.freeIdeasUsed >= 3 {
@@ -19,31 +28,16 @@ struct IdeasView: View {
 				  createRecipe(item.prompt)
 				}
 			 }label:{
-				VStack{
-				  Image(systemName: item.icon)
-					 .font(.largeTitle)
-					 .fontWeight(.medium)
-					 .frame(width: 35, height: 35)
-					 .foregroundStyle(Color.primaryAction)
-					 .padding()
-					 .background(
-						RoundedRectangle(cornerRadius: 15)
-						  .fill(.secondaryCard.opacity(0.8))
-					 )
-				  Text(item.title)
-					 .foregroundStyle(.primarytext)
-					 .fontDesign(.rounded)
-					 .font(.caption)
-					 .multilineTextAlignment(.center)
-				}
-				.frame(maxWidth: .infinity, alignment: .top)
+				IdeaCard(item, iconSize: iconSize)
+				  .frame(maxWidth: .infinity)
 			 }
+			 .buttonStyle(.plain)
 		  }
 		}
+		.frame(maxWidth: .infinity)
     }
 }
 
 #Preview {
     IdeasView(createRecipe: { _ in})
 }
-

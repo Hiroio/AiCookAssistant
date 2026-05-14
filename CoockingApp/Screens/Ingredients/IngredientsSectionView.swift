@@ -67,7 +67,7 @@ struct IngredientsSectionView: View {
 
   private var header: some View{
 	 HStack{
-		Text("DeliNote")
+		Text("Ingredients")
 		  .font(.title)
 		  .title(weight: .semibold)
 		  .frame(maxWidth: .infinity, alignment: .leading)
@@ -109,6 +109,7 @@ struct IngredientsSectionView: View {
 						.fill(.avoid)
 				  )
 			 }
+			 .iconButtonAccessibility("Cancel selection")
 			 ScrollView(.horizontal){
 				HStack{
 				  ForEach(vm.selectedIngredients){item in
@@ -144,8 +145,9 @@ struct IngredientsSectionView: View {
 					 RoundedRectangle(cornerRadius: 15)
 						.fill(.avoid)
 				  )
-			 }
-				 .opacity(active ? 1 : 0.6)
+				 }
+				 .iconButtonAccessibility("Delete selected ingredients", hint: "Shows delete confirmation")
+					 .opacity(active ? 1 : 0.6)
 			 //		  Generate
 			 Button{
 				NavigationManager.shared.secondaryScreens = .creation(ingredients: vm.selectedIngredients.map({$0.name}))
@@ -158,6 +160,7 @@ struct IngredientsSectionView: View {
 						.fill(.accentCard)
 				  )
 			 }
+			 .iconButtonAccessibility("Generate recipe", hint: "Creates a recipe from selected ingredients")
 		  }
 		  .transition(.move(edge: .leading).combined(with: .opacity))
 		}

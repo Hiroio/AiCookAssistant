@@ -16,30 +16,33 @@ struct ProfileEditView: View {
   let cancelAction: () -> Void
   let saveAction: () -> Void
   
-  private let privacyURL = URL(string: "https://delinote.app/privacy")!
-  private let termsURL = URL(string: "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/")!
+  private let privacyURL = URL(string: "https://deli-note.netlify.app/privacy/")!
+  private let supportURL = URL(string: "https://deli-note.netlify.app/support/")!
+  private let termsURL = URL(string: "https://deli-note.netlify.app/terms/")!
   private let subscriptionURL = URL(string: "https://apps.apple.com/account/subscriptions")!
   
     var body: some View {
 		ZStack {
-		  Color.background.ignoresSafeArea()
+			  Color.background
+				 .ignoresSafeArea()
 		  
 		  VStack(spacing: 0) {
 			 topBar
 			 
-			 ScrollView {
-				VStack(spacing: 24) {
+				 ScrollView {
+					VStack(spacing: 24) {
 				  avatarSection
 				  nameSection
 				  personalizationSection
 				  settingsSection
 				}
 				.padding(.horizontal, 22)
-				.padding(.top, 18)
-				.padding(.bottom, 18)
-			 }
-			 
-			 legalCaption
+					.padding(.top, 18)
+					.padding(.bottom, 18)
+				 }
+				 .scrollDismissesKeyboard(.interactively)
+				 
+				 legalCaption
 				.padding(.bottom, 18)
 		  }
 		}
@@ -47,9 +50,9 @@ struct ProfileEditView: View {
   
   private var topBar: some View {
 	 HStack {
-		Button("Cancel") {
-		  cancelAction()
-		}
+			Button("Cancel") {
+			  cancelAction()
+			}
 		.font(.subheadline.weight(.medium))
 		.foregroundStyle(Color.primarytext.opacity(0.68))
 		
@@ -61,9 +64,9 @@ struct ProfileEditView: View {
 		
 		Spacer()
 		
-		Button("Save") {
-		  saveAction()
-		}
+			Button("Save") {
+			  saveAction()
+			}
 		.font(.subheadline.weight(.semibold))
 		.foregroundStyle(Color.primaryAction)
 	 }
@@ -84,21 +87,22 @@ struct ProfileEditView: View {
 			 Circle()
 				.fill(Color.rareCard.opacity(0.42))
 		  )
-		  .overlay(alignment: .bottomTrailing) {
-			 Button {
-			 } label: {
-				Image(systemName: "plus")
-				  .font(.system(size: 15, weight: .bold))
-				  .foregroundStyle(Color.background)
-				  .frame(width: 34, height: 34)
-				  .background(Circle().fill(Color.primaryAction))
-			 }
-			 .buttonStyle(.plain)
-		  }
+//		  .overlay(alignment: .bottomTrailing) {
+//			 Button {
+//			 } label: {
+//				Image(systemName: "plus")
+//				  .font(.system(size: 15, weight: .bold))
+//				  .foregroundStyle(Color.background)
+//				  .frame(width: 34, height: 34)
+//				  .background(Circle().fill(Color.primaryAction))
+//				 }
+//				 .buttonStyle(.plain)
+//				 .iconButtonAccessibility("Change photo")
+//			  }
 		
-		Text("Change photo")
-		  .font(.footnote.weight(.medium))
-		  .foregroundStyle(Color.primaryAction)
+//		Text("Change photo")
+//		  .font(.footnote.weight(.medium))
+//		  .foregroundStyle(Color.primaryAction)
 	 }
 	 .frame(maxWidth: .infinity)
   }
@@ -109,8 +113,9 @@ struct ProfileEditView: View {
 		  .font(.subheadline.weight(.semibold))
 		  .foregroundStyle(Color.primarytext)
 		
-		TextField("UserName", text: $vm.user.username)
-		  .font(.body.weight(.medium))
+			TextField("UserName", text: $vm.user.username)
+			  .submitLabel(.done)
+			  .font(.body.weight(.medium))
 		  .foregroundStyle(Color.primarytext)
 		  .textInputAutocapitalization(.words)
 		  .padding(.horizontal, 16)
@@ -119,12 +124,12 @@ struct ProfileEditView: View {
 			 RoundedRectangle(cornerRadius: 18)
 				.fill(Color.secondaryCard.opacity(0.58))
 		  )
-		  .overlay(
-			 RoundedRectangle(cornerRadius: 18)
-				.stroke(Color.primarytext.opacity(0.08), lineWidth: 1)
-		  )
-	 }
-  }
+			  .overlay(
+				 RoundedRectangle(cornerRadius: 18)
+					.stroke(Color.primarytext.opacity(0.08), lineWidth: 1)
+			  )
+		 }
+	  }
   
   private var personalizationSection: some View {
 	 VStack(alignment: .leading, spacing: 12) {
@@ -248,11 +253,13 @@ struct ProfileEditView: View {
   }
   
   private var legalCaption: some View {
-	 HStack(spacing: 8) {
-		Link("Privacy Policy", destination: privacyURL)
-		Text("•")
-		Link("Terms of Use", destination: termsURL)
-	 }
+		 HStack(spacing: 8) {
+			Link("Privacy Policy", destination: privacyURL)
+			Text("•")
+			Link("Support", destination: supportURL)
+			Text("•")
+			Link("Terms of Use", destination: termsURL)
+		 }
 	 .font(.caption.weight(.medium))
 	 .foregroundStyle(Color.primarytext.opacity(0.52))
 	 .frame(maxWidth: .infinity)

@@ -13,10 +13,14 @@ struct PaywallView: View {
     var body: some View {
 		ZStack{
 		  Color.background.ignoresSafeArea()
-		  
-		  SubscriptionStoreView(groupID: "237F9169"){
+		  SubscriptionStoreView(groupID: "22087473"){
 			 VStack(spacing: 25){
-				HStack{
+				if UIDevice.isIPad{
+				  Image("ChefCooking")
+					 .resizable()
+					 .scaledToFit()
+				}
+				HStack(alignment: .bottom){
 				  VStack(alignment: .leading, spacing: 10){
 					 Text("Unlock your full cooking potential")
 						.font(.title)
@@ -27,27 +31,18 @@ struct PaywallView: View {
 						.font(.footnote)
 						.opacity(0.6)
 				  }.frame(maxWidth: .infinity)
-				  Spacer()
-					 .frame(maxWidth: .infinity)
-				}
-				.background(
-				  HStack{
-					 Spacer()
-						.frame(maxWidth: .infinity)
+				  if UIDevice.isIPhone{
 					 Image("ChefCooking")
 						.resizable()
 						.scaledToFit()
-						.frame(maxWidth: .infinity)
 						.padding(15)
-						.scaleEffect(1.3)
 				  }
-				  .frame(maxHeight: .infinity, alignment: .top)
-				)
+				}
+				.frame(alignment: .bottom)
 				
 				PaywallFeaturesCard()
-				  .onAppear{
-					 loaded.toggle()
-				  }
+				  .frame(maxHeight: .infinity)
+				
 			 }
 		  }
 		  .subscriptionStoreControlBackground(Color.background)

@@ -14,10 +14,11 @@ struct ErrorPopUpView: View {
     var body: some View {
 		ZStack {
 		VStack(spacing: 16) {
-		  Image(error.icon)
-			 .resizable()
-			 .scaledToFit()
-			 .frame(width: 154, height: 134)
+			  Image(error.icon)
+				 .resizable()
+				 .scaledToFit()
+				 .frame(width: 154, height: 134)
+				 .accessibilityHidden(true)
 			 
 		  VStack(spacing: 8) {
 			 Text(error.title)
@@ -52,9 +53,10 @@ struct ErrorPopUpView: View {
 			 .fill(Color.background.mix(with: .white, by: 0.2))
 			 .shadow(color: .black.opacity(0.52), radius: 5, y: 2)
 		)
-		.padding(.horizontal, 28)
-	 }
-  }
+			.padding(.horizontal, 28)
+			.modalAccessibility(error.title)
+		 }
+	  }
 }
 
 #Preview {

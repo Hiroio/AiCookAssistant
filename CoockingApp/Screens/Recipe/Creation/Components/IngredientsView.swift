@@ -32,12 +32,16 @@ struct IngredientsView: View {
 		
 		HStack(alignment: .center,spacing: 2){
 		  HStack{
-			 TextField("", text: $text, prompt: Text("Potato Chicken Herbs"))
-				.foregroundStyle(Color.primaryAction)
-				.padding()
-			 HStack(spacing: 0){
-				Button{
-				  addIngredient(text: text)
+					 TextField("", text: $text, prompt: Text("Potato Chicken Herbs"))
+						.submitLabel(.done)
+						.onSubmit {
+					  addIngredient(text: text)
+					}
+					.foregroundStyle(Color.primaryAction)
+					.padding()
+				 HStack(spacing: 0){
+					Button{
+					  addIngredient(text: text)
 				}label:{
 				  Image(systemName: "plus")
 					 .padding()
@@ -48,8 +52,9 @@ struct IngredientsView: View {
 						  .shadow(radius: 2, x: -2, y: 1)
 					 )
 					 .padding(4)
-				}
-			 }
+					}
+					.iconButtonAccessibility("Add ingredient", hint: "Adds typed ingredients")
+				 }
 		  }
 		  .background(
 			 ZStack{
@@ -57,10 +62,10 @@ struct IngredientsView: View {
 				  .fill(Color.secondaryCard.shadow(.inner(radius: 1)))
 			 }
 		  )
-			 Button{
-				if !hasFullAccess && freeScansLeft < 1{
-				  NavigationManager.shared.popup = .weeklyLimit(.photoScan)
-				}else{
+					 Button{
+						if !hasFullAccess && freeScansLeft < 1{
+					  NavigationManager.shared.popup = .weeklyLimit(.photoScan)
+					}else{
 				  handleCameraTap()
 				}
 			 }label:{
@@ -72,8 +77,9 @@ struct IngredientsView: View {
 						.fill(Color.accentCard)
 				  )
 				  .padding(.horizontal, 4)
-			 }
-			 .opacity(freeScansLeft < 1 && !hasFullAccess ? 0.5 : 1)
+				 }
+				 .opacity(freeScansLeft < 1 && !hasFullAccess ? 0.5 : 1)
+				 .iconButtonAccessibility("Scan ingredients", hint: "Opens the camera to recognize ingredients")
 		}
 		HStack{
 		  Text("To add multiple items, separate them with a comma")
@@ -107,18 +113,20 @@ struct IngredientsView: View {
 						  .fill(Color.secondaryCard.shadow(.inner(radius: 1)).opacity(0.5))
 					 )
 					 .contentShape(.rect)
-				  }
-				  .transition(.scale)
+					  }
+					  .iconButtonAccessibility("Remove \(text)", hint: "Removes ingredient from the list")
+					  .transition(.scale)
 				  .allowsHitTesting(selectedIngredient.contains(where: {$0.lowercased() == text.lowercased()}))
 				}
 			 }
 				.padding(.horizontal)
 				.frame(maxWidth: .infinity)
-			}
-			.scrollIndicators(.hidden)
-			  
-		 }
-	 .animation(.easeInOut, value: selectedIngredient)
+				}
+				.scrollDismissesKeyboard(.interactively)
+				.scrollIndicators(.hidden)
+				  
+				 }
+			 .animation(.easeInOut, value: selectedIngredient)
 	 .alert(item: $cameraAlert) { alert in
 		switch alert {
 		case .permissionIntro:
@@ -149,13 +157,16 @@ struct IngredientsView: View {
 	 }
   }
   
-  func addIngredient(text: String){
-	 if !selectedIngredient.contains(where: {$0.lowercased() == text.lowercased()}){
+	  func addIngredient(text: String){
+		 if !selectedIngredient.contains(where: {$0.lowercased() == text.lowercased()}){
 		if text.contains(","){
-		  let multipleText = text.components(separatedBy: ",").map({$0.capitalized.trimmingCharacters(in: .whitespacesAndNewlines)})
+		  let multipleText = text.components(separatedBy: ",").map({$0.capitalized.trimmingCharacters(in: .whitespacesAndNewlines)}).filter{!$0.isEmpty}
 		  selectedIngredient.insert(contentsOf: multipleText, at: 0)
 		}else{
-		  selectedIngredient.insert(text.capitalized, at: 0)
+		  let checkedtext = text.trimmingCharacters(in: .whitespacesAndNewlines)
+		  if !checkedtext.isEmpty{
+			 selectedIngredient.insert(checkedtext.capitalized, at: 0)
+		  }
 		}
 	 }
 	 self.text.removeAll()

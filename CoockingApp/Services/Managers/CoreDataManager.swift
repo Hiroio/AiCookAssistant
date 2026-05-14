@@ -10,13 +10,25 @@ import CoreData
 
 class CoreDataManager {
   static let shared = CoreDataManager()
+  private static let cloudKitContainerIdentifier = "iCloud.DeliNoteContainer"
   
   let container: NSPersistentContainer
   let viewContext: NSManagedObjectContext
   
   
   init(){
-	 let loadedContainer = NSPersistentContainer(name: "DataModelApp")
+	 let loadedContainer = NSPersistentCloudKitContainer(name: "DataModelApp")
+	 
+	 guard let storeDescription = loadedContainer.persistentStoreDescriptions.first else {
+		fatalError("Failed to configure Core Data persistent store description")
+	 }
+	 
+	 storeDescription.cloudKitContainerOptions = NSPersistentCloudKitContainerOptions(
+		containerIdentifier: Self.cloudKitContainerIdentifier
+	 )
+	 storeDescription.setOption(true as NSNumber, forKey: NSPersistentHistoryTrackingKey)
+	 storeDescription.setOption(true as NSNumber, forKey: NSPersistentStoreRemoteChangeNotificationPostOptionKey)
+	 
 	 loadedContainer.loadPersistentStores { _, error in
 		if let error{
 		  print("Failed to load contained \(error.localizedDescription)")
@@ -24,16 +36,21 @@ class CoreDataManager {
 		  print("Container succesfuly loaded with name: DataModelApp")
 		}
 	 }
+	 loadedContainer.viewContext.automaticallyMergesChangesFromParent = true
+	 loadedContainer.viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
 	 
 	 self.container = loadedContainer
 	 self.viewContext = loadedContainer.viewContext
   }
   
-  func save() {
+  @discardableResult
+  func save() -> Bool {
 	 do{
 		try viewContext.save()
+		return true
 	 }catch{
 		print("Failed to save")
+		return false
 	 }
   }
 }
@@ -52,7 +69,8 @@ extension CoreDataManager{
 	 
   }
   
-  func createRecipe(recipe: UIRecipeModel) {
+  @discardableResult
+  func createRecipe(recipe: UIRecipeModel) -> Bool {
 	 let entity = RecipeEntity(context: viewContext)
 	 entity.id = UUID()
 	 entity.name = recipe.name
@@ -62,6 +80,8 @@ extension CoreDataManager{
 	 entity.timesCooked = 0
 	 entity.imageUrl = recipe.imageUrl
 	 entity.ingredientsUI = recipe.ingredients
+	 entity.macros = recipe.macros
+	 entity.cookingTip = recipe.cookingTip
 	 entity.instructionsUI = recipe.instructions
 	 entity.isRecommended = recipe.isRecommended
 	 entity.recommendedDate = recipe.recommendedDate
@@ -70,38 +90,59 @@ extension CoreDataManager{
 	 
 	 entity.dateCreated = Date()
 	 
-	 save()
+	 return save()
   }
   
-  private func fetchSingleRecipe(id: UUID) throws -> RecipeEntity {
+  private func fetchSingleRecipe(id: UUID) throws -> RecipeEntity? {
 	 let request: NSFetchRequest<RecipeEntity> = NSFetchRequest(entityName: "RecipeEntity")
 	 
 	 request.predicate = NSPredicate(format: "id == %@", id as CVarArg)
 	 
-	 return try viewContext.fetch(request)[0]
+	 return try viewContext.fetch(request).first
   }
   
-  func toggleFavorite(_ id: UUID){
+  @discardableResult
+  func toggleFavorite(_ id: UUID) -> Bool {
 	 if let recipe = try? fetchSingleRecipe(id: id){
 		recipe.isFavorite.toggle()
+		return save()
 	 }
-	 save()
+	 return false
   }
   
-  func incrementTimesCooked(_ id: UUID){
+  @discardableResult
+  func incrementTimesCooked(_ id: UUID) -> Bool {
 	 if let recipe = try? fetchSingleRecipe(id: id){
 		recipe.timesCooked += 1
+		return save()
 	 }
-	 
-	 save()
+	 return false
   }
   
-  func deleteRecipe(_ id: UUID){
+  @discardableResult
+  func saveRecomended(_ id: UUID) -> Bool {
+	 if let recipe = try? fetchSingleRecipe(id: id){
+		recipe.isRecommended = false
+		return save()
+	 }
+	 return false
+  }
+  
+  func deleteRecomended(_ id: UUID) -> Bool {
 	 if let recipe = try? fetchSingleRecipe(id: id){
 		viewContext.delete(recipe)
+		return save()
 	 }
-	 
-	 save()
+	 return false
+  }
+  
+  @discardableResult
+  func deleteRecipe(_ id: UUID) -> Bool {
+	 if let recipe = try? fetchSingleRecipe(id: id){
+		viewContext.delete(recipe)
+		return save()
+	 }
+	 return false
   }
 }
 
