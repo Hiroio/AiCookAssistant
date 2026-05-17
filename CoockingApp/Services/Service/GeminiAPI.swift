@@ -41,7 +41,8 @@ class GeminiAPI{
   
   //  MARK: Creating basic recipe
   func recipeRequest(userIngredients: [String], userDifficulty: Int, userTime: String, user: UserModel, userNote: String) async throws -> RecipeModel {
-	 print("Started creating dish \(Date.now.formatted(.dateTime.hour().minute().second()))")
+//	 Print for time check
+//	 print("Started creating dish \(Date.now.formatted(.dateTime.hour().minute().second()))")
 	 let url = try getUrl()
 	 //	 Request
 	 var request = URLRequest(url: url)
@@ -82,8 +83,9 @@ class GeminiAPI{
 		throw URLError(.badServerResponse)
 	 }
 	 
-	 let json = try JSONSerialization.jsonObject(with: data)
-	 print(json)
+//	 let json = try JSONSerialization.jsonObject(with: data)
+//	 print decoded data for testing
+//	 print(json)
 	 
 	 return try data.getRecipeFromResponse()
   }
@@ -103,11 +105,13 @@ class GeminiAPI{
 	 let (data, response) = try await URLSession.shared.data(for: request)
 	 
 	 if let response = response as? HTTPURLResponse{
-		print(response.statusCode)
+//		Print status Code
+//		print(response.statusCode)
 	 }
 	 
-	 let json = try JSONSerialization.jsonObject(with: data)
-	 print(json)
+//	 let json = try JSONSerialization.jsonObject(with: data)
+//	 Print data for testing
+//	 print(json)
 	 
 	 
 	 return try data.getContentFromResponse()
@@ -127,7 +131,8 @@ class GeminiAPI{
 	 let (data, response) = try await URLSession.shared.data(for: request)
 	 
 	 if let response = response as? HTTPURLResponse{
-		print(response.statusCode)
+//		Print status code fro testing
+//		print(response.statusCode)
 	 }
 	 
 	 return try data.getContentFromResponse()

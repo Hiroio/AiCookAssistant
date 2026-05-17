@@ -19,16 +19,35 @@ class MainViewModel: ObservableObject{
   private let geminiAPI = GeminiAPI()
   private let pexelsManager = PexelsAPI()
   private let userManager = UserManager.shared
+  private var recipesTask: Task<Void, Never>?
+  
   init(){
 	 self.user = UserManager.shared.user
 	 self.recipes = recipeManager.recipes
+	 observeRecipes()
 	 self.initializeRecomendedRecipe()
   }
   
+  deinit {
+	 recipesTask?.cancel()
+  }
+  
   func initializeRecomendedRecipe() {
-	 if recommendedRecipe == nil {
+	 if recommendedRecipe == nil && !recomendedLoading {
 		recomendedError = nil
 		generateRecomendedRecipe()
+	 }
+  }
+  
+  private func observeRecipes() {
+	 let publisher = recipeManager.$recipes
+	 recipesTask = Task { [weak self] in
+		for await recipes in publisher.values {
+		  await MainActor.run {
+			 self?.recipes = recipes
+			 self?.initializeRecomendedRecipe()
+		  }
+		}
 	 }
   }
   
@@ -60,10 +79,7 @@ extension MainViewModel{
 			  var recipe = UIRecipeModel(recipe: response, isRecommended: true, recomendedDate: Date())
 			  recipe.imageUrl = image ?? ""
 			  await MainActor.run{
-				 let success = recipeManager.createRecipe(recipe: recipe)
-				 if success {
-					self.recipes = recipeManager.recipes
-				 }
+				 let _ = recipeManager.createRecipe(recipe: recipe)
 			  }
 		}catch{
 		  await MainActor.run {

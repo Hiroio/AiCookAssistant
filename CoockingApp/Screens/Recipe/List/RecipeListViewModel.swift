@@ -9,6 +9,7 @@ import Foundation
 import Combine
 
 
+@MainActor
 class RecipeListViewModel: ObservableObject{
   @Published var recipes: [UIRecipeModel] = []
   @Published var searchType: Bool = false
@@ -17,40 +18,45 @@ class RecipeListViewModel: ObservableObject{
   @Published var filter: FilterRecipeEnum = .dateDescedent
   @Published var selectedRecipe: UIRecipeModel? = nil
   private let recipesManager = RecipesManager.shared
+  private var recipesTask: Task<Void, Never>?
   
   init(){
 	 self.recipes = recipesManager.recipes
-	 recipesManager.$recipes
-		.receive(on: RunLoop.main)
-		.assign(to: &$recipes)
+	 observeRecipes()
+  }
+  
+  deinit {
+	 recipesTask?.cancel()
   }
   
   var favoritesRecipes: [UIRecipeModel]{
 	 recipes.filter({$0.isFavorite})
   }
   
+  private func observeRecipes() {
+	 let publisher = recipesManager.$recipes
+	 recipesTask = Task { [weak self] in
+		for await recipes in publisher.values {
+		  await MainActor.run {
+			 self?.recipes = recipes
+		  }
+		}
+	 }
+  }
+  
 // MARK: toggle FAVORITE
   func toggleFavorite(_ id: UUID){
-	 if let index = recipes.firstIndex(where: {$0.id == id}){
-		self.recipes[index].isFavorite.toggle()
-	 }
-	 
-	 recipesManager.toggleFavorite(id)
+	 let _ = recipesManager.toggleFavorite(id)
   }
 //  MARK:  DELETE
   func deleteRecipe(recipe: UIRecipeModel){
 	 if recipe.recommendedDate == nil {
-		recipesManager.deleteRecipe(recipe.id)
-		recipes.removeAll(where: {$0.id == recipe.id})
-		recipes = recipesManager.recipes
+		let _ = recipesManager.deleteRecipe(recipe.id)
 		selectedRecipe = nil
 	 }else{
 //		For Recomended.
-		if let index = recipes.firstIndex(where: {$0.id == recipe.id}){
-		  self.recipes[index].isRecommended.toggle()
-		  recipesManager.deleteRecomended(recipe.id)
-		  recipes = recipesManager.recipes
-		}
+		let _ = recipesManager.deleteRecomended(recipe.id)
+		selectedRecipe = nil
 	 }
   }
   
@@ -87,4 +93,3 @@ class RecipeListViewModel: ObservableObject{
 	 }
   }
 }
-

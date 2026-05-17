@@ -129,15 +129,6 @@ struct IngredientsView: View {
 			 .animation(.easeInOut, value: selectedIngredient)
 	 .alert(item: $cameraAlert) { alert in
 		switch alert {
-		case .permissionIntro:
-		  Alert(
-			 title: Text("Scan ingredients"),
-			 message: Text("DeliNote uses your camera only to recognize ingredients from a photo."),
-			 primaryButton: .default(Text("Continue")) {
-				requestCameraAccess()
-			 },
-			 secondaryButton: .cancel()
-		  )
 		case .permissionDenied:
 		  Alert(
 			 title: Text("Camera access needed"),
@@ -182,7 +173,7 @@ struct IngredientsView: View {
 	 case .authorized:
 		showCamera = true
 	 case .notDetermined:
-		cameraAlert = .permissionIntro
+		requestCameraAccess()
 	 case .denied, .restricted:
 		cameraAlert = .permissionDenied
 	 @unknown default:
@@ -209,14 +200,11 @@ struct IngredientsView: View {
 }
 
 private enum CameraAccessAlert: Identifiable {
-  case permissionIntro
   case permissionDenied
   case cameraUnavailable
   
   var id: String {
 	 switch self {
-	 case .permissionIntro:
-		"permissionIntro"
 	 case .permissionDenied:
 		"permissionDenied"
 	 case .cameraUnavailable:

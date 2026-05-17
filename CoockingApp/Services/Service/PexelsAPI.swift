@@ -12,7 +12,8 @@ class PexelsAPI{
   let apiKey = Secrets.pexelsAPI
   
   func searchImage(query: String) async throws -> String? {
-	 print("Started creating image \(Date.now.formatted(.dateTime.hour().minute().second()))")
+//	 Print for time testing
+//	 print("Started creating image \(Date.now.formatted(.dateTime.hour().minute().second()))")
 		let urlString = "https://api.pexels.com/v1/search?query=\(query)&per_page=1"
 		guard let url = URL(string: urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "") else { return nil }
 		

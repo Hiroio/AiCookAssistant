@@ -10,10 +10,17 @@ import StoreKit
 
 struct PaywallView: View {
   @State private var loaded: Bool = false
+  private let privacyURL = URL(string: "https://deli-note.netlify.app/privacy/")!
+  private let termsURL = URL(string: "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/")!
+  private let subscriptionProductIDs = [
+	 "delinote.premium.month",
+	 "delinote.premium.three_months",
+	 "delinote.premium.annual"
+  ]
     var body: some View {
 		ZStack{
 		  Color.background.ignoresSafeArea()
-		  SubscriptionStoreView(groupID: "22087473"){
+		  SubscriptionStoreView(productIDs: subscriptionProductIDs){
 			 VStack(spacing: 25){
 				if UIDevice.isIPad{
 				  Image("ChefCooking")
@@ -54,16 +61,23 @@ struct PaywallView: View {
 		  )
 		}
 		.safeAreaInset(edge: .bottom, content: {
-		  Button{
-			 Task{
-				await StoreManager.shared.restorePurchases()
+		  VStack{
+			 HStack(spacing: 8) {
+				Link("Privacy Policy", destination: privacyURL)
+				Text("•")
+				Link("Terms of Use", destination: termsURL)
 			 }
-		  }label:{
-			 Text("Restore Purchases")
-				.font(.caption)
-				.foregroundStyle(.primarytext)
-				.opacity(0.7)
+			 Button{
+				Task{
+				  await StoreManager.shared.restorePurchases()
+				}
+			 }label:{
+				Text("Restore Purchases")
+			 }
 		  }
+		  .font(.caption)
+		  .foregroundStyle(.primarytext)
+		  .opacity(0.7)
 		})
 		.animation(.easeOut(duration: 1), value: loaded)
     }

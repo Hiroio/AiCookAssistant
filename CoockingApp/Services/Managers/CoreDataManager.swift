@@ -31,9 +31,11 @@ class CoreDataManager {
 	 
 	 loadedContainer.loadPersistentStores { _, error in
 		if let error{
-		  print("Failed to load contained \(error.localizedDescription)")
+//		  Print for testing
+//		  print("Failed to load contained \(error.localizedDescription)")
 		}else{
-		  print("Container succesfuly loaded with name: DataModelApp")
+//		  Print for testing
+//		  print("Container succesfuly loaded with name: DataModelApp")
 		}
 	 }
 	 loadedContainer.viewContext.automaticallyMergesChangesFromParent = true

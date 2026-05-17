@@ -32,25 +32,29 @@ struct RecipeInfoNavigation: View {
 				  .allowsHitTesting(storeManager.hasFullAccess)
 					 .blur(radius: storeManager.hasFullAccess ? 0 : 12)
 					 .overlay(
-						VStack{
-						  Text("Premium Access")
-							 .font(.title.weight(.black))
-							 .foregroundStyle(.primaryAction)
-						  Image("assist")
-							 .resizable()
-							 .scaledToFit()
-							 .frame(width: 250, height: 250)
-						  Button{
-							 storeManager.showingSheet = true
-						  }label: {
-							 Text("Get Premium")
-								.font(.headline.weight(.black))
-								.foregroundStyle(Color.background)
-								.padding()
-								.background(
-								  RoundedRectangle(cornerRadius: 15)
-									 .fill(.primaryAction)
-								)
+						Group{
+						  if !storeManager.hasFullAccess{
+							 VStack{
+								Text("Premium Access")
+								  .font(.title.weight(.black))
+								  .foregroundStyle(.primaryAction)
+								Image("assist")
+								  .resizable()
+								  .scaledToFit()
+								  .frame(width: 250, height: 250)
+								Button{
+								  storeManager.showingSheet = true
+								}label: {
+								  Text("Get Premium")
+									 .font(.headline.weight(.black))
+									 .foregroundStyle(Color.background)
+									 .padding()
+									 .background(
+										RoundedRectangle(cornerRadius: 15)
+										  .fill(.primaryAction)
+									 )
+								}
+							 }
 						  }
 						}
 					 )

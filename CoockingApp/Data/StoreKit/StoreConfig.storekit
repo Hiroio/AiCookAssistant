@@ -81,7 +81,7 @@
               "locale" : "en_US"
             }
           ],
-          "productID" : "com.cheffsy.monthly",
+          "productID" : "delinote.premium.month",
           "recurringSubscriptionPeriod" : "P1M",
           "referenceName" : "Monthly",
           "subscriptionGroupID" : "237F9169",
@@ -135,7 +135,7 @@
               "locale" : "en_US"
             }
           ],
-          "productID" : "com.cheffsy.yearly",
+          "productID" : "delinote.premium.annual",
           "recurringSubscriptionPeriod" : "P1Y",
           "referenceName" : "Yearly",
           "subscriptionGroupID" : "237F9169",
@@ -187,7 +187,7 @@
               "locale" : "en_US"
             }
           ],
-          "productID" : "com.deliNote.3month",
+          "productID" : "delinote.premium.three_months",
           "recurringSubscriptionPeriod" : "P3M",
           "referenceName" : "3-Month",
           "subscriptionGroupID" : "237F9169",
