@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 
+@MainActor
 class UserManager: ObservableObject{
   static let shared = UserManager()
   
@@ -33,15 +34,18 @@ class UserManager: ObservableObject{
   func refreshWeeklyLimitsIfNeeded() {
 	 let calendar = Calendar.current
 	 guard let refreshDate = calendar.date(byAdding: .day, value: 7, to: user.latestRefreshDate) else { return }
-	 
-	 if Date() >= refreshDate {
-		user.freeGenerationsUsed = 0
-		user.freeScanUses = 0
-		user.freeIdeasUsed = 0
-		user.latestRefreshDate = Date()
-		save()
-	 }
+
+	 guard Date() >= refreshDate else { return }
+
+	 var updatedUser = user
+	 updatedUser.freeGenerationsUsed = 0
+	 updatedUser.freeScanUses = 0
+	 updatedUser.freeIdeasUsed = 0
+	 updatedUser.latestRefreshDate = Date()
+	 user = updatedUser
+	 save()
   }
+  
   func changeCookingIdentity(identity: CookingIdentityEnum){
 	 user.cookingIdentity = identity
 	 save()

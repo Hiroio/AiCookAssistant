@@ -29,11 +29,11 @@ struct RecipeInfoNavigation: View {
 				  .tag(InfoScreenEnum.instructions)
 				
 				  AssistanceView()
-				  .allowsHitTesting(storeManager.hasFullAccess)
-					 .blur(radius: storeManager.hasFullAccess ? 0 : 12)
+				  .allowsHitTesting(isAIAssistanceAvailable)
+					 .blur(radius: isAIAssistanceAvailable ? 0 : 12)
 					 .overlay(
 						Group{
-						  if !storeManager.hasFullAccess{
+						  if !isAIAssistanceAvailable {
 							 VStack{
 								Text("Premium Access")
 								  .font(.title.weight(.black))
@@ -144,6 +144,10 @@ struct RecipeInfoNavigation: View {
 		}
 	 )
 	 .animation(.bouncy, value: vm.screenState)
+  }
+
+  private var isAIAssistanceAvailable: Bool {
+    AccessPolicy.canUse(.aiAssistance, isPremium: storeManager.hasFullAccess)
   }
 }
 

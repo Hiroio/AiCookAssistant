@@ -173,8 +173,8 @@ struct MainView: View {
 		  VStack(alignment: .leading, spacing: 0){
 			 Text("Quick Ideas")
 				.section(weight: .semibold, color: Color.primarytext)
-			 if !StoreManager.shared.hasFullAccess{
-				Text("Generation left: \(max(0, 3 - vm.user.freeIdeasUsed))")
+			 if let ideasRemainingText = vm.ideasRemainingText {
+				Text(ideasRemainingText)
 				  .font(.caption2.weight(.light))
 				  .opacity(0.6)
 			 }

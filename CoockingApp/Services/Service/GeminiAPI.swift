@@ -79,8 +79,12 @@ class GeminiAPI{
   func apiRequest(request: URLRequest) async throws -> RecipeModel{
 	 let (data, response) = try await URLSession.shared.data(for: request)
 	 
-	 if let response = response as? HTTPURLResponse, response.statusCode < 200 || response.statusCode >= 300 {
-		throw URLError(.badServerResponse)
+	 guard let httpResponse = response as? HTTPURLResponse else {
+		  throw URLError(.badServerResponse)
+	 }
+
+	 guard (200..<300).contains(httpResponse.statusCode) else {
+		  throw URLError(.badServerResponse)
 	 }
 	 
 //	 let json = try JSONSerialization.jsonObject(with: data)
@@ -104,9 +108,12 @@ class GeminiAPI{
 	 
 	 let (data, response) = try await URLSession.shared.data(for: request)
 	 
-	 if let response = response as? HTTPURLResponse{
-//		Print status Code
-//		print(response.statusCode)
+	 guard let httpResponse = response as? HTTPURLResponse else {
+		  throw URLError(.badServerResponse)
+	 }
+
+	 guard (200..<300).contains(httpResponse.statusCode) else {
+		  throw URLError(.badServerResponse)
 	 }
 	 
 //	 let json = try JSONSerialization.jsonObject(with: data)
@@ -130,9 +137,12 @@ class GeminiAPI{
 	 
 	 let (data, response) = try await URLSession.shared.data(for: request)
 	 
-	 if let response = response as? HTTPURLResponse{
-//		Print status code fro testing
-//		print(response.statusCode)
+	 guard let httpResponse = response as? HTTPURLResponse else {
+		  throw URLError(.badServerResponse)
+	 }
+
+	 guard (200..<300).contains(httpResponse.statusCode) else {
+		  throw URLError(.badServerResponse)
 	 }
 	 
 	 return try data.getContentFromResponse()
@@ -218,7 +228,7 @@ extension GeminiAPI{
 	   "ingredients": {
 	     "Ingredient Name in response language - amount": "category"
 	   },
-	   "instructions": ["step - instruction sentence in response language"],
+	   “instructions”: [“step — the instruction is described in sufficient detail, in the language of the response”],
 	   "search": "short English food image keywords"
 	 }
 	 
@@ -235,6 +245,7 @@ extension GeminiAPI{
 	 - ingredient category must be one of: vegetables, fruits, protein, dairy, grains, spices, sauces, other.
 	 - protein = meat, fish, seafood, eggs, tofu, legumes. sauces = oil, vinegar, dressings, condiments. other = only when nothing fits.
 	 - instructions items must start with one step from: wash, cut, peel, mix, bake, boil, fry, add, season, serve, and seperate step and instruction with "-".
+	 - instructions example: ["cut - Dice the carrots and other vegetables", ...]
 	 """
   }
   
@@ -340,7 +351,7 @@ extension GeminiAPI{
 	   "ingredients": {
 	     "Ingredient Name in response language - amount": "category"
 	   },
-	   "instructions": ["step - instruction sentence in response language"],
+	   “instructions”: [“step — the instruction is described in sufficient detail, in the language of the response”],
 	   "search": "short English food image keywords"
 	 }
 	 
@@ -354,6 +365,7 @@ extension GeminiAPI{
 	 - ingredient category must be one of: vegetables, fruits, protein, dairy, grains, spices, sauces, other.
 	 - protein = meat, fish, seafood, eggs, tofu, legumes. sauces = oil, vinegar, dressings, condiments. other = only when nothing fits.
 	 - instructions items must start with one step from: wash, cut, peel, mix, bake, boil, fry, add, season, serve, and seperate step and instruction with "-".
+	 - instructions example: ["cut - Dice the carrots and other vegetables", ...]
 	 """
   }
   
@@ -372,7 +384,7 @@ extension GeminiAPI{
 	 saved recipes:
 	 \(recipes.isEmpty ? "No saved recipes yet." : recipes)
 	 
-	 Use saved recipes only as taste context. Do not create the exact same recipe.
+	 Use saved recipes to not create the exact same recipe.
 	 
 	 Return valid JSON only. No markdown, comments, nulls, extra text, or trailing commas.
 	 
@@ -387,7 +399,7 @@ extension GeminiAPI{
 	   "ingredients": {
 	     "Ingredient Name in response language - amount": "category"
 	   },
-	   "instructions": ["step - instruction sentence in response language"],
+	   “instructions”: [“step — the instruction is described in sufficient detail, in the language of the response”],
 	   "search": "short English food image keywords"
 	 }
 	 
@@ -401,6 +413,7 @@ extension GeminiAPI{
 	 - ingredient category must be one of: vegetables, fruits, protein, dairy, grains, spices, sauces, other.
 	 - protein = meat, fish, seafood, eggs, tofu, legumes. sauces = oil, vinegar, dressings, condiments. other = only when nothing fits.
 	 - instructions items must start with one step from: wash, cut, peel, mix, bake, boil, fry, add, season, serve.
+	 - instructions example: ["cut - Dice the carrots and other vegetables", ...]
 	 """
   }
 }
