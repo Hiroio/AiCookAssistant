@@ -8,17 +8,18 @@
 import SwiftUI
 
 struct CookingPreferenceCard: View {
+  @EnvironmentObject private var vm: ProfileViewModel
     var body: some View {
 		VStack(alignment: .leading){
 		  Text("Cooking Style")
 			 .font(.headline)
 			 .foregroundStyle(.primaryAction)
 		  HStack{
-			 preferenceCard(icon: "clock", title: "Cooking Time", value: nil)
+			 preferenceCard(icon: "clock", title: "Cooking Time", value: "\(vm.recipes.avarageCookingTime)min")
 			 Rectangle()
 				.fill(.primarytext.opacity(0.5))
 				.frame(width: 0.5, height: 35)
-			 preferenceCard(icon: "align.vertical.bottom", title: "Difficulty", value: nil)
+			 preferenceCard(icon: "align.vertical.bottom", title: "Difficulty", value: vm.recipes.avarageDifficulty.text)
 		  }
 		  
 		  .padding()
@@ -33,6 +34,7 @@ struct CookingPreferenceCard: View {
 
 #Preview {
     CookingPreferenceCard()
+	 .environmentObject(ProfileViewModel())
 }
 
 
@@ -47,6 +49,7 @@ func preferenceCard(icon: String, title: String, value: String?) -> some View{
 		  .font(.footnote)
 		  .fontDesign(.rounded)
 		Text(value ?? "____")
+		  .font(.headline.weight(.light))
 	 }
 	 .foregroundStyle(.primarytext)
   }

@@ -61,18 +61,21 @@ struct AlergiesSheet: View {
 				ListOfIngredients(current: false, array: (vm.getListOfPreferences())){alergie in vm.sheetAction(item: alergie)}
 				Divider()
 				
+				let array = vm.activeSheet == .allergies ? vm.user.alergieIngredients : vm.user.avoidIngredients
+				
 				VStack(alignment: .leading, spacing: 25){
 				  HStack{
 					 Text("Your choises")
 						.font(.footnote)
 						.foregroundStyle(.primaryAction)
 					Spacer()
-					 Text("\(vm.user.alergieIngredients.count) items")
+					 Text("\(array.count) items")
 						.font(.caption)
 						.opacity(0.6)
 				  }
 				  
-				  if vm.user.alergieIngredients.isEmpty{
+				  
+				  if array.isEmpty {
 					 VStack{
 						Image(systemName: "leaf")
 						  .padding()
@@ -90,7 +93,7 @@ struct AlergiesSheet: View {
 				  }else{
 					 ListOfIngredients(
 						current: true,
-						array: (vm.activeSheet == .allergies ? vm.user.alergieIngredients : vm.user.avoidIngredients))
+						array: (array))
 					 {alergie in vm.sheetAction(item: alergie)}
 				  }
 				}

@@ -40,12 +40,14 @@ struct NoteCard: View {
 						.fill(Color.primaryAction)
 				  )
 			 }
+			 .contentShape(.rect)
 			 .contentTransition(.numericText())
 		  }.buttonStyle(.plain)
 			  if added && folded{
 				 TextField("", text: $noteText,  prompt: Text("Preferences regarding the dish"), axis: .vertical)
 					.foregroundStyle(Color.primaryAction)
 					.padding()
+					.scrollDismissesKeyboard(.interactively)
 				.background(
 				  RoundedRectangle(cornerRadius: 15)
 					 .fill(Color.accentCard.opacity(0.2))

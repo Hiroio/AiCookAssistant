@@ -28,9 +28,9 @@ struct TimeSelection: View {
 				  
 				  Text("\(time) min")
 					 .foregroundStyle(selected ? Color.background : Color.accentCard)
-					 
 					 .fontDesign(.rounded)
 					 .contentTransition(.opacity)
+					 .padding(.vertical)
 				}
 				.contentShape(.rect)
 				.frame(maxWidth: .infinity, maxHeight: 55)

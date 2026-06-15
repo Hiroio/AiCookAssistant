@@ -23,26 +23,28 @@ struct CreationView: View {
       Color.background.ignoresSafeArea()
       VStack(alignment: .leading, spacing: 15) {
         header
-        VStack(alignment: .leading) {
-          Text("Time of Cooking")
-            .section(weight: .medium, color: .primarytext.opacity(0.6))
-          TimeSelection(userTime: $vm.selectedTime)
-        }
-
-        IngredientsView(
-          selectedIngredient: $vm.userIngredients,
-          showCamera: $showCamera,
-          scansRemainingText: vm.scansRemainingText,
-          isPhotoScanAvailable: vm.isPhotoScanAvailable,
-          onScanTapped: {
-            _ = vm.attemptPhotoScan()
-          }
-        )
-
-        Spacer()
-
-        NoteCard(noteText: $vm.userNote)
-
+		  ScrollView(.vertical, showsIndicators: false){
+			 VStack(alignment: .leading) {
+				Text("Time of Cooking")
+				  .section(weight: .medium, color: .primarytext.opacity(0.6))
+				TimeSelection(userTime: $vm.selectedTime)
+			 }
+			 
+			 IngredientsView(
+				selectedIngredient: $vm.userIngredients,
+				showCamera: $showCamera,
+				scansRemainingText: vm.scansRemainingText,
+				isPhotoScanAvailable: vm.isPhotoScanAvailable,
+				onScanTapped: {
+				  _ = vm.attemptPhotoScan()
+				}
+			 )
+			 
+			 
+			 NoteCard(noteText: $vm.userNote)
+		  }
+		  
+		  
         VStack(spacing: 2) {
           HStack {
             Text("Difficulty")
@@ -100,7 +102,9 @@ struct CreationView: View {
       }
       .ignoresSafeArea(edges: .bottom)
     }
+	 .scrollDismissesKeyboard(.interactively)
     .animation(.easeInOut(duration: 0.2), value: vm.error != nil)
+	 .animation(.easeInOut, value: vm.userIngredients.count)
     .fullScreenCover(isPresented: $showCamera) {
       CameraView(image: $createdImage)
         .ignoresSafeArea()
